@@ -1,0 +1,105 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Today I Learned</title>
+        <link>https://haleyjung.github.io/posts/</link>
+        <description>Recent content in Posts on Today I Learned</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Mon, 22 Nov 2021 11:00:33 -0500</lastBuildDate>
+        <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Absolute vs Relative Path</title>
+            <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
+            <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</guid>
+            <description>What is a path? A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either absolute or relative.</description>
+            <content type="html"><![CDATA[<h3 id="what-is-a-path">What is a path?</h3>
+<p>A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either <strong>absolute</strong> or <strong>relative</strong>.</p>
+<h3 id="absolute-path">Absolute Path</h3>
+<p>An absolute path, or full path, specifies the location of a file or folder regardless of the current working directory. It always contains the complete location, including the root directory. If you want to create a link to another website that belongs to an external domain, you would use an absolute URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#e6db74">&#39;/home/static/img/sample.img&#39;</span>
+</code></pre></div><h3 id="relative-path">Relative Path</h3>
+<p>A relative path, or non-absolute path, refers to the location of a file or folder relative to the current working directory, or to the location of the current webpage. Instead of specifying the full path, it uses &lsquo;../&rsquo;, which refers to the parent folder of the current working file. It is often more efficient to use relative URLs than absolute URLs to reference links that are located on the same domain.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#e6db74">&#39;../img/sample.img&#39;</span>
+</code></pre></div><h3 id="representation-of-paths-by-operating-systems">Representation of paths by operating systems</h3>
+<h4 id="unix-and-mac-os-paths">Unix and Mac OS Paths</h4>
+<table>
+<thead>
+<tr>
+<th>Delimiter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>Root directory &amp; directory separator; A path starting with / is an absolute path.</td>
+</tr>
+<tr>
+<td>.</td>
+<td>The current directory</td>
+</tr>
+<tr>
+<td>..</td>
+<td>The parent of the directory indicated by the preceding path</td>
+</tr>
+<tr>
+<td>~</td>
+<td>Home directory</td>
+</tr>
+</tbody>
+</table>
+<h4 id="microsoft-windows-powershell-path">Microsoft Windows (PowerShell) Path</h4>
+<table>
+<thead>
+<tr>
+<th>Delimiter</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[drive letter:]/ or [drive name:]\ or \[server name]\ or [PSSnapIn name][PSProvider name:][:PSDrive root]</td>
+<td>Root directory</td>
+</tr>
+<tr>
+<td>/ or \</td>
+<td>Directory separator</td>
+</tr>
+<tr>
+<td>.</td>
+<td>The current directory</td>
+</tr>
+<tr>
+<td>..</td>
+<td>The parent of the directory indicated by the preceding path</td>
+</tr>
+<tr>
+<td>~</td>
+<td>Home directory</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Hello World</title>
+            <link>https://haleyjung.github.io/posts/2021/11/hello-world/</link>
+            <pubDate>Mon, 22 Nov 2021 10:01:55 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/11/hello-world/</guid>
+            <description>I can no longer remember how many times I&amp;rsquo;ve created this very same file due to various errors and deployment failures.
+But, I love debugging! Coming from a field where subjectivity defines the output, I&amp;rsquo;m in love with coding that always has some form of solution.
+With that, this shall be my first &amp;lsquo;final&amp;rsquo; post.</description>
+            <content type="html"><![CDATA[<p>I can no longer remember how many times I&rsquo;ve created this very same file due to various errors and deployment failures.</p>
+<p>But, I love debugging! Coming from a field where subjectivity defines the output, I&rsquo;m in love with coding that always has some form of solution.</p>
+<p>With that, this shall be my first &lsquo;final&rsquo; post.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

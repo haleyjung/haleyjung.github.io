@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>relative path on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/relative-path/</link>
+    <description>Recent content in relative path on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 22 Nov 2021 11:00:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/relative-path/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Absolute vs Relative Path</title>
+      <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
+      <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</guid>
+      <description>What is a path? A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either absolute or relative.</description>
+    </item>
+    
+  </channel>
+</rss>

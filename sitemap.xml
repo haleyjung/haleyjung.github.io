@@ -2,12 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/absolute-path/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/file-system/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/operating-systems/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/path/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/relative-path/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/web-development/</loc>
+    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/chitchat/</loc>
+    <lastmod>2021-11-22T10:01:55-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2021/11/hello-world/</loc>
+    <lastmod>2021-11-22T10:01:55-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/about/</loc>
+    <lastmod>2021-11-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/categories/</loc>
   </url><url>
     <loc>https://haleyjung.github.io/series/</loc>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
   </url>
 </urlset>

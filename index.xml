@@ -6,6 +6,41 @@
     <description>Recent content on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 22 Nov 2021 11:00:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Absolute vs Relative Path</title>
+      <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
+      <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</guid>
+      <description>What is a path? A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either absolute or relative.</description>
+    </item>
+    
+    <item>
+      <title>Hello World</title>
+      <link>https://haleyjung.github.io/posts/2021/11/hello-world/</link>
+      <pubDate>Mon, 22 Nov 2021 10:01:55 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/hello-world/</guid>
+      <description>I can no longer remember how many times I&amp;rsquo;ve created this very same file due to various errors and deployment failures.
+But, I love debugging! Coming from a field where subjectivity defines the output, I&amp;rsquo;m in love with coding that always has some form of solution.
+With that, this shall be my first &amp;lsquo;final&amp;rsquo; post.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://haleyjung.github.io/about/</link>
+      <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://haleyjung.github.io/about/</guid>
+      <description>Hi!
+Today I Learned is a collection of my spark and struggle.
+⭐ ⭐ ⭐
+When I came across a blog that publish articles on daily learnings
+while scrolling through a slack community of software engineers,
+I immediately knew this is going to be my next mini project!</description>
+    </item>
+    
   </channel>
 </rss>
