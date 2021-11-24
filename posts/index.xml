@@ -6,8 +6,55 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 22 Nov 2021 11:00:33 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 24 Nov 2021 00:03:33 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Missing Contributions on Github</title>
+            <link>https://haleyjung.github.io/posts/2021/11/missing-contributions-on-github/</link>
+            <pubDate>Wed, 24 Nov 2021 00:03:33 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/11/missing-contributions-on-github/</guid>
+            <description>Why are my contributions missing? After multiple commits on my GitHub for this static site, I noticed that the contributions were not lightening green on my profile. The GitHub page was successfully updated with the latest commit, so at first I thought it was a time lag. GitHub Docs also indicates that &amp;ldquo;you may need to wait for up to 24 hours to see the contribution appear on your contribution graph.</description>
+            <content type="html"><![CDATA[<h2 id="why-are-my-contributions-missing">Why are my contributions missing?</h2>
+<p>After multiple commits on my GitHub for this static site, I noticed that the contributions were not lightening green on my profile. The GitHub page was successfully updated with the latest commit, so at first I thought it was a time lag. <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile">GitHub Docs</a> also indicates that &ldquo;you may need to wait for up to 24 hours to see the contribution appear on your contribution graph.&rdquo; The issue remained the same after 24 hours, so I went ahead to check the following:</p>
+<h3 id="1-is-your-local-git-commit-email--your-account">1. Is your local Git commit email === your account?</h3>
+<p>To check the email address used for a commit, I opened the latest commit on my GitHub and added <strong>.patch</strong> to the end of the commit URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://github.com/haleyjung/haleyjung.github.io/commit/abcdefg.path
+</code></pre></div><p>When the link opens, carefully check the first four lines of the page. It should have a format like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">From abcedfg Mon Sep 17 00:00:00 2001
+From: Profile Name &lt;<span style="color:#f92672">email</span> <span style="color:#a6e22e">address</span>&gt;
+Date: Tue, 23 Nov 2021 18:42:53 -0500
+Subject: [PATCH] commit message
+</code></pre></div><p>The email address in the &lsquo;From:&rsquo; field is the one that was used for the commit, which is what was set in the local git config settings. This was my issue! The email was set as a generic email address <a href="mailto:name@computer.local">name@computer.local</a>. Such email cannot be added to GitHub accounts, and when this is used for commits, the commits will not be linked to the GitHub profile and hence the contribution graph will not reflect them.</p>
+<p>Now that I&rsquo;ve figured out what the issue is, it&rsquo;s time to configure my &lsquo;user.email&rsquo; in the command line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#960050;background-color:#1e0010">$</span> git config <span style="color:#f92672">--</span>global user.email <span style="color:#e6db74">&#34;email@example.com&#34;</span>
+</code></pre></div><p>Then to confirm that I have accurately set the email address in Git:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#960050;background-color:#1e0010">$</span> git config <span style="color:#f92672">--</span>global user.email
+</code></pre></div><p>I can also check all the settings using:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">git config <span style="color:#f92672">--</span>list <span style="color:#f92672">--</span>show<span style="color:#f92672">-</span>origin
+</code></pre></div><p>Since the email address was the same as my GitHub account&rsquo;s email, I didn&rsquo;t have to add it to my account again. But if it&rsquo;s different, make sure to add it to the GitHub account, under Settings &gt; Emails.</p>
+<p> </p>
+<h3 id="2-to-which-branch-did-you-make-your-commit">2. To which branch did you make your commit?</h3>
+<p>I was making commits to the default &lsquo;main&rsquo; branch, so this was not the problem.</p>
+<p>To note, commits must be made in the <strong>default</strong> or <strong>gh-pages</strong> branch to be counted.</p>
+<p>If I want to count the commits made in a non-default or non-gh-pages branch:</p>
+<ul>
+<li>Open a pull request to merge my changes into the default branch or the gh-pages branch</li>
+<li>Change the default branch of the repository</li>
+</ul>
+<p>I should only do this if I want the new branch to become the base for all future pull requests and commits.</p>
+<p> </p>
+<h3 id="3-was-your-commit-made-in-a-fork">3. Was your commit made in a fork?</h3>
+<p>This was not the case for me. However, these are the steps one should follow to make a fork count towards my contributions.</p>
+<ul>
+<li>Open a pull request to merge my changes into the parent repository</li>
+<li>Contact GitHub Support to detach and turn the fork into a standalone repository.</li>
+</ul>
+<p>More about forks in another post!</p>
+<p> </p>
+]]></content>
+        </item>
         
         <item>
             <title>Absolute vs Relative Path</title>
