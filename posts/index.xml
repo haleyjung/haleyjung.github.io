@@ -57,6 +57,43 @@ Subject: [PATCH] commit message
         </item>
         
         <item>
+            <title>Submodules</title>
+            <link>https://haleyjung.github.io/posts/2021/11/submodules/</link>
+            <pubDate>Tue, 23 Nov 2021 16:40:02 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/11/submodules/</guid>
+            <description>What is a submodule? A git submodule is a record within a host git repository that points to a specific commit in another external repository. Submodules are very static and only track specific commits. Submodules do not track git refs or branches and are not automatically updated when the host repository is updated.
+  It keeps a git repository as a subdirectory of another git repository.
+  It serves as a reference to another repo at a particular snapshot of time.</description>
+            <content type="html"><![CDATA[<h2 id="what-is-a-submodule">What is a submodule?</h2>
+<p>A git submodule is a record within a host git repository that points to a specific commit in another external repository. Submodules are very static and only track specific commits. Submodules do not track git refs or branches and are not automatically updated when the host repository is updated.</p>
+<ol>
+<li>
+<p>It keeps a git repository as a subdirectory of another git repository.</p>
+</li>
+<li>
+<p>It serves as a reference to another repo at a particular snapshot of time.</p>
+</li>
+<li>
+<p>It enables a git repo to incorporate and track version history of external code.</p>
+</li>
+</ol>
+<p>A git submodule is a record within a host git repository that points to a specific commit in another external repository. Submodules are very static and only track specific commits. Submodules do not track git refs or branches and are not automatically updated when the host repository is updated. When adding a submodule to a repository a new .gitmodules file will be created. The .gitmodules file contains meta data about the mapping between the submodule project&rsquo;s URL and local directory. If the host repository has multiple submodules, the .gitmodules file will have an entry  for each submodule.</p>
+<h2 id="when-should-i-use-submodules">When should I use submodules?</h2>
+<p>If you need to maintain a strict version management over your external dependencies,  it can make sense to use git submodules. The following are a few best use cases for git submodules.</p>
+<ul>
+<li> When an external component or subproject is changing too fast or upcoming changes will break the API, you can lock the code to a specific commit for your own safety.</li>
+<li> When you have a component that isn’t updated very often and you want to track it as a vendor dependency.</li>
+<li> When you are delegating a piece of the project to a third party and you want to integrate their work at a specific time or release. Again this works when updates are not too frequent.</li>
+</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+</blockquote>
+]]></content>
+        </item>
+        
+        <item>
             <title>Absolute vs Relative Path</title>
             <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
             <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>

@@ -17,5 +17,16 @@
       <description>Why are my contributions missing? After multiple commits on my GitHub for this static site, I noticed that the contributions were not lightening green on my profile. The GitHub page was successfully updated with the latest commit, so at first I thought it was a time lag. GitHub Docs also indicates that &amp;ldquo;you may need to wait for up to 24 hours to see the contribution appear on your contribution graph.</description>
     </item>
     
+    <item>
+      <title>Submodules</title>
+      <link>https://haleyjung.github.io/posts/2021/11/submodules/</link>
+      <pubDate>Tue, 23 Nov 2021 16:40:02 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/submodules/</guid>
+      <description>What is a submodule? A git submodule is a record within a host git repository that points to a specific commit in another external repository. Submodules are very static and only track specific commits. Submodules do not track git refs or branches and are not automatically updated when the host repository is updated.
+  It keeps a git repository as a subdirectory of another git repository.
+  It serves as a reference to another repo at a particular snapshot of time.</description>
+    </item>
+    
   </channel>
 </rss>
