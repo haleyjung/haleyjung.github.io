@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recommendation Engine on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/recommendation-engine/</link>
+    <description>Recent content in Recommendation Engine on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 25 Nov 2021 16:56:37 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/recommendation-engine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation Engine: The Introduction</title>
+      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-the-introduction/</link>
+      <pubDate>Thu, 25 Nov 2021 16:56:37 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-the-introduction/</guid>
+      <description>I&amp;rsquo;m at the airport right now, summarizing what I read on the plane about recommendation engine algorithm, as I wait for my next flight. Last night, I opened the Netflix app to download shows I will watch on the plane. I then saw a new feature in the &amp;lsquo;Downloads&amp;rsquo; section that will download a personalized selection of movies and shows for me so that there is always a show for me to watch with or without internet connection!</description>
+    </item>
+    
+  </channel>
+</rss>
