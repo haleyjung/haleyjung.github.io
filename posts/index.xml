@@ -19,29 +19,24 @@
             <content type="html"><![CDATA[<p>I&rsquo;m at the airport right now, summarizing what I read on the plane about recommendation engine algorithm, as I wait for my next flight. Last night, I opened the Netflix app to download shows I will watch on the plane. I then saw a new feature in the &lsquo;Downloads&rsquo; section that will download a personalized selection of movies and shows for me so that there is always a show <em>for me</em> to watch with or without internet connection! This felt like a whole new level of recommendation system that I needed to know. So unlike this feature&rsquo;s intention, I ended up downloading several articles and thesis on the topic of recommendation engine instead.</p>
 <h2 id="what-is-it">What is it?</h2>
 <p>Recommendation engine is a system that <em>recommends</em> products, services, or information to users based on analysis of user data.</p>
-<h3 id="types-of-user-data">Types of User Data</h3>
+<h3 id="types-of-user-data">Types of user data</h3>
 <p>There are several types of data that can be used, such as user&rsquo;s history and behavior. They are often categorized as <strong>explicit interactions</strong> and <strong>implicit interactions</strong>.</p>
 <p><strong>Explicit interactions</strong> consist of past activity, ratings and reviews you wrote, information provided in your profile, such as gender, age, and investment objectives (for finance apps).</p>
 <p><strong>Implicit interactions</strong> are the device you use for access, link click rates, location and dates.</p>
-<h3 id="types-of-filtering-systems">Types of Filtering Systems</h3>
+<h3 id="types-of-filtering-systems">Types of filtering systems</h3>
 <p>The analysis can be based on a single user, or mutliple users, depending on the type of filtering system.</p>
-<ol>
-<li>Content-based filtering</li>
-</ol>
+<h4 id="content-based-filtering">Content-based filtering</h4>
 <p>This filtering is based on a <em>single</em> user&rsquo;s past and current interactions and preferences. There are several limitations to this system due to privacy and regulatory issues, which is defined as <em>cold start problem</em>. If the user&rsquo;s information is insufficient, the recommendation accuracy will be significantly low.</p>
 <p>A widely used form of content-based filtering is <strong>case-based recommendation</strong>, which evaluates similarities of an item a user has liked or purchased to recommend other &lsquo;similar&rsquo; products. This also has limitations, especially because the database of products that can be compared and recommended must exist within the specific domain, and the evaluation will very much depend on the accuracy and level of categorization, i.e. metadata or tags, across the platform.</p>
-<ol>
-<li>Collaborative filtering</li>
-</ol>
+<h4 id="collaborative-filtering">Collaborative filtering</h4>
 <p>Taking a step further from content-based filtering, collaborative filtering is able to develop a more accurate recommendation for a user by evaluating the data of multiple users who have similar purchasing history and/or behaviorial patterns. Yet this also has limitations of increased variability, less interpretable results, especially in the absence of previously collected data.</p>
-<ol start="3">
-<li>Knowledge-based system</li>
-</ol>
+<h4 id="knowledge-based-system">Knowledge-based system</h4>
 <p>This system is based on domain expertise and knowledge to evaluate and meet users' needs. It has a set of defined rules that preset context for each recommendation. Unlike the previous two, this does not suffer the cold-start problem. It is therefore more expensive and suitable for companies with complex domains with infrequent purchasing rates.</p>
 <h2 id="why-is-it-needed">Why is it needed?</h2>
 <p>We are fed with an overwhelming amount of information on a daily basis. Recommendation engine helps us to navigate the sea of data in the digital world with greater efficiency. This is of course a very broad statement as there is a dual side to recommendation engine due to its invasiveness and also limitations. I&rsquo;ll explore this topic further later on, as the goal of this post is to cover the foundation of recommendation engine.</p>
-<p>Going back to the increased efficiency, recommendation engine aims to provide a more personalized user experience and solution. For instance, you&rsquo;ve finished watching your favorite series and you still have time to kill. You start browsing an endless list of new series. Some of them seem interesting, but how do you know which one is <em>the</em> one? You&rsquo;ll probably lean towards choosing one from the list of &lsquo;Trending Now,&rsquo; &lsquo;Top 10 in the U.S.,&rsquo; or &lsquo;Shows You May Like&rsquo; - the recommendation engine. Then, you choose one, because though it didn&rsquo;t appeal to you initially, it&rsquo;s in every recommendation lists! You watch it to the end, and it&rsquo;s one of the best shows you&rsquo;ve seen in a while. This: increased user satisfaction. You&rsquo;ll most likely watch another show from the recommended lists later on, and if this cycle continues on, it leads to a high user retention rate.</p>
-<p>This lets us know that recommendation engine can also bring higher revenues for companies.</p>
+<p>Going back to the increased efficiency, recommendation engine aims to provide a more personalized user experience and solution. For instance, you&rsquo;ve finished watching your favorite series and you still have time to kill. You start browsing an endless list of new series. Some of them seem interesting, but how do you know which one is <em>the</em> one? You&rsquo;ll probably lean towards choosing one from the list of &lsquo;Trending Now,&rsquo; &lsquo;Top 10 in the U.S.,&rsquo; or &lsquo;Shows You May Like&rsquo; - the recommendation engine. Then, you choose one, because though it didn&rsquo;t appeal to you initially, it&rsquo;s in every recommendation lists! You watch it to the end, and it&rsquo;s one of the best shows you&rsquo;ve seen in a while. This: increased user satisfaction. You&rsquo;ll most likely watch another show from the recommended lists later on, and if this cycle continues on, it leads to a high user retention rate. This lets us know that recommendation engine can also bring higher revenues for companies.</p>
+<h2 id="upcoming-posts">Upcoming posts</h2>
+<p>In the next posts, I plan to dive further into challenges, measurements and a case study on Netflix&rsquo;s recommendation engine.</p>
 ]]></content>
         </item>
         
