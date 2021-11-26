@@ -6,8 +6,76 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 25 Nov 2021 16:56:37 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 26 Nov 2021 13:38:29 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Recommendation Engine: Measurements and Challenges</title>
+            <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</link>
+            <pubDate>Fri, 26 Nov 2021 13:38:29 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</guid>
+            <description>In this post, I&amp;rsquo;ll dive further into the measurements and challenges of a recommendation engine. This post uses references from:
+F.O. Isinkaye et al., &amp;ldquo;Recommendation systems: Principles, methods and evaluation,&amp;rdquo; Egyptian Informatics Journal, Cairo University, 13 March 2015.
+&amp;ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&amp;rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.
+Challenges 1. Sparsity of data This is the problem that occurs as a result of lack of enough information: for instance, when only a few of the total number of items available in a database are rated by users.</description>
+            <content type="html"><![CDATA[<p>In this post, I&rsquo;ll dive further into the measurements and challenges of a recommendation engine. This post uses references from:</p>
+<p>F.O. Isinkaye et al., &ldquo;Recommendation systems: Principles, methods and evaluation,&rdquo; Egyptian Informatics Journal, Cairo University, 13 March 2015.</p>
+<p>&ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.</p>
+<h2 id="challenges">Challenges</h2>
+<h3 id="1-sparsity-of-data">1. Sparsity of data</h3>
+<p>This is the problem that occurs as a result of lack of enough information: for instance, when only a few of the total number of items available in a database are rated by users. This always elads to a sparse user-item matrix, inability to locate successful neighbors and finally, the generation of weak recommendations. Also, data sparsity always leads to coverage problems, which is the percentage of items in the system that recommendations can be made for. (Isinkaye, 4.2.3.2. Data sparsity problem, pg. 267 - 268)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="2-imperfect-labeling">2. Imperfect labeling</h3>
+<p>Synonymy is the tendency of very similar items to have different names or entries. Most recommender systems find it difficult to make distinction between closely related items such as the difference between e.g. baby wear and baby cloth. Collaborative Filtering system usually find no match between the two terms to be able to compute their similarity. Different methods, such as automatic term expansion, the construction of a thesaurus, and Singular Value Decomposition (SVD), especially Latent Semantic Indexing are capable of solving the synonymy problem. The shortcoming of these methods is that some added terms may have differnt meanings from what is intended, which sometimes leads to rapid degradation of recommendation performance. (Isinkaye, 4.2.3.4. Synonymy, pg. 268)</p>
+<h3 id="3-scalability-of-products-and-clients">3. Scalability of products and clients</h3>
+<p>This is another problem associated with recommendation algorithms because computation normally grows linearly with the number of users and items. A recommendation technique that is efficient when the number of dataset is limited may be unable to generate satisfactory number of recommendations when the volume of dataset is increased. Thus, it is crucial to apply recommendation techniques which are capable of scaling up in a successful manner as the number of dataset in a database increases. Methods used for solving scalability problem and speeding up recommendation generation are based on Dimensionality reduction techniques, such as Singular Value Decomposition (SVD) method, which has the ability to produce reliable and efficient recommendations. (Isinkaye, 4.2.3.3. Scalability, pg. 268)</p>
+<p>From &ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.</p>
+<p>&ldquo;The <em>page generation</em> algorithm uses the output of all the algorithms already described to construct every single page of recommendations, taking into account the relevance of each row to the member as well as the diversity of the page. A typical member has tens of thousands of rows that could go on one&rsquo;s homepage, making it challenging to manage the computations required to evaluate them. For this reason, before 2015, we used a rule-based approach that would define what type of row (e.g. genre row, BYW row, Popular row) would go in each vertical position of the page. This page layout was used to construct all homepages for all members. Today, we have a fully personalized and mathematical algorithm that can select and order rows from a large pool of candidates to create an ordering optimized for relevance and diversity. Our current algorithm does not use a template, thus is freer to optimize the experience, for example, choosing not to have any BYW row for a given homepage and devoting half of the page to BYW rows for another homepage. A recent blogpost [Alvino and Basilico 2015] on this algorithm discusses it in more detail.&rdquo; (13:5, 2.6 Page Generation: Row Selection and Ranking)</p>
+<h2 id="success-measurements">Success Measurements</h2>
+<p>The quality of a recommendation algorithm can be evaluated using different types of measurement which can be accuracy or coverage. The type of metrics used depends on the type of filtering technique.</p>
+<h3 id="1-accuracy">1. Accuracy</h3>
+<p>The fraction of correct recommendation out of the total possible recommendations.</p>
+<p>Metrics for measuring the accuracy of recommendation filtering systems are divided into <strong>statistical</strong> and <strong>decision suport</strong> accuracy metrics. The suitability of each metric depends on the features of the dataset and the type of tasks that the recommender system will do.</p>
+<h4 id="statistical-accuracy-metrics">Statistical accuracy metrics</h4>
+<p>Statistical accuracy metrics evaluate the accuracy of a filtering technique by comparing the predicted ratings directly with the actual user rating. Mean Absolute Error (MAE), Root Mean Square Error (RMSE) and Correlation are usually used as statistical accuracy metrics.</p>
+<p><strong>Mean Absolute Error (MAE)</strong></p>
+<p>MAE is the most popular and commonly used; it is a measure of deviation of recommendation from user&rsquo;s specific value. The lower the MAE, the more accurately the recommendation engine predicts user ratings. It can be computed like the following:</p>
+<blockquote>
+<p>MAE = (1/N) * Σ_u,i|p_u,i – r_u,i|</p>
+</blockquote>
+<p>where:</p>
+<p>Σ: A Greek symbol that means “sum”</p>
+<p>p_u,i: The predicted rating for user &lsquo;u&rsquo; on item &lsquo;i&rsquo;</p>
+<p>r_u,i: The actual rating</p>
+<p>N: The total number of ratings on the item set</p>
+<p><strong>Root Mean Square Error (RMSE)</strong></p>
+<p>RMSE puts more emphasis on larger absolute error. The lower the RMSE is, the better the recommendation accuracy.</p>
+<blockquote>
+<p>RMSE = sqrt((1/n) * (Σ_u,i * (p_u,i – r_u,i)^2))</p>
+</blockquote>
+<h4 id="decision-support-accuracy-metrics">Decision support accuracy metrics</h4>
+<p>Commonly used ones are Reversal rate, Weighted errors, Receiver Operating Characteristics (ROC) and Precision Recall Curve (PRC), Preciison, Recall and <em>F</em>-measure.</p>
+<p>These metrics help users in selecting items that are of very high quality out of the available set of items. The metrics veiw prediction procedure as a binary operation which distinguishes good items from those items that are not good.</p>
+<p><strong>Receiver Operating Characteristics (ROC)</strong></p>
+<p>ROC curves are very successful when performing comprehensive assessments of the performance of some specific algorithms.</p>
+<p><strong>Precision &amp; Recall</strong></p>
+<p>Precision is the fraction of recommended items that is actually relevant to the user, which recall can be defined as the fraction of relevant items that are also part of the set of recommended items. They are computed as:</p>
+<p>Precision = Correctly recommended items / Total recommended items</p>
+<p>Recall = Correctly recommended items / Total useful recommended items</p>
+<p><strong><em>F</em>-measure</strong></p>
+<p><em>F</em>-measure defined below helps to simplify precision and recall into a single metric. The resulting value makes comparision between algorithms and across data sets very simple and straightforward.</p>
+<p><em>F</em>-measure = 2PR/(P+R)</p>
+<p><strong>Coverage</strong></p>
+<p>This has to do with the percentage of items and users that a recommender system can provide predictions. Prediction may be practically impossible to make if no users or few users rated an item. Coverage can be reduced by defining small neighborhood sizes for user or items.</p>
+<h3 id="2-coverage">2. Coverage</h3>
+<p>The fraction of products and/or users in the search space the system is able to provide recommendations for.</p>
+<h2 id="self-sustaining-environment">Self-Sustaining Environment</h2>
+<p>This leads to the critical question of &ldquo;How can we create a self-sustaining and ever-improving environment for the recommendation engine?&rdquo; More on this soon!</p>
+<p> </p>
+]]></content>
+        </item>
         
         <item>
             <title>Recommendation Engine: The Introduction</title>
