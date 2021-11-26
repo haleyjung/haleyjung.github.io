@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/algorithms/</link>
+    <description>Recent content in Algorithms on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 26 Nov 2021 14:06:25 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>
+      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</link>
+      <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</guid>
+      <description>References from &amp;ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&amp;rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.
+Evidence Selection Algorithm (13:5, 2.7) Netflix uses recommender system on most screens beyond the homepage. To help users determine if a video is right for them, Neflix uses several algorithms. One of them is evidence selection algorithm. Netflix defines evidence as all the information it shows on the page, including the predicted star rating, the synopsis, facts displayed about the video, such as awards, casts, and other metadata, and images used to support the recommendations in the rows and elsewhere in the UI.</description>
+    </item>
+    
+    <item>
+      <title>Recommendation Engine: Measurements and Challenges</title>
+      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</link>
+      <pubDate>Fri, 26 Nov 2021 13:38:29 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</guid>
+      <description>In this post, I&amp;rsquo;ll dive further into the measurements and challenges of a recommendation engine. This post uses references from:
+F.O. Isinkaye et al., &amp;ldquo;Recommendation systems: Principles, methods and evaluation,&amp;rdquo; Egyptian Informatics Journal, Cairo University, 13 March 2015.
+&amp;ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&amp;rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.
+Challenges 1. Sparsity of data This is the problem that occurs as a result of lack of enough information: for instance, when only a few of the total number of items available in a database are rated by users.</description>
+    </item>
+    
+  </channel>
+</rss>
