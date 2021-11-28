@@ -6,8 +6,52 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 26 Nov 2021 13:38:29 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 26 Nov 2021 14:06:25 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>
+            <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</link>
+            <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</guid>
+            <description>Netflix&amp;rsquo;s Recommendation Algorithms Overview  Recommendation algorithms are at the core of the Netflix product. They provide our members with personalized suggestions to reduce the amount of time and frustration to find something great content to watch. Because of the importance of our recommendations, we continually seek to improve them by advancing the state-of-the-art in the field. We do this by using the data about what content our members watch and enjoy along with how they interact with our service to get better at figuring out what the next great movie or TV show for them will be.</description>
+            <content type="html"><![CDATA[<h2 id="netflixs-recommendation-algorithms">Netflix&rsquo;s Recommendation Algorithms</h2>
+<h3 id="overview">Overview</h3>
+<blockquote>
+<p>Recommendation algorithms are at the core of the Netflix product. They provide our members with personalized suggestions to reduce the amount of time and frustration to find something great content to watch. Because of the importance of our recommendations, we continually seek to improve them by advancing the state-of-the-art in the field. We do this by using the data about what content our members watch and enjoy along with how they interact with our service to get better at figuring out what the next great movie or TV show for them will be. We go beyond validating our ideas on historical data to understand how people actually respond to changes in our recommendation system by running online A/B tests and measuring long-term satisfaction metrics. These experiments also provide us with new insights to further improve our research and product. This cycle of experimentation has led us to move beyond rating prediction, made famous by the Netflix prize, and into personalized ranking, page generation, search, image selection, messaging, and much more.</p>
+</blockquote>
+<h3 id="human-approach">Human Approach</h3>
+<blockquote>
+<p>Dealing with human tastes and preferences is an extremely challenging problem. In many cases a member may come to our site not knowing exactly what they’re in the mood for. Each person is nuanced in what brings them joy and how that varies based on what context they are in. Plus, people change over time, so we need to help anticipate or enable those changes. We also need to supplement our algorithmic approaches with insights we gain from consumer research and curated metadata to incorporate more of a human element in our systems.</p>
+</blockquote>
+<h2 id="personalization">Personalization</h2>
+<p>Netflix puts great emphasis on personalization to help its users find content to watch and enjoy to maximize user satisfaction and retention.</p>
+<h3 id="what-does-netflix-personalize">What does Netflix personalize?</h3>
+<ul>
+<li>Ordering of vidoes in each row</li>
+<li>Selection and placement of rows</li>
+<li>Search query and result recommendation</li>
+<li>Frame recommendation for artists</li>
+<li>Personalized artwork selection</li>
+<li>Marketing message personalization</li>
+</ul>
+<h3 id="challenges-of-personalization">Challenges of Personalization</h3>
+<ul>
+<li>Each user has a vairety of interests, and sometimes profiles are shared</li>
+<li>Help users find what they want when they are not sure what they want</li>
+<li>Large datasets but small data per user,</li>
+<li>Cold-start problems</li>
+<li>Non-stationary, context-dependent, mood-dependent, etc.</li>
+<li>More than just accuracy: Diversity, novelty, freshness, fairness, and more.</li>
+</ul>
+<h2 id="evidence-selection-algorithm">Evidence Selection Algorithm</h2>
+<p>(ACM, 13:5, 2.7) Netflix uses recommender system on most screens beyond the homepage. To help users determine if a video is right for them, Neflix uses several algorithms. One of them is <em>evidence selection</em> algorithm. Netflix defines evidence as all the information it shows on the page, including the predicted star rating, the synopsis, facts displayed about the video, such as awards, casts, and other metadata, and images used to support the recommendations in the rows and elsewhere in the UI. Evidence selection algorithms evaluate all the possible evidence items that we can display for every recommendation, to select the few that we think will be most helpful to the member viewing the recommendation. For example, evidence algorithms decide whether to show that a certain movie won an Oscar or instead show the member that the movie is similar to another video recently watched by that member; they also decide which image out of several versions use to best support a given recommendation.</p>
+<h2 id="references">References</h2>
+<p>&ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.</p>
+<p>&ldquo;Recommendations: Figuring out how to bring unique joy to each member,&rdquo; Research Areas, Netflix Research, research.netflix.com, accessed Nov 25, 2021.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Recommendation Engine: Measurements and Challenges</title>

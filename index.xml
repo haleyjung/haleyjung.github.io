@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 26 Nov 2021 13:38:29 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Nov 2021 14:06:25 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>
+      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</link>
+      <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</guid>
+      <description>Netflix&amp;rsquo;s Recommendation Algorithms Overview  Recommendation algorithms are at the core of the Netflix product. They provide our members with personalized suggestions to reduce the amount of time and frustration to find something great content to watch. Because of the importance of our recommendations, we continually seek to improve them by advancing the state-of-the-art in the field. We do this by using the data about what content our members watch and enjoy along with how they interact with our service to get better at figuring out what the next great movie or TV show for them will be.</description>
+    </item>
+    
     <item>
       <title>Recommendation Engine: Measurements and Challenges</title>
       <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</link>
