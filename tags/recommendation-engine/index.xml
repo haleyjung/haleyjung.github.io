@@ -17,7 +17,7 @@
       <description>In this post, I&amp;rsquo;ll dive further into the measurements and challenges of a recommendation engine. This post uses references from:
 F.O. Isinkaye et al., &amp;ldquo;Recommendation systems: Principles, methods and evaluation,&amp;rdquo; Egyptian Informatics Journal, Cairo University, 13 March 2015.
 &amp;ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&amp;rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.
-Challenges 1. Sparsity of data This is the problem that occurs as a result of lack of enough information: for instance, when only a few of the total number of items available in a database are rated by users.</description>
+To note, I&amp;rsquo;ll be continuously adding more of the latest articles as references.</description>
     </item>
     
     <item>
