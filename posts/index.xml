@@ -6,8 +6,57 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 26 Nov 2021 14:06:25 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 01 Dec 2021 21:45:06 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Naming Convention</title>
+            <link>https://haleyjung.github.io/posts/2021/12/naming-convention/</link>
+            <pubDate>Wed, 01 Dec 2021 21:45:06 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/naming-convention/</guid>
+            <description>Types of identifier naming convention in computer programming  hungarian case camel case pascal case snake_case  Hungarian notation Hungarian notation, nowadays known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.
+This naming convention adds a prefix to the identifier name, which indicates the type of the identifier.</description>
+            <content type="html"><![CDATA[<h2 id="types-of-identifier-naming-convention-in-computer-programming">Types of identifier naming convention in computer programming</h2>
+<ul>
+<li>hungarian case</li>
+<li>camel case</li>
+<li>pascal case</li>
+<li>snake_case</li>
+</ul>
+<h2 id="hungarian-notation">Hungarian notation</h2>
+<p>Hungarian notation, nowadays known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.</p>
+<p>This naming convention adds a prefix to the identifier name, which indicates the type of the identifier.</p>
+<pre tabindex="0"><code>public class HungarianVariation {
+	private int intNum; 	     	// int variable; intNum or iNum
+	private String strName;    	// string variable; strName or sName
+	private boolean booNext;	// boolean variable; boolNext or bNext
+}
+</code></pre><p><strong>Resources</strong>
+co.uk/rautenbach/students/ancillary_content/hungarian_notation.pdf</p>
+<h2 id="camel-case">camel case</h2>
+<p>Camel case capitalizes the first letter of each word, except for the first word.</p>
+<pre tabindex="0"><code>public class camelVariation {
+	private int myNumber; 	// int variable
+	private String myName;	// string variable
+	private int isNext; 		// boolean variable
+}
+</code></pre><h2 id="pascal-case">pascal case</h2>
+<p>Pascal case is similar to camel case. The difference is that pascal case capitalizes the first letter of the first word as well. This is often used for naming classes or methods.</p>
+<pre tabindex="0"><code>public class pascalVariation {
+	private int MyNumber; 	// int variable
+	private String MyName;	// string variable
+	private int IsNext; 		// boolean variable
+}
+</code></pre><h2 id="snake_case">snake_case</h2>
+<p>Snake case uses underscore in between each word.</p>
+<pre tabindex="0"><code>public class snakelVariation {
+	private int my_number; 	// int variable
+	private String my_name;	// string variable
+	private int is_next; 		// boolean variable
+}
+</code></pre>]]></content>
+        </item>
         
         <item>
             <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>

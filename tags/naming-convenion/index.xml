@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naming convenion on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/naming-convenion/</link>
+    <description>Recent content in Naming convenion on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 01 Dec 2021 21:45:06 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/naming-convenion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Naming Convention</title>
+      <link>https://haleyjung.github.io/posts/2021/12/naming-convention/</link>
+      <pubDate>Wed, 01 Dec 2021 21:45:06 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/naming-convention/</guid>
+      <description>Types of identifier naming convention in computer programming  hungarian case camel case pascal case snake_case  Hungarian notation Hungarian notation, nowadays known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.
+This naming convention adds a prefix to the identifier name, which indicates the type of the identifier.</description>
+    </item>
+    
+  </channel>
+</rss>
