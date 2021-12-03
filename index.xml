@@ -14,8 +14,8 @@
       <pubDate>Wed, 01 Dec 2021 21:45:06 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2021/12/naming-convention/</guid>
-      <description>Types of identifier naming convention in computer programming  hungarian case camel case pascal case snake_case  Hungarian notation Hungarian notation, also known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.
-This naming convention adds a prefix to the identifier name, which can apply to variable names, types, constants, parameters, functions and classes.</description>
+      <description>Define Naming conventions are systems of rules to use when naming variables, constants, methods, and other components of codes. With consistent application, it makes code easier to read, understand, and search.
+Principal Terms  class: in object-oriented programming, a category of related objects that share common variables and methods. constant: in computer programming, a value that does not change, or an identifier assigned to represent such a value. method: in object-oriented programming, a procedure or function specific to objects of a particular class.</description>
     </item>
     
     <item>

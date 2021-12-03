@@ -15,9 +15,28 @@
             <pubDate>Wed, 01 Dec 2021 21:45:06 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2021/12/naming-convention/</guid>
-            <description>Types of identifier naming convention in computer programming  hungarian case camel case pascal case snake_case  Hungarian notation Hungarian notation, also known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.
-This naming convention adds a prefix to the identifier name, which can apply to variable names, types, constants, parameters, functions and classes.</description>
-            <content type="html"><![CDATA[<h2 id="types-of-identifier-naming-convention-in-computer-programming">Types of identifier naming convention in computer programming</h2>
+            <description>Define Naming conventions are systems of rules to use when naming variables, constants, methods, and other components of codes. With consistent application, it makes code easier to read, understand, and search.
+Principal Terms  class: in object-oriented programming, a category of related objects that share common variables and methods. constant: in computer programming, a value that does not change, or an identifier assigned to represent such a value. method: in object-oriented programming, a procedure or function specific to objects of a particular class.</description>
+            <content type="html"><![CDATA[<h2 id="define">Define</h2>
+<p>Naming conventions are systems of rules to use when naming variables, constants, methods, and other components of codes. With consistent application, it makes code easier to read, understand, and search.</p>
+<h2 id="principal-terms">Principal Terms</h2>
+<ul>
+<li>class: in object-oriented programming, a category of related objects that share common variables and methods.</li>
+<li>constant: in computer programming, a value that does not change, or an identifier assigned to represent such a value.</li>
+<li>method: in object-oriented programming, a procedure or function specific to objects of a particular class.</li>
+<li>package: in object-oriented programming, a namespace, or set of symbols, that is used to organize related classes and interfaces in a logical manner.</li>
+<li>table: a data structure that organizes information according to predefined rules, most often in rows and columns.</li>
+<li>variable: in computer programming, a symbolic name that refers to data stored in a specific location in a computer&rsquo;s memory, the value of which can be changed.</li>
+</ul>
+<h2 id="considerations">Considerations</h2>
+<p>When designing a naming system, consider the following:</p>
+<ul>
+<li>Will names be restricted to a fixed length or a minimum or maximum length?</li>
+<li>What information will each name contain?</li>
+<li>Is it logical? Clear, easy to remember and use, or is it redundant?</li>
+<li>If abbreviations are used, are they used consistently?</li>
+</ul>
+<h2 id="types-of-identifier-naming-convention">Types of Identifier Naming Convention</h2>
 <ul>
 <li>hungarian case</li>
 <li>camel case</li>
@@ -105,24 +124,25 @@ booNext<span style="color:#f92672">;</span>	<span style="color:#f92672">//</span
 <p><strong>Resources</strong></p>
 <p><a href="https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa260976(v=vs.60)?redirectedfrom=MSDN">Simonyi, Charles, &ldquo;Hungarian Notation,&rdquo; Microsoft, November 1999</a></p>
 <p><a href="http://www.byteshift.de/msg/hungarian-notation-doug-klunder">Klunder, Doug, &ldquo;Hungarian Naming Conventions,&rdquo; January 1988, Revised September 1991</a></p>
-<h2 id="camel-case">camel case</h2>
+<h2 id="camelcase">camelCase</h2>
 <p>Camel case capitalizes the first letter of each word, except for the first word.</p>
+<p>A verb-noun combination can be used to express the purpose of the method, such as getDate() or determineDiscount().</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">myNumber<span style="color:#f92672">;</span> 	    <span style="color:#f92672">//</span> int variable
 myName<span style="color:#f92672">;</span>	    <span style="color:#f92672">//</span> string variable
 isNext<span style="color:#f92672">;</span> 		<span style="color:#f92672">//</span> boolean variable
-</code></pre></div><h2 id="pascal-case">pascal case</h2>
+</code></pre></div><h2 id="pascalcase">PascalCase</h2>
 <p>Pascal case is similar to camel case. The difference is that pascal case capitalizes the first letter of the first word as well. This is often used for naming classes or methods.</p>
 <p>In Java, classes, interfaces and enums should be written in Pascal case while local variables declared within the body of the program should be written in lower camel case.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">MyNumber<span style="color:#f92672">;</span> 	    <span style="color:#f92672">//</span> int variable
 MyName<span style="color:#f92672">;</span>	    <span style="color:#f92672">//</span> string variable
 IsNext<span style="color:#f92672">;</span> 		<span style="color:#f92672">//</span> boolean variable
-</code></pre></div><h2 id="snake_case">snake_case</h2>
+</code></pre></div><h2 id="snake_case">Snake_case</h2>
 <p>Snake case uses underscore in between each word.</p>
 <p>In Java and C++, snake case is used for constants and static variables.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">my_number<span style="color:#f92672">;</span> 	<span style="color:#f92672">//</span> int variable
 my_name<span style="color:#f92672">;</span>	   <span style="color:#f92672">//</span> string variable
 is_next<span style="color:#f92672">;</span> 	   <span style="color:#f92672">//</span> boolean variable
-</code></pre></div><h2 id="kebab-case">kebab-case</h2>
+</code></pre></div><h2 id="kebab-case">Kebab-case</h2>
 <p>Kebab case uses a dash to separate words. Its usage is discouraged as a dash can be misread as a subtraction operation.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">my_number<span style="color:#f92672">;</span> 	<span style="color:#f92672">//</span> int variable
 my<span style="color:#f92672">-</span>name<span style="color:#f92672">;</span>	   <span style="color:#f92672">//</span> string variable
