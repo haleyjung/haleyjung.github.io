@@ -15,8 +15,8 @@
             <pubDate>Wed, 01 Dec 2021 21:45:06 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2021/12/naming-convention/</guid>
-            <description>Types of identifier naming convention in computer programming  hungarian case camel case pascal case snake_case  Hungarian notation Hungarian notation, nowadays known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.
-This naming convention adds a prefix to the identifier name, which indicates the type of the identifier.</description>
+            <description>Types of identifier naming convention in computer programming  hungarian case camel case pascal case snake_case  Hungarian notation Hungarian notation, also known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.
+This naming convention adds a prefix to the identifier name, which can apply to variable names, types, constants, parameters, functions and classes.</description>
             <content type="html"><![CDATA[<h2 id="types-of-identifier-naming-convention-in-computer-programming">Types of identifier naming convention in computer programming</h2>
 <ul>
 <li>hungarian case</li>
@@ -25,37 +25,109 @@ This naming convention adds a prefix to the identifier name, which indicates the
 <li>snake_case</li>
 </ul>
 <h2 id="hungarian-notation">Hungarian notation</h2>
-<p>Hungarian notation, nowadays known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.</p>
-<p>This naming convention adds a prefix to the identifier name, which indicates the type of the identifier.</p>
-<pre tabindex="0"><code>public class HungarianVariation {
-	private int intNum; 	     	// int variable; intNum or iNum
-	private String strName;    	// string variable; strName or sName
-	private boolean booNext;	// boolean variable; boolNext or bNext
-}
-</code></pre><p><strong>Resources</strong>
-co.uk/rautenbach/students/ancillary_content/hungarian_notation.pdf</p>
+<p>Hungarian notation, also known as Apps Hungarian, was invented by Charles Simonyi, a Hungarian-American software architect. It was widely implemented at Microsoft when Simonyi was leading the applications group to build the first versions of Microsoft Office.</p>
+<p>This naming convention adds a prefix to the identifier name, which can apply to variable names, types, constants, parameters, functions and classes. While its unified manner enables an instant understanding of the variable type, it is argued that Apps Hungarian not the most efficient practice for user defined types in modern functional or objected-oriented language, as those need the information about the <em>kind</em> of value encoded in the datatype or class rather than into the variable name.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">intNum<span style="color:#f92672">;</span> 	<span style="color:#f92672">//</span> int variable<span style="color:#f92672">;</span> intNum or iNum
+strName<span style="color:#f92672">;</span>   <span style="color:#f92672">//</span> string variable<span style="color:#f92672">;</span> strName or sName
+booNext<span style="color:#f92672">;</span>	<span style="color:#f92672">//</span> boolean variable<span style="color:#f92672">;</span> boolNext or bNext
+<span style="color:#f92672">}</span>
+</code></pre></div><p><strong>Hungarian Notation Prefix Codes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Prefix Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ch</td>
+<td>Character</td>
+</tr>
+<tr>
+<td>s</td>
+<td>String</td>
+</tr>
+<tr>
+<td>w</td>
+<td>Word</td>
+</tr>
+<tr>
+<td>l</td>
+<td>Long</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Number type (either int or short)</td>
+</tr>
+<tr>
+<td>i</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>fn</td>
+<td>Function pointer</td>
+</tr>
+<tr>
+<td>b</td>
+<td>BYTE</td>
+</tr>
+<tr>
+<td>st</td>
+<td>Pointer to a string</td>
+</tr>
+<tr>
+<td>sz</td>
+<td>Pointer to a 0 byte terminated string</td>
+</tr>
+<tr>
+<td>lp</td>
+<td>Long pointer</td>
+</tr>
+<tr>
+<td>p</td>
+<td>Pointer</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Difference between instances</td>
+</tr>
+<tr>
+<td>c</td>
+<td>Count of instances</td>
+</tr>
+<tr>
+<td>f</td>
+<td>Boolean flag</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resources</strong></p>
+<p><a href="https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-6.0/aa260976(v=vs.60)?redirectedfrom=MSDN">Simonyi, Charles, &ldquo;Hungarian Notation,&rdquo; Microsoft, November 1999</a></p>
+<p><a href="http://www.byteshift.de/msg/hungarian-notation-doug-klunder">Klunder, Doug, &ldquo;Hungarian Naming Conventions,&rdquo; January 1988, Revised September 1991</a></p>
 <h2 id="camel-case">camel case</h2>
 <p>Camel case capitalizes the first letter of each word, except for the first word.</p>
-<pre tabindex="0"><code>public class camelVariation {
-	private int myNumber; 	// int variable
-	private String myName;	// string variable
-	private int isNext; 		// boolean variable
-}
-</code></pre><h2 id="pascal-case">pascal case</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">myNumber<span style="color:#f92672">;</span> 	    <span style="color:#f92672">//</span> int variable
+myName<span style="color:#f92672">;</span>	    <span style="color:#f92672">//</span> string variable
+isNext<span style="color:#f92672">;</span> 		<span style="color:#f92672">//</span> boolean variable
+</code></pre></div><h2 id="pascal-case">pascal case</h2>
 <p>Pascal case is similar to camel case. The difference is that pascal case capitalizes the first letter of the first word as well. This is often used for naming classes or methods.</p>
-<pre tabindex="0"><code>public class pascalVariation {
-	private int MyNumber; 	// int variable
-	private String MyName;	// string variable
-	private int IsNext; 		// boolean variable
-}
-</code></pre><h2 id="snake_case">snake_case</h2>
+<p>In Java, classes, interfaces and enums should be written in Pascal case while local variables declared within the body of the program should be written in lower camel case.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">MyNumber<span style="color:#f92672">;</span> 	    <span style="color:#f92672">//</span> int variable
+MyName<span style="color:#f92672">;</span>	    <span style="color:#f92672">//</span> string variable
+IsNext<span style="color:#f92672">;</span> 		<span style="color:#f92672">//</span> boolean variable
+</code></pre></div><h2 id="snake_case">snake_case</h2>
 <p>Snake case uses underscore in between each word.</p>
-<pre tabindex="0"><code>public class snakelVariation {
-	private int my_number; 	// int variable
-	private String my_name;	// string variable
-	private int is_next; 		// boolean variable
-}
-</code></pre>]]></content>
+<p>In Java and C++, snake case is used for constants and static variables.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">my_number<span style="color:#f92672">;</span> 	<span style="color:#f92672">//</span> int variable
+my_name<span style="color:#f92672">;</span>	   <span style="color:#f92672">//</span> string variable
+is_next<span style="color:#f92672">;</span> 	   <span style="color:#f92672">//</span> boolean variable
+</code></pre></div><h2 id="kebab-case">kebab-case</h2>
+<p>Kebab case uses a dash to separate words. Its usage is discouraged as a dash can be misread as a subtraction operation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-j" data-lang="j">my_number<span style="color:#f92672">;</span> 	<span style="color:#f92672">//</span> int variable
+my<span style="color:#f92672">-</span>name<span style="color:#f92672">;</span>	   <span style="color:#f92672">//</span> string variable
+is<span style="color:#f92672">-</span>next<span style="color:#f92672">;</span> 	   <span style="color:#f92672">//</span> boolean variable
+</code></pre></div>]]></content>
         </item>
         
         <item>
