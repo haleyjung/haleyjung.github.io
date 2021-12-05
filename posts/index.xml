@@ -6,8 +6,51 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 01 Dec 2021 21:45:06 -0500</lastBuildDate>
+        <lastBuildDate>Sat, 04 Dec 2021 22:03:44 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Cache</title>
+            <link>https://haleyjung.github.io/posts/2021/12/cache/</link>
+            <pubDate>Sat, 04 Dec 2021 22:03:44 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/cache/</guid>
+            <description>Cache (‘cash’) A reserved space location that collects temporary data that makes a device, browser, or app run faster and more efficiently After opening an app or website for the first time, a cache stashes files, images, and other pertinent data on the device. For every subsequent visit, the cached data will be quickly retrieved instead of locally redownloading the data every single time.
+3 main areas of cache Devices and software The CPU, central processing unit, which is the core component responsible for processing information from the software in the desktop computer, laptop, smartphone or tablet, has its own cache.</description>
+            <content type="html"><![CDATA[<h2 id="cache-cash">Cache (‘cash’)</h2>
+<p>A reserved space location that collects temporary data that makes a device, browser, or app run faster and more efficiently
+After opening an app or website for the first time, a cache stashes files, images, and other pertinent data on the device. For every subsequent visit, the cached data will be quickly retrieved instead of locally redownloading the data every single time.</p>
+<h2 id="3-main-areas-of-cache">3 main areas of cache</h2>
+<h3 id="devices-and-software">Devices and software</h3>
+<p>The CPU, central processing unit, which is the core component responsible for processing information from the software in the desktop computer, laptop, smartphone or tablet, has its own cache.</p>
+<p>A CPU cache is a small block of memory that’s designed to help the CPU easily retrieve frequently used information. It stores data that your device&rsquo;s main memory uses to execute instructions far more quickly than if it had to load every bit of information only when it was requested.</p>
+<h3 id="web-browers">Web Browers</h3>
+<p>A browser cache stores files needed by your browser to display the web sites it visits. This includes elements like the HTML file that describe the site, along with CSS style sheets, Javascripts, cookies, and images.</p>
+<p>For example, when you visit Amazon, it downloads all the images associated with product pages you visit, the HTML and other script files needed to render the pages, and personalization information, such as your login information, and the contents of your shopping cart.</p>
+<p>That&rsquo;s why if you clear your browser cache, retail sites will require you to log back in and rejigger your settings.</p>
+<h3 id="apps">Apps</h3>
+<p>Like browsers, apps save files and data they deem important so they can quickly reload the information as needed. Every app is different, though, and so the kind of data it caches will vary, but might include images, video thumbnails, search history, and other user preferences.</p>
+<h3 id="benefits">Benefits</h3>
+<p>Faster performance
+Saved data, allowing ‘offline’ works for some apps</p>
+<h3 id="disadvantages">Disadvantages</h3>
+<p>Can take up a lot of storage space and limi the free space on the device
+A corrupted cache can cause the app to behave badly
+Can prevent apps from loading the latest version of a web page or other data</p>
+<h2 id="cache-invalidation">Cache invalidation</h2>
+<p>A process in a computer system whereby entries in a cache are replaced or removed.
+It can be used to push new content to a client. This functions as an alternative to other methods of displaying new contents to connected clients. Invalidation is carried out by changing the application data, which in turn marks the information received by the client as out-of-date. After the cache is invalidated, if the client requests the cache, they are delivered a new version.</p>
+<h3 id="3-methods-to-invalidate-a-cache">3 Methods to Invalidate a Cache</h3>
+<p>Not all caching proxies support these methods.</p>
+<h4 id="purge">Purge</h4>
+<p>Removes content from caching proxy immediately. When the client requests the data again, it is fetched from the application and stored in the caching proxy. This method removes all variants of the cached content.</p>
+<h4 id="refresh">Refresh</h4>
+<p>Fetches requested content from the application, even if cached content is available. The content previously stored in the cache is replaced with a new version from the application. This method affects only one variant of the cached content.</p>
+<h4 id="ban">Ban</h4>
+<p>A reference to the cached content is added to a blacklist (or ban list). Client requests are then checked against this blacklist, and if a request matches, new content is fetched from the application, returned to the client, and added to the cache.
+This method, unlike purge, does not immediately remove cached content from the caching proxy. Instead, the cached content is updated after a client requests that specific information.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Naming Convention</title>
