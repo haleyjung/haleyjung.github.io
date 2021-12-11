@@ -6,8 +6,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 04 Dec 2021 22:03:44 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 10 Dec 2021 20:32:49 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Higher Order Functions</title>
+            <link>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</link>
+            <pubDate>Fri, 10 Dec 2021 20:32:49 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
+            <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
+Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both It is often used to:c  Abstract or isolate functionality Create utiltiy functions taht are relatively generic and can operate on a variety of data types Make code more semantic and easiser to read   Examples:  Callback functions Event listeners Promises    </description>
+            <content type="html"><![CDATA[<h2 id="first-class-functions-function-literal">First Class Functions (Function Literal)</h2>
+<p>In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.</p>
+<h2 id="define-higher-order-functions">Define Higher Order Functions</h2>
+<ul>
+<li>Higher order function takes another function as an argument or returns another function or does both</li>
+<li>It is often used to:c
+<ul>
+<li>Abstract or isolate functionality</li>
+<li>Create utiltiy functions taht are relatively generic and can operate on a variety of data types</li>
+<li>Make code more semantic and easiser to read</li>
+</ul>
+</li>
+<li>Examples:
+<ul>
+<li>Callback functions</li>
+<li>Event listeners</li>
+<li>Promises</li>
+</ul>
+</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Cache</title>

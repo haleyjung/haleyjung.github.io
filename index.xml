@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 04 Dec 2021 22:03:44 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Dec 2021 20:32:49 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Higher Order Functions</title>
+      <link>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</link>
+      <pubDate>Fri, 10 Dec 2021 20:32:49 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
+      <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
+Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both It is often used to:c  Abstract or isolate functionality Create utiltiy functions taht are relatively generic and can operate on a variety of data types Make code more semantic and easiser to read   Examples:  Callback functions Event listeners Promises    </description>
+    </item>
+    
     <item>
       <title>Cache</title>
       <link>https://haleyjung.github.io/posts/2021/12/cache/</link>
@@ -96,20 +106,6 @@ To note, I&amp;rsquo;ll be continuously adding more of the latest articles as re
       <description>I can no longer remember how many times I&amp;rsquo;ve created this very same file due to various errors and deployment failures.
 But, I love debugging! Coming from a field where subjectivity defines the output, I&amp;rsquo;m in love with coding that always has some form of solution.
 With that, this shall be my first &amp;lsquo;final&amp;rsquo; post.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://haleyjung.github.io/about/</link>
-      <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://haleyjung.github.io/about/</guid>
-      <description>Hi!
-Today I Learned is a collection of my spark and struggle.
-⭐ ⭐ ⭐
-When I came across a blog that publish articles on daily learnings
-while scrolling through a slack community of software engineers,
-I immediately knew this is going to be my next mini project!</description>
     </item>
     
   </channel>

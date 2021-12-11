@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/javascript/</link>
+    <description>Recent content in Javascript on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 10 Dec 2021 20:32:49 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Higher Order Functions</title>
+      <link>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</link>
+      <pubDate>Fri, 10 Dec 2021 20:32:49 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
+      <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
+Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both It is often used to:c  Abstract or isolate functionality Create utiltiy functions taht are relatively generic and can operate on a variety of data types Make code more semantic and easiser to read   Examples:  Callback functions Event listeners Promises    </description>
+    </item>
+    
+  </channel>
+</rss>
