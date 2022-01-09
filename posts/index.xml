@@ -6,8 +6,34 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 10 Dec 2021 20:32:49 -0500</lastBuildDate>
+        <lastBuildDate>Sun, 12 Dec 2021 15:32:37 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Hugo</title>
+            <link>https://haleyjung.github.io/posts/2021/12/hugo/</link>
+            <pubDate>Sun, 12 Dec 2021 15:32:37 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
+            <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
+            <content type="html"><![CDATA[<h2 id="what-is-hugo">What is Hugo?</h2>
+<p>It&rsquo;s one of the static site generators alongside jekyll and hexo.</p>
+<h2 id="how-to-add-a-new-post">How to add a new post</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo new posts<span style="color:#f92672">/</span>name.md
+</code></pre></div><h2 id="localhost-preview">Localhost preview</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo server <span style="color:#f92672">-</span>D
+</code></pre></div><h2 id="git-push">Git push</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> cd public
+<span style="color:#960050;background-color:#1e0010">$</span> git add .
+<span style="color:#960050;background-color:#1e0010">$</span> git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;commit message&#34;</span>
+<span style="color:#960050;background-color:#1e0010">$</span> git push origin master
+<span style="color:#960050;background-color:#1e0010">$</span> cd ..
+<span style="color:#960050;background-color:#1e0010">$</span> git add .
+<span style="color:#960050;background-color:#1e0010">$</span> git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;commit message&#34;</span>
+<span style="color:#960050;background-color:#1e0010">$</span> git push origin master
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>Higher Order Functions</title>
@@ -398,7 +424,7 @@ To note, I&amp;rsquo;ll be continuously adding more of the latest articles as re
 <p>After multiple commits on my GitHub for this static site, I noticed that the contributions were not lightening green on my profile. The GitHub page was successfully updated with the latest commit, so at first I thought it was a time lag. <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile">GitHub Docs</a> also indicates that &ldquo;you may need to wait for up to 24 hours to see the contribution appear on your contribution graph.&rdquo; The issue remained the same after 24 hours, so I went ahead to check the following:</p>
 <h3 id="1-is-your-local-git-commit-email--your-account">1. Is your local Git commit email === your account?</h3>
 <p>To check the email address used for a commit, I opened the latest commit on my GitHub and added <strong>.patch</strong> to the end of the commit URL.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://github.com/haleyjung/haleyjung.github.io/commit/abcdefg.path
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://github.com/haleyjung/haleyjung.github.io/commit/abcdefg.patch
 </code></pre></div><p>When the link opens, carefully check the first four lines of the page. It should have a format like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">From abcedfg Mon Sep 17 00:00:00 2001
 From: Profile Name &lt;<span style="color:#f92672">email</span> <span style="color:#a6e22e">address</span>&gt;
