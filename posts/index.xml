@@ -6,8 +6,53 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 12 Dec 2021 15:32:37 -0500</lastBuildDate>
+        <lastBuildDate>Sat, 08 Jan 2022 14:38:40 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Jasmine</title>
+            <link>https://haleyjung.github.io/posts/2022/01/jasmine/</link>
+            <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/jasmine/</guid>
+            <description>What is Jasmine? Jasmine is an open-source testing framework for JavaScript. With this tool we are able to describe the code we are testing and make assertions about our code. In the early 2000s, JsUnit was a framework for testing JavaScript applications. It was upgraded and released as Jasmine in 2010 by Pivotal Labs.
+It is a Behavior Driven Development testing framework: i.e. Regardless of which JavaScript framework I use (e.</description>
+            <content type="html"><![CDATA[<h2 id="what-is-jasmine">What is Jasmine?</h2>
+<p>Jasmine is an open-source testing framework for JavaScript. With this tool we are able to describe the code we are testing and make assertions about our code. In the early 2000s, JsUnit was a framework for testing JavaScript applications. It was upgraded and released as Jasmine in 2010 by Pivotal Labs.</p>
+<p>It is a Behavior Driven Development testing framework:
+i.e. Regardless of which JavaScript framework I use (e.g. React, Vue, Express) and where it’s used (Web, Node JS), Jasmine can be used for unit testing, and it does not require a Document Object Model (DOM).
+Therefore it’s well suited for websites, Node.js projects, or anywhere JavaScript can run.
+It has easy-to-read syntax.
+It is similar to other Unit Testing libraries such as Mocha and Chai, so picking up on other libraries are easier!</p>
+<h2 id="what-is-unit-testing">What is unit testing?</h2>
+<p>Unit Testing is a level of software testing where individual units or components of the software are tested individually and independently. Testing should start as early as possible to minimize and immediately locate errors.</p>
+<p>Test automation can reduce the amount of time developers spend testing the software because the environment can be prepared and cleaned up automatically. It can also report the results of the test run to be used for future tests.</p>
+<p>It is important to note that <strong>console.log()</strong> is not testing!</p>
+<h2 id="jasmine-syntax">Jasmine Syntax</h2>
+<p>Describe( )
+Describe block helps organize the tests. Often one describe block is assigned to each unit testing. It can be nested.
+it( )
+It statement is used inside a describe block to indicate what the unit being tested should be doing. Each ‘it’ statement inside a describe block corresponds to a distinct test on one unit. There can be as many it statements as one needs in each describe block.
+Expect()
+Expectations are used inside it statements for comparisons, and making assertions about the functionality being tested. If one of the expectations inside a function isn’t met, the test is said to have failed.
+toBe()
+toBe() is one of Jasmine matchers that compare a value from the code with an expected value using a boolean matcher.</p>
+<p><a href="https://jasmine.github.io/api/edge/matchers.html">Link to a full list of Jasmine matchers</a></p>
+<h2 id="test-automation-pyramid">Test Automation Pyramid</h2>
+<p>Testing strategy for web apps need a number of testing types, such as end-to-end testing, load testing, and UI testing. Jasmine is at the bottom of the test automation pyramid.</p>
+<p>Test automation can reduce the amount of time developers spend testing the software because the environment can be prepared and cleaned up automatically. It can also report the results of the test run to be used for future tests.</p>
+<p>The test automation pyramid is a crucial concept that guides the production of a high-quality product and ensures that code changes do not break existing features. It represents various types of tests and the frequency of their execution in a test suite.</p>
+<p>It’s divided into three distinct sections. The unit tests can be found at the lowest level. The lower-level application tests (unit, component, functional tests) occupy the majority of an overall test count, running quickly every time a code is changed and giving immediate feedback to a developer on the code’s functionality. They will continue to grow in number as new features get added.</p>
+<p>The middle tier of the test automation pyramid is integration tests, which validate interactions of the software with the outside world. They are not executed as often as unit tests, and as they require communication to the dependency, the integration tests run slower. An example is database integration tests (databases are a common external dependency in software applications), which test whether the software interacts with the database as intended. Another example is service integration tests, which test the interaction of the codes with the external service such as a RESTful API.</p>
+<p>The top tier of the pyramid is occupied by end-to-end tests, which test the integration of the front end with the back end. They can be very slow, fragile, and may depend on external dependencies that could be unreliable. Thus, it’s considered a good practice to have fewer end-to-end tests to avoid relying on external systems and facing failures due to environmental issues, slowness, or faulty test data.</p>
+<h2 id="references">References</h2>
+<p><a href="https://jasmine.github.io/">Official Jasmine Documentation</a>
+<a href="https://medium.com/software-qe/test-automation-pyramid-2021-version-c299cb224c80">Christianson, Lauren. “Test Automation Pyramid: 2021,” Medium, March 21, 2021</a>
+<a href="https://www.guru99.com/node-js-testing-jasmine.html">Hartman, James. ”Jasmine Tutorial: Jasmine Framework, Unit Testing with Example,” Guru99, December 18, 2021.</a>
+<a href="https://medium.com/@mocktarissa/introduction-to-unittesting-with-jasmine-part-i-a621853f9122">Issa, Mocktar. ”Introduction to UnitTesting with Jasmine. (Part I),” Medium, December 10, 2019.</a>
+<a href="https://www.testim.io/blog/jasmine-js-a-from-scratch-tutorial-to-start-testing/">“Jasmine JS: Start Testing From-Scratch,” Testim, July 30, 2021.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Hugo</title>
@@ -16,7 +61,7 @@
             
             <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
             <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
-How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
             <content type="html"><![CDATA[<h2 id="what-is-hugo">What is Hugo?</h2>
 <p>It&rsquo;s one of the static site generators alongside jekyll and hexo.</p>
 <h2 id="how-to-add-a-new-post">How to add a new post</h2>
@@ -24,7 +69,8 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
 </code></pre></div><h2 id="localhost-preview">Localhost preview</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo server <span style="color:#f92672">-</span>D
 </code></pre></div><h2 id="git-push">Git push</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> cd public
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo <span style="color:#f92672">-</span>t theme<span style="color:#f92672">-</span>name
+<span style="color:#960050;background-color:#1e0010">$</span> cd public
 <span style="color:#960050;background-color:#1e0010">$</span> git add .
 <span style="color:#960050;background-color:#1e0010">$</span> git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;commit message&#34;</span>
 <span style="color:#960050;background-color:#1e0010">$</span> git push origin master

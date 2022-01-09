@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 12 Dec 2021 15:32:37 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jan 2022 14:38:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jasmine</title>
+      <link>https://haleyjung.github.io/posts/2022/01/jasmine/</link>
+      <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/jasmine/</guid>
+      <description>What is Jasmine? Jasmine is an open-source testing framework for JavaScript. With this tool we are able to describe the code we are testing and make assertions about our code. In the early 2000s, JsUnit was a framework for testing JavaScript applications. It was upgraded and released as Jasmine in 2010 by Pivotal Labs.
+It is a Behavior Driven Development testing framework: i.e. Regardless of which JavaScript framework I use (e.</description>
+    </item>
+    
     <item>
       <title>Hugo</title>
       <link>https://haleyjung.github.io/posts/2021/12/hugo/</link>
@@ -15,7 +25,7 @@
       
       <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
       <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
-How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
     </item>
     
     <item>
@@ -96,15 +106,6 @@ To note, I&amp;rsquo;ll be continuously adding more of the latest articles as re
       <description>What is a submodule? A git submodule is a record within a host git repository that points to a specific commit in another external repository. Submodules are very static and only track specific commits. Submodules do not track git refs or branches and are not automatically updated when the host repository is updated.
   It keeps a git repository as a subdirectory of another git repository.
   It serves as a reference to another repo at a particular snapshot of time.</description>
-    </item>
-    
-    <item>
-      <title>Absolute vs Relative Path</title>
-      <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
-      <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</guid>
-      <description>What is a path? A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either absolute or relative.</description>
     </item>
     
   </channel>
