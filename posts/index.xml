@@ -46,11 +46,11 @@ toBe() is one of Jasmine matchers that compare a value from the code with an exp
 <p>The middle tier of the test automation pyramid is integration tests, which validate interactions of the software with the outside world. They are not executed as often as unit tests, and as they require communication to the dependency, the integration tests run slower. An example is database integration tests (databases are a common external dependency in software applications), which test whether the software interacts with the database as intended. Another example is service integration tests, which test the interaction of the codes with the external service such as a RESTful API.</p>
 <p>The top tier of the pyramid is occupied by end-to-end tests, which test the integration of the front end with the back end. They can be very slow, fragile, and may depend on external dependencies that could be unreliable. Thus, it’s considered a good practice to have fewer end-to-end tests to avoid relying on external systems and facing failures due to environmental issues, slowness, or faulty test data.</p>
 <h2 id="references">References</h2>
-<p><a href="https://jasmine.github.io/">Official Jasmine Documentation</a>
-<a href="https://medium.com/software-qe/test-automation-pyramid-2021-version-c299cb224c80">Christianson, Lauren. “Test Automation Pyramid: 2021,” Medium, March 21, 2021</a>
-<a href="https://www.guru99.com/node-js-testing-jasmine.html">Hartman, James. ”Jasmine Tutorial: Jasmine Framework, Unit Testing with Example,” Guru99, December 18, 2021.</a>
-<a href="https://medium.com/@mocktarissa/introduction-to-unittesting-with-jasmine-part-i-a621853f9122">Issa, Mocktar. ”Introduction to UnitTesting with Jasmine. (Part I),” Medium, December 10, 2019.</a>
-<a href="https://www.testim.io/blog/jasmine-js-a-from-scratch-tutorial-to-start-testing/">“Jasmine JS: Start Testing From-Scratch,” Testim, July 30, 2021.</a></p>
+<p><a href="https://jasmine.github.io/">Official Jasmine Documentation</a></p>
+<p><a href="https://medium.com/software-qe/test-automation-pyramid-2021-version-c299cb224c80">Christianson, Lauren. “Test Automation Pyramid: 2021,” Medium, March 21, 2021</a></p>
+<p><a href="https://www.guru99.com/node-js-testing-jasmine.html">Hartman, James. ”Jasmine Tutorial: Jasmine Framework, Unit Testing with Example,” Guru99, December 18, 2021.</a></p>
+<p><a href="https://medium.com/@mocktarissa/introduction-to-unittesting-with-jasmine-part-i-a621853f9122">Issa, Mocktar. ”Introduction to UnitTesting with Jasmine. (Part I),” Medium, December 10, 2019.</a></p>
+<p><a href="https://www.testim.io/blog/jasmine-js-a-from-scratch-tutorial-to-start-testing/">“Jasmine JS: Start Testing From-Scratch,” Testim, July 30, 2021.</a></p>
 ]]></content>
         </item>
         
