@@ -6,8 +6,36 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 08 Jan 2022 14:38:40 -0500</lastBuildDate>
+        <lastBuildDate>Mon, 10 Jan 2022 12:16:25 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Mocha Chai</title>
+            <link>https://haleyjung.github.io/posts/2022/01/mocha-chai/</link>
+            <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/mocha-chai/</guid>
+            <description>What are Mocha and Chai? They are JavaScript frameworks that are commonly used together for unit testing.
+Mocha is a testing framework that provides functions that are executed according in a specific order, and that logs their results to the terminal window.
+When you read tests written in Mocha, you’ll see regular use of the keywords describe and it. These keywords, provided by Mocha, provide structure to the tests by batching them into test suites and test cases.</description>
+            <content type="html"><![CDATA[<h2 id="what-are-mocha-and-chai">What are Mocha and Chai?</h2>
+<p>They are JavaScript frameworks that are commonly used together for unit testing.</p>
+<p>Mocha is a testing framework that provides functions that are executed according in a specific order, and that logs their results to the terminal window.</p>
+<p>When you read tests written in Mocha, you’ll see regular use of the keywords describe and it. These keywords, provided by Mocha, provide structure to the tests by batching them into test suites and test cases.</p>
+<p>A test suite is a collection of tests all relating to a single functionality or behavior. A test case or a unit test is a single description about the desired behavior of the code that either passes or fails. Test suites are batched underneath the describe keyword, and test cases are batched under the it keyword.</p>
+<p>Additionally, Mocha provides tools for cleaning the state of the software being tested in order to insure that test cases are being run independently of each other. You might end up using other tools, to stub or mock the desired behaviors of other units that a given unit of code might interact with. The independence of test cases is a key principle of unit testing, as it allows the cause of errors to be pinpointed more specifically if a test case fails, thereby speeding up the debugging process.</p>
+<h2 id="assertions">Assertions</h2>
+<p>The base component of test cases are assertions. Assertions are tied to particular values (whereas test cases are descriptions of behavior) and they will fail if the expected value does not match the actual value.</p>
+<p>Every assertion in a test case must be met in order for the test case to pass.</p>
+<p>Chai is an assertion library that is often used alongside Mocha. It provides functions and methods that help you compare the output of a certain test with its expected value. Chai provides clean syntax that almost reads like English!</p>
+<p>Example of a Chai assertion: expect(exampleArray).to.have.lengthOf(3);</p>
+<p>This code will check whether that the variable exampleArray has a length of three or not.</p>
+<h2 id="failing-and-passing-tests">Failing and Passing Tests</h2>
+<p>Robust tests are accurate for both failing and passing conditions! When writing tests, you need to make sure that the test fails if the feature that it is testing was not implemented properly, as well as making sure that the test passes if it is. Tests that will erroneously pass can be enormously misleading, and might lead to broken code getting merged and deployed.</p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://www.codecademy.com/article/bapi-testing-intro">&ldquo;Introduction to Testing with Mocha and Chai</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Jasmine</title>
@@ -61,7 +89,7 @@ toBe() is one of Jasmine matchers that compare a value from the code with an exp
             
             <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
             <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
-How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-namehu $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
             <content type="html"><![CDATA[<h2 id="what-is-hugo">What is Hugo?</h2>
 <p>It&rsquo;s one of the static site generators alongside jekyll and hexo.</p>
 <h2 id="how-to-add-a-new-post">How to add a new post</h2>
@@ -69,7 +97,7 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
 </code></pre></div><h2 id="localhost-preview">Localhost preview</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo server <span style="color:#f92672">-</span>D
 </code></pre></div><h2 id="git-push">Git push</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo <span style="color:#f92672">-</span>t theme<span style="color:#f92672">-</span>name
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h"><span style="color:#960050;background-color:#1e0010">$</span> hugo <span style="color:#f92672">-</span>t theme<span style="color:#f92672">-</span>namehu
 <span style="color:#960050;background-color:#1e0010">$</span> cd public
 <span style="color:#960050;background-color:#1e0010">$</span> git add .
 <span style="color:#960050;background-color:#1e0010">$</span> git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;commit message&#34;</span>

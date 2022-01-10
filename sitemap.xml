@@ -2,22 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/chai/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/javascript-frameworks/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/mocha/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/01/mocha-chai/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/unit-testing/</loc>
+    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/jasmine/</loc>
     <lastmod>2022-01-08T14:38:40-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/jasmine/</loc>
-    <lastmod>2022-01-08T14:38:40-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-01-08T14:38:40-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-01-08T14:38:40-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
-    <lastmod>2022-01-08T14:38:40-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/unit-testing/</loc>
     <lastmod>2022-01-08T14:38:40-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/hugo/</loc>

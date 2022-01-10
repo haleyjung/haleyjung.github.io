@@ -7,22 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 08 Jan 2022 14:38:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 12:16:25 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Jasmine</title>
-      <link>https://haleyjung.github.io/tags/jasmine/</link>
-      <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
+      <title>Chai</title>
+      <link>https://haleyjung.github.io/tags/chai/</link>
+      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/tags/jasmine/</guid>
+      <guid>https://haleyjung.github.io/tags/chai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript Frameworks</title>
+      <link>https://haleyjung.github.io/tags/javascript-frameworks/</link>
+      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/javascript-frameworks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mocha</title>
+      <link>https://haleyjung.github.io/tags/mocha/</link>
+      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/mocha/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Unit Testing</title>
       <link>https://haleyjung.github.io/tags/unit-testing/</link>
-      <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
+      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/unit-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jasmine</title>
+      <link>https://haleyjung.github.io/tags/jasmine/</link>
+      <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/jasmine/</guid>
       <description></description>
     </item>
     
@@ -68,33 +95,6 @@
       <pubDate>Wed, 01 Dec 2021 21:45:06 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/naming-convention/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Algorithms</title>
-      <link>https://haleyjung.github.io/tags/algorithms/</link>
-      <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/algorithms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Recommendation Engine</title>
-      <link>https://haleyjung.github.io/tags/recommendation-engine/</link>
-      <pubDate>Fri, 26 Nov 2021 13:38:29 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/recommendation-engine/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Github</title>
-      <link>https://haleyjung.github.io/tags/github/</link>
-      <pubDate>Wed, 24 Nov 2021 00:03:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/github/</guid>
       <description></description>
     </item>
     

@@ -15,7 +15,7 @@
       
       <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
       <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
-How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-namehu $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
     </item>
     
   </channel>
