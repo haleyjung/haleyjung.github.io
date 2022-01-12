@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Debugging on Today I Learned</title>
-    <link>https://haleyjung.github.io/tags/debugging/</link>
-    <description>Recent content in Debugging on Today I Learned</description>
+    <title>Errors on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/errors/</link>
+    <description>Recent content in Errors on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 08 Dec 2021 14:19:57 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Dec 2021 14:19:57 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/errors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Debugging &amp; Common Errors</title>
       <link>https://haleyjung.github.io/posts/2021/12/debugging-common-errors/</link>

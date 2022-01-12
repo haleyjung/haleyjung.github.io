@@ -19,15 +19,5 @@ Mocha is a testing framework that provides functions that are executed according
 When you read tests written in Mocha, you’ll see regular use of the keywords describe and it. These keywords, provided by Mocha, provide structure to the tests by batching them into test suites and test cases.</description>
     </item>
     
-    <item>
-      <title>Jasmine</title>
-      <link>https://haleyjung.github.io/posts/2022/01/jasmine/</link>
-      <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/jasmine/</guid>
-      <description>What is Jasmine? Jasmine is an open-source testing framework for JavaScript. With this tool we are able to describe the code we are testing and make assertions about our code. In the early 2000s, JsUnit was a framework for testing JavaScript applications. It was upgraded and released as Jasmine in 2010 by Pivotal Labs.
-It is a Behavior Driven Development testing framework: i.e. Regardless of which JavaScript framework I use (e.</description>
-    </item>
-    
   </channel>
 </rss>

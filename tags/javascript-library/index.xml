@@ -18,5 +18,15 @@
 You can use Underscore in either an object-oriented or a functional style, depending on your preference.</description>
     </item>
     
+    <item>
+      <title>Pug.js</title>
+      <link>https://haleyjung.github.io/posts/2021/12/pug.js/</link>
+      <pubDate>Thu, 30 Dec 2021 16:24:23 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/pug.js/</guid>
+      <description>What is Pug.js?  Pug.js is a HTML templating engine, which means you can write much simpler Pug code, which Pug compiler will compile into HTML code, that browser can understand. Pug.js, as from its name is a JavaScript library. Hence, we can run it inside browser or on node.js  What to do after the installation?   Tell express that our view engine is now PUG
+ app.set(&amp;ldquo;view engine&amp;rdquo;, &amp;ldquo;pug&amp;rdquo;); create a views folder inside /.</description>
+    </item>
+    
   </channel>
 </rss>

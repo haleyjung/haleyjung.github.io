@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pug.js on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/pug.js/</link>
+    <description>Recent content in Pug.js on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 30 Dec 2021 16:24:23 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/pug.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pug.js</title>
+      <link>https://haleyjung.github.io/posts/2021/12/pug.js/</link>
+      <pubDate>Thu, 30 Dec 2021 16:24:23 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/pug.js/</guid>
+      <description>What is Pug.js?  Pug.js is a HTML templating engine, which means you can write much simpler Pug code, which Pug compiler will compile into HTML code, that browser can understand. Pug.js, as from its name is a JavaScript library. Hence, we can run it inside browser or on node.js  What to do after the installation?   Tell express that our view engine is now PUG
+ app.set(&amp;ldquo;view engine&amp;rdquo;, &amp;ldquo;pug&amp;rdquo;); create a views folder inside /.</description>
+    </item>
+    
+  </channel>
+</rss>
