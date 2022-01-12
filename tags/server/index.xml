@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Server on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/server/</link>
+    <description>Recent content in Server on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 29 Dec 2021 14:40:44 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Server Standards</title>
+      <link>https://haleyjung.github.io/posts/2021/12/server-standards/</link>
+      <pubDate>Wed, 29 Dec 2021 14:40:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
+      <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
+    </item>
+    
+  </channel>
+</rss>

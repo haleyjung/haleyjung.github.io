@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jung ">
+<meta name="description" content="How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package." />
+<meta name="keywords" content=", Server" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://haleyjung.github.io/posts/2021/12/server-standards/" />
+
+
+    <title>
+        
+            Server Standards :: Today I Learned 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://haleyjung.github.io/main.17863a81d979b637a02cd7632a4d86e9d80563ef460fd6af1a56962efcaa066b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://haleyjung.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://haleyjung.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://haleyjung.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://haleyjung.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://haleyjung.github.io/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://haleyjung.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+<meta itemprop="name" content="Server Standards">
+<meta itemprop="description" content="How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&ldquo;presets&rdquo;: [&quot;@babel/preset-env&quot;]} Now I can use babel by enabling presets   npm i nodemon &ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&rsquo;t have to &ldquo;npm run dev&rdquo; every time   Update &ldquo;scripts: {}&rdquo; in package."><meta itemprop="datePublished" content="2021-12-29T14:40:44-05:00" />
+<meta itemprop="dateModified" content="2021-12-29T14:40:44-05:00" />
+<meta itemprop="wordCount" content="958"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="keywords" content="Server," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://haleyjung.github.io/"/>
+
+<meta name="twitter:title" content="Server Standards"/>
+<meta name="twitter:description" content="How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&ldquo;presets&rdquo;: [&quot;@babel/preset-env&quot;]} Now I can use babel by enabling presets   npm i nodemon &ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&rsquo;t have to &ldquo;npm run dev&rdquo; every time   Update &ldquo;scripts: {}&rdquo; in package."/>
+
+
+
+
+    <meta property="og:title" content="Server Standards" />
+<meta property="og:description" content="How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&ldquo;presets&rdquo;: [&quot;@babel/preset-env&quot;]} Now I can use babel by enabling presets   npm i nodemon &ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&rsquo;t have to &ldquo;npm run dev&rdquo; every time   Update &ldquo;scripts: {}&rdquo; in package." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haleyjung.github.io/posts/2021/12/server-standards/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-29T14:40:44-05:00" />
+<meta property="article:modified_time" content="2021-12-29T14:40:44-05:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2021-12-29 14:40:44 -0500 EST" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://haleyjung.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Today I Learned</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://haleyjung.github.io/about/">About</a></li><li><a href="https://haleyjung.github.io/posts/">Posts</a></li><li><a href="https://haleyjung.github.io/tags/">Tags</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        5 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://haleyjung.github.io/posts/2021/12/server-standards/">Server Standards</a>
+      </h1>
+
+      
+
+      
+        <hr />
+        <aside id="toc">
+          <div class="toc-title">Table of Contents</div>
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#how-to-set-up-a-server">How to set up a Server</a>
+      <ul>
+        <li><a href="#install-in-terminal">Install in Terminal</a></li>
+      </ul>
+    </li>
+    <li><a href="#preliminary-server-setup">Preliminary Server Setup</a>
+      <ul>
+        <li><a href="#1-plan">1. PLAN</a></li>
+        <li><a href="#2-files">2. FILES</a></li>
+        <li><a href="#3-test-server-in-serverjs">3. TEST SERVER in server.js</a></li>
+        <li><a href="#4-import-routers--middlewaremorgan-in-serverjs">4. IMPORT ROUTERS &amp; MIDDLEWARE(MORGAN) in server.js</a></li>
+        <li><a href="#5-setup-router-js-files">5. SETUP ROUTER JS FILES</a></li>
+        <li><a href="#6-add-additional-routers-controllers-in-routers">6. ADD ADDITIONAL ROUTERS CONTROLLERS IN ROUTERS</a></li>
+        <li><a href="#7-separate-routers-and-controllers">7. SEPARATE ROUTERS AND CONTROLLERS</a></li>
+        <li><a href="#8-bring-separated-controllers-to-routers">8. BRING SEPARATED CONTROLLERS TO ROUTERS</a></li>
+        <li><a href="#9-parameters---for-urls-to-have-variables-inside">9. PARAMETERS - FOR URLs TO HAVE VARIABLES INSIDE</a></li>
+        <li><a href="#10-advanced-route-paths">10. ADVANCED: ROUTE PATHS</a></li>
+        <li><a href="#regular-expressions">REGULAR EXPRESSIONS</a></li>
+      </ul>
+    </li>
+    <li><a href="#additional-notes">Additional Notes</a>
+      <ul>
+        <li><a href="#how-to-ensure-the-copyrighted-year-gets-automatically-updated">How to ensure the copyrighted year gets automatically updated?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside>
+        <hr />
+
+      
+
+      <div class="post-content">
+        <h2 id="how-to-set-up-a-server">How to set up a Server</h2>
+<h3 id="install-in-terminal">Install in Terminal</h3>
+<ol>
+<li>npm init
+<ul>
+<li>creates package.json</li>
+</ul>
+</li>
+<li>npm i express
+<ul>
+<li>creates package-lock.json and node_modules folder where <strong>express</strong> folder can be found</li>
+<li>package.json now includes express as <strong>dependencies</strong></li>
+<li>*Create .gitignore and add /node_modules</li>
+</ul>
+</li>
+<li>npm i @babel/core @babel/node @babel/preset-env &ndash;save-dev
+<ul>
+<li>babeljs.io</li>
+<li>adds babel as devDependencies</li>
+</ul>
+</li>
+<li>touch babel.config.json
+<ul>
+<li>copy-paste json code: {&ldquo;presets&rdquo;: [&quot;@babel/preset-env&quot;]}</li>
+<li>Now I can use babel by enabling presets</li>
+</ul>
+</li>
+<li>npm i nodemon &ndash;save-dev
+<ul>
+<li>A package that watches the files and restarts when a change has been made so I won&rsquo;t have to &ldquo;npm run dev&rdquo; every time</li>
+</ul>
+</li>
+<li>Update &ldquo;scripts: {}&rdquo; in package.json
+<ul>
+<li>&ldquo;dev&rdquo;: &ldquo;nodemon &ndash;exec babel-node src/server.js&rdquo;</li>
+</ul>
+</li>
+<li>npm i morgan
+<ul>
+<li>HTTP request logger middleware for node.js</li>
+</ul>
+</li>
+<li>npm i pug
+<ul>
+<li>A high performance HTML template engine</li>
+<li>In server.js: app.set(&ldquo;view engine&rdquo;, &ldquo;pug&rdquo;)</li>
+<li>create a views folder inside /.src</li>
+<li>create home.pug</li>
+<li>In server.js: app.set(&ldquo;views&rdquo;, process.cwd() + &ldquo;/src/views&rdquo;);</li>
+</ul>
+</li>
+<li>link(rel=&ldquo;stylesheet&rdquo; href=&ldquo;<a href="https://unpkg.com/mvp.css%22">https://unpkg.com/mvp.css&quot;</a>)
+<ul>
+<li>Add to the layout.pug</li>
+<li>Default stype for minimalist css style</li>
+</ul>
+</li>
+</ol>
+<p>NOTE: npm run dev OR Ctrl+C to kill the server</p>
+<h2 id="preliminary-server-setup">Preliminary Server Setup</h2>
+<h3 id="1-plan">1. PLAN</h3>
+<ol>
+<li>Plan a user flow with routers and controllers in a markdown file</li>
+</ol>
+<ul>
+<li>Routing refers to <em>how an application&rsquo;s endpoints(URIs) respond to client requests.</em></li>
+<li>Define routing using methods of the Express app object that correspond to HTTP Methods: app.get(), app.post() etc.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#a6e22e">Routers</span>
+
+<span style="color:#960050;background-color:#1e0010">/ -&gt; Home &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/join -&gt; Join &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/login -&gt; Login &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/search -&gt; Search &lt;br&gt;</span>
+
+<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+
+<span style="color:#e6db74">/users/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">See</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/users/logout -&gt; Logout &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/users/edit -&gt; Edit My Profile &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/users/delete -&gt; Delete My Profile &lt;br&gt;</span>
+
+<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+
+<span style="color:#e6db74">/videos/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">See</span> <span style="color:#a6e22e">Video</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">/videos/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span><span style="color:#f92672">/</span><span style="color:#a6e22e">edit</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">Edit</span> <span style="color:#a6e22e">Video</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">/videos/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span><span style="color:#f92672">/</span><span style="color:#66d9ef">delete</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">Delete</span> <span style="color:#a6e22e">Video</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/videos/upload -&gt; Upload Video &lt;br&gt;</span>
+
+<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+
+<span style="color:#960050;background-color:#1e0010">/videos/comments -&gt; Comment on a video &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/videos/comments/delete -&gt; Delete comment &lt;br&gt;</span>
+</code></pre></div><h3 id="2-files">2. FILES</h3>
+<ol>
+<li>Create a <strong>src</strong> folder to store <strong>server.js</strong></li>
+<li>Create a <strong>routers</strong> folder to store router js files:
+<ul>
+<li>globalRouter.js</li>
+<li>userRouter.js</li>
+<li>videoRouter.js</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-test-server-in-serverjs">3. TEST SERVER in server.js</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PORT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4000</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleListening</span> <span style="color:#f92672">=</span> () =&gt;
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Server listening on port http://localhost:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">PORT</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#a6e22e">PORT</span>, <span style="color:#a6e22e">handleListening</span>);
+</code></pre></div><h3 id="4-import-routers--middlewaremorgan-in-serverjs">4. IMPORT ROUTERS &amp; MIDDLEWARE(MORGAN) in server.js</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">morgan</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;morgan&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">globalRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routers/globalRouter&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">videoRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routers/videoRouter&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">userRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routers/userRouter&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PORT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4000</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">logger</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">morgan</span>(<span style="color:#e6db74">&#34;dev&#34;</span>);
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">logger</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">globalRouter</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">userRouter</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/videos&#34;</span>, <span style="color:#a6e22e">videoRouter</span>);
+</code></pre></div><h3 id="5-setup-router-js-files">5. SETUP ROUTER JS FILES</h3>
+<ul>
+<li>Routers are beginning of URLs</li>
+<li>They are like mini applications</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fileName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+
+<span style="color:#75715e">// handleAction = a controller
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleAction</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Action&#34;</span>);
+
+<span style="color:#a6e22e">fileName</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/action&#34;</span>, <span style="color:#a6e22e">handleAction</span>);
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">fileName</span>;
+</code></pre></div><ul>
+<li>Now I can access URLs such as &ldquo;localhost:4000/videos/watch&rdquo;</li>
+</ul>
+<h3 id="6-add-additional-routers-controllers-in-routers">6. ADD ADDITIONAL ROUTERS CONTROLLERS IN ROUTERS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleAction</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Action&#34;</span>);
+
+<span style="color:#a6e22e">fileName</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/action&#34;</span>, <span style="color:#a6e22e">handleAction</span>);
+</code></pre></div><ul>
+<li>BUT this list will grow and go out of hand!</li>
+</ul>
+<h3 id="7-separate-routers-and-controllers">7. SEPARATE ROUTERS AND CONTROLLERS</h3>
+<ol>
+<li>create a controllers folder</li>
+<li>create controller js files
+<ul>
+<li>userController.js</li>
+<li>videoController.js</li>
+</ul>
+</li>
+<li>In routers files, delete all controllers: i.e. the const variables with (req, res)</li>
+<li>First look at what routers are in globalRouter.js and add the controllers accordingly.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// videoController.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">trending</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Home Page Videos);
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">// userController.js
+</span><span style="color:#e6db74">const join = (req, res) =&gt; res.send(&#34;</span><span style="color:#a6e22e">Join</span><span style="color:#960050;background-color:#1e0010">&#34;</span>);
+</code></pre></div><h3 id="8-bring-separated-controllers-to-routers">8. BRING SEPARATED CONTROLLERS TO ROUTERS</h3>
+<p><strong>EXPORT IN CONTROLLERS</strong></p>
+<ol>
+<li>Add export at the front of const
+<ul>
+<li>export const trending = (req, res) =&gt; res.send(&rdquo;../folderName/fileName&quot;);</li>
+</ul>
+</li>
+</ol>
+<p><strong>IMPORT IN ROUTERS</strong></p>
+<ol>
+<li>
+<p>Determine which controller should be imported in each router</p>
+<ul>
+<li>
+<p>[e.g.] In userRouter &mdash;&gt; import {edit, remove} from &ldquo;../controllers/userController&rdquo;;</p>
+</li>
+<li>
+<p>[e.g.] In globalRouter &mdash;&gt; import {trending} from &ldquo;../controllers/videoController&rdquo;;</p>
+</li>
+<li>
+<p>Not using {} means I&rsquo;m export default, which can only contain one thing. Since I&rsquo;me exporting muliple controllers, export it as an object.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Update the router URLs to match the imported controllers</p>
+<ul>
+<li>&ldquo;globalRouter.get(&quot;/&rdquo;, handleHome)
+<ul>
+<li>handleHome to <em>trending</em></li>
+</ul>
+</li>
+<li>&ldquo;globalRouter.get(&quot;/join&rdquo;, handleJoin)
+<ul>
+<li>handleJoin to <em>join</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="9-parameters---for-urls-to-have-variables-inside">9. PARAMETERS - FOR URLs TO HAVE VARIABLES INSIDE</h3>
+<ul>
+<li>Express uses parameter (/:id) to assign individual id (a number variable) to videos</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/upload&#34;</span>, <span style="color:#a6e22e">upload</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id&#34;</span>, <span style="color:#a6e22e">see</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id/edit&#34;</span>, <span style="color:#a6e22e">edit</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id/delete&#34;</span>, <span style="color:#a6e22e">deleteVideo</span>);
+</code></pre></div><h3 id="10-advanced-route-paths">10. ADVANCED: ROUTE PATHS</h3>
+<blockquote>
+<p>Route paths, in combination wiht a request method, define the endpoints at which requests can be made. Route paths can be strings, string patterns, or <em>regular expressions</em>.</p>
+</blockquote>
+<h3 id="regular-expressions">REGULAR EXPRESSIONS</h3>
+<h4 id="resources"><strong>Resources</strong></h4>
+<p><a href="https://www.regexpal.com/">Practice Regular Expressions 1</a></p>
+<p><a href="https://regexr.com/">Practice Regular Expressions 2</a></p>
+<p><a href="https://expressjs.com/en/guide/routing.html">expressjs.com</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">MDN</a></p>
+<h4 id="what-are-regular-expressions"><strong>What are regular expressions?</strong></h4>
+<ul>
+<li>Regular expressions are a sequence of characters that are used for matching character combinations in strings for text matching/searching.</li>
+<li>In JavaScript, regular expressions are search patterns (JavaScript objects) from sequences of characters.</li>
+<li>RegExp makes searching and matching of strings easier and faster.</li>
+</ul>
+<h4 id="rules"><strong>Rules</strong></h4>
+<ul>
+<li>The characters ?, +, *, and () are subsets of their regular expression counterparts.</li>
+<li>The hyphen (-) and the dot (.) are interpreted literally by string-based paths.</li>
+<li>If you need to use the dollar character ($) in a path string, enclose it escaped within ([ and ]).</li>
+<li>For example, the path string for requests at “/data/$book”, would be “/data/([$])book”.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">requests</span> <span style="color:#a6e22e">to</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">about</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/about&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;about&#39;</span>)
+})
+
+<span style="color:#ae81ff">2.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">acd</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">abcd</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab?cd&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab?cd&#39;</span>)
+})
+
+<span style="color:#ae81ff">3.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">abcd</span>, <span style="color:#a6e22e">abbcd</span>, <span style="color:#a6e22e">abbbcd</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">so</span> <span style="color:#a6e22e">on</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab+cd&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab+cd&#39;</span>)
+})
+
+<span style="color:#ae81ff">4.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">abcd</span>, <span style="color:#a6e22e">abxcd</span>, <span style="color:#a6e22e">abRANDOMcd</span>, <span style="color:#a6e22e">ab123cd</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">so</span> <span style="color:#a6e22e">on</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab*cd&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab*cd&#39;</span>)
+})
+
+<span style="color:#ae81ff">5.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">abe</span> <span style="color:#a6e22e">and</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">abcde</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab(cd)?e&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab(cd)?e&#39;</span>)
+})
+
+<span style="color:#ae81ff">6.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">anything</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">an</span> <span style="color:#960050;background-color:#1e0010">“</span><span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">it</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">/a/</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;/a/&#39;</span>)
+})
+
+<span style="color:#ae81ff">7.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">butterfly</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">dragonfly</span>, <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">butterflyman</span>, <span style="color:#a6e22e">dragonflyman</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">so</span> <span style="color:#a6e22e">on</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">/.*fly$/</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;/.*fly$/&#39;</span>)
+})
+
+</code></pre></div><ul>
+<li>SO, if I want my videos to have <em>number</em> id only, I can add the regular expression like the following:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/upload&#34;</span>, <span style="color:#a6e22e">upload</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id(\\d+)&#34;</span>, <span style="color:#a6e22e">see</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id(\\d+)/edit&#34;</span>, <span style="color:#a6e22e">edit</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id(\\d+)/delete&#34;</span>, <span style="color:#a6e22e">deleteVideo</span>);
+</code></pre></div><h2 id="additional-notes">Additional Notes</h2>
+<h3 id="how-to-ensure-the-copyrighted-year-gets-automatically-updated">How to ensure the copyrighted year gets automatically updated?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">copy</span>; <span style="color:#960050;background-color:#1e0010">#</span>{<span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">getFullYear</span>()}
+</code></pre></div>
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://haleyjung.github.io/tags/server/">Server</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        958 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2021-12-29 14:40
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Server%20Standards&amp;caption=Server%20Standards&amp;canonicalUrl=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Server%20Standards&amp;body=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f&amp;media=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f;description=Server%20Standards" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f&amp;title=Server%20Standards&amp;summary=Server%20Standards&amp;source=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f&amp;resubmit=true&amp;title=Server%20Standards" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f;title=Server%20Standards" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=Server%20Standards%20https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f&amp;t=Server%20Standards" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=Server%20Standards&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2021%2f12%2fserver-standards%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://haleyjung.github.io/posts/2021/12/pug.js/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Pug.js</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://haleyjung.github.io/posts/2021/12/functional-programming/">
+                    <span class="button__text">Functional Programming</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://haleyjung.github.io/">Jung</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://haleyjung.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://haleyjung.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>

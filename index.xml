@@ -70,6 +70,15 @@ It is a Behavior Driven Development testing framework: i.e. Regardless of which 
     </item>
     
     <item>
+      <title>Server Standards</title>
+      <link>https://haleyjung.github.io/posts/2021/12/server-standards/</link>
+      <pubDate>Wed, 29 Dec 2021 14:40:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
+      <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
+    </item>
+    
+    <item>
       <title>Functional Programming</title>
       <link>https://haleyjung.github.io/posts/2021/12/functional-programming/</link>
       <pubDate>Mon, 20 Dec 2021 15:12:08 -0500</pubDate>
@@ -97,16 +106,6 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
       <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
       <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
 Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both It is often used to:c  Abstract or isolate functionality Create utiltiy functions taht are relatively generic and can operate on a variety of data types Make code more semantic and easiser to read   Examples:  Callback functions Event listeners Promises    </description>
-    </item>
-    
-    <item>
-      <title>Types of Testing</title>
-      <link>https://haleyjung.github.io/posts/2021/12/types-of-testing/</link>
-      <pubDate>Thu, 09 Dec 2021 00:08:35 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/types-of-testing/</guid>
-      <description>Selected Types of Testing A/B Testing (Split Testing) A/B Testing, also known as split testing, refers to a randomized experimentation process wherein two or more versions of a variable (web page, page element, etc.) are shown to different segments of website visitors at the same time to determine which version leaves the maximum impact and drive business metrics.
-Accessibility Testing Accessibility testing is the practice of ensuring your mobile and web apps are working and usable for users without and with disabilities such as vision impairment, hearing disabilities, and other physical or cognitive conditions.</description>
     </item>
     
   </channel>

@@ -510,6 +510,307 @@ toBe() is one of Jasmine matchers that compare a value from the code with an exp
         </item>
         
         <item>
+            <title>Server Standards</title>
+            <link>https://haleyjung.github.io/posts/2021/12/server-standards/</link>
+            <pubDate>Wed, 29 Dec 2021 14:40:44 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
+            <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
+            <content type="html"><![CDATA[<h2 id="how-to-set-up-a-server">How to set up a Server</h2>
+<h3 id="install-in-terminal">Install in Terminal</h3>
+<ol>
+<li>npm init
+<ul>
+<li>creates package.json</li>
+</ul>
+</li>
+<li>npm i express
+<ul>
+<li>creates package-lock.json and node_modules folder where <strong>express</strong> folder can be found</li>
+<li>package.json now includes express as <strong>dependencies</strong></li>
+<li>*Create .gitignore and add /node_modules</li>
+</ul>
+</li>
+<li>npm i @babel/core @babel/node @babel/preset-env &ndash;save-dev
+<ul>
+<li>babeljs.io</li>
+<li>adds babel as devDependencies</li>
+</ul>
+</li>
+<li>touch babel.config.json
+<ul>
+<li>copy-paste json code: {&ldquo;presets&rdquo;: [&quot;@babel/preset-env&quot;]}</li>
+<li>Now I can use babel by enabling presets</li>
+</ul>
+</li>
+<li>npm i nodemon &ndash;save-dev
+<ul>
+<li>A package that watches the files and restarts when a change has been made so I won&rsquo;t have to &ldquo;npm run dev&rdquo; every time</li>
+</ul>
+</li>
+<li>Update &ldquo;scripts: {}&rdquo; in package.json
+<ul>
+<li>&ldquo;dev&rdquo;: &ldquo;nodemon &ndash;exec babel-node src/server.js&rdquo;</li>
+</ul>
+</li>
+<li>npm i morgan
+<ul>
+<li>HTTP request logger middleware for node.js</li>
+</ul>
+</li>
+<li>npm i pug
+<ul>
+<li>A high performance HTML template engine</li>
+<li>In server.js: app.set(&ldquo;view engine&rdquo;, &ldquo;pug&rdquo;)</li>
+<li>create a views folder inside /.src</li>
+<li>create home.pug</li>
+<li>In server.js: app.set(&ldquo;views&rdquo;, process.cwd() + &ldquo;/src/views&rdquo;);</li>
+</ul>
+</li>
+<li>link(rel=&ldquo;stylesheet&rdquo; href=&ldquo;<a href="https://unpkg.com/mvp.css%22">https://unpkg.com/mvp.css&quot;</a>)
+<ul>
+<li>Add to the layout.pug</li>
+<li>Default stype for minimalist css style</li>
+</ul>
+</li>
+</ol>
+<p>NOTE: npm run dev OR Ctrl+C to kill the server</p>
+<h2 id="preliminary-server-setup">Preliminary Server Setup</h2>
+<h3 id="1-plan">1. PLAN</h3>
+<ol>
+<li>Plan a user flow with routers and controllers in a markdown file</li>
+</ol>
+<ul>
+<li>Routing refers to <em>how an application&rsquo;s endpoints(URIs) respond to client requests.</em></li>
+<li>Define routing using methods of the Express app object that correspond to HTTP Methods: app.get(), app.post() etc.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">##</span> <span style="color:#a6e22e">Routers</span>
+
+<span style="color:#960050;background-color:#1e0010">/ -&gt; Home &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/join -&gt; Join &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/login -&gt; Login &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/search -&gt; Search &lt;br&gt;</span>
+
+<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+
+<span style="color:#e6db74">/users/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">See</span> <span style="color:#a6e22e">User</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/users/logout -&gt; Logout &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/users/edit -&gt; Edit My Profile &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/users/delete -&gt; Delete My Profile &lt;br&gt;</span>
+
+<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+
+<span style="color:#e6db74">/videos/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">See</span> <span style="color:#a6e22e">Video</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">/videos/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span><span style="color:#f92672">/</span><span style="color:#a6e22e">edit</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">Edit</span> <span style="color:#a6e22e">Video</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#e6db74">/videos/</span><span style="color:#f92672">:</span><span style="color:#a6e22e">id</span><span style="color:#f92672">/</span><span style="color:#66d9ef">delete</span> <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">Delete</span> <span style="color:#a6e22e">Video</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">br</span><span style="color:#f92672">&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/videos/upload -&gt; Upload Video &lt;br&gt;</span>
+
+<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">nbsp</span>;
+
+<span style="color:#960050;background-color:#1e0010">/videos/comments -&gt; Comment on a video &lt;br&gt;</span>
+<span style="color:#960050;background-color:#1e0010">/videos/comments/delete -&gt; Delete comment &lt;br&gt;</span>
+</code></pre></div><h3 id="2-files">2. FILES</h3>
+<ol>
+<li>Create a <strong>src</strong> folder to store <strong>server.js</strong></li>
+<li>Create a <strong>routers</strong> folder to store router js files:
+<ul>
+<li>globalRouter.js</li>
+<li>userRouter.js</li>
+<li>videoRouter.js</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-test-server-in-serverjs">3. TEST SERVER in server.js</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PORT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4000</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleListening</span> <span style="color:#f92672">=</span> () =&gt;
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Server listening on port http://localhost:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">PORT</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#a6e22e">PORT</span>, <span style="color:#a6e22e">handleListening</span>);
+</code></pre></div><h3 id="4-import-routers--middlewaremorgan-in-serverjs">4. IMPORT ROUTERS &amp; MIDDLEWARE(MORGAN) in server.js</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">morgan</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;morgan&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">globalRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routers/globalRouter&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">videoRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routers/videoRouter&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">userRouter</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./routers/userRouter&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PORT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4000</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">logger</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">morgan</span>(<span style="color:#e6db74">&#34;dev&#34;</span>);
+
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">logger</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/&#34;</span>, <span style="color:#a6e22e">globalRouter</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/users&#34;</span>, <span style="color:#a6e22e">userRouter</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#34;/videos&#34;</span>, <span style="color:#a6e22e">videoRouter</span>);
+</code></pre></div><h3 id="5-setup-router-js-files">5. SETUP ROUTER JS FILES</h3>
+<ul>
+<li>Routers are beginning of URLs</li>
+<li>They are like mini applications</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fileName</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">Router</span>();
+
+<span style="color:#75715e">// handleAction = a controller
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleAction</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Action&#34;</span>);
+
+<span style="color:#a6e22e">fileName</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/action&#34;</span>, <span style="color:#a6e22e">handleAction</span>);
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">fileName</span>;
+</code></pre></div><ul>
+<li>Now I can access URLs such as &ldquo;localhost:4000/videos/watch&rdquo;</li>
+</ul>
+<h3 id="6-add-additional-routers-controllers-in-routers">6. ADD ADDITIONAL ROUTERS CONTROLLERS IN ROUTERS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleAction</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Action&#34;</span>);
+
+<span style="color:#a6e22e">fileName</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/action&#34;</span>, <span style="color:#a6e22e">handleAction</span>);
+</code></pre></div><ul>
+<li>BUT this list will grow and go out of hand!</li>
+</ul>
+<h3 id="7-separate-routers-and-controllers">7. SEPARATE ROUTERS AND CONTROLLERS</h3>
+<ol>
+<li>create a controllers folder</li>
+<li>create controller js files
+<ul>
+<li>userController.js</li>
+<li>videoController.js</li>
+</ul>
+</li>
+<li>In routers files, delete all controllers: i.e. the const variables with (req, res)</li>
+<li>First look at what routers are in globalRouter.js and add the controllers accordingly.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// videoController.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">trending</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;Home Page Videos);
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">// userController.js
+</span><span style="color:#e6db74">const join = (req, res) =&gt; res.send(&#34;</span><span style="color:#a6e22e">Join</span><span style="color:#960050;background-color:#1e0010">&#34;</span>);
+</code></pre></div><h3 id="8-bring-separated-controllers-to-routers">8. BRING SEPARATED CONTROLLERS TO ROUTERS</h3>
+<p><strong>EXPORT IN CONTROLLERS</strong></p>
+<ol>
+<li>Add export at the front of const
+<ul>
+<li>export const trending = (req, res) =&gt; res.send(&rdquo;../folderName/fileName&quot;);</li>
+</ul>
+</li>
+</ol>
+<p><strong>IMPORT IN ROUTERS</strong></p>
+<ol>
+<li>
+<p>Determine which controller should be imported in each router</p>
+<ul>
+<li>
+<p>[e.g.] In userRouter &mdash;&gt; import {edit, remove} from &ldquo;../controllers/userController&rdquo;;</p>
+</li>
+<li>
+<p>[e.g.] In globalRouter &mdash;&gt; import {trending} from &ldquo;../controllers/videoController&rdquo;;</p>
+</li>
+<li>
+<p>Not using {} means I&rsquo;m export default, which can only contain one thing. Since I&rsquo;me exporting muliple controllers, export it as an object.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Update the router URLs to match the imported controllers</p>
+<ul>
+<li>&ldquo;globalRouter.get(&quot;/&rdquo;, handleHome)
+<ul>
+<li>handleHome to <em>trending</em></li>
+</ul>
+</li>
+<li>&ldquo;globalRouter.get(&quot;/join&rdquo;, handleJoin)
+<ul>
+<li>handleJoin to <em>join</em></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="9-parameters---for-urls-to-have-variables-inside">9. PARAMETERS - FOR URLs TO HAVE VARIABLES INSIDE</h3>
+<ul>
+<li>Express uses parameter (/:id) to assign individual id (a number variable) to videos</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/upload&#34;</span>, <span style="color:#a6e22e">upload</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id&#34;</span>, <span style="color:#a6e22e">see</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id/edit&#34;</span>, <span style="color:#a6e22e">edit</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id/delete&#34;</span>, <span style="color:#a6e22e">deleteVideo</span>);
+</code></pre></div><h3 id="10-advanced-route-paths">10. ADVANCED: ROUTE PATHS</h3>
+<blockquote>
+<p>Route paths, in combination wiht a request method, define the endpoints at which requests can be made. Route paths can be strings, string patterns, or <em>regular expressions</em>.</p>
+</blockquote>
+<h3 id="regular-expressions">REGULAR EXPRESSIONS</h3>
+<h4 id="resources"><strong>Resources</strong></h4>
+<p><a href="https://www.regexpal.com/">Practice Regular Expressions 1</a></p>
+<p><a href="https://regexr.com/">Practice Regular Expressions 2</a></p>
+<p><a href="https://expressjs.com/en/guide/routing.html">expressjs.com</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">MDN</a></p>
+<h4 id="what-are-regular-expressions"><strong>What are regular expressions?</strong></h4>
+<ul>
+<li>Regular expressions are a sequence of characters that are used for matching character combinations in strings for text matching/searching.</li>
+<li>In JavaScript, regular expressions are search patterns (JavaScript objects) from sequences of characters.</li>
+<li>RegExp makes searching and matching of strings easier and faster.</li>
+</ul>
+<h4 id="rules"><strong>Rules</strong></h4>
+<ul>
+<li>The characters ?, +, *, and () are subsets of their regular expression counterparts.</li>
+<li>The hyphen (-) and the dot (.) are interpreted literally by string-based paths.</li>
+<li>If you need to use the dollar character ($) in a path string, enclose it escaped within ([ and ]).</li>
+<li>For example, the path string for requests at “/data/$book”, would be “/data/([$])book”.</li>
+</ul>
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#ae81ff">1.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">requests</span> <span style="color:#a6e22e">to</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">about</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/about&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;about&#39;</span>)
+})
+
+<span style="color:#ae81ff">2.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">acd</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">abcd</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab?cd&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab?cd&#39;</span>)
+})
+
+<span style="color:#ae81ff">3.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">abcd</span>, <span style="color:#a6e22e">abbcd</span>, <span style="color:#a6e22e">abbbcd</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">so</span> <span style="color:#a6e22e">on</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab+cd&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab+cd&#39;</span>)
+})
+
+<span style="color:#ae81ff">4.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">abcd</span>, <span style="color:#a6e22e">abxcd</span>, <span style="color:#a6e22e">abRANDOMcd</span>, <span style="color:#a6e22e">ab123cd</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">so</span> <span style="color:#a6e22e">on</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab*cd&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab*cd&#39;</span>)
+})
+
+<span style="color:#ae81ff">5.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">abe</span> <span style="color:#a6e22e">and</span> <span style="color:#f92672">/</span><span style="color:#a6e22e">abcde</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/ab(cd)?e&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;ab(cd)?e&#39;</span>)
+})
+
+<span style="color:#ae81ff">6.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">anything</span> <span style="color:#66d9ef">with</span> <span style="color:#a6e22e">an</span> <span style="color:#960050;background-color:#1e0010">“</span><span style="color:#a6e22e">a</span><span style="color:#960050;background-color:#1e0010">”</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">it</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">/a/</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;/a/&#39;</span>)
+})
+
+<span style="color:#ae81ff">7.</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">route</span> <span style="color:#a6e22e">path</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">match</span> <span style="color:#a6e22e">butterfly</span> <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">dragonfly</span>, <span style="color:#a6e22e">but</span> <span style="color:#a6e22e">not</span> <span style="color:#a6e22e">butterflyman</span>, <span style="color:#a6e22e">dragonflyman</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">so</span> <span style="color:#a6e22e">on</span>.
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">/.*fly$/</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;/.*fly$/&#39;</span>)
+})
+
+</code></pre></div><ul>
+<li>SO, if I want my videos to have <em>number</em> id only, I can add the regular expression like the following:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/upload&#34;</span>, <span style="color:#a6e22e">upload</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id(\\d+)&#34;</span>, <span style="color:#a6e22e">see</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id(\\d+)/edit&#34;</span>, <span style="color:#a6e22e">edit</span>);
+<span style="color:#a6e22e">videoRouter</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#34;/:id(\\d+)/delete&#34;</span>, <span style="color:#a6e22e">deleteVideo</span>);
+</code></pre></div><h2 id="additional-notes">Additional Notes</h2>
+<h3 id="how-to-ensure-the-copyrighted-year-gets-automatically-updated">How to ensure the copyrighted year gets automatically updated?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&amp;</span><span style="color:#a6e22e">copy</span>; <span style="color:#960050;background-color:#1e0010">#</span>{<span style="color:#66d9ef">new</span> Date().<span style="color:#a6e22e">getFullYear</span>()}
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
             <title>Functional Programming</title>
             <link>https://haleyjung.github.io/posts/2021/12/functional-programming/</link>
             <pubDate>Mon, 20 Dec 2021 15:12:08 -0500</pubDate>
