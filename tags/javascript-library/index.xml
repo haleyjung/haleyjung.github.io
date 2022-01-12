@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript Library on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/javascript-library/</link>
+    <description>Recent content in JavaScript Library on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sun, 09 Jan 2022 12:53:51 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript-library/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Underscore.js</title>
+      <link>https://haleyjung.github.io/posts/2022/01/underscore.js/</link>
+      <pubDate>Sun, 09 Jan 2022 12:53:51 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/underscore.js/</guid>
+      <description>&amp;ldquo;Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. It’s the answer to the question: &amp;lsquo;If I sit down in front of a blank HTML page, and want to start being productive immediately, what do I need?&amp;rsquo; … and the tie to go along with jQuery&amp;rsquo;s tux and Backbone&amp;rsquo;s suspenders.
+You can use Underscore in either an object-oriented or a functional style, depending on your preference.</description>
+    </item>
+    
+  </channel>
+</rss>

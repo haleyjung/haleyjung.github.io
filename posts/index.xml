@@ -54,91 +54,6 @@
         </item>
         
         <item>
-            <title>Testing &amp; Debugging</title>
-            <link>https://haleyjung.github.io/posts/2022/01/testing-debugging/</link>
-            <pubDate>Wed, 12 Jan 2022 00:08:35 -0500</pubDate>
-            
-            <guid>https://haleyjung.github.io/posts/2022/01/testing-debugging/</guid>
-            <description>Types of Testing  Unit testing Integrations Testing End to End Testing AB Testing  Debugging Algorithm Debugging: Process in which we identify and resolve problems and misbehaviors
- Reproduce the bug before you start changing code Understand stack traces from error messages Write unit tests that reproduces the bug Recognize and know your error codes Research using Google Pair program with others/Whiteboard Repeat the process  Error Types TypeError: Cannot read property &amp;lsquo;property&amp;rsquo; of undefined  Occurs when you try to access a property or a method in an undefined object Fix: preinitialize values during object construction or initialization, if possible.</description>
-            <content type="html"><![CDATA[<h2 id="types-of-testing">Types of Testing</h2>
-<ul>
-<li>Unit testing</li>
-<li>Integrations Testing</li>
-<li>End to End Testing</li>
-<li>AB Testing</li>
-</ul>
-<h2 id="debugging-algorithm">Debugging Algorithm</h2>
-<p>Debugging: Process in which we identify and resolve problems and misbehaviors</p>
-<ol>
-<li>Reproduce the bug before you start changing code</li>
-<li>Understand stack traces from error messages</li>
-<li>Write unit tests that reproduces the bug</li>
-<li>Recognize and know your error codes</li>
-<li>Research using Google</li>
-<li>Pair program with others/Whiteboard</li>
-<li>Repeat the process</li>
-</ol>
-<h2 id="error-types">Error Types</h2>
-<h3 id="typeerror-cannot-read-property-property-of-undefined">TypeError: Cannot read property &lsquo;property&rsquo; of undefined</h3>
-<ul>
-<li>Occurs when you try to access a property or a method in an undefined object</li>
-<li>Fix: preinitialize values during object construction or initialization, if possible.</li>
-</ul>
-<h3 id="typeerror-cannot-read-property-null-of-null">TypeError: Cannot read property &lsquo;null&rsquo; of null</h3>
-<ul>
-<li>Occurs when you call a property or method on a null object</li>
-<li>Fix: preinitialize values during object construction or initialization, if possible.</li>
-</ul>
-<h3 id="typeerror-assignment-to-constant-variable">TypeError: Assignment to constant variable</h3>
-<ul>
-<li>Occurs when you are trying to reassign a constant variable</li>
-<li>Fix: Use let instead of const when you want to mutate the variable later on</li>
-</ul>
-<h3 id="referenceerror-variable-is-not-defined">ReferenceError: &lsquo;variable&rsquo; is not defined</h3>
-<ul>
-<li>Occurs when you are accessing a variable that you do not have access to due to scoping</li>
-<li>Fix: Apply the rules of scoping. Variables declared in a function are not accessible outside of the function.</li>
-<li>Example:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">const sumNum <span style="color:#f92672">=</span> (nums) <span style="color:#f92672">=&gt;</span> {
-    let output <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#a6e22e">for </span>(let num of nums) {
-        output <span style="color:#f92672">+=</span> num;
-    }
-    return output;
-}
-<span style="color:#a6e22e">console.log</span>(output;)
-</code></pre></div><h3 id="infinite-loop">Infinite Loop</h3>
-<ul>
-<li>Occurs when your loop existing condition is always true no matter what type of step you take</li>
-<li>Fix: Apply the rules of scoping. Variables declared in a function are not accessible outside of the function.</li>
-<li>Example:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">while </span>(<span style="color:#ae81ff">0</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
-    <span style="color:#a6e22e">console.log</span>(<span style="color:#e6db74">&#39;Yay&#39;</span>);
-}
-
-let x <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
-let y <span style="color:#f92672">=</span> x;
-<span style="color:#a6e22e">while </span>(x <span style="color:#f92672">&gt;=</span> y) {
-    <span style="color:#a6e22e">console.log</span>(<span style="color:#e6db74">&#39;Whoohoo&#39;</span>);
-    x <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
-}
-</code></pre></div><h2 id="other-keywords">Other keywords</h2>
-<ul>
-<li>A: Added - this is a new file that has been added to the repository</li>
-<li>M: Modified - an existing file has been changed</li>
-<li>D: Deleted - a file has been deleted</li>
-<li>U: Untracked - the file is new or has been changed but has not been added to the repository yet</li>
-<li>C: Conflict - there is a conflict in the file</li>
-<li>R: Renamed - the file has been renamed</li>
-<li>S: Submodule - in repository exists another subrepository</li>
-</ul>
-]]></content>
-        </item>
-        
-        <item>
             <title>ESLint</title>
             <link>https://haleyjung.github.io/posts/2022/01/eslint/</link>
             <pubDate>Tue, 11 Jan 2022 23:21:14 -0500</pubDate>
@@ -228,6 +143,111 @@ When you read tests written in Mocha, you’ll see regular use of the keywords d
 <p>Robust tests are accurate for both failing and passing conditions! When writing tests, you need to make sure that the test fails if the feature that it is testing was not implemented properly, as well as making sure that the test passes if it is. Tests that will erroneously pass can be enormously misleading, and might lead to broken code getting merged and deployed.</p>
 <h2 id="reference">Reference</h2>
 <p><a href="https://www.codecademy.com/article/bapi-testing-intro">&ldquo;Introduction to Testing with Mocha and Chai</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Underscore.js</title>
+            <link>https://haleyjung.github.io/posts/2022/01/underscore.js/</link>
+            <pubDate>Sun, 09 Jan 2022 12:53:51 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/underscore.js/</guid>
+            <description>&amp;ldquo;Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. It’s the answer to the question: &amp;lsquo;If I sit down in front of a blank HTML page, and want to start being productive immediately, what do I need?&amp;rsquo; … and the tie to go along with jQuery&amp;rsquo;s tux and Backbone&amp;rsquo;s suspenders.
+You can use Underscore in either an object-oriented or a functional style, depending on your preference.</description>
+            <content type="html"><![CDATA[<p>&ldquo;Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. It’s the answer to the question: &lsquo;If I sit down in front of a blank HTML page, and want to start being productive immediately, what do I need?&rsquo; … and the tie to go along with jQuery&rsquo;s tux and Backbone&rsquo;s suspenders.</p>
+<p>You can use Underscore in either an object-oriented or a functional style, depending on your preference. The following two lines of code are identical ways to double a list of numbers.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; });
+<span style="color:#a6e22e">_</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; });
+</code></pre></div><h2 id="a-selection-of-collection-functions">A Selection of Collection Functions</h2>
+<table>
+<thead>
+<tr>
+<th>Collection Functions</th>
+<th>Allas</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>_.each</strong>(list, iteratee, [context])</td>
+<td>forEach</td>
+<td>Iterates over a list of elements, yielding each in turn to an iteratee function.</td>
+</tr>
+<tr>
+<td><strong>_.map</strong>(list, iteratee, [context])</td>
+<td>collect</td>
+<td>Produces a new array of values by mapping each value in list through a transformation function (iteratee).</td>
+</tr>
+<tr>
+<td><strong>_.reduce</strong>(list, iteratee, [memo], [context])</td>
+<td>inject, foldl</td>
+<td>Also known as inject and foldl, reduce boils down a list of values into a single value.</td>
+</tr>
+<tr>
+<td><strong>_.find</strong>(list, predicate, [context])</td>
+<td>detect</td>
+<td>Looks through each value in the list, returning the first one that passes a truth test (predicate), or undefined if no value passes the test.</td>
+</tr>
+<tr>
+<td><strong>_.filter</strong>(list, predicate, [context])</td>
+<td>select</td>
+<td>Looks through each value in the list, returning an array of all the values that pass a truth test (predicate).</td>
+</tr>
+<tr>
+<td><strong>_.where</strong>(list, properties)</td>
+<td>n/a</td>
+<td>Looks through each value in the list, returning an array of all the values that matches the key-value pairs listed in properties.</td>
+</tr>
+<tr>
+<td><strong>_.reject</strong>(list, predicate, [context])</td>
+<td>n/a</td>
+<td>Returns the values in list without the elements that the truth test (predicate) passes. The opposite of filter.</td>
+</tr>
+<tr>
+<td><strong>_.every</strong>(list, [predicate], [context])</td>
+<td>all</td>
+<td>Returns true if all of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a false element is found.</td>
+</tr>
+<tr>
+<td><strong>_.some</strong>(list, [predicate], [context])</td>
+<td>any</td>
+<td>Returns true if any of the values in the list pass the predicate truth test. Short-circuits and stops traversing the list if a true element is found.</td>
+</tr>
+<tr>
+<td><strong>_.contains</strong>(list, value, [fromIndex])</td>
+<td>include, includes</td>
+<td>Returns true if the value is present in the list. Uses indexOf internally, if list is an Array.</td>
+</tr>
+<tr>
+<td><strong>_.groupBy</strong>(list, iteratee, [context])</td>
+<td>n/a</td>
+<td>Splits a collection into sets, grouped by the result of running each value through iteratee. If iteratee is a string instead of a function, groups by the property named by iteratee on each of the values.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chaining">Chaining</h2>
+<p>| <strong>_.chain</strong>(obj)  | Returns a wrapped object. Calling methods on this object will continue to return wrapped objects until value is called. |
+| <strong>_.chain</strong>(obj).value()  | Extracts the value of a wrapped object. |</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// _.chain(obj)
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stooges</span> <span style="color:#f92672">=</span> [{<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;curly&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">25</span>}, {<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;moe&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">21</span>}, {<span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;larry&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">23</span>}];
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">youngest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">chain</span>(<span style="color:#a6e22e">stooges</span>)
+  .<span style="color:#a6e22e">sortBy</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">stooge</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stooge</span>.<span style="color:#a6e22e">age</span>; })
+  .<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">stooge</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stooge</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; is &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">stooge</span>.<span style="color:#a6e22e">age</span>; })
+  .<span style="color:#a6e22e">first</span>()
+  .<span style="color:#a6e22e">value</span>();
+=&gt; <span style="color:#e6db74">&#34;moe is 21&#34;</span>
+
+<span style="color:#75715e">// _.chain(obj).value()
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">chain</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]).<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">value</span>();
+=&gt; [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>]
+</code></pre></div><h2 id="how-to-run-underscorejs-using-npm-node-package-manager">How to run Underscore.js using npm (Node Package Manager)</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">init</span>
+<span style="color:#75715e">// -&gt; package.json will appear in the local project
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">save</span> <span style="color:#a6e22e">underscore</span>
+<span style="color:#75715e">// -&gt; downloads the underscore library from online and adds it to the dependencies in package.json
+</span></code></pre></div><p>If the library was already added as the dependencies, one can simply execute <strong>npm install</strong> without specifying the library.</p>
+<h2 id="official-documentation">Official Documentation</h2>
+<p><a href="https://underscorejs.org/#">UNDERSCORE.JS</a></p>
 ]]></content>
         </item>
         
@@ -850,6 +870,91 @@ Define Higher Order Functions  Higher order function takes another function as a
 <li>Promises</li>
 </ul>
 </li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Testing &amp; Debugging</title>
+            <link>https://haleyjung.github.io/posts/2021/12/testing-debugging/</link>
+            <pubDate>Thu, 09 Dec 2021 00:08:35 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/testing-debugging/</guid>
+            <description>Types of Testing  Unit testing Integrations Testing End to End Testing AB Testing  Debugging Algorithm Debugging: Process in which we identify and resolve problems and misbehaviors
+ Reproduce the bug before you start changing code Understand stack traces from error messages Write unit tests that reproduces the bug Recognize and know your error codes Research using Google Pair program with others/Whiteboard Repeat the process  Error Types TypeError: Cannot read property &amp;lsquo;property&amp;rsquo; of undefined  Occurs when you try to access a property or a method in an undefined object Fix: preinitialize values during object construction or initialization, if possible.</description>
+            <content type="html"><![CDATA[<h2 id="types-of-testing">Types of Testing</h2>
+<ul>
+<li>Unit testing</li>
+<li>Integrations Testing</li>
+<li>End to End Testing</li>
+<li>AB Testing</li>
+</ul>
+<h2 id="debugging-algorithm">Debugging Algorithm</h2>
+<p>Debugging: Process in which we identify and resolve problems and misbehaviors</p>
+<ol>
+<li>Reproduce the bug before you start changing code</li>
+<li>Understand stack traces from error messages</li>
+<li>Write unit tests that reproduces the bug</li>
+<li>Recognize and know your error codes</li>
+<li>Research using Google</li>
+<li>Pair program with others/Whiteboard</li>
+<li>Repeat the process</li>
+</ol>
+<h2 id="error-types">Error Types</h2>
+<h3 id="typeerror-cannot-read-property-property-of-undefined">TypeError: Cannot read property &lsquo;property&rsquo; of undefined</h3>
+<ul>
+<li>Occurs when you try to access a property or a method in an undefined object</li>
+<li>Fix: preinitialize values during object construction or initialization, if possible.</li>
+</ul>
+<h3 id="typeerror-cannot-read-property-null-of-null">TypeError: Cannot read property &lsquo;null&rsquo; of null</h3>
+<ul>
+<li>Occurs when you call a property or method on a null object</li>
+<li>Fix: preinitialize values during object construction or initialization, if possible.</li>
+</ul>
+<h3 id="typeerror-assignment-to-constant-variable">TypeError: Assignment to constant variable</h3>
+<ul>
+<li>Occurs when you are trying to reassign a constant variable</li>
+<li>Fix: Use let instead of const when you want to mutate the variable later on</li>
+</ul>
+<h3 id="referenceerror-variable-is-not-defined">ReferenceError: &lsquo;variable&rsquo; is not defined</h3>
+<ul>
+<li>Occurs when you are accessing a variable that you do not have access to due to scoping</li>
+<li>Fix: Apply the rules of scoping. Variables declared in a function are not accessible outside of the function.</li>
+<li>Example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">const sumNum <span style="color:#f92672">=</span> (nums) <span style="color:#f92672">=&gt;</span> {
+    let output <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#a6e22e">for </span>(let num of nums) {
+        output <span style="color:#f92672">+=</span> num;
+    }
+    return output;
+}
+<span style="color:#a6e22e">console.log</span>(output;)
+</code></pre></div><h3 id="infinite-loop">Infinite Loop</h3>
+<ul>
+<li>Occurs when your loop existing condition is always true no matter what type of step you take</li>
+<li>Fix: Apply the rules of scoping. Variables declared in a function are not accessible outside of the function.</li>
+<li>Example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">while </span>(<span style="color:#ae81ff">0</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#a6e22e">console.log</span>(<span style="color:#e6db74">&#39;Yay&#39;</span>);
+}
+
+let x <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>;
+let y <span style="color:#f92672">=</span> x;
+<span style="color:#a6e22e">while </span>(x <span style="color:#f92672">&gt;=</span> y) {
+    <span style="color:#a6e22e">console.log</span>(<span style="color:#e6db74">&#39;Whoohoo&#39;</span>);
+    x <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+}
+</code></pre></div><h2 id="other-keywords">Other keywords</h2>
+<ul>
+<li>A: Added - this is a new file that has been added to the repository</li>
+<li>M: Modified - an existing file has been changed</li>
+<li>D: Deleted - a file has been deleted</li>
+<li>U: Untracked - the file is new or has been changed but has not been added to the repository yet</li>
+<li>C: Conflict - there is a conflict in the file</li>
+<li>R: Renamed - the file has been renamed</li>
+<li>S: Submodule - in repository exists another subrepository</li>
 </ul>
 ]]></content>
         </item>
