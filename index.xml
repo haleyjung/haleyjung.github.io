@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 11 Jan 2022 23:21:14 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 00:08:35 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing &amp; Debugging</title>
+      <link>https://haleyjung.github.io/posts/2022/01/testing-debugging/</link>
+      <pubDate>Wed, 12 Jan 2022 00:08:35 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/testing-debugging/</guid>
+      <description>Types of Testing  Unit testing Integrations Testing End to End Testing AB Testing  Debugging Algorithm Debugging: Process in which we identify and resolve problems and misbehaviors
+ Reproduce the bug before you start changing code Understand stack traces from error messages Write unit tests that reproduces the bug Recognize and know your error codes Research using Google Pair program with others/Whiteboard Repeat the process  Error Types TypeError: Cannot read property &amp;lsquo;property&amp;rsquo; of undefined  Occurs when you try to access a property or a method in an undefined object Fix: preinitialize values during object construction or initialization, if possible.</description>
+    </item>
+    
     <item>
       <title>ESlint</title>
       <link>https://haleyjung.github.io/posts/2022/01/eslint/</link>
@@ -47,7 +57,7 @@ It is a Behavior Driven Development testing framework: i.e. Regardless of which 
       
       <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
       <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
-How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-namehu $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin master </description>
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-namehu $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main </description>
     </item>
     
     <item>
@@ -99,15 +109,6 @@ Principal Terms  class: in object-oriented programming, a category of related ob
 F.O. Isinkaye et al., &amp;ldquo;Recommendation systems: Principles, methods and evaluation,&amp;rdquo; Egyptian Informatics Journal, Cairo University, 13 March 2015.
 &amp;ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&amp;rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.
 To note, I&amp;rsquo;ll be continuously adding more of the latest articles as references.</description>
-    </item>
-    
-    <item>
-      <title>Recommendation Engine: The Introduction</title>
-      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-the-introduction/</link>
-      <pubDate>Thu, 25 Nov 2021 16:56:37 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-the-introduction/</guid>
-      <description>I&amp;rsquo;m at the airport right now, summarizing what I read on the plane about recommendation engine algorithm, as I wait for my next flight. Last night, I opened the Netflix app to download shows I will watch on the plane. I then saw a new feature in the &amp;lsquo;Downloads&amp;rsquo; section that will download a personalized selection of movies and shows for me so that there is always a show for me to watch with or without internet connection!</description>
     </item>
     
   </channel>
