@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scoping on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/scoping/</link>
+    <description>Recent content in Scoping on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 20 Dec 2021 15:12:08 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/scoping/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional Programming</title>
+      <link>https://haleyjung.github.io/posts/2021/12/functional-programming/</link>
+      <pubDate>Mon, 20 Dec 2021 15:12:08 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/functional-programming/</guid>
+      <description>Paradigm &amp;amp; Principles JavaScript can be written in either a declarative and imperative style
+Declarative (Functional Programming)  Focuses on what to execute / what is being done Abstracts control flow (how) Focuses on data flow Code is composed of expressions: a piece of code that evaluates to some value  Imperative (Object Oriented Programming)  Defines control flow Specific steps to achieve a result Code is composed of statements: a piece of code that performs some action  Paradigm: MODEL  Nowadays functional programming is more popular Some programming languages are explicitly functional All code written in these languges must follow functional principles (e.</description>
+    </item>
+    
+  </channel>
+</rss>

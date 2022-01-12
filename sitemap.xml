@@ -53,11 +53,20 @@
     <loc>https://haleyjung.github.io/posts/2022/01/jasmine/</loc>
     <lastmod>2022-01-08T14:38:40-05:00</lastmod>
   </url><url>
+    <loc>https://haleyjung.github.io/tags/functional-programming/</loc>
+    <lastmod>2021-12-20T15:12:08-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/functional-programming/</loc>
     <lastmod>2021-12-20T15:12:08-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/untagged/</loc>
+    <loc>https://haleyjung.github.io/tags/hoisting/</loc>
     <lastmod>2021-12-20T15:12:08-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/scoping/</loc>
+    <lastmod>2021-12-20T15:12:08-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/github/</loc>
+    <lastmod>2021-12-12T15:32:37-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/hugo/</loc>
     <lastmod>2021-12-12T15:32:37-05:00</lastmod>
@@ -101,11 +110,14 @@
     <loc>https://haleyjung.github.io/posts/2021/11/recommendation-engine-the-introduction/</loc>
     <lastmod>2021-11-25T16:56:37-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/github/</loc>
-    <lastmod>2021-11-24T00:03:33-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/missing-contributions-on-github/</loc>
     <lastmod>2021-11-24T00:03:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/git/</loc>
+    <lastmod>2021-11-23T16:40:02-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/submodule/</loc>
+    <lastmod>2021-11-23T16:40:02-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/submodules/</loc>
     <lastmod>2021-11-23T16:40:02-05:00</lastmod>
