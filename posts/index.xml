@@ -6,8 +6,52 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 12 Jan 2022 00:08:35 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 12 Jan 2022 10:26:29 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Problem Solving Skills</title>
+            <link>https://haleyjung.github.io/posts/2022/01/problem-solving-skills/</link>
+            <pubDate>Wed, 12 Jan 2022 10:26:29 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/problem-solving-skills/</guid>
+            <description>IOCE: Input, Output, Constraints, Edge Cases  After understanding what the prompt is, list the input, output, constraints, and edge cases before planning the solution.  Strategy(s): How can I get from my input to my output?  A moment of being extra verbal and thinking out loud to brainstorm strategies After brainstorming the first strategy (write quick notes about it to remember), I can also come up with a second strategy, then identify trade-off.</description>
+            <content type="html"><![CDATA[<h2 id="ioce-input-output-constraints-edge-cases">IOCE: Input, Output, Constraints, Edge Cases</h2>
+<ul>
+<li>After understanding what the prompt is, list the input, output, constraints, and edge cases before planning the solution.</li>
+</ul>
+<h2 id="strategys-how-can-i-get-from-my-input-to-my-output">Strategy(s): How can I get from my input to my output?</h2>
+<ul>
+<li>A moment of being extra verbal and thinking out loud to brainstorm strategies</li>
+<li>After brainstorming the first strategy (write quick notes about it to remember), I can also come up with a second strategy, then identify trade-off.</li>
+<li>I should always choose that seems the easiest to get to the naive (easy) solution even if it’s not the most efficient. Pick the one that will get me started working towards a working functional product. Afterwards, if it’s not good enough, I can implement the second strategy and compare the results.</li>
+<li>Optional step of ‘making a diagram’ to verify my strategies by drawing it out.</li>
+</ul>
+<h2 id="tests-sample-input-sample-output">Tests: sample input, sample output</h2>
+<ul>
+<li>Take the sample input and invoke it, and make a note of what I expect the output should be.</li>
+<li>e.g. ‘Expect <em>functionName</em> invoked with these given inputs to be <em>this</em> output..’</li>
+</ul>
+<h2 id="pseudocode">Pseudocode</h2>
+<ul>
+<li>One line of plain English pseudocode per line of actual code.</li>
+<li>Strategy and implementation should be separate</li>
+<li>Write inside the shell of the function that we are going to implement</li>
+<li>Indent the comment for if/else statements as well as anything that’s a block with the code inside</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Declare a result object
+</span><span style="color:#75715e">// Iterate through the collection. For each item:
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Do thing 1
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Do thing 2
+</span><span style="color:#75715e">// Return the result object
+</span></code></pre></div><h2 id="code">Code</h2>
+<ul>
+<li>Writing code is translating instructions into a language that a computer can understand</li>
+<li>Translate my thoughts into the language the computer can understand</li>
+</ul>
+<h2 id="refactor">Refactor</h2>
+]]></content>
+        </item>
         
         <item>
             <title>Testing &amp; Debugging</title>
@@ -229,6 +273,526 @@ toBe() is one of Jasmine matchers that compare a value from the code with an exp
 <p><a href="https://www.guru99.com/node-js-testing-jasmine.html">Hartman, James. ”Jasmine Tutorial: Jasmine Framework, Unit Testing with Example,” Guru99, December 18, 2021.</a></p>
 <p><a href="https://medium.com/@mocktarissa/introduction-to-unittesting-with-jasmine-part-i-a621853f9122">Issa, Mocktar. ”Introduction to UnitTesting with Jasmine. (Part I),” Medium, December 10, 2019.</a></p>
 <p><a href="https://www.testim.io/blog/jasmine-js-a-from-scratch-tutorial-to-start-testing/">“Jasmine JS: Start Testing From-Scratch,” Testim, July 30, 2021.</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Functional Programming</title>
+            <link>https://haleyjung.github.io/posts/2021/12/functional-programming/</link>
+            <pubDate>Mon, 20 Dec 2021 15:12:08 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2021/12/functional-programming/</guid>
+            <description>Paradigm &amp;amp; Principles JavaScript can be written in either a declarative and imperative style
+Declarative (Functional Programming)  Focuses on what to execute / what is being done Abstracts control flow (how) Focuses on data flow Code is composed of expressions: a piece of code that evaluates to some value  Imperative (Object Oriented Programming)  Defines control flow Specific steps to achieve a result Code is composed of statements: a piece of code that performs some action  Paradigm: MODEL  Nowadays functional programming is more popular Some programming languages are explicitly functional All code written in these languges must follow functional principles (e.</description>
+            <content type="html"><![CDATA[<h2 id="paradigm--principles">Paradigm &amp; Principles</h2>
+<p>JavaScript can be written in either a declarative and imperative style</p>
+<h3 id="declarative-functional-programming">Declarative (Functional Programming)</h3>
+<ul>
+<li>Focuses on what to execute / what is being done</li>
+<li>Abstracts control flow (how)</li>
+<li>Focuses on data flow</li>
+<li>Code is composed of <em>expressions</em>: a piece of code that evaluates to some value</li>
+</ul>
+<h3 id="imperative-object-oriented-programming">Imperative (Object Oriented Programming)</h3>
+<ul>
+<li>Defines control flow</li>
+<li>Specific steps to achieve a result</li>
+<li>Code is composed of <em>statements</em>: a piece of code that performs some action</li>
+</ul>
+<h3 id="paradigm-model">Paradigm: MODEL</h3>
+<ul>
+<li>Nowadays functional programming is more popular</li>
+<li>Some programming languages are explicitly functional</li>
+<li>All code written in these languges must follow functional principles (e.g. Cloure, Golang, JS, Scala, Haskell)</li>
+<li>Better to stick with one paradigm otherwise it becomes difficult to understand the entire code</li>
+</ul>
+<h2 id="pure-vs-impure-functions">Pure vs. Impure Functions</h2>
+<p>A pure function is a function without any side effects.</p>
+<p>An impure function is a function that contains one or more side effects.</p>
+<h3 id="pure-functions">Pure Functions</h3>
+<ul>
+<li>Foundations of functional programming</li>
+<li>Given the same inputs, always returns the same output
+<ul>
+<li>same arguments =&gt; same return value</li>
+<li>Consistent results</li>
+</ul>
+</li>
+<li>Have referential transparency: can replace function call with its return value without changing the meaning of the program (can be reused)</li>
+<li>No side-effects (no ERROR)</li>
+</ul>
+<pre tabindex="0"><code>const add = (x,y) =&gt; x + y;
+add(x: 2, y: 2) ==&gt; 4
+const substract = (x,y) =&gt; x + y;
+</code></pre><h3 id="impure-functions">Impure Functions</h3>
+<ul>
+<li>BAD PRACTICE</li>
+<li>The function mutates the original state</li>
+<li>Depends on the existence of &lsquo;x&rsquo; variable, so this causes side effect (ReferenceERR if x is not defined)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">24</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">impureAdd</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">y</span> =&gt; <span style="color:#a6e22e">x</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">y</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">impureDouble</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">y</span> =&gt; <span style="color:#a6e22e">x</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">y</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">impureDouble</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">x</span> =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;doubling&#39;</span>, <span style="color:#a6e22e">x</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+}
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Pure Functions</th>
+<th>Impure Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has no side effects</td>
+<td>May have side effects</td>
+</tr>
+<tr>
+<td>Returns the same result if same arguments are passed in no matter how many times it runs</td>
+<td>May return different result if the same arguments are passed in on multiple runs</td>
+</tr>
+<tr>
+<td>Always returns something</td>
+<td>May take effect without returning anything</td>
+</tr>
+<tr>
+<td>Can be tested easily</td>
+<td>May be more difficult to test due to its potential side effects</td>
+</tr>
+</tbody>
+</table>
+<p><strong>References</strong>
+<a href="https://www.educative.io/edpresso/pure-function-vs-impure-function">Sofela, Oluwatobi, &ldquo;Pure functino vs. impure function&rdquo;, Educative.io</a>
+<a href="https://dev.to/sanspanic/pure-vs-impure-functions-50aj">Spanik, Sandra, &ldquo;Pure vs Impure Functions,&rdquo; DEV, May 20, 2021</a></p>
+<h2 id="fuctional-programming-core-principles">Fuctional Programming: Core Principles</h2>
+<h3 id="avoid-side-effects-ie-mutating-original-var">Avoid side-effects (i.e. mutating original var)</h3>
+<ul>
+<li>Functions don&rsquo;t happen synchronously (i.e. line by line; in real time)</li>
+<li>Side effects occur when a function modifies a value outside its local environment (lexical scope)</li>
+<li>The function has some observable effect besides its return value (intended or unintended)</li>
+<li>e.g. Modifying any external variable or object property / Triggering any external process</li>
+<li>FP avoids side effects because it makes the effects of a program easier to <em>understand, readable, debug, and test</em></li>
+<li>Knowledge of a function&rsquo;s context and history are not required: only its arguments and internal logic</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">xArr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">multipleX</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">xArr</span>, <span style="color:#a6e22e">multipler</span>) <span style="color:#f92672">-</span> <span style="color:#f92672">&gt;</span> {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">copyArr</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">xArr</span>];
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">copyArr</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>) {
+        <span style="color:#a6e22e">copyArr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">copyArr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">multiplier</span>;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">copyArr</span>;
+}
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Original: &#39;</span>, <span style="color:#a6e22e">xArr</span>)
+<span style="color:#f92672">---&gt;</span> <span style="color:#a6e22e">Original</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">multiplyX</span>(<span style="color:#a6e22e">xArr</span>, <span style="color:#a6e22e">multiplier</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2</span>));
+<span style="color:#f92672">---&gt;</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>]
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;DOES THIS CHANGE&#34;</span>, <span style="color:#a6e22e">xArr</span>);
+<span style="color:#f92672">---&gt;</span> <span style="color:#a6e22e">This</span> <span style="color:#a6e22e">is</span> <span style="color:#a6e22e">to</span> <span style="color:#a6e22e">check</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">ode</span> <span style="color:#a6e22e">impementation</span> <span style="color:#66d9ef">of</span> <span style="color:#a6e22e">avoiding</span> <span style="color:#a6e22e">side</span> <span style="color:#a6e22e">effect</span> <span style="color:#a6e22e">works</span>. <span style="color:#a6e22e">The</span> <span style="color:#a6e22e">output</span> <span style="color:#a6e22e">is</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], <span style="color:#a6e22e">which</span> <span style="color:#a6e22e">means</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">original</span> <span style="color:#a6e22e">array</span> <span style="color:#a6e22e">didn</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">t</span> <span style="color:#a6e22e">mutate</span>, <span style="color:#a6e22e">and</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">side</span> <span style="color:#a6e22e">effect</span> <span style="color:#a6e22e">was</span> <span style="color:#a6e22e">avoided</span>.
+</code></pre></div><blockquote>
+<p><em>SPREAD ES6 NOTATION TO CREATE A COPY: [&hellip;xArr]</em> &gt;
+**You should always copy an array when you bring it into a function. So then you can cut it up from there. Additional note, JavaScript is single-threaded. **</p>
+</blockquote>
+<h3 id="avoid-shared-state">Avoid shared state</h3>
+<ul>
+<li>Shared state is any variable, object, or property that exsits in a shared scope</li>
+<li>Includes global and closure scopes</li>
+<li>Avoiding shared state has a number of benefits</li>
+<li>Function calls are completely independent
+<ul>
+<li>Dramatically simplifies changes &amp; refactoring</li>
+</ul>
+</li>
+<li>The order and timing of function calls doesn&rsquo;t change their result
+<ul>
+<li>Avoids timing dependencies and race conditions</li>
+</ul>
+</li>
+<li>Prevents ripple effects of modifying part of the code</li>
+<li>For asynchronous JavaScript that allows multiple function calls, we need to worry about the race conditions</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">temperature</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">70</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">increaseTempByFive</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span> =&gt; <span style="color:#a6e22e">temp</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">decreaseTempByFive</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span> =&gt; <span style="color:#a6e22e">temp</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>;
+
+<span style="color:#a6e22e">temperature</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">increaseTempByFive</span>(<span style="color:#a6e22e">temperature</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;First Call&#39;</span>, <span style="color:#a6e22e">temperature</span>);
+<span style="color:#f92672">---&gt;</span> <span style="color:#a6e22e">First</span> <span style="color:#a6e22e">Call</span> <span style="color:#ae81ff">75</span>
+
+<span style="color:#75715e">//What happens if I add setTimeOut?
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">setTimeOut</span>(<span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> () =&gt; {
+    <span style="color:#a6e22e">temperature</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">increaseTempByFive</span>(<span style="color:#a6e22e">temperature</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Second Call&#39;</span>, <span style="color:#a6e22e">temperature</span>);
+}, <span style="color:#a6e22e">timeout</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">2000</span>);
+<span style="color:#f92672">---&gt;</span> <span style="color:#a6e22e">Second</span> <span style="color:#a6e22e">Call</span> <span style="color:#ae81ff">80</span> (<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">Third</span> <span style="color:#a6e22e">Code</span> <span style="color:#a6e22e">below</span> <span style="color:#a6e22e">doesn</span><span style="color:#e6db74">&#39;t exist*)
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">setTimeOut(handler: () =&gt; {
+</span><span style="color:#e6db74">    temperature = decreaseTempByFive(temperature);
+</span><span style="color:#e6db74">    console.log(&#39;</span><span style="color:#a6e22e">Third</span> <span style="color:#a6e22e">Call</span><span style="color:#e6db74">&#39;, temperature);
+</span><span style="color:#e6db74">}, timeout: 1000);
+</span><span style="color:#e6db74">---&gt; The issue of shared state: the function calls won&#39;</span><span style="color:#a6e22e">t</span> <span style="color:#a6e22e">be</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">this</span> <span style="color:#a6e22e">order</span> <span style="color:#a6e22e">because</span> <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">timeout</span> <span style="color:#a6e22e">is</span> <span style="color:#ae81ff">1</span> <span style="color:#a6e22e">sec</span> <span style="color:#a6e22e">instead</span> <span style="color:#66d9ef">of</span> <span style="color:#ae81ff">2</span>; <span style="color:#a6e22e">the</span> <span style="color:#a6e22e">state</span> <span style="color:#a6e22e">itself</span> <span style="color:#a6e22e">isn</span><span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">t</span> <span style="color:#a6e22e">updating</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">real</span> <span style="color:#a6e22e">time</span>.
+<span style="color:#f92672">---&gt;</span> <span style="color:#a6e22e">Third</span> <span style="color:#a6e22e">Call</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">executed</span> <span style="color:#a6e22e">before</span> <span style="color:#a6e22e">Second</span> <span style="color:#a6e22e">Call</span>
+<span style="color:#a6e22e">and</span> <span style="color:#a6e22e">will</span> <span style="color:#a6e22e">be</span> <span style="color:#a6e22e">Third</span> <span style="color:#a6e22e">Call</span> <span style="color:#ae81ff">73</span>, <span style="color:#a6e22e">Second</span> <span style="color:#a6e22e">Call</span> <span style="color:#ae81ff">78</span>
+</code></pre></div><h3 id="avoid-mutating-state-immutability">Avoid mutating state (Immutability)</h3>
+<ul>
+<li>A mutable object is an object whose properties (state) can be modified after it is created</li>
+<li>An immutable object is an object whose properties cannot be changed after it is created
+<ul>
+<li>Create copies of objects or new objects if they need to be modified</li>
+<li>Return the new object and leave the original unmodified</li>
+</ul>
+</li>
+<li>In JS, objects are inherently mutable
+<ul>
+<li>It&rsquo;s up to engineers to enforce the principle of immutability when writing code in a functional programming style</li>
+</ul>
+</li>
+<li><strong>IMPORTANT</strong>
+Mutating state directly can lead to <em>lossy data flow</em>
+<ul>
+<li>Harder to track changes to state/history</li>
+<li>Harder to debug issues with state</li>
+<li>Can create unexpected side effects</li>
+</ul>
+</li>
+<li>Enforcing immutability helps curtail these issues
+<ul>
+<li>Helps ensure that the operations that one function is performing doesn&rsquo;t interfere with another</li>
+</ul>
+</li>
+</ul>
+<p><strong>Are there ways of doing variable assignment (alternatives to var) that might help us avoid mutations?</strong></p>
+<ul>
+<li><em>Object.freeze</em> allows us to freeze the object and prevents us from updating or chagning the original copy, BUT it only acts upon the object&rsquo;s key unless specified.</li>
+<li>const doesn&rsquo;t prevent us reassigning the pre defined values or properties</li>
+</ul>
+<h3 id="use-first-class--higher-order-functions">Use first-class &amp; higher-order functions</h3>
+<h4 id="first-class-functions">First Class Functions</h4>
+<ul>
+<li>A programming language feature, allowing functions to be:
+<ul>
+<li>Assigned to variables</li>
+<li>Passed as arguments to other functions</li>
+<li>Returned from other functions</li>
+<li>Stored in data structures</li>
+</ul>
+</li>
+<li>They are a necessity for functional programming</li>
+<li>JS supports first class functions</li>
+<li>In JS, <em>all functions are first class functions</em></li>
+</ul>
+<h4 id="higher-order-functions">Higher Order Functions</h4>
+<ul>
+<li>A function that takes another function as an argument or returns another function or does both</li>
+<li>Often used to
+<ul>
+<li>Abstract or isolate functionality</li>
+<li>Create utiltiy functions taht are relatively generic and can operate on a variety of data types</li>
+<li>Make code mroe semantic and easiser to read</li>
+</ul>
+</li>
+<li>Examples
+<ul>
+<li>Callback functions</li>
+<li>Event listeners</li>
+<li>Promises</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">func</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">func2</span>, <span style="color:#a6e22e">func3</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">func1</span>(<span style="color:#ae81ff">22</span>, <span style="color:#ae81ff">10</span>));
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">func2</span>(<span style="color:#ae81ff">32</span>, <span style="color:#ae81ff">10</span>));
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">func3</span>());
+  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;THIS WORKS!&#39;</span>;
+}
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">main</span>(<span style="color:#a6e22e">add</span>, <span style="color:#a6e22e">substract</span>, <span style="color:#a6e22e">name</span>))
+</code></pre></div><h2 id="function-declaration-vs-function-expression">Function Declaration vs. Function Expression</h2>
+<p><strong>Function Declaration</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+}
+</code></pre></div><p><strong>Function Expression</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">subtract</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>;
+}
+
+<span style="color:#75715e">// invocation
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">sum</span> (<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>); <span style="color:#75715e">// =&gt; 10
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">substract</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>); <span style="color:#75715e">// =&gt; 2
+</span></code></pre></div><h2 id="benefits--downsides-of-functional-programming">Benefits &amp; Downsides of Functional Programming</h2>
+<p><strong>Benefits</strong></p>
+<ul>
+<li>More concise</li>
+<li>More predictable</li>
+<li>More semantic</li>
+<li>Easier to test</li>
+</ul>
+<p><strong>Downsides</strong></p>
+<ul>
+<li>Can seem more dense</li>
+<li>Lots of terminology/academic lingo</li>
+<li>High learning curve</li>
+</ul>
+<h2 id="using-functional-programming">Using Functional Programming</h2>
+<h3 id="native-array-methods">Native Array Methods</h3>
+<ul>
+<li>One of the quickest ways to start using functional programming principles in JS is through the use of native array methods
+<ul>
+<li>Built-in methods (functions) that perform various operations on arrays</li>
+<li>Some of which follow functional principles</li>
+</ul>
+</li>
+<li>All of these methods are chained (through dot notation) onto array objects</li>
+<li>These are alternatives to traditional loops.</li>
+<li>They are more powerful, semantic and readable</li>
+</ul>
+<h3 id="arrayprototypeforeach">Array.prototype.forEach()</h3>
+<ul>
+<li>The forEach() method executes a provided function once for each array element.</li>
+<li>Same as a for loop. It&rsquo;s been embedded in .forEach()</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array1</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;a&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;c&#39;</span>];
+
+<span style="color:#75715e">// old way; BAD PRACTICE
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array1</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array1</span>[<span style="color:#a6e22e">i</span>];
+}
+
+<span style="color:#a6e22e">array1</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">element</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">element</span>));
+
+<span style="color:#75715e">// expected output: &#34;a&#34;
+</span><span style="color:#75715e">// expected output: &#34;b&#34;
+</span><span style="color:#75715e">// expected output: &#34;c&#34;
+</span></code></pre></div><p>Syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Arrow function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">element</span>) =&gt; { ... } )
+<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>) =&gt; { ... } )
+<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) =&gt; { ... } )
+
+<span style="color:#75715e">// Callback function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">callbackFn</span>)
+<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">callbackFn</span>, <span style="color:#a6e22e">thisArg</span>)
+
+<span style="color:#75715e">// Inline callback function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>) { ... })
+<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>) { ... })
+<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>){ ... })
+<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) { ... }, <span style="color:#a6e22e">thisArg</span>)
+</code></pre></div><h3 id="arrayprototypemap">Array.prototype.map()</h3>
+<ul>
+<li>
+<p>The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.</p>
+</li>
+<li>
+<p>Same as iterating over an array with a for loop, and mutating the input with certain condition</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array1</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">16</span>];
+
+<span style="color:#75715e">// Old way; BAD PRACTICE
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array1</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array1</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>;
+}
+
+<span style="color:#75715e">// pass a function to map
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">map1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array1</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">x</span> =&gt; <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">map1</span>);
+<span style="color:#75715e">// expected output: Array [2, 8, 18, 32]
+</span></code></pre></div><p>Syntax:</p>
+<ul>
+<li>Requires an array to &lsquo;map over&rsquo; and a callback function to apply to each element</li>
+<li>Same structure as .forEach()</li>
+<li>This callback function takes 3 possible parameters:
+<ul>
+<li>Required: the current element in the iteration</li>
+<li>Optional: the current index in the iteration</li>
+<li>Optional: the input array that&rsquo;s being mapped over</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Arrow function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">element</span>) =&gt; { ... })
+<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>) =&gt; { ... })
+<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) =&gt; { ... })
+
+<span style="color:#75715e">// Callback function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">callbackFn</span>)
+<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">callbackFn</span>, <span style="color:#a6e22e">thisArg</span>)
+
+<span style="color:#75715e">// Inline callback function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>) { ... })
+<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>) { ... })
+<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>){ ... })
+<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) { ... }, <span style="color:#a6e22e">thisArg</span>)
+</code></pre></div><h3 id="arrayprototypefilter">Array.prototype.filter()</h3>
+<ul>
+<li>The filter() method creates a new array with all elements that pass the test implemented by the provided function.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">words</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;spray&#39;</span>, <span style="color:#e6db74">&#39;limit&#39;</span>, <span style="color:#e6db74">&#39;elite&#39;</span>, <span style="color:#e6db74">&#39;exuberant&#39;</span>, <span style="color:#e6db74">&#39;destruction&#39;</span>, <span style="color:#e6db74">&#39;present&#39;</span>];
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">words</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">word</span> =&gt; <span style="color:#a6e22e">word</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">6</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">result</span>);
+<span style="color:#75715e">// expected output: Array [&#34;exuberant&#34;, &#34;destruction&#34;, &#34;present&#34;]
+</span><span style="color:#75715e"></span>
+</code></pre></div><p>Syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Arrow function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">element</span>) =&gt; { ... } )
+<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>) =&gt; { ... } )
+<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) =&gt; { ... } )
+
+<span style="color:#75715e">// Callback function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">callbackFn</span>)
+<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">callbackFn</span>, <span style="color:#a6e22e">thisArg</span>)
+
+<span style="color:#75715e">// Inline callback function
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>) { ... })
+<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>) { ... })
+<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>){ ... })
+<span style="color:#a6e22e">filter</span>(<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">callbackFn</span>(<span style="color:#a6e22e">element</span>, <span style="color:#a6e22e">index</span>, <span style="color:#a6e22e">array</span>) { ... }, <span style="color:#a6e22e">thisArg</span>)
+</code></pre></div><h3 id="arrayprototypereduce">Array.prototype.reduce()</h3>
+<ul>
+<li>
+<p>The reduce() method executes a user-supplied “reducer” callback function on each element of the array, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.</p>
+</li>
+<li>
+<p>Perhaps the easiest-to-understand case for reduce() is to return the sum of all the elements in an array.</p>
+</li>
+<li>
+<p>The reducer walks through the array element-by-element, at each step adding the current array value to the result from the previous step (this result is the running sum of all the previous steps) — until there are no more elements to add.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">array1</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>];
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">reducer</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">previousValue</span>, <span style="color:#a6e22e">currentValue</span>) =&gt; <span style="color:#a6e22e">previousValue</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">currentValue</span>;
+
+<span style="color:#75715e">// 1 + 2 + 3 + 4
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">array1</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#a6e22e">reducer</span>));
+<span style="color:#75715e">// expected output: 10
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 5 + 1 + 2 + 3 + 4
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">array1</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#a6e22e">reducer</span>, <span style="color:#ae81ff">5</span>));
+<span style="color:#75715e">// expected output: 15
+</span></code></pre></div><h2 id="problem-solving-tactics-data-types--structures">Problem Solving Tactics: Data Types &amp; Structures</h2>
+<h3 id="common-data-input-typesdata-structure">Common Data Input Types/Data Structure</h3>
+<ul>
+<li>Lists</li>
+<li>Subsets</li>
+<li>Trees</li>
+<li>Graphs</li>
+<li>Points</li>
+<li>Polygons</li>
+<li>Strings</li>
+</ul>
+<h3 id="lists">Lists</h3>
+<ul>
+<li>Ordered, sequential or non-sequential items
+<ul>
+<li>Ordered, or arranged items in a list</li>
+<li>e.g. [1, 2, 3, 4] and [4, 3, 2, 1] are both permutations that are not the same</li>
+</ul>
+</li>
+</ul>
+<h3 id="subsets">Subsets</h3>
+<ul>
+<li>Collections of items with no order and no duplicates that is part of a larger set
+<ul>
+<li>e.g. {1, 2} and {3, 4} are subsets of the larger set {1, 2, 3, 4}</li>
+</ul>
+</li>
+</ul>
+<h3 id="graphs">Graphs</h3>
+<ul>
+<li>Data structure that represent multiple connections and relationships between objects</li>
+<li>Graphs can be directed, undirected, cyclical, and acyclical</li>
+</ul>
+<h2 id="hoisting">Hoisting</h2>
+<blockquote>
+<p>Hoisting is an internal memory management technique used by JS engines. When defining a variable name, we are able to consider two options for structuring our code.</p>
+</blockquote>
+<ol>
+<li>Define now, assign now</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>;
+</code></pre></div><ol start="2">
+<li>Define now, assign later</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span>;
+<span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>;
+</code></pre></div><blockquote>
+<p>What happens if we reference a variable before it&rsquo;s initialized?</p>
+</blockquote>
+<ol>
+<li>Define now, assign now</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">myName</span>; <span style="color:#75715e">// =&gt; ???
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>;
+</code></pre></div><ol start="2">
+<li>Define now, assign later</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">myName</span>; <span style="color:#75715e">// =&gt; ???
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span>;
+<span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>;
+</code></pre></div><blockquote>
+<p>Referencing a variable prior to its initialization results in <em>undefined</em>. Undefined means there is a reserved space, even if there is no data assigned to it. On the other hand, referenceError means nothing has ever been reserved for it.</p>
+</blockquote>
+<ol>
+<li>Define now, assign now</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">myName</span>; <span style="color:#75715e">// =&gt; undefined
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>;
+</code></pre></div><ol start="2">
+<li>Define now, assign later</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">myName</span>; <span style="color:#75715e">// =&gt; undefined
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span>;
+<span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>;
+</code></pre></div><p><strong>More examples:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Haley&#39;</span>;
+<span style="color:#a6e22e">myName</span>; <span style="color:#75715e">// =&gt; &#39;Haley&#39; === variable myName has been initialized
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>); <span style="color:#75715e">// =&gt; Error: add is not a function === has not been initialized
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>; <span style="color:#75715e">// =&gt; initialize &#39;add&#39; and update its value from undefined to the function body
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>); <span style="color:#75715e">// =&gt; 10
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">substract</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">4</span>); <span style="color:#75715e">// =&gt; 2 === Why does this work? Because variable declarations let and const create variables immune to &#39;early&#39; referencing.
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">substract</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>;
+} <span style="color:#75715e">// =&gt; invokes substract(6, 4)
+</span></code></pre></div><p>To note:</p>
+<ul>
+<li>If &lsquo;var&rsquo; for &lsquo;var add = func&hellip;&rsquo; is changed to &lsquo;let&rsquo;, we will get &lsquo;Error: no access before initialization&rsquo; for the invocation fo add(10, 5) above.</li>
+<li>All variable names (including function expressions) are hoisted to the top of their scope and given values of undefined.</li>
+<li>Function declarations are hosited to the top of their scope, along with their bodies.</li>
+<li>Using let or const instead of var can remove the possibility of unexpectedly yielding undefined in your program.</li>
+</ul>
+<h2 id="scoping">Scoping</h2>
+<ul>
+<li>Scoping exists to follow a principle known as the Principle of Least Privilege. PoLP states that you should expose the minimum amount of information necessary in your program to reduce collisons.</li>
+<li>Scopign is a standard feature found across many different programming languages.</li>
+<li>In JS, scoping is lexical and follows a set of rules.</li>
+</ul>
 ]]></content>
         </item>
         

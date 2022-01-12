@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 12 Jan 2022 00:08:35 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 10:26:29 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Solving Skills</title>
+      <link>https://haleyjung.github.io/posts/2022/01/problem-solving-skills/</link>
+      <pubDate>Wed, 12 Jan 2022 10:26:29 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/problem-solving-skills/</guid>
+      <description>IOCE: Input, Output, Constraints, Edge Cases  After understanding what the prompt is, list the input, output, constraints, and edge cases before planning the solution.  Strategy(s): How can I get from my input to my output?  A moment of being extra verbal and thinking out loud to brainstorm strategies After brainstorming the first strategy (write quick notes about it to remember), I can also come up with a second strategy, then identify trade-off.</description>
+    </item>
+    
     <item>
       <title>Testing &amp; Debugging</title>
       <link>https://haleyjung.github.io/posts/2022/01/testing-debugging/</link>
@@ -51,6 +60,16 @@ It is a Behavior Driven Development testing framework: i.e. Regardless of which 
     </item>
     
     <item>
+      <title>Functional Programming</title>
+      <link>https://haleyjung.github.io/posts/2021/12/functional-programming/</link>
+      <pubDate>Mon, 20 Dec 2021 15:12:08 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/functional-programming/</guid>
+      <description>Paradigm &amp;amp; Principles JavaScript can be written in either a declarative and imperative style
+Declarative (Functional Programming)  Focuses on what to execute / what is being done Abstracts control flow (how) Focuses on data flow Code is composed of expressions: a piece of code that evaluates to some value  Imperative (Object Oriented Programming)  Defines control flow Specific steps to achieve a result Code is composed of statements: a piece of code that performs some action  Paradigm: MODEL  Nowadays functional programming is more popular Some programming languages are explicitly functional All code written in these languges must follow functional principles (e.</description>
+    </item>
+    
+    <item>
       <title>Hugo</title>
       <link>https://haleyjung.github.io/posts/2021/12/hugo/</link>
       <pubDate>Sun, 12 Dec 2021 15:32:37 -0500</pubDate>
@@ -88,27 +107,6 @@ Define Higher Order Functions  Higher order function takes another function as a
       <guid>https://haleyjung.github.io/posts/2021/12/naming-convention/</guid>
       <description>Define Naming conventions are systems of rules to use when naming variables, constants, methods, and other components of codes. With consistent application, it makes code easier to read, understand, and search.
 Principal Terms  class: in object-oriented programming, a category of related objects that share common variables and methods. constant: in computer programming, a value that does not change, or an identifier assigned to represent such a value. method: in object-oriented programming, a procedure or function specific to objects of a particular class.</description>
-    </item>
-    
-    <item>
-      <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>
-      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</link>
-      <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</guid>
-      <description>Netflix&amp;rsquo;s Recommendation Algorithms Overview  Recommendation algorithms are at the core of the Netflix product. They provide our members with personalized suggestions to reduce the amount of time and frustration to find something great content to watch. Because of the importance of our recommendations, we continually seek to improve them by advancing the state-of-the-art in the field. We do this by using the data about what content our members watch and enjoy along with how they interact with our service to get better at figuring out what the next great movie or TV show for them will be.</description>
-    </item>
-    
-    <item>
-      <title>Recommendation Engine: Measurements and Challenges</title>
-      <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</link>
-      <pubDate>Fri, 26 Nov 2021 13:38:29 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/11/recommendation-engine-measurements-and-challenges/</guid>
-      <description>In this post, I&amp;rsquo;ll dive further into the measurements and challenges of a recommendation engine. This post uses references from:
-F.O. Isinkaye et al., &amp;ldquo;Recommendation systems: Principles, methods and evaluation,&amp;rdquo; Egyptian Informatics Journal, Cairo University, 13 March 2015.
-&amp;ldquo;The Netflix Recommender System: Algorithms, Business Value, and Innovation&amp;rdquo;, ACM Transactions on Management Information Systems, Vol. 6, No. 4, Article 13, December 2015.
-To note, I&amp;rsquo;ll be continuously adding more of the latest articles as references.</description>
     </item>
     
   </channel>

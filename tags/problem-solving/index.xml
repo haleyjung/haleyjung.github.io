@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Problem Solving on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/problem-solving/</link>
+    <description>Recent content in Problem Solving on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Jan 2022 10:26:29 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/problem-solving/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Problem Solving Skills</title>
+      <link>https://haleyjung.github.io/posts/2022/01/problem-solving-skills/</link>
+      <pubDate>Wed, 12 Jan 2022 10:26:29 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/problem-solving-skills/</guid>
+      <description>IOCE: Input, Output, Constraints, Edge Cases  After understanding what the prompt is, list the input, output, constraints, and edge cases before planning the solution.  Strategy(s): How can I get from my input to my output?  A moment of being extra verbal and thinking out loud to brainstorm strategies After brainstorming the first strategy (write quick notes about it to remember), I can also come up with a second strategy, then identify trade-off.</description>
+    </item>
+    
+  </channel>
+</rss>
