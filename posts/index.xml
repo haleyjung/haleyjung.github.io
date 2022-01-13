@@ -37,42 +37,76 @@ This is where we can see and inspect every files that the page requests.</descri
 <tr>
 <th>Breakpoint Types</th>
 <th>Use This When You Want to Pause&hellip;</th>
+<th>How to Set the Breakpoint</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Line-of-code</td>
-<td>On an exact region of code</td>
+<td>On the exact region of code that you need to investigate.</td>
+<td>Click the line number column of the code. A blue icon will appear. &lsquo;debugger;&rsquo; can also be called from the code to pause on that line.</td>
 </tr>
 <tr>
 <td>Conditional line-of-code</td>
 <td>On an exact region of code, but only when some other condition is true.</td>
+<td>To set this breakpoint, go to the line of code and right-click in the line number column and select &lsquo;add conditional breakpoint.&rsquo; Enter the condition in the dialog that appears underneath the line of code. An orange icon appears to indicate that the breakpoint has been activated.</td>
 </tr>
 <tr>
 <td>DOM</td>
 <td>On the code that changes or removes a specific DOM node, or its childern.</td>
+<td>To set this, click the Elements tab, go to the element you want to set the breakpoint on, right-click the element, and hover over &lsquo;Break on&rsquo; to select &lsquo;subtree modifications,&rsquo; &lsquo;attribute modifications,&rsquo; or &lsquo;node removal.&rsquo;</td>
 </tr>
 <tr>
-<td>XHR</td>
+<td>XHR/Fetch</td>
 <td>When an XHR URL contains a single pattern (i.e. when the requested URL matches a substring that you provide).</td>
+<td>Click the Sources tab and expand the XHR Breakpoints pane. Click Add breakpoint and enter the string which you want to break on. DevTools pauses when this string is present anywhere in an XHR&rsquo;s request URL. (e.g. org)</td>
 </tr>
 <tr>
 <td>Event Listener</td>
 <td>On the code that runs after an event, such as <em>click</em> is fired.</td>
+<td>Click the Sources tab, expand the Event Listener Breakpoints pane which will show a list of event categories. Check on of these categories to pause whenever any event from that category is fired or expand the category and check a specific event.</td>
 </tr>
 <tr>
 <td>Exception</td>
 <td>On the line of code that is throwing a caught or uncaught exception.</td>
+<td>Click the Sources tab and click &lsquo;Pause on exceptions&rsquo; button, which will then turn blue to indicate that it&rsquo;s been enabled. You can also check the &lsquo;Paul On Caught Exceptions&rsquo; checkbox if you also want to pause on caught exceptions in addition to uncaught ones.</td>
 </tr>
 <tr>
 <td>Function</td>
 <td>Whenever a specific function is called.</td>
+<td>Call &lsquo;debug(functionName)&rsquo; in the code on from the DevTools Console when you want to pause whenever a specific function is called. debug() is equivalent to setting a line-of-code breakpoint on the first line of the function.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="event-listener">Event Listener</h4>
 <p><strong>Event Listener Breakpoints</strong> is a faster and more efficient method to inspect values to find and fix bugs than <strong>console.log()</strong>. A breakpoint lets you pause the code in the middle of its execution and examine all values at that moment in time, even without knowing how the code is structured. I can use various types of breakpoints to pause the code closer to the probable location of the bug.</p>
-<h2 id="step-4-step-through-the-code">Step 4: Step through the code</h2>
+<h4 id="types-of-dom-change-breakpoints">Types of DOM change breakpoints</h4>
+<ul>
+<li>Subtree moditfications: triggered when a child of the currently-selected node is removed or added, or the contents of a child are changed. Not triggered on child node attribute changes, or on any changes to the currently-selected node.</li>
+<li>Attributes modifications: triggered when an attribute is added or removed on the currently-selected node, or when an attribute value changes.</li>
+<li>Node removal: triggered when the currently-selected node is removed.</li>
+</ul>
+<h4 id="xhrfetch-breakpoints">XHR/Fetch breakpoints</h4>
+<p>This is helpful when you see that your page is requesting an incorrect URL and you want to quickly find the AJAX or Fetch source code that is causing the incorrect request.</p>
+<h4 id="function-breakpoints">Function breakpoints</h4>
+<p>You&rsquo;ll get ReferenceError if the function you want to debug is not in scope.</p>
+<ol>
+<li>Set a line-of-code breakpoint somewhere where the function is in scope.</li>
+<li>Trigger the breakpoint.</li>
+<li>Call debug() in the DevTools Console while the code is still paused on your line-of-code breakpoint.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#66d9ef">function</span> () {
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">hey</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;hey&#39;</span>);
+  }
+  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">yo</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;yo&#39;</span>);
+  }
+  <span style="color:#a6e22e">debug</span>(<span style="color:#a6e22e">yo</span>); <span style="color:#75715e">// This works.
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">yo</span>();
+})();
+<span style="color:#a6e22e">debug</span>(<span style="color:#a6e22e">hey</span>); <span style="color:#75715e">// This doesn&#39;t work. hey() is out of scope.
+</span></code></pre></div><h2 id="step-4-step-through-the-code">Step 4: Step through the code</h2>
 <p>Step through the code one line at a time to find out if it&rsquo;s executing in a different order than I expected. This can be done on the <strong>Sources</strong> panel.</p>
 <ul>
 <li>Click <strong>Step into next function call</strong> (the downwards arrow button). This steps through the execution of the affiliated function one line at a time.</li>
@@ -80,11 +114,11 @@ This is where we can see and inspect every files that the page requests.</descri
 </ul>
 <h2 id="step-5-set-a-line-of-code-breakpoint">Step 5: Set a line-of-code breakpoint</h2>
 <p>Line-of-code breakpoint is used for pausing on a specific line of code. Click on the # of the code line and it will get highlighed with a blue tag. This indicates that there is a line-of-code breakpoint on this line and DevTools will now pause before this line of code is executed. This line of code is also highlighted in the Breakpoints section of the debugging pane.</p>
-<p><img src="https://wd.imgix.net/image/admin/99Omb7ALyJB7MfYpuqXp.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: DevTools pauses on the line-of-code breakpoint on line 32&rdquo;, Chrome Developers, January 4, 2017"></p>
+<p><img src="https://wd.imgix.net/image/admin/99Omb7ALyJB7MfYpuqXp.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: DevTools pauses on the line-of-code breakpoint on line 32,&rdquo; Chrome Developers, January 4, 2017"></p>
 <h2 id="step-6-check-variable-values">Step 6: Check variable values</h2>
 <h3 id="method-1-the-scope-pane">Method 1: The Scope pane</h3>
 <p>When you&rsquo;re paused on a line of code, the Scope pane shows you what local and global variables are currently defined, along with the value of each variable. It also shows closure variables, when applicable. Double-click a variable value to edit it. When you&rsquo;re not paused on a line of code, the Scope pane is empty.</p>
-<p><img src="https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: The Scope pane&rdquo;, Chrome Developers, January 4, 2017"></p>
+<p><img src="https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: The Scope pane,&rdquo; Chrome Developers, January 4, 2017"></p>
 <h3 id="method-2-watch-expressions">Method 2: Watch Expressions</h3>
 <p>The &lsquo;Watch&rsquo; tab, found in the debugging pane, allows you to monitor the values of variables over time. Any valid JavaScript expressions can be stored in a Watch Expression.</p>
 <ul>
@@ -103,11 +137,16 @@ This is where we can see and inspect every files that the page requests.</descri
 <li>Save changes with Command+S (Mac)</li>
 <li>Click <strong>Deactivate breakpoints</strong> (the black arrow with cross over it). It should turn blue, indicating that it&rsquo;s active. While this is set, DevTools ignores any breakpoints.</li>
 </ol>
-<h2 id="important-to-note">Important to note</h2>
-<p>This workflow only applies a fix to the code that is <strong>running in your browser</strong>. It won&rsquo;t fix the code for all users that visit your page. To do that, you need to fix the code that&rsquo;s on your servers.</p>
+<p>This entire workflow only applies a fix to the code that is <strong>running in your browser</strong>. It won&rsquo;t fix the code for all users that visit your page. To do that, you need to fix the code that&rsquo;s on your servers.</p>
+<h2 id="snippets">Snippets</h2>
+<p><img src="https://wd.imgix.net/image/admin/P9yNZWUJKt2hUUYsDy1v.png?auto=format&amp;w=845" alt="Basques, Kayce. &ldquo;Run Snippets of JavaScript: The Snippets pane,&rdquo; Chrome Developers, January 4, 2017"></p>
+<p>Snippets are executable scripts that you author, store, and run within DevTools. Use a Snippet if you are repeatedly running the same code in the Console.</p>
+<p>The Snippets pane can be opened from the Sources panel &ndash;&gt; Snippets tab.</p>
+<p>Alternatively, press Command+Shift+P (Mac) to open the Command Menu. Type in &lsquo;Snippets&rsquo; to select &lsquo;Show Snippets&rsquo; and run the command.</p>
+<p>To run a Snippet, manually click &lsquo;Run Snippet&rsquo; button from the Snippet panel or press Command+Enter (Mac).</p>
+<p>Alternatively, press Command+O (Mac) to open the Command Menu, type &ldquo;!&rdquo; followed by the name of the Snippet that you want to run and press enter to run the Snippet.</p>
 <h2 id="references">References</h2>
-<p><a href="https://developer.chrome.com/docs/devtools/javascript/">Basques, Kayce, &ldquo;Debug JavaScript,&rdquo; January 4, 2017, Chrome Developers</a></p>
-<p><a href="https://developer.chrome.com/docs/devtools/javascript/breakpoints/">Basques, Kayce. &ldquo;Pause your code with breakpoints,&rdquo; Chrome Developers, February 3, 2017.</a></p>
+<p><a href="https://developer.chrome.com/docs/devtools/">Basques, Kayce, &ldquo;Chrome DevTools&rdquo; Chrome Developers</a></p>
 ]]></content>
         </item>
         
