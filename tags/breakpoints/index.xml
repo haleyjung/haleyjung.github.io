@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Breakpoints on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/breakpoints/</link>
+    <description>Recent content in Breakpoints on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 13 Jan 2022 09:33:30 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/breakpoints/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chrome DevTools: Debugging JavaScript</title>
+      <link>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</link>
+      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</guid>
+      <description>Step 1: Reproduce the bug Finding a series of actions that consistently reproduces a bug is always the first step to debugging.
+Step 2: Get familiar with the Sources panel UI After opening the DevTools by pressing Command+Option+J on Mac, click the Sources tab. This is where we debug JavaScript. It has 3 main parts:
+(1) Top left: File Navigator pane
+This is where we can see and inspect every files that the page requests.</description>
+    </item>
+    
+  </channel>
+</rss>

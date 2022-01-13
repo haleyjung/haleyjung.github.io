@@ -6,8 +6,110 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 12 Jan 2022 10:26:29 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 13 Jan 2022 09:33:30 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Chrome DevTools: Debugging JavaScript</title>
+            <link>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</link>
+            <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</guid>
+            <description>Step 1: Reproduce the bug Finding a series of actions that consistently reproduces a bug is always the first step to debugging.
+Step 2: Get familiar with the Sources panel UI After opening the DevTools by pressing Command+Option+J on Mac, click the Sources tab. This is where we debug JavaScript. It has 3 main parts:
+(1) Top left: File Navigator pane
+This is where we can see and inspect every files that the page requests.</description>
+            <content type="html"><![CDATA[<h2 id="step-1-reproduce-the-bug">Step 1: Reproduce the bug</h2>
+<p>Finding a series of actions that consistently reproduces a bug is always the first step to debugging.</p>
+<h2 id="step-2-get-familiar-with-the-sources-panel-ui">Step 2: Get familiar with the Sources panel UI</h2>
+<p>After opening the DevTools by pressing Command+Option+J on Mac, click the <strong>Sources</strong> tab. This is where we debug JavaScript. It has 3 main parts:</p>
+<p><img src="https://wd.imgix.net/image/admin/fgJB1mwfZsJ7Pv21hzSt.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: The 3 parts of the Sources panel UI&rdquo;, Chrome Developers, January 4, 2017"></p>
+<p><strong>(1) Top left: File Navigator pane</strong></p>
+<p>This is where we can see and inspect every files that the page requests.</p>
+<p><strong>(2) Top right: Code Editor pane</strong></p>
+<p>This is where we can see the contents of the file after clicking it from the File Navigator pane.</p>
+<p><strong>(3) Bottom (or Far-right for wide screen): JavaScript Debugging pane</strong></p>
+<p>This shows various tools for inspecting the page&rsquo;s JavaScript.</p>
+<h2 id="step-3-pause-the-code-with-a-breakpoint">Step 3: Pause the code with a breakpoint</h2>
+<h3 id="breakpoint-types">Breakpoint Types</h3>
+<table>
+<thead>
+<tr>
+<th>Breakpoint Types</th>
+<th>Use This When You Want to Pause&hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Line-of-code</td>
+<td>On an exact region of code</td>
+</tr>
+<tr>
+<td>Conditional line-of-code</td>
+<td>On an exact region of code, but only when some other condition is true.</td>
+</tr>
+<tr>
+<td>DOM</td>
+<td>On the code that changes or removes a specific DOM node, or its childern.</td>
+</tr>
+<tr>
+<td>XHR</td>
+<td>When an XHR URL contains a single pattern (i.e. when the requested URL matches a substring that you provide).</td>
+</tr>
+<tr>
+<td>Event Listener</td>
+<td>On the code that runs after an event, such as <em>click</em> is fired.</td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>On the line of code that is throwing a caught or uncaught exception.</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>Whenever a specific function is called.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="event-listener">Event Listener</h4>
+<p><strong>Event Listener Breakpoints</strong> is a faster and more efficient method to inspect values to find and fix bugs than <strong>console.log()</strong>. A breakpoint lets you pause the code in the middle of its execution and examine all values at that moment in time, even without knowing how the code is structured. I can use various types of breakpoints to pause the code closer to the probable location of the bug.</p>
+<h2 id="step-4-step-through-the-code">Step 4: Step through the code</h2>
+<p>Step through the code one line at a time to find out if it&rsquo;s executing in a different order than I expected. This can be done on the <strong>Sources</strong> panel.</p>
+<ul>
+<li>Click <strong>Step into next function call</strong> (the downwards arrow button). This steps through the execution of the affiliated function one line at a time.</li>
+<li>Click <strong>Step over next function call</strong> (the arc arrow button). This skips a few lines of code that evaluate to false to execute the next function call.</li>
+</ul>
+<h2 id="step-5-set-a-line-of-code-breakpoint">Step 5: Set a line-of-code breakpoint</h2>
+<p>Line-of-code breakpoint is used for pausing on a specific line of code. Click on the # of the code line and it will get highlighed with a blue tag. This indicates that there is a line-of-code breakpoint on this line and DevTools will now pause before this line of code is executed. This line of code is also highlighted in the Breakpoints section of the debugging pane.</p>
+<p><img src="https://wd.imgix.net/image/admin/99Omb7ALyJB7MfYpuqXp.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: DevTools pauses on the line-of-code breakpoint on line 32&rdquo;, Chrome Developers, January 4, 2017"></p>
+<h2 id="step-6-check-variable-values">Step 6: Check variable values</h2>
+<h3 id="method-1-the-scope-pane">Method 1: The Scope pane</h3>
+<p>When you&rsquo;re paused on a line of code, the Scope pane shows you what local and global variables are currently defined, along with the value of each variable. It also shows closure variables, when applicable. Double-click a variable value to edit it. When you&rsquo;re not paused on a line of code, the Scope pane is empty.</p>
+<p><img src="https://wd.imgix.net/image/admin/Tynv55DnsSgtvpd6Iz9z.png?auto=format&amp;w=1428" alt="Basques, Kayce. &ldquo;Debug JavaScript: The Scope pane&rdquo;, Chrome Developers, January 4, 2017"></p>
+<h3 id="method-2-watch-expressions">Method 2: Watch Expressions</h3>
+<p>The &lsquo;Watch&rsquo; tab, found in the debugging pane, allows you to monitor the values of variables over time. Any valid JavaScript expressions can be stored in a Watch Expression.</p>
+<ul>
+<li>Click the Watch tab.</li>
+<li>Click the plus icon to add expression (e.g. typeof sum)</li>
+<li>Then DevTools will show the value. Evaluate whether the value is what you expected.</li>
+</ul>
+<h3 id="method-3-the-console">Method 3: The Console</h3>
+<p>Use the Console to evaluate arbitrary JavaScript statements and test out potential fixes for bugs. For instance, if the value that needs to be changed from string to number:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">parseInt(varName1) + parseInt(varName2)
+</code></pre></div><h2 id="step-7-apply-a-fix">Step 7: Apply a fix</h2>
+<p>You can edit JavaScript code directly within the DevTools UI.</p>
+<ol>
+<li>Click <strong>Resume script execution</strong> (the blue play button).</li>
+<li>In the Code Editor, update the line that needs to be fixed</li>
+<li>Save changes with Command+S (Mac)</li>
+<li>Click <strong>Deactivate breakpoints</strong> (the black arrow with cross over it). It should turn blue, indicating that it&rsquo;s active. While this is set, DevTools ignores any breakpoints.</li>
+</ol>
+<h2 id="important-to-note">Important to note</h2>
+<p>This workflow only applies a fix to the code that is <strong>running in your browser</strong>. It won&rsquo;t fix the code for all users that visit your page. To do that, you need to fix the code that&rsquo;s on your servers.</p>
+<h2 id="references">References</h2>
+<p><a href="https://developer.chrome.com/docs/devtools/javascript/">Basques, Kayce, &ldquo;Debug JavaScript,&rdquo; January 4, 2017, Chrome Developers</a></p>
+<p><a href="https://developer.chrome.com/docs/devtools/javascript/breakpoints/">Basques, Kayce. &ldquo;Pause your code with breakpoints,&rdquo; Chrome Developers, February 3, 2017.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Approach to Problem Solving</title>
@@ -233,6 +335,11 @@ You can use Underscore in either an object-oriented or a functional style, depen
 <td><strong>_.groupBy</strong>(list, iteratee, [context])</td>
 <td>n/a</td>
 <td>Splits a collection into sets, grouped by the result of running each value through iteratee. If iteratee is a string instead of a function, groups by the property named by iteratee on each of the values.</td>
+</tr>
+<tr>
+<td><strong>_.indexBy</strong>(list, iteratee, [context])</td>
+<td>n/a</td>
+<td>Given a list, and an iteratee function that returns a key for each element in the list (or a property name), returns an object with an index of each item. Just like groupBy, but for when you know your keys are unique.</td>
 </tr>
 </tbody>
 </table>
@@ -1364,13 +1471,13 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
             
             <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
             <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
-Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both It is often used to:c  Abstract or isolate functionality Create utiltiy functions taht are relatively generic and can operate on a variety of data types Make code more semantic and easiser to read   Examples:  Callback functions Event listeners Promises    </description>
+Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both.</description>
             <content type="html"><![CDATA[<h2 id="first-class-functions-function-literal">First Class Functions (Function Literal)</h2>
 <p>In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.</p>
 <h2 id="define-higher-order-functions">Define Higher Order Functions</h2>
 <ul>
-<li>Higher order function takes another function as an argument or returns another function or does both</li>
-<li>It is often used to:c
+<li>Higher order function takes another function as an argument or returns another function or does both.</li>
+<li>It is often used to:
 <ul>
 <li>Abstract or isolate functionality</li>
 <li>Create utiltiy functions taht are relatively generic and can operate on a variety of data types</li>
@@ -1384,6 +1491,10 @@ Define Higher Order Functions  Higher order function takes another function as a
 <li>Promises</li>
 </ul>
 </li>
+</ul>
+<h2 id="parameterization">Parameterization</h2>
+<ul>
+<li>To make the function more dynamic, express a parameter with texts rather than numbers.</li>
 </ul>
 ]]></content>
         </item>
@@ -1443,19 +1554,71 @@ Accessibility Testing Accessibility testing is the practice of ensuring your mob
             <pubDate>Wed, 08 Dec 2021 14:19:57 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2021/12/debugging-common-errors/</guid>
-            <description>Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &amp;lsquo;Hello&amp;rsquo;, null, undefined, &amp;lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:</description>
-            <content type="html"><![CDATA[<h2 id="errors-and-error-propagation">Errors and Error Propagation</h2>
+            <description>Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&amp;ldquo;a report of the active stack frames at a certain point in time during the execution of a program&amp;rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?</description>
+            <content type="html"><![CDATA[<h2 id="steps-to-debugging">Steps to Debugging</h2>
+<h3 id="1-problem-identification">1. Problem Identification</h3>
+<ul>
+<li>Identify the immediate goal and what needs to be done to achieve it in this moment</li>
+<li>Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&ldquo;a report of the active stack frames at a certain point in time during the execution of a program&rdquo;) from the error messages:
+<ul>
+<li>Failing tests</li>
+<li>Errors in console</li>
+<li>Unresponsive page</li>
+<li>Undesirable behavior</li>
+</ul>
+</li>
+<li>Questions I can ask myself to identify why there is an error:
+<ul>
+<li>Are there any syntax errors?</li>
+<li>Am I passing the correct arguments to my function?</li>
+<li>Am I referencing the correct values within my function?</li>
+<li>Are my function parameters properly named and referenced?</li>
+<li>Am I returning the correct value?</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-problem-investigation">2. Problem Investigation</h3>
+<ul>
+<li>The step to understand why the issue is occuring and what needs to change to fix it.</li>
+<li>Common methods:
+<ul>
+<li>Printing using console.log() statements</li>
+<li>Stepping through code using the Chrome DevTools debugger: DevTools enables me to set breakpoints and step through code in a way that I can see my code execute line-by-line.</li>
+</ul>
+</li>
+<li>Reproduce the bug before you start changing code</li>
+</ul>
+<h3 id="3-problem-resolution">3. Problem Resolution</h3>
+<ul>
+<li>Making the required changes to resolve the bugs and arrive at a working solution.</li>
+<li>Write unit tests that reproduces the bugs</li>
+<li>Possible changes:
+<ul>
+<li>Fixing typos (syntax errors)</li>
+<li>Implementing missing components of the solution</li>
+<li>Refactoring my solution: &ldquo;the process of restructuring existing computer code-chanigng the factoring-without changing its external behavior.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-confirmation-of-problem-resolution">4. Confirmation of Problem Resolution</h3>
+<ul>
+<li>After identifying, investigation, and resolving the issues with the code, it&rsquo;s time to verify that the problem has been fixed. This can be done by:
+<ul>
+<li>Repeating the action</li>
+<li>Observing passing tests</li>
+<li>Noticing the absence of errors</li>
+</ul>
+</li>
+</ul>
+<h2 id="errors-and-error-propagation">Errors and Error Propagation</h2>
 <p>Errors can come from outside the program.</p>
-<p>Cases:</p>
+<h3 id="cases">Cases</h3>
 <ul>
 <li>(Malformed inputs [2, 3, &lsquo;Hello&rsquo;, null, undefined, &lsquo;/']);</li>
 <li>Network Failure</li>
 <li>Authentication Failures</li>
 </ul>
-<p>Example Errors:</p>
+<h3 id="example-errors">Example Errors</h3>
 <ul>
 <li>500: Internal Server Error</li>
 <li>501: Not implemented</li>
@@ -1469,44 +1632,18 @@ Cases:
 <li>510: Not Extended (RFC 2774)</li>
 <li>511: Network Authentication Required (RFC 6585)</li>
 </ul>
-<h2 id="steps-to-debugging">Steps to Debugging</h2>
-<p>Debugging Algorithm:</p>
-<ol>
-<li>Reproduce the bug before you start changing code</li>
-<li>Understand stack traces from error messages</li>
-<li>Write unit tests that reproduces bugs</li>
-<li>Recognize and know your error codes</li>
-<li>Google Research</li>
-<li>Pair program with others/Whiteboard</li>
-<li>Celebrate and repeat the process</li>
-</ol>
-<h3 id="ioce-method">IOCE Method</h3>
-<p>Problem solving process for developers: Think in steps of data flow</p>
-<ul>
-<li>Input</li>
-<li>Output</li>
-<li>Constraints</li>
-<li>Edge Cases</li>
-</ul>
-<h3 id="flow-chart">Flow chart</h3>
-<p>Using:</p>
-<ul>
-<li>iPad!</li>
-<li>Pen &amp; paper</li>
-<li>White board</li>
-</ul>
 <h2 id="common-bugs">Common Bugs</h2>
-<h3 id="1-typeerror-cannot-read-property-property-of-undefined"><strong>1. TypeError: Cannot read property &lsquo;property&rsquo; of undefined</strong></h3>
+<h3 id="1-typeerror-cannot-read-property-property-of-undefined">1. TypeError: Cannot read property &lsquo;property&rsquo; of undefined</h3>
 <ul>
 <li>Occurs when you try to access a property or a method in an undefined object</li>
 <li>Fix: Preinitialize values during object construction or initialization</li>
 </ul>
-<h3 id="2-typeerror-cannot-read-property-null-of-null"><strong>2. TypeError: Cannot read property &lsquo;null of null</strong></h3>
+<h3 id="2-typeerror-cannot-read-property-null-of-null">2. TypeError: Cannot read property &lsquo;null of null</h3>
 <ul>
 <li>Occurs when you call a property or method on a null object</li>
 <li>Fix: Preinitialize values during object construction or initialization</li>
 </ul>
-<h3 id="3-typeerror-assignment-to-constant-variable"><strong>3. TypeError: Assignment to constant variable</strong></h3>
+<h3 id="3-typeerror-assignment-to-constant-variable">3. TypeError: Assignment to constant variable</h3>
 <ul>
 <li>Const variable cannot be reassigned. Error happens when you are trying to reassign a const variable.</li>
 <li>Fix: Use let instead of const when you want to mutate the variable later on</li>
@@ -1519,12 +1656,12 @@ Cases:
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>;
 }
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">output</span>;)
-</code></pre></div><h3 id="4-referenceerror-cannot-access-variable-before-initialization"><strong>4. ReferenceError: Cannot access &lsquo;variable&rsquo; before initialization</strong></h3>
+</code></pre></div><h3 id="4-referenceerror-cannot-access-variable-before-initialization">4. ReferenceError: Cannot access &lsquo;variable&rsquo; before initialization</h3>
 <ul>
 <li>Occurs when you are trying to access a variable before it was declared and initialized (esp. when using APIs)</li>
 <li>Fix: apply the rules of scoping/hoisting. Try to access variables after they are declared and initalized prior to trying to use them.</li>
 </ul>
-<h3 id="5-referenceerror-output-variable-is-not-defined"><strong>5. ReferenceError: output &lsquo;variable&rsquo; is not defined</strong></h3>
+<h3 id="5-referenceerror-output-variable-is-not-defined">5. ReferenceError: output &lsquo;variable&rsquo; is not defined</h3>
 <ul>
 <li>Occurs when you are accessing a variable that you do not have access to due to scoping</li>
 <li>Fix: apply the rules of scoping. Variable declared in a function are not accessible outside of the function</li>
@@ -1537,7 +1674,7 @@ Cases:
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>;
 }
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">output</span>;)
-</code></pre></div><h3 id="6-uncaught-rangeerror-maximum-call-stack-size-exceeded"><strong>6. Uncaught RangeError: Maximum call stack size exceeded</strong></h3>
+</code></pre></div><h3 id="6-uncaught-rangeerror-maximum-call-stack-size-exceeded">6. Uncaught RangeError: Maximum call stack size exceeded</h3>
 <ul>
 <li>Occurs when you incorrectly define the existing logic for the base case or missing the base case. Improper usage of recursion</li>
 <li>Fix: apply the rules of scoping. Variables declared in a function are not accessible outside of the function.</li>
@@ -1548,7 +1685,7 @@ Cases:
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">power</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>));
 
 <span style="color:#f92672">----&gt;</span> <span style="color:#a6e22e">RangeError</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Maximum</span> <span style="color:#a6e22e">call</span> <span style="color:#a6e22e">stack</span> <span style="color:#a6e22e">size</span> <span style="color:#a6e22e">exceeded</span>
-</code></pre></div><h3 id="7-infinite-loops"><strong>7. Infinite Loops</strong></h3>
+</code></pre></div><h3 id="7-infinite-loops">7. Infinite Loops</h3>
 <ul>
 <li>Occurs when your loop exiting condition is always true no matter what type of step you take.</li>
 <li>Fix: apply the rules of scoping. Variables declared in a function are not accessible outside of the function</li>
@@ -1563,10 +1700,18 @@ Cases:
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Whoohoo&#39;</span>);
     <span style="color:#a6e22e">x</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
 }
-</code></pre></div><h3 id="8-logical-fallacy"><strong>8. Logical fallacy</strong></h3>
-<h3 id="9-style-error"><strong>9. Style Error</strong></h3>
-<h3 id="10-syntax-error"><strong>10. Syntax error</strong></h3>
-<h3 id="11-memory-leak"><strong>11. Memory Leak</strong></h3>
+</code></pre></div><h3 id="8-logical-fallacy">8. Logical Fallacy</h3>
+<ul>
+<li>Occurs hen you make an argument based on reasoning that&rsquo;s just plain wrong.</li>
+</ul>
+<h3 id="9-syntax-error">9. Syntax Error</h3>
+<ul>
+<li>Occurs when the code does not conform to the syntax of the programming language</li>
+</ul>
+<h3 id="10-memory-leak">10. Memory Leak</h3>
+<ul>
+<li>A condition caused by a program that does not free up the extra memory it allocates. This gradually deteriorates the system performance.</li>
+</ul>
 <h2 id="other-keywords">Other keywords</h2>
 <ul>
 <li>A: Added - this is a new file that has been added to the repository</li>

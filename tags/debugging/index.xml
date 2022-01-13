@@ -7,17 +7,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 08 Dec 2021 14:19:57 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 09:33:30 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chrome DevTools: Debugging JavaScript</title>
+      <link>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</link>
+      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</guid>
+      <description>Step 1: Reproduce the bug Finding a series of actions that consistently reproduces a bug is always the first step to debugging.
+Step 2: Get familiar with the Sources panel UI After opening the DevTools by pressing Command+Option+J on Mac, click the Sources tab. This is where we debug JavaScript. It has 3 main parts:
+(1) Top left: File Navigator pane
+This is where we can see and inspect every files that the page requests.</description>
+    </item>
+    
     <item>
       <title>Debugging &amp; Common Errors</title>
       <link>https://haleyjung.github.io/posts/2021/12/debugging-common-errors/</link>
       <pubDate>Wed, 08 Dec 2021 14:19:57 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2021/12/debugging-common-errors/</guid>
-      <description>Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &amp;lsquo;Hello&amp;rsquo;, null, undefined, &amp;lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:</description>
+      <description>Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&amp;ldquo;a report of the active stack frames at a certain point in time during the execution of a program&amp;rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?</description>
     </item>
     
   </channel>

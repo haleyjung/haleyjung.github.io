@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 12 Jan 2022 10:26:29 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jan 2022 09:33:30 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chrome DevTools: Debugging JavaScript</title>
+      <link>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</link>
+      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</guid>
+      <description>Step 1: Reproduce the bug Finding a series of actions that consistently reproduces a bug is always the first step to debugging.
+Step 2: Get familiar with the Sources panel UI After opening the DevTools by pressing Command+Option+J on Mac, click the Sources tab. This is where we debug JavaScript. It has 3 main parts:
+(1) Top left: File Navigator pane
+This is where we can see and inspect every files that the page requests.</description>
+    </item>
+    
     <item>
       <title>Approach to Problem Solving</title>
       <link>https://haleyjung.github.io/posts/2022/01/approach-to-problem-solving/</link>
@@ -96,16 +108,6 @@ Declarative (Functional Programming)  Focuses on what to execute / what is being
       <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
       <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
 How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main </description>
-    </item>
-    
-    <item>
-      <title>Higher Order Functions</title>
-      <link>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</link>
-      <pubDate>Fri, 10 Dec 2021 20:32:49 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
-      <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
-Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both It is often used to:c  Abstract or isolate functionality Create utiltiy functions taht are relatively generic and can operate on a variety of data types Make code more semantic and easiser to read   Examples:  Callback functions Event listeners Promises    </description>
     </item>
     
   </channel>

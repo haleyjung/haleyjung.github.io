@@ -5,10 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jung ">
-<meta name="description" content="Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &amp;lsquo;Hello&amp;rsquo;, null, undefined, &amp;lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:" />
+<meta name="description" content="Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&amp;ldquo;a report of the active stack frames at a certain point in time during the execution of a program&amp;rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?" />
 <meta name="keywords" content=", Debugging, Errors" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -44,30 +41,21 @@ Cases:
 
 
 <meta itemprop="name" content="Debugging &amp; Common Errors">
-<meta itemprop="description" content="Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &lsquo;Hello&rsquo;, null, undefined, &lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:"><meta itemprop="datePublished" content="2021-12-08T14:19:57-05:00" />
+<meta itemprop="description" content="Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&ldquo;a report of the active stack frames at a certain point in time during the execution of a program&rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?"><meta itemprop="datePublished" content="2021-12-08T14:19:57-05:00" />
 <meta itemprop="dateModified" content="2021-12-08T14:19:57-05:00" />
-<meta itemprop="wordCount" content="606"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="858"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="Debugging,Errors," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
 
 <meta name="twitter:title" content="Debugging &amp; Common Errors"/>
-<meta name="twitter:description" content="Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &lsquo;Hello&rsquo;, null, undefined, &lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:"/>
+<meta name="twitter:description" content="Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&ldquo;a report of the active stack frames at a certain point in time during the execution of a program&rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?"/>
 
 
 
 
     <meta property="og:title" content="Debugging &amp; Common Errors" />
-<meta property="og:description" content="Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &lsquo;Hello&rsquo;, null, undefined, &lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:" />
+<meta property="og:description" content="Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&ldquo;a report of the active stack frames at a certain point in time during the execution of a program&rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://haleyjung.github.io/posts/2021/12/debugging-common-errors/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-08T14:19:57-05:00" />
@@ -148,7 +136,7 @@ Cases:
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        3 minutes
+        5 minutes
 
         
       </p>
@@ -167,26 +155,32 @@ Cases:
           <div class="toc-title">Table of Contents</div>
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#errors-and-error-propagation">Errors and Error Propagation</a></li>
     <li><a href="#steps-to-debugging">Steps to Debugging</a>
       <ul>
-        <li><a href="#ioce-method">IOCE Method</a></li>
-        <li><a href="#flow-chart">Flow chart</a></li>
+        <li><a href="#1-problem-identification">1. Problem Identification</a></li>
+        <li><a href="#2-problem-investigation">2. Problem Investigation</a></li>
+        <li><a href="#3-problem-resolution">3. Problem Resolution</a></li>
+        <li><a href="#4-confirmation-of-problem-resolution">4. Confirmation of Problem Resolution</a></li>
+      </ul>
+    </li>
+    <li><a href="#errors-and-error-propagation">Errors and Error Propagation</a>
+      <ul>
+        <li><a href="#cases">Cases</a></li>
+        <li><a href="#example-errors">Example Errors</a></li>
       </ul>
     </li>
     <li><a href="#common-bugs">Common Bugs</a>
       <ul>
-        <li><a href="#1-typeerror-cannot-read-property-property-of-undefined"><strong>1. TypeError: Cannot read property &lsquo;property&rsquo; of undefined</strong></a></li>
-        <li><a href="#2-typeerror-cannot-read-property-null-of-null"><strong>2. TypeError: Cannot read property &lsquo;null of null</strong></a></li>
-        <li><a href="#3-typeerror-assignment-to-constant-variable"><strong>3. TypeError: Assignment to constant variable</strong></a></li>
-        <li><a href="#4-referenceerror-cannot-access-variable-before-initialization"><strong>4. ReferenceError: Cannot access &lsquo;variable&rsquo; before initialization</strong></a></li>
-        <li><a href="#5-referenceerror-output-variable-is-not-defined"><strong>5. ReferenceError: output &lsquo;variable&rsquo; is not defined</strong></a></li>
-        <li><a href="#6-uncaught-rangeerror-maximum-call-stack-size-exceeded"><strong>6. Uncaught RangeError: Maximum call stack size exceeded</strong></a></li>
-        <li><a href="#7-infinite-loops"><strong>7. Infinite Loops</strong></a></li>
-        <li><a href="#8-logical-fallacy"><strong>8. Logical fallacy</strong></a></li>
-        <li><a href="#9-style-error"><strong>9. Style Error</strong></a></li>
-        <li><a href="#10-syntax-error"><strong>10. Syntax error</strong></a></li>
-        <li><a href="#11-memory-leak"><strong>11. Memory Leak</strong></a></li>
+        <li><a href="#1-typeerror-cannot-read-property-property-of-undefined">1. TypeError: Cannot read property &lsquo;property&rsquo; of undefined</a></li>
+        <li><a href="#2-typeerror-cannot-read-property-null-of-null">2. TypeError: Cannot read property &lsquo;null of null</a></li>
+        <li><a href="#3-typeerror-assignment-to-constant-variable">3. TypeError: Assignment to constant variable</a></li>
+        <li><a href="#4-referenceerror-cannot-access-variable-before-initialization">4. ReferenceError: Cannot access &lsquo;variable&rsquo; before initialization</a></li>
+        <li><a href="#5-referenceerror-output-variable-is-not-defined">5. ReferenceError: output &lsquo;variable&rsquo; is not defined</a></li>
+        <li><a href="#6-uncaught-rangeerror-maximum-call-stack-size-exceeded">6. Uncaught RangeError: Maximum call stack size exceeded</a></li>
+        <li><a href="#7-infinite-loops">7. Infinite Loops</a></li>
+        <li><a href="#8-logical-fallacy">8. Logical Fallacy</a></li>
+        <li><a href="#9-syntax-error">9. Syntax Error</a></li>
+        <li><a href="#10-memory-leak">10. Memory Leak</a></li>
       </ul>
     </li>
     <li><a href="#other-keywords">Other keywords</a></li>
@@ -198,15 +192,70 @@ Cases:
       
 
       <div class="post-content">
-        <h2 id="errors-and-error-propagation">Errors and Error Propagation</h2>
+        <h2 id="steps-to-debugging">Steps to Debugging</h2>
+<h3 id="1-problem-identification">1. Problem Identification</h3>
+<ul>
+<li>Identify the immediate goal and what needs to be done to achieve it in this moment</li>
+<li>Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&ldquo;a report of the active stack frames at a certain point in time during the execution of a program&rdquo;) from the error messages:
+<ul>
+<li>Failing tests</li>
+<li>Errors in console</li>
+<li>Unresponsive page</li>
+<li>Undesirable behavior</li>
+</ul>
+</li>
+<li>Questions I can ask myself to identify why there is an error:
+<ul>
+<li>Are there any syntax errors?</li>
+<li>Am I passing the correct arguments to my function?</li>
+<li>Am I referencing the correct values within my function?</li>
+<li>Are my function parameters properly named and referenced?</li>
+<li>Am I returning the correct value?</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-problem-investigation">2. Problem Investigation</h3>
+<ul>
+<li>The step to understand why the issue is occuring and what needs to change to fix it.</li>
+<li>Common methods:
+<ul>
+<li>Printing using console.log() statements</li>
+<li>Stepping through code using the Chrome DevTools debugger: DevTools enables me to set breakpoints and step through code in a way that I can see my code execute line-by-line.</li>
+</ul>
+</li>
+<li>Reproduce the bug before you start changing code</li>
+</ul>
+<h3 id="3-problem-resolution">3. Problem Resolution</h3>
+<ul>
+<li>Making the required changes to resolve the bugs and arrive at a working solution.</li>
+<li>Write unit tests that reproduces the bugs</li>
+<li>Possible changes:
+<ul>
+<li>Fixing typos (syntax errors)</li>
+<li>Implementing missing components of the solution</li>
+<li>Refactoring my solution: &ldquo;the process of restructuring existing computer code-chanigng the factoring-without changing its external behavior.&rdquo;</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-confirmation-of-problem-resolution">4. Confirmation of Problem Resolution</h3>
+<ul>
+<li>After identifying, investigation, and resolving the issues with the code, it&rsquo;s time to verify that the problem has been fixed. This can be done by:
+<ul>
+<li>Repeating the action</li>
+<li>Observing passing tests</li>
+<li>Noticing the absence of errors</li>
+</ul>
+</li>
+</ul>
+<h2 id="errors-and-error-propagation">Errors and Error Propagation</h2>
 <p>Errors can come from outside the program.</p>
-<p>Cases:</p>
+<h3 id="cases">Cases</h3>
 <ul>
 <li>(Malformed inputs [2, 3, &lsquo;Hello&rsquo;, null, undefined, &lsquo;/']);</li>
 <li>Network Failure</li>
 <li>Authentication Failures</li>
 </ul>
-<p>Example Errors:</p>
+<h3 id="example-errors">Example Errors</h3>
 <ul>
 <li>500: Internal Server Error</li>
 <li>501: Not implemented</li>
@@ -220,44 +269,18 @@ Cases:
 <li>510: Not Extended (RFC 2774)</li>
 <li>511: Network Authentication Required (RFC 6585)</li>
 </ul>
-<h2 id="steps-to-debugging">Steps to Debugging</h2>
-<p>Debugging Algorithm:</p>
-<ol>
-<li>Reproduce the bug before you start changing code</li>
-<li>Understand stack traces from error messages</li>
-<li>Write unit tests that reproduces bugs</li>
-<li>Recognize and know your error codes</li>
-<li>Google Research</li>
-<li>Pair program with others/Whiteboard</li>
-<li>Celebrate and repeat the process</li>
-</ol>
-<h3 id="ioce-method">IOCE Method</h3>
-<p>Problem solving process for developers: Think in steps of data flow</p>
-<ul>
-<li>Input</li>
-<li>Output</li>
-<li>Constraints</li>
-<li>Edge Cases</li>
-</ul>
-<h3 id="flow-chart">Flow chart</h3>
-<p>Using:</p>
-<ul>
-<li>iPad!</li>
-<li>Pen &amp; paper</li>
-<li>White board</li>
-</ul>
 <h2 id="common-bugs">Common Bugs</h2>
-<h3 id="1-typeerror-cannot-read-property-property-of-undefined"><strong>1. TypeError: Cannot read property &lsquo;property&rsquo; of undefined</strong></h3>
+<h3 id="1-typeerror-cannot-read-property-property-of-undefined">1. TypeError: Cannot read property &lsquo;property&rsquo; of undefined</h3>
 <ul>
 <li>Occurs when you try to access a property or a method in an undefined object</li>
 <li>Fix: Preinitialize values during object construction or initialization</li>
 </ul>
-<h3 id="2-typeerror-cannot-read-property-null-of-null"><strong>2. TypeError: Cannot read property &lsquo;null of null</strong></h3>
+<h3 id="2-typeerror-cannot-read-property-null-of-null">2. TypeError: Cannot read property &lsquo;null of null</h3>
 <ul>
 <li>Occurs when you call a property or method on a null object</li>
 <li>Fix: Preinitialize values during object construction or initialization</li>
 </ul>
-<h3 id="3-typeerror-assignment-to-constant-variable"><strong>3. TypeError: Assignment to constant variable</strong></h3>
+<h3 id="3-typeerror-assignment-to-constant-variable">3. TypeError: Assignment to constant variable</h3>
 <ul>
 <li>Const variable cannot be reassigned. Error happens when you are trying to reassign a const variable.</li>
 <li>Fix: Use let instead of const when you want to mutate the variable later on</li>
@@ -270,12 +293,12 @@ Cases:
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>;
 }
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">output</span>;)
-</code></pre></div><h3 id="4-referenceerror-cannot-access-variable-before-initialization"><strong>4. ReferenceError: Cannot access &lsquo;variable&rsquo; before initialization</strong></h3>
+</code></pre></div><h3 id="4-referenceerror-cannot-access-variable-before-initialization">4. ReferenceError: Cannot access &lsquo;variable&rsquo; before initialization</h3>
 <ul>
 <li>Occurs when you are trying to access a variable before it was declared and initialized (esp. when using APIs)</li>
 <li>Fix: apply the rules of scoping/hoisting. Try to access variables after they are declared and initalized prior to trying to use them.</li>
 </ul>
-<h3 id="5-referenceerror-output-variable-is-not-defined"><strong>5. ReferenceError: output &lsquo;variable&rsquo; is not defined</strong></h3>
+<h3 id="5-referenceerror-output-variable-is-not-defined">5. ReferenceError: output &lsquo;variable&rsquo; is not defined</h3>
 <ul>
 <li>Occurs when you are accessing a variable that you do not have access to due to scoping</li>
 <li>Fix: apply the rules of scoping. Variable declared in a function are not accessible outside of the function</li>
@@ -288,7 +311,7 @@ Cases:
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">output</span>;
 }
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">output</span>;)
-</code></pre></div><h3 id="6-uncaught-rangeerror-maximum-call-stack-size-exceeded"><strong>6. Uncaught RangeError: Maximum call stack size exceeded</strong></h3>
+</code></pre></div><h3 id="6-uncaught-rangeerror-maximum-call-stack-size-exceeded">6. Uncaught RangeError: Maximum call stack size exceeded</h3>
 <ul>
 <li>Occurs when you incorrectly define the existing logic for the base case or missing the base case. Improper usage of recursion</li>
 <li>Fix: apply the rules of scoping. Variables declared in a function are not accessible outside of the function.</li>
@@ -299,7 +322,7 @@ Cases:
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">power</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>));
 
 <span style="color:#f92672">----&gt;</span> <span style="color:#a6e22e">RangeError</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Maximum</span> <span style="color:#a6e22e">call</span> <span style="color:#a6e22e">stack</span> <span style="color:#a6e22e">size</span> <span style="color:#a6e22e">exceeded</span>
-</code></pre></div><h3 id="7-infinite-loops"><strong>7. Infinite Loops</strong></h3>
+</code></pre></div><h3 id="7-infinite-loops">7. Infinite Loops</h3>
 <ul>
 <li>Occurs when your loop exiting condition is always true no matter what type of step you take.</li>
 <li>Fix: apply the rules of scoping. Variables declared in a function are not accessible outside of the function</li>
@@ -314,10 +337,18 @@ Cases:
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Whoohoo&#39;</span>);
     <span style="color:#a6e22e">x</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
 }
-</code></pre></div><h3 id="8-logical-fallacy"><strong>8. Logical fallacy</strong></h3>
-<h3 id="9-style-error"><strong>9. Style Error</strong></h3>
-<h3 id="10-syntax-error"><strong>10. Syntax error</strong></h3>
-<h3 id="11-memory-leak"><strong>11. Memory Leak</strong></h3>
+</code></pre></div><h3 id="8-logical-fallacy">8. Logical Fallacy</h3>
+<ul>
+<li>Occurs hen you make an argument based on reasoning that&rsquo;s just plain wrong.</li>
+</ul>
+<h3 id="9-syntax-error">9. Syntax Error</h3>
+<ul>
+<li>Occurs when the code does not conform to the syntax of the programming language</li>
+</ul>
+<h3 id="10-memory-leak">10. Memory Leak</h3>
+<ul>
+<li>A condition caused by a program that does not free up the extra memory it allocates. This gradually deteriorates the system performance.</li>
+</ul>
 <h2 id="other-keywords">Other keywords</h2>
 <ul>
 <li>A: Added - this is a new file that has been added to the repository</li>
@@ -354,7 +385,7 @@ Cases:
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        606 Words
+        858 Words
       </p>
 
       <p>

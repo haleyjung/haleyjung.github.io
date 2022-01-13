@@ -14,10 +14,7 @@
       <pubDate>Wed, 08 Dec 2021 14:19:57 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2021/12/debugging-common-errors/</guid>
-      <description>Errors and Error Propagation Errors can come from outside the program.
-Cases:
- (Malformed inputs [2, 3, &amp;lsquo;Hello&amp;rsquo;, null, undefined, &amp;lsquo;/&#39;]); Network Failure Authentication Failures  Example Errors:
- 500: Internal Server Error 501: Not implemented 502: Bad Gateway 503: Service Unavailable 504: Gateway Timeout 505: HTTP Version Not Supported 506: Variant Also Negotiates (RFC 2295) 507: Insufficent Storage (WebDAV; RFC 4918) 508: Loop Detected (WebDAV, RFC 5842) 510: Not Extended (RFC 2774) 511: Network Authentication Required (RFC 6585)  Steps to Debugging Debugging Algorithm:</description>
+      <description>Steps to Debugging 1. Problem Identification  Identify the immediate goal and what needs to be done to achieve it in this moment Investigate how the current state of code differs from the outcome I expect. Understand stack traces (&amp;ldquo;a report of the active stack frames at a certain point in time during the execution of a program&amp;rdquo;) from the error messages:  Failing tests Errors in console Unresponsive page Undesirable behavior   Questions I can ask myself to identify why there is an error:  Are there any syntax errors?</description>
     </item>
     
   </channel>
