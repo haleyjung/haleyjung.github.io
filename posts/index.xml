@@ -382,6 +382,8 @@ You can use Underscore in either an object-oriented or a functional style, depen
 </tr>
 </tbody>
 </table>
+<h2 id="define-list-iteratee-context">Define (list, iteratee, [context])</h2>
+<p>The <strong>context</strong> parameter sets the value of <code>this</code> is referred to.</p>
 <h2 id="chaining">Chaining</h2>
 <p>| <strong>_.chain</strong>(obj)  | Returns a wrapped object. Calling methods on this object will continue to return wrapped objects until value is called. |
 | <strong>_.chain</strong>(obj).value()  | Extracts the value of a wrapped object. |</p>
@@ -1483,7 +1485,7 @@ Mutating state directly can lead to <em>lossy data flow</em>
             
             <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
             <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
-How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main </description>
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main Error bash: hugo: command not found &amp;amp; bash: brew: command not found January 15, 2022: I suddenly received this message in the Terminal when hugo was working just fine yesterday.</description>
             <content type="html"><![CDATA[<h2 id="what-is-hugo">What is Hugo?</h2>
 <p>It&rsquo;s one of the static site generators alongside jekyll and hexo.</p>
 <h2 id="how-to-add-a-new-post">How to add a new post</h2>
@@ -1500,7 +1502,21 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
 <span style="color:#960050;background-color:#1e0010">$</span> git add .
 <span style="color:#960050;background-color:#1e0010">$</span> git commit <span style="color:#f92672">-</span>m <span style="color:#e6db74">&#34;commit message&#34;</span>
 <span style="color:#960050;background-color:#1e0010">$</span> git push origin main
-</code></pre></div>]]></content>
+</code></pre></div><h2 id="error">Error</h2>
+<h3 id="bash-hugo-command-not-found--bash-brew-command-not-found"><code>bash: hugo: command not found</code> &amp; <code>bash: brew: command not found</code></h3>
+<p>January 15, 2022: I suddenly received this message in the Terminal when hugo was working just fine yesterday. I tried installing Hugo again, but brew was also not working: <code>bash: brew: command not found</code>. The brew command was indeed located in the standard locations, so the issue was not about configuring the brew environment on my Mac.</p>
+<p>After doing some Google search, it turns out to be a rather common error happening to Apple M1 Pro, but the actual cause of this still seems to be in debate.</p>
+<p>This is the solution that worked:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">echo <span style="color:#960050;background-color:#1e0010">&#39;</span>eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">/</span>Users<span style="color:#f92672">/&lt;</span>yourusername<span style="color:#f92672">&gt;/</span>.zprofile
+eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)</span>
+</code></pre></div><p>The first command adds:</p>
+<ul>
+<li>an expanded PATH variable that includes the directories where brew and commands installed with brew are located</li>
+<li>several shell variables used by brew</li>
+</ul>
+<p>to the .zprofile initialization file.</p>
+<p>The second command adds those same variables to the current shell, so that you can start using brew without re-reading .zprofile.</p>
+]]></content>
         </item>
         
         <item>
@@ -1535,6 +1551,11 @@ Define Higher Order Functions  Higher order function takes another function as a
 <ul>
 <li>To make the function more dynamic, express a parameter with texts rather than numbers.</li>
 </ul>
+<h2 id="benefits-of-higher-order-functions">Benefits of Higher Order Functions</h2>
+<ol>
+<li>Make it easier to plug-in different functions into the system</li>
+<li>Eaiser to organize the codes in terms of action where each process is isolated within a dedicated function</li>
+</ol>
 ]]></content>
         </item>
         
