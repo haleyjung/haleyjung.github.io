@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Content Delivery Networks on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/content-delivery-networks/</link>
+    <description>Recent content in Content Delivery Networks on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 18 Jan 2022 11:27:23 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/content-delivery-networks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CDN: Content Delivery Networks</title>
+      <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
+      <pubDate>Tue, 18 Jan 2022 11:27:23 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
+      <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
+    </item>
+    
+  </channel>
+</rss>

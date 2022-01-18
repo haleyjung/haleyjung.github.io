@@ -6,8 +6,45 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 17 Jan 2022 18:36:49 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 18 Jan 2022 11:27:23 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>CDN: Content Delivery Networks</title>
+            <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
+            <pubDate>Tue, 18 Jan 2022 11:27:23 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
+            <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
+            <content type="html"><![CDATA[<h2 id="definition">Definition</h2>
+<ul>
+<li>CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&rsquo;s physical location.</li>
+<li>Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.</li>
+</ul>
+<h2 id="purpose">Purpose</h2>
+<ul>
+<li>Users experience a consistent, faster, and high performance web application.</li>
+<li>Reducing the latency (network congestion) caused by rich web content such as heavy usage of graphics and vidoes.</li>
+</ul>
+<h2 id="benefits">Benefits</h2>
+<ul>
+<li>CDN offloads traffic from content servers and improves the web experience.</li>
+<li>CDN can improve web security by helping to absorb and mitigate a distributed denial-of-server (DDoS) attack.</li>
+</ul>
+<h2 id="expansion">Expansion</h2>
+<ul>
+<li>CDN has grown to include beyond text, graphics, scripts and media files (4K and HD-quality videos too!), such as software downloads, OS updates, documents, portals, ecommerce, live streaming media, on-demand video streaming media, and social media sites.</li>
+</ul>
+<h2 id="sample-case">Sample case</h2>
+<p><strong>Scenario</strong></p>
+<p>A user based in New York accessing an ecommerce site hosted in Seoul.</p>
+<ul>
+<li>CDN would store a cached version of its website content in multiple geographical locations around the world (i.e. PoPs: points of presence).</li>
+<li>PoPs contain their own caching servers and are responsible for delivering that content close to the user&rsquo;s location.</li>
+<li>The cached contents will remain on the CDN for other user requests in the same geographic area.</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Scopes &amp; Closures</title>
@@ -15,9 +52,9 @@
             <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
-            <description>Lexical Scope The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
+            <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
  Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
-            <content type="html"><![CDATA[<h2 id="lexical-scope">Lexical Scope</h2>
+            <content type="html"><![CDATA[<h2 id="lexical-scopes">Lexical Scopes</h2>
 <p>The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).</p>
 <ul>
 <li>Describes the regions in my code where I can refer to a variable by name without getting access errors.</li>
@@ -36,6 +73,12 @@
 <li>It&rsquo;s impossible to return a context from a function or to make a variable refer to a context, or to get an array full of contexts.</li>
 </ul>
 <h2 id="closure">Closure</h2>
+<p>A closure is a pairing of:</p>
+<ul>
+<li>A function and</li>
+<li>A reference to that function&rsquo;s outer scope (lexical environment)</li>
+</ul>
+<p>A lexical environment is part of every execution context (stack frame) and is a map between identifiers (i.e. local variable names) and values.</p>
 <ul>
 <li>A function object that retains ongoing access to the variables of the context it was created in (even after the outer function calls it was created within have returned).</li>
 <li>In JavaScript, closures are created every time a function is created, at function creation time.</li>

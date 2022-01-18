@@ -7,14 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 17 Jan 2022 18:36:49 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jan 2022 11:27:23 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CDN: Content Delivery Networks</title>
+      <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
+      <pubDate>Tue, 18 Jan 2022 11:27:23 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
+      <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
+    </item>
+    
     <item>
       <title>Scopes &amp; Closures</title>
       <link>https://haleyjung.github.io/posts/2022/01/scopes-closures/</link>
       <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
-      <description>Lexical Scope The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
+      <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
  Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
     </item>
     
@@ -98,16 +107,6 @@ It is a Behavior Driven Development testing framework: i.e. Regardless of which 
       
       <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
       <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
-    </item>
-    
-    <item>
-      <title>Functional Programming</title>
-      <link>https://haleyjung.github.io/posts/2021/12/functional-programming/</link>
-      <pubDate>Mon, 20 Dec 2021 15:12:08 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/functional-programming/</guid>
-      <description>Paradigm &amp;amp; Principles JavaScript can be written in either a declarative and imperative style
-Declarative (Functional Programming)  Focuses on what to execute / what is being done Abstracts control flow (how) Focuses on data flow Code is composed of expressions: a piece of code that evaluates to some value  Imperative (Object Oriented Programming)  Defines control flow Specific steps to achieve a result Code is composed of statements: a piece of code that performs some action  Paradigm: MODEL  Nowadays functional programming is more popular Some programming languages are explicitly functional All code written in these languges must follow functional principles (e.</description>
     </item>
     
   </channel>

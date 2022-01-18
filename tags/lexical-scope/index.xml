@@ -14,7 +14,7 @@
       <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
-      <description>Lexical Scope The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
+      <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
  Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
     </item>
     

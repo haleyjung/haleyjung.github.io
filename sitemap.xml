@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</loc>
+    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/content-delivery-networks/</loc>
+    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/execution-contexts/</loc>
     <lastmod>2022-01-17T18:36:49-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/lexical-scope/</loc>
     <lastmod>2022-01-17T18:36:49-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-01-17T18:36:49-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/scopes-closures/</loc>
-    <lastmod>2022-01-17T18:36:49-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-01-17T18:36:49-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
     <lastmod>2022-01-17T18:36:49-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/breakpoints/</loc>
