@@ -6,8 +6,44 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 13 Jan 2022 09:33:30 -0500</lastBuildDate>
+        <lastBuildDate>Mon, 17 Jan 2022 18:36:49 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Scopes &amp; Closures</title>
+            <link>https://haleyjung.github.io/posts/2022/01/scopes-closures/</link>
+            <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
+            <description>Lexical Scope The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
+ Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
+            <content type="html"><![CDATA[<h2 id="lexical-scope">Lexical Scope</h2>
+<p>The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).</p>
+<ul>
+<li>Describes the regions in my code where I can refer to a variable by name without getting access errors.</li>
+<li>Defining a function creates a new lexical scope</li>
+<li>It is a collection of key-value pairs, but is not an object - except the global context object.</li>
+</ul>
+<h2 id="global-scope">Global Scope</h2>
+<ul>
+<li>Bad practice: a variable that has never been declared can be assigned within a lexical scope (i.e. a function) without &lsquo;var,&rsquo; but such variable will be added to the global scope.</li>
+</ul>
+<h2 id="execution-contexts">Execution Contexts</h2>
+<ul>
+<li>In-memory data structures for storing variables</li>
+<li>Built as the code runs instead of when it&rsquo;s typed</li>
+<li>When a program runs, it builds up storage systems for holding variables and their values. These in-memory scope structures are called &ldquo;execution contexts.&rdquo;</li>
+<li>It&rsquo;s impossible to return a context from a function or to make a variable refer to a context, or to get an array full of contexts.</li>
+</ul>
+<h2 id="closure">Closure</h2>
+<ul>
+<li>A function object that retains ongoing access to the variables of the context it was created in (even after the outer function calls it was created within have returned).</li>
+<li>In JavaScript, closures are created every time a function is created, at function creation time.</li>
+<li>Inner functions have access to the variables of outer functions, but they cannot access arguments object of outer functions.</li>
+<li>Inner function does not keep the separate copy of outer variables but it reference outer variables: i.e. value of the outer variables will be changed if you change it using inner function.</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Chrome DevTools: Debugging JavaScript</title>
@@ -1508,7 +1544,7 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
 <p>After doing some Google search, it turns out to be a rather common error happening to Apple M1 Pro, but the actual cause of this still seems to be in debate.</p>
 <p>This is the solution that worked:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">echo <span style="color:#960050;background-color:#1e0010">&#39;</span>eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">/</span>Users<span style="color:#f92672">/&lt;</span>yourusername<span style="color:#f92672">&gt;/</span>.zprofile
-eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)</span>
+eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span>
 </code></pre></div><p>The first command adds:</p>
 <ul>
 <li>an expanded PATH variable that includes the directories where brew and commands installed with brew are located</li>
@@ -1525,9 +1561,12 @@ eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)</span>
             <pubDate>Fri, 10 Dec 2021 20:32:49 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
-            <description>First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.
-Define Higher Order Functions  Higher order function takes another function as an argument or returns another function or does both.</description>
-            <content type="html"><![CDATA[<h2 id="first-class-functions-function-literal">First Class Functions (Function Literal)</h2>
+            <description>JavaScript will always pass PRIMITIVE types &amp;lsquo;by value&amp;rsquo; JavaScript will always pass NON-PRIMITIVE types &amp;lsquo;by reference&amp;rsquo;  First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.</description>
+            <content type="html"><![CDATA[<ul>
+<li>JavaScript will always pass PRIMITIVE types &lsquo;by value&rsquo;</li>
+<li>JavaScript will always pass NON-PRIMITIVE types &lsquo;by reference&rsquo;</li>
+</ul>
+<h2 id="first-class-functions-function-literal">First Class Functions (Function Literal)</h2>
 <p>In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.</p>
 <h2 id="define-higher-order-functions">Define Higher Order Functions</h2>
 <ul>
@@ -1559,7 +1598,8 @@ Define Higher Order Functions  Higher order function takes another function as a
 <h2 id="callback-function">Callback function</h2>
 <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
 <h2 id="references">References</h2>
-<p><a href="https://eloquentjavascript.net/05_higher_order.html">Eloquent Javascript</a></p>
+<p><a href="https://eloquentjavascript.net/05_higher_order.html">Eloquent Javascript</a>
+<a href="https://javascript.plainenglish.io/javascript-reviewing-primitive-and-non-primitive-data-types-5bc4ca68c3de">Louie, Benny. &ldquo;JavaScript: Reviewing Primitive and Non-Primitive Data Types,&rdquo; Medium, Jan 16, 2020.</a></p>
 ]]></content>
         </item>
         

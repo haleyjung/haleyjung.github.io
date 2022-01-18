@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Execution contexts on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/execution-contexts/</link>
+    <description>Recent content in Execution contexts on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Mon, 17 Jan 2022 18:36:49 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/execution-contexts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scopes &amp; Closures</title>
+      <link>https://haleyjung.github.io/posts/2022/01/scopes-closures/</link>
+      <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
+      <description>Lexical Scope The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
+ Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
+    </item>
+    
+  </channel>
+</rss>
