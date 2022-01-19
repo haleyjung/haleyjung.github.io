@@ -45,7 +45,7 @@ You can use Underscore in either an object-oriented or a functional style, depen
 <meta itemprop="description" content="&ldquo;Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. It’s the answer to the question: &lsquo;If I sit down in front of a blank HTML page, and want to start being productive immediately, what do I need?&rsquo; … and the tie to go along with jQuery&rsquo;s tux and Backbone&rsquo;s suspenders.
 You can use Underscore in either an object-oriented or a functional style, depending on your preference."><meta itemprop="datePublished" content="2022-01-09T12:53:51-05:00" />
 <meta itemprop="dateModified" content="2022-01-09T12:53:51-05:00" />
-<meta itemprop="wordCount" content="615"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="710"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript Library,Functional Programming,Object Oriented Programming," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
@@ -140,7 +140,7 @@ You can use Underscore in either an object-oriented or a functional style, depen
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        3 minutes
+        4 minutes
 
         
       </p>
@@ -159,10 +159,12 @@ You can use Underscore in either an object-oriented or a functional style, depen
           <div class="toc-title">Table of Contents</div>
           <nav id="TableOfContents">
   <ul>
+    <li><a href="#before-using-underscorejs">Before using underscore.js</a></li>
     <li><a href="#a-selection-of-collection-functions">A Selection of Collection Functions</a></li>
     <li><a href="#define-list-iteratee-context">Define (list, iteratee, [context])</a></li>
     <li><a href="#chaining">Chaining</a></li>
     <li><a href="#how-to-run-underscorejs-using-npm-node-package-manager">How to run Underscore.js using npm (Node Package Manager)</a></li>
+    <li><a href="#rewriting-underscore">Rewriting Underscore</a></li>
     <li><a href="#official-documentation">Official Documentation</a></li>
   </ul>
 </nav>
@@ -176,7 +178,9 @@ You can use Underscore in either an object-oriented or a functional style, depen
 <p>You can use Underscore in either an object-oriented or a functional style, depending on your preference. The following two lines of code are identical ways to double a list of numbers.&rdquo;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; });
 <span style="color:#a6e22e">_</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; });
-</code></pre></div><h2 id="a-selection-of-collection-functions">A Selection of Collection Functions</h2>
+</code></pre></div><h2 id="before-using-underscorejs">Before using underscore.js</h2>
+<p>Link the underscore CDN in the browser, which will then attach &ldquo;_&rdquo; to the brower as global variable.</p>
+<h2 id="a-selection-of-collection-functions">A Selection of Collection Functions</h2>
 <table>
 <thead>
 <tr>
@@ -271,8 +275,41 @@ You can use Underscore in either an object-oriented or a functional style, depen
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">save</span> <span style="color:#a6e22e">underscore</span>
 <span style="color:#75715e">// -&gt; downloads the underscore library from online and adds it to the dependencies in package.json
 </span></code></pre></div><p>If the library was already added as the dependencies, one can simply execute <strong>npm install</strong> without specifying the library.</p>
-<h2 id="official-documentation">Official Documentation</h2>
+<h2 id="rewriting-underscore">Rewriting Underscore</h2>
+<ul>
+<li>Reassign _ to a variable</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_</span> <span style="color:#f92672">=</span> {};
+</code></pre></div><ul>
+<li>Rewriting the iteration helper <code>_.each</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">func</span>){
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+    <span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>]);
+  }
+}
+</code></pre></div><ul>
+<li>Rewriting <code>_.map</code> using <code>_.each</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">func</span>){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">element</span>){
+    <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">element</span>));
+  })
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+}
+</code></pre></div><ul>
+<li>Rewriting <code>_.reduce</code> using <code>_.each</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">accumulator</span>){
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">nextElement</span>){
+    <span style="color:#a6e22e">accumulator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">accumulator</span>, <span style="color:#a6e22e">nextElement</span>)
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">accumulator</span>;
+}
+</code></pre></div><h2 id="official-documentation">Official Documentation</h2>
 <p><a href="https://underscorejs.org/#">UNDERSCORE.JS</a></p>
+<p><a href="https://johanna-fulghum.medium.com/underbar-explained-f71ebb3fe006">Fulghum, Johanna. &ldquo;Underbar, explained,&rdquo; Medium, Dec 18, 2017</a></p>
 
       </div>
     </article>
@@ -300,7 +337,7 @@ You can use Underscore in either an object-oriented or a functional style, depen
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        615 Words
+        710 Words
       </p>
 
       <p>

@@ -389,7 +389,9 @@ You can use Underscore in either an object-oriented or a functional style, depen
 <p>You can use Underscore in either an object-oriented or a functional style, depending on your preference. The following two lines of code are identical ways to double a list of numbers.&rdquo;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; });
 <span style="color:#a6e22e">_</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]).<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>){ <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>; });
-</code></pre></div><h2 id="a-selection-of-collection-functions">A Selection of Collection Functions</h2>
+</code></pre></div><h2 id="before-using-underscorejs">Before using underscore.js</h2>
+<p>Link the underscore CDN in the browser, which will then attach &ldquo;_&rdquo; to the brower as global variable.</p>
+<h2 id="a-selection-of-collection-functions">A Selection of Collection Functions</h2>
 <table>
 <thead>
 <tr>
@@ -484,8 +486,41 @@ You can use Underscore in either an object-oriented or a functional style, depen
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#f92672">--</span><span style="color:#a6e22e">save</span> <span style="color:#a6e22e">underscore</span>
 <span style="color:#75715e">// -&gt; downloads the underscore library from online and adds it to the dependencies in package.json
 </span></code></pre></div><p>If the library was already added as the dependencies, one can simply execute <strong>npm install</strong> without specifying the library.</p>
-<h2 id="official-documentation">Official Documentation</h2>
+<h2 id="rewriting-underscore">Rewriting Underscore</h2>
+<ul>
+<li>Reassign _ to a variable</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_</span> <span style="color:#f92672">=</span> {};
+</code></pre></div><ul>
+<li>Rewriting the iteration helper <code>_.each</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">func</span>){
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+    <span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>]);
+  }
+}
+</code></pre></div><ul>
+<li>Rewriting <code>_.map</code> using <code>_.each</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">func</span>){
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">element</span>){
+    <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">element</span>));
+  })
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+}
+</code></pre></div><ul>
+<li>Rewriting <code>_.reduce</code> using <code>_.each</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">accumulator</span>){
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">nextElement</span>){
+    <span style="color:#a6e22e">accumulator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">accumulator</span>, <span style="color:#a6e22e">nextElement</span>)
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">accumulator</span>;
+}
+</code></pre></div><h2 id="official-documentation">Official Documentation</h2>
 <p><a href="https://underscorejs.org/#">UNDERSCORE.JS</a></p>
+<p><a href="https://johanna-fulghum.medium.com/underbar-explained-f71ebb3fe006">Fulghum, Johanna. &ldquo;Underbar, explained,&rdquo; Medium, Dec 18, 2017</a></p>
 ]]></content>
         </item>
         
