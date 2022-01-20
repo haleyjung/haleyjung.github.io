@@ -6,8 +6,58 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 18 Jan 2022 11:27:23 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Primitive and Non-Primitive Data Types</title>
+            <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
+            <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</guid>
+            <description>Definitions Data Type There is a variety of data types, such as number, boolean, string, null, undefined, etc.
+Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
+Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
+let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
+            <content type="html"><![CDATA[<h2 id="definitions">Definitions</h2>
+<h3 id="data-type">Data Type</h3>
+<p>There is a variety of data types, such as number, boolean, string, null, undefined, etc.</p>
+<h3 id="primitive-data-type">Primitive Data Type</h3>
+<ul>
+<li>Numbers</li>
+<li>Strings</li>
+<li>Booleans</li>
+<li>undefined</li>
+<li>null</li>
+</ul>
+<p>Primitives are stored by <strong>value</strong>.</p>
+<p>Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>;
+</code></pre></div><ul>
+<li><code>a</code> has value of 1, which is a Number, a Primitive data type.</li>
+<li><code>b</code> has a value of <code>a</code>, which is a Number; however, <code>b</code> is not storing the variable <code>a</code> itself, but the <strong>value of the variable</strong>, which is 1.</li>
+<li>Even if the value of <code>a</code> is changed, this will <strong>not</strong> affect the value of <code>b</code>, because it has already stored 1 into its address.</li>
+</ul>
+<h3 id="non-primitive-data-type">Non-Primitive Data Type</h3>
+<ul>
+<li>Objects</li>
+<li>Arrays</li>
+<li>Functions</li>
+</ul>
+<p>Non-Primitives are stored by <strong>reference</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>];
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">a</span>;
+</code></pre></div><ul>
+<li><code>a</code> is referencing the address of the array object [1]</li>
+<li><code>b</code> is referencing the address of the variable which is pointing to the address of [1]</li>
+<li>Unlike Primitives, if a variable pointing to the same address as another variable is modified, the value stored inside the address itself will be modified, updating the values of both variables.</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">&ldquo;JavaScript data types and data structures,&rdquo; MDN</a></p>
+<p><a href="https://javascript.plainenglish.io/javascript-reviewing-primitive-and-non-primitive-data-types-5bc4ca68c3de">Louie, Benny. &ldquo;JavaScript: Reviewing Primitive and Non-Primitive Data Types</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>CDN: Content Delivery Networks</title>
@@ -518,7 +568,7 @@ You can use Underscore in either an object-oriented or a functional style, depen
   }
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">accumulator</span>;
 }
-</code></pre></div><h2 id="official-documentation">Official Documentation</h2>
+</code></pre></div><h2 id="reference">Reference</h2>
 <p><a href="https://underscorejs.org/#">UNDERSCORE.JS</a></p>
 <p><a href="https://johanna-fulghum.medium.com/underbar-explained-f71ebb3fe006">Fulghum, Johanna. &ldquo;Underbar, explained,&rdquo; Medium, Dec 18, 2017</a></p>
 ]]></content>

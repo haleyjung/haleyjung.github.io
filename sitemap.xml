@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/data-types/</loc>
+    <lastmod>2022-01-19T12:53:10-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-01-19T12:53:10-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</loc>
+    <lastmod>2022-01-19T12:53:10-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-01-19T12:53:10-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-01-19T12:53:10-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</loc>
     <lastmod>2022-01-18T11:27:23-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/content-delivery-networks/</loc>
-    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
     <lastmod>2022-01-18T11:27:23-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/execution-contexts/</loc>

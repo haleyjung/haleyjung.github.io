@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 18 Jan 2022 11:27:23 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Types</title>
+      <link>https://haleyjung.github.io/tags/data-types/</link>
+      <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/data-types/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Content Delivery Networks</title>
       <link>https://haleyjung.github.io/tags/content-delivery-networks/</link>
@@ -86,15 +95,6 @@
       <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/chai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript Frameworks</title>
-      <link>https://haleyjung.github.io/tags/javascript-frameworks/</link>
-      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/javascript-frameworks/</guid>
       <description></description>
     </item>
     

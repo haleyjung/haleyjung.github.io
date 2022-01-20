@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Types on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/data-types/</link>
+    <description>Recent content in Data Types on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/data-types/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primitive and Non-Primitive Data Types</title>
+      <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
+      <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</guid>
+      <description>Definitions Data Type There is a variety of data types, such as number, boolean, string, null, undefined, etc.
+Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
+Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
+let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
+    </item>
+    
+  </channel>
+</rss>

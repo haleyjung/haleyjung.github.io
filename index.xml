@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 18 Jan 2022 11:27:23 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Primitive and Non-Primitive Data Types</title>
+      <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
+      <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</guid>
+      <description>Definitions Data Type There is a variety of data types, such as number, boolean, string, null, undefined, etc.
+Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
+Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
+let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
+    </item>
+    
     <item>
       <title>CDN: Content Delivery Networks</title>
       <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
@@ -98,15 +110,6 @@ It is a Behavior Driven Development testing framework: i.e. Regardless of which 
       <guid>https://haleyjung.github.io/posts/2021/12/pug.js/</guid>
       <description>What is Pug.js?  Pug.js is a HTML templating engine, which means you can write much simpler Pug code, which Pug compiler will compile into HTML code, that browser can understand. Pug.js, as from its name is a JavaScript library. Hence, we can run it inside browser or on node.js  What to do after the installation?   Tell express that our view engine is now PUG
  app.set(&amp;ldquo;view engine&amp;rdquo;, &amp;ldquo;pug&amp;rdquo;); create a views folder inside /.</description>
-    </item>
-    
-    <item>
-      <title>Server Standards</title>
-      <link>https://haleyjung.github.io/posts/2021/12/server-standards/</link>
-      <pubDate>Wed, 29 Dec 2021 14:40:44 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
-      <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
     </item>
     
   </channel>
