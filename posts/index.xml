@@ -6,8 +6,95 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 20 Jan 2022 10:50:59 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>DOM</title>
+            <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
+            <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
+            <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
+            <content type="html"><![CDATA[<h2 id="definition">Definition</h2>
+<ul>
+<li>DOM: Document Object Model</li>
+<li>An object-based representation of the source HTML document</li>
+<li>An interface to web pages; an API to the page</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<ul>
+<li>Allows browsers to determine what to render in the viewport</li>
+<li>Allows JavaScript to manipulate the page&rsquo;s content, structure, and styles</li>
+</ul>
+<h2 id="dom-vs-html">DOM vs. HTML</h2>
+<p>DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</p>
+<ul>
+<li>HTML represents initial page content, and the DOM represents current page content.</li>
+<li>DOM is a living model that can be modified by JavaScript. When JavaScript adds, removes, or edits nodes, the DOM becomes different than the HTML.</li>
+<li>DOM does not include pseudo-elements.</li>
+<li>DOM does include hidden elements (e.g. <code>display: none</code>).</li>
+</ul>
+<h2 id="critical-rendering-path">Critical Rendering Path</h2>
+<ul>
+<li>The steps a browser takes from a source HTML document to displaying a styled and interactive page in the viewport
+<ol>
+<li>The DOM Tree construction
+<ul>
+<li>A representation of the elements</li>
+<li>Node tree: the object structure of the DOM</li>
+</ul>
+</li>
+<li>The CSSOM Tree construction
+<ul>
+<li>A representation of the styles associated with elements</li>
+<li>CSS is considered a <strong>render blocking resource</strong> if it applies to the current device. For instance, if a CSS element is only applied for <code>orientation: landscape</code> and a user is viewing the page in a portrait mode, the element is not considered render blocking.</li>
+<li>CSS can also be <strong>script blocking</strong> because CSS has to be constructed for JavaScript to run.</li>
+</ul>
+</li>
+<li>Running JavaScript
+<ul>
+<li>JavaScript is considered a <strong>parser blocking resource</strong> because the parsing of the HTML document is blocked by JavaScript.</li>
+</ul>
+</li>
+<li>The Render Tree
+<ul>
+<li>A representation of the HTML elements and their related styles that will be rendered on the page (DOM &amp; CSSOM)</li>
+<li>Hidden elements are not part of the render tree</li>
+</ul>
+</li>
+<li>Generating the layout
+<ul>
+<li>The size of the viewport</li>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;</code></li>
+</ul>
+</li>
+<li>Painting
+<ul>
+<li>The visible content of the page gets converted to pixels for display on the screen.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="chrome-devtool">Chrome DevTool</h2>
+<p>What we see in DevTools is a close approximation to the DOM, but it is not DOM as it includes additional information such as CSS pseudo-elements (<code>::before</code>, <code>::after</code>).</p>
+<p><strong>Performance</strong> tab helps to inspect the Critical Rendering Path in process.</p>
+<ul>
+<li>Send Request - GET request sent for index.html</li>
+<li>Parse HTML and Send Request - Begin parsing of HTML and DOM construction. Send GET request for style.css and main.js</li>
+<li>Parse Stylesheet - CSSOM created for style.css</li>
+<li>Evaluate Script - Evaluate main.js</li>
+<li>Layout - Generate Layout based on meta viewport tag in HTML</li>
+<li>Paint - Paint pixels on document</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://developer.chrome.com/docs/devtools/dom/">Basques, Kayce. &ldquo;Get Started With Viewing and Changing the DOM,&rdquo; Chrome Developers, March 1, 2019.</a></p>
+<p><a href="https://developer.chrome.com/docs/devtools/shortcuts/#elements">Basques, Kayce. &ldquo;Elements panel keyboard shortcuts,&rdquo; Chrome Developers, April 29, 2015.</a></p>
+<p><a href="https://bitsofco.de/understanding-the-critical-rendering-path/">&ldquo;Understanding the Critical Rendering Path,&rdquo; bitsofcode, January 17, 2017.</a></p>
+<p><a href="https://bitsofco.de/what-exactly-is-the-dom/">&ldquo;What, exactly, is the DOM?&rdquo; bitsofcode, November 16, 2018.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Primitive and Non-Primitive Data Types</title>
@@ -135,6 +222,277 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
 <li>Inner functions have access to the variables of outer functions, but they cannot access arguments object of outer functions.</li>
 <li>Inner function does not keep the separate copy of outer variables but it reference outer variables: i.e. value of the outer variables will be changed if you change it using inner function.</li>
 </ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>APIs &amp; jQuery</title>
+            <link>https://haleyjung.github.io/posts/2022/01/apis-jquery/</link>
+            <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/apis-jquery/</guid>
+            <description>APIs  Manipulate (create new or update existing) HTML elements on the page Create event-based user interactivity Embed rich media in documents with HTML &amp;lt;audio&amp;gt; and &amp;lt;video&amp;gt; elements Fetch data from a server Create visualizations by:  Creating SVG (Scalable Vector Graphics) Drawing on HTML canvas elements Rendering high-performance interactive 2D and 3D graphics with WebGL    Define jQuery  A JavaScript library that improves the native DOM API Portable across browsers Has a concise syntax Makes manipulating and adding interactivity to HTML documents easier  Using jQuery Method 1: Download the jQuery library and install it locally in the HTML code</description>
+            <content type="html"><![CDATA[<h2 id="apis">APIs</h2>
+<ul>
+<li>Manipulate (create new or update existing) HTML elements on the page</li>
+<li>Create event-based user interactivity</li>
+<li>Embed rich media in documents with HTML <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> elements</li>
+<li>Fetch data from a server</li>
+<li>Create visualizations by:
+<ul>
+<li>Creating SVG (Scalable Vector Graphics)</li>
+<li>Drawing on HTML <code>canvas</code> elements</li>
+<li>Rendering high-performance interactive 2D and 3D graphics with WebGL</li>
+</ul>
+</li>
+</ul>
+<h2 id="define-jquery">Define jQuery</h2>
+<ul>
+<li>A JavaScript library that improves the native DOM API</li>
+<li>Portable across browsers</li>
+<li>Has a concise syntax</li>
+<li>Makes manipulating and adding interactivity to HTML documents easier</li>
+</ul>
+<h2 id="using-jquery">Using jQuery</h2>
+<p><strong>Method 1</strong>: Download the jQuery library and install it locally in the HTML code</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/jquery/jquery-3.4.1.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/scripts.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div><p><strong>Method 2</strong>: Link to the jQuery library using CDN</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;js/scripts.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">head</span>&gt;
+</code></pre></div><h2 id="jquery-selectors">jQuery Selectors</h2>
+<ul>
+<li>Uses CSS-style selectors to select parts, or elements of an HTML page</li>
+<li><a href="https://api.jquery.com/category/selectors/">jQuery Official Documentation: Selectors</a></li>
+</ul>
+<h3 id="elementmethod">$(&ldquo;element&rdquo;).method</h3>
+<p><code>$(&quot;p&quot;).addClass(&quot;selected&quot;);</code></p>
+<ul>
+<li>selects all paragraph elements and adds a class of &ldquo;selected&rdquo; to them</li>
+</ul>
+<p><code>$(&quot;.pclassName&quot;).css(&quot;color&quot;, &quot;blue&quot;);</code></p>
+<ul>
+<li>colors the text of class named pclassName with blue</li>
+</ul>
+<p><code>$(#liID).replaceWith(&quot;&lt;p&gt;text&lt;/p&gt;&quot;);</code></p>
+<ul>
+<li>selects ID and replaces it with text</li>
+</ul>
+<p><code>$('ul.wishList').append(&quot;&lt;li&gt;New List&lt;/li&gt;&quot;);</code></p>
+<ul>
+<li>selects a specific class &lsquo;wishList&rsquo; from ul</li>
+</ul>
+<p><code>$(&quot;h1#headline&quot;).css(&quot;font-size&quot;, &quot;2em&quot;);</code></p>
+<ul>
+<li>selects a specific id &lsquo;headline&rsquo; from h1</li>
+</ul>
+<h3 id="selectors-as-filters">Selectors as Filters</h3>
+<p><code>:first</code></p>
+<ul>
+<li>selects the element that is the first child of its parent</li>
+<li><code>$(&quot;li:first&quot;).css(&quot;color&quot;, &quot;green&quot;);</code></li>
+</ul>
+<p><code>:contains(text)</code></p>
+<ul>
+<li>selects elements that have a certain text</li>
+<li><code>$(&quot;p:contains('World')&quot;).css(&quot;color&quot;, &quot;yellow&quot;);</code></li>
+</ul>
+<p><code>:last</code></p>
+<ul>
+<li>selects the element that is the last child of its parent</li>
+<li><code>$(&quot;li:last&quot;).css(&quot;color&quot;, &quot;yellow&quot;);</code></li>
+</ul>
+<h3 id="multiple-selectors">Multiple Selectors</h3>
+<p><code>$(&quot;#cat,#dog,#rat&quot;).css(&quot;background-color&quot;,&quot;red&quot;);</code></p>
+<ul>
+<li>by separating the different ids with a comma, apply the same changes to more than one element in a single line of code</li>
+</ul>
+<p>To set multiple CSS properties, use <strong>object literal syntax</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#element&#39;</span>).<span style="color:#a6e22e">css</span>({
+  <span style="color:#e6db74">&#39;background&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;gray&#39;</span>,
+  <span style="color:#e6db74">&#39;color&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;white&#39;</span>
+});
+</code></pre></div><h2 id="jquery-methods">jQuery Methods</h2>
+<h3 id="click-method">Click Method</h3>
+<p>The jQuery Click method triggers a function &ldquo;handler&rdquo; when an element is clicked.</p>
+<p><code>$(&quot;#clickMe&quot;).click(handler)</code> takes the handler function as an argument and executes it <strong>every time the element #clickMe is clicked</strong>. The handler function receives a parameter known as an eventObject that can be useful for controlling the action.</p>
+<p><strong>Example 1</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;alert&#34;</span>&gt;Click Here&lt;/<span style="color:#f92672">button</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#alert&#34;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span> () {
+  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Hi! I&#39;m an alert&#34;</span>);
+});
+</code></pre></div><p><strong>Example 2</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">jqueryElement</span>.<span style="color:#a6e22e">click</span>(<span style="color:#a6e22e">usefulInfo</span>, <span style="color:#a6e22e">handler</span>)
+
+<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;element&#34;</span>).<span style="color:#a6e22e">click</span>({<span style="color:#a6e22e">firstWord</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#a6e22e">secondWord</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;World&#34;</span>}, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">event</span>){
+    <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">firstWord</span>);
+    <span style="color:#a6e22e">alert</span>(<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">secondWord</span>);
+});
+</code></pre></div><p><strong>Remember</strong></p>
+<p>Use <code>.on(&quot;click&quot;,...)</code> over <code>.click(...)</code> because the former can use less memory and work for dynamically added elements.</p>
+<p>The click event is only bound to elements currently in the DOM at the time of binding, so any elements added afterwards will not be bound. To bind all elements in the DOM, even if they will be created at a later time, use the .on() method.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;element&#34;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;I&#39;ve been clicked!&#34;</span>);
+});
+
+<span style="color:#75715e">// Instead of &#39;.click()&#39; use &#39;.on()&#39;:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#e6db74">&#34;element&#34;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;I&#39;ve been clicked!&#34;</span>);
+});
+</code></pre></div><h3 id="mousedown-method">Mousedown Method</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#a6e22e">selector</span>).<span style="color:#a6e22e">mousedown</span>(<span style="color:#66d9ef">function</span>);
+
+<span style="color:#a6e22e">$</span>(<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">example</span>).<span style="color:#a6e22e">mousedown</span>(<span style="color:#66d9ef">function</span>(){
+   <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Example was clicked&#34;</span>);
+});
+</code></pre></div><h3 id="hover-method">Hover Method</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#a6e22e">selector</span>).<span style="color:#a6e22e">hover</span>(<span style="color:#a6e22e">inFunction</span>, <span style="color:#a6e22e">outFunction</span>);
+
+<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;p&#34;</span>).<span style="color:#a6e22e">hover</span>(<span style="color:#66d9ef">function</span>(){
+    <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#34;background-color&#34;</span>, <span style="color:#e6db74">&#34;yellow&#34;</span>);
+}, <span style="color:#66d9ef">function</span>(){
+    <span style="color:#a6e22e">$</span>(<span style="color:#66d9ef">this</span>).<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#34;background-color&#34;</span>, <span style="color:#e6db74">&#34;pink&#34;</span>);
+});
+</code></pre></div><p>The first function, inFunction, will run when the <code>mouseenter</code> event occurs. The second function is optional, but will run when the <code>mouseleave</code> event occurs. If only one function is specified, the other function will run for both the <code>mouseenter</code> and <code>mouseleave</code> events.</p>
+<h3 id="animate-method">Animate Method</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.selector&#34;</span>).<span style="color:#a6e22e">animate</span>(<span style="color:#a6e22e">properties</span>, <span style="color:#a6e22e">duration</span>, <span style="color:#a6e22e">callbackFunction</span>());
+</code></pre></div><ul>
+<li><code>properties</code>: a javascript object with the CSS properties you want to animate as keys and the values</li>
+<li><code>duration</code>:  the amount of time in milliseconds the animation should take</li>
+<li><code>callbackFunction()</code>: executed once the animation has finished</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.example-animation&#34;</span>).<span style="color:#a6e22e">animate</span>({
+	<span style="color:#a6e22e">opacity</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>,
+	<span style="color:#a6e22e">bottom</span><span style="color:#f92672">:</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">15</span>
+}, <span style="color:#ae81ff">1000</span>, <span style="color:#66d9ef">function</span>() {
+	<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.different-element&#34;</span>).<span style="color:#a6e22e">hide</span>();
+});
+</code></pre></div><h3 id="hide-method">Hide Method</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.myclass&#34;</span>).<span style="color:#a6e22e">hide</span>() <span style="color:#75715e">// hides all the elements whose clasee is &#39;myclass&#39;
+</span></code></pre></div><p><code>.hide()</code> can also animate the width, height, and opacity of the matched elements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;p&#34;</span>).<span style="color:#a6e22e">hide</span>( <span style="color:#e6db74">&#34;slow&#34;</span>, <span style="color:#66d9ef">function</span>() { <span style="color:#75715e">// slow: 600ms
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.titles&#34;</span>).<span style="color:#a6e22e">hide</span>(<span style="color:#e6db74">&#34;fast&#34;</span>); <span style="color:#75715e">// fast: 200ms
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;No more text!&#34;</span>);
+});
+</code></pre></div><h3 id="show-method">Show Method</h3>
+<p>Immediately displays the matched element without an animation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.myclass&#34;</span>).<span style="color:#a6e22e">show</span>(); <span style="color:#75715e">// doesn&#39;t override `!important!`
+</span></code></pre></div><p>Just like <code>.hide()</code>, <code>.show()</code> can be used as an animation.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#title&#34;</span>).<span style="color:#a6e22e">show</span>( <span style="color:#e6db74">&#34;slow&#34;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;p&#34;</span>).<span style="color:#a6e22e">show</span>(<span style="color:#e6db74">&#34;fast&#34;</span>);
+});
+</code></pre></div><h3 id="toggle-method">Toggle Method</h3>
+<p>To show or hide elements: <code>$(&quot;.myclass&quot;).toggle()</code></p>
+<h3 id="slide-down-method">Slide Down Method</h3>
+<p>To animate the height of the matched elements:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.myclass&#34;</span>).<span style="color:#a6e22e">slideDown</span>(); <span style="color:#75715e">//will expand the element with the identifier myclass for 400 ms.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.myclass&#34;</span>).<span style="color:#a6e22e">slideDown</span>(<span style="color:#ae81ff">1000</span>); <span style="color:#75715e">//will expand the element with the identifier myclass for 1000 ms.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.myclass&#34;</span>).<span style="color:#a6e22e">slideDown</span>(<span style="color:#e6db74">&#34;slow&#34;</span>); <span style="color:#75715e">//will expand the element with the identifier myclass for 600 ms.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;.myclass&#34;</span>).<span style="color:#a6e22e">slideDown</span>(<span style="color:#e6db74">&#34;fast&#34;</span>); <span style="color:#75715e">//will expand the element with the identifier myclass for 200 ms.
+</span></code></pre></div><h3 id="load-method">Load Method</h3>
+<p>To load data from a server and puts the returned data into the selected element (There is also a jQuery Event method called load. Which one is called, depends on the parameters):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;button&#34;</span>).<span style="color:#a6e22e">click</span>(<span style="color:#66d9ef">function</span>(){
+    <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#div1&#34;</span>).<span style="color:#a6e22e">load</span>(<span style="color:#e6db74">&#34;demo_test.txt&#34;</span>);
+});
+</code></pre></div><h3 id="chaining">Chaining</h3>
+<p>To execute multiple methods on the same jQuery selection, on a single line.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//From this:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#someElement&#39;</span>).<span style="color:#a6e22e">removeClass</span>(<span style="color:#e6db74">&#39;classA&#39;</span>);
+<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#someElement&#39;</span>).<span style="color:#a6e22e">addClass</span>(<span style="color:#e6db74">&#39;classB&#39;</span>);
+
+<span style="color:#75715e">// To this:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#someElement&#39;</span>).<span style="color:#a6e22e">removeClass</span>(<span style="color:#e6db74">&#39;classA&#39;</span>).<span style="color:#a6e22e">addClass</span>(<span style="color:#e6db74">&#39;classB&#39;</span>);
+</code></pre></div><h3 id="ajax-get-method">Ajax Get Method</h3>
+<p>Sends an asynchronous http GET request to load data from the server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">jQuery</span>.<span style="color:#a6e22e">get</span>( <span style="color:#a6e22e">url</span> [, <span style="color:#a6e22e">data</span> ] [, <span style="color:#a6e22e">success</span> ] [, <span style="color:#a6e22e">dataType</span> ] )
+
+<span style="color:#75715e">// equivalent to:
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+     <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">url</span>,
+     <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>,
+     <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">success</span>,
+     <span style="color:#a6e22e">dataType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dataType</span>
+});
+</code></pre></div><ul>
+<li><strong>data</strong>: An object or string sent to the server with the request.</li>
+<li><strong>success</strong>: A callback function executed if the request succeeds. It takes as an argument the returned data. It is also passed the text status of the response.</li>
+<li><strong>dataType</strong>: The type of data expected from the server. The default is Intelligent Guess (xml, json, script, text, html). If this parameter is provided, the success callback also must be provided.</li>
+</ul>
+<p><strong>Example: Requesting <code>resource.js</code> from the server</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;http://example.com/resource.json&#39;</span>, {<span style="color:#a6e22e">category</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;client&#39;</span>, <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;premium&#39;</span>})
+     .<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>) {
+           <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;success&#34;</span>);
+           <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#mypar&#34;</span>).<span style="color:#a6e22e">html</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">amount</span>);
+     })
+     .<span style="color:#a6e22e">fail</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>) { <span style="color:#75715e">// with error handling
+</span><span style="color:#75715e"></span>           <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;error&#34;</span>);
+           <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#mypar&#34;</span>).<span style="color:#a6e22e">html</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">statusText</span>);
+     });
+</code></pre></div><h3 id="ajax-post-method">Ajax Post Method</h3>
+<p>Same logic:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">jQuery</span>.<span style="color:#a6e22e">post</span>( <span style="color:#a6e22e">url</span> [, <span style="color:#a6e22e">data</span> ] [, <span style="color:#a6e22e">success</span> ] [, <span style="color:#a6e22e">dataType</span> ] )
+
+<span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;POST&#34;</span>,
+  <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">url</span>,
+  <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>,
+  <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">success</span>,
+  <span style="color:#a6e22e">dataType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">dataType</span>
+});
+</code></pre></div><p><strong>Example: Using the github api to fetch the list of repositories of a user using jQuery.ajax() and put results in a div</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">body</span>&gt;
+
+&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;userForm&#34;</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Enter gitHub User name&#34;</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search&#34;</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+<span style="color:#75715e">&lt;!-- the result of the search will be rendered inside this div --&gt;</span>
+&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;result&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#75715e">// Attach a submit handler to the form
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>( <span style="color:#e6db74">&#34;#userForm&#34;</span> ).<span style="color:#a6e22e">submit</span>(<span style="color:#66d9ef">function</span>( <span style="color:#a6e22e">event</span> ) {
+
+  <span style="color:#75715e">// Stop form from submitting normally
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">preventDefault</span>();
+
+  <span style="color:#75715e">// Get some values from elements on the page:
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$form</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>( <span style="color:#66d9ef">this</span> ),
+    <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$form</span>.<span style="color:#a6e22e">find</span>( <span style="color:#e6db74">&#34;input[name=&#39;username&#39;]&#34;</span> ).<span style="color:#a6e22e">val</span>(),
+    <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://api.github.com/users/&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">username</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;/repos&#34;</span>;
+
+  <span style="color:#75715e">// Send the data using post
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">posting</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">post</span>( <span style="color:#a6e22e">url</span>, { <span style="color:#a6e22e">s</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">term</span> } );
+
+  <span style="color:#75715e">//Ajax Function to send a get request
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">ajax</span>({
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GET&#34;</span>,
+    <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">url</span>,
+    <span style="color:#a6e22e">dataType</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#34;jsonp&#34;</span>
+    <span style="color:#a6e22e">success</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">response</span>){
+        <span style="color:#75715e">//if request if made successfully then the response represent the data
+</span><span style="color:#75715e"></span>
+        <span style="color:#a6e22e">$</span>( <span style="color:#e6db74">&#34;#result&#34;</span> ).<span style="color:#a6e22e">empty</span>().<span style="color:#a6e22e">append</span>( <span style="color:#a6e22e">response</span> );
+    }
+  });
+
+});
+&lt;/<span style="color:#f92672">script</span>&gt;
+
+&lt;/<span style="color:#f92672">body</span>&gt;
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage">&ldquo;Client-side storage,&rdquo; MDN Web Docs.</a></p>
+<p><a href="https://jquery.com/">jQuery Official Documentation</a></p>
+<ul>
+<li><a href="https://learn.jquery.com/using-jquery-core/">Using jQuery Core</a></li>
+<li><a href="https://learn.jquery.com/events/">Events</a></li>
+</ul>
+<p><a href="https://www.freecodecamp.org/news/jquery-selectors/">&ldquo;jQuery Selectors Explained: Class Selectors, ID Selectors, and More,&rdquo; freeCodeCamp, January 27, 2020.</a></p>
+<p><a href="https://www.freecodecamp.org/news/the-best-jquery-examples/">&ldquo;The Best jQuery Examples,&rdquo; freeCodeCamp, November 22, 2019.</a></p>
 ]]></content>
         </item>
         
@@ -397,6 +755,23 @@ module.exports = { parserOptions: { ecmaVersion: 5 }, rules: { /* Indentation */
 <p><a href="https://eslint.org/">Official ELint, OpenJS Foundation</a></p>
 <p><a href="https://xiaoyunyang.medium.com/javascript-is-a-loosely-typed-language-meaning-you-dont-have-to-specify-what-type-of-information-137408d54fc7">Yang, Xiaoyun, &lsquo;Javascript is a loosely typed language&hellip;&rsquo;, Medium, January 29, 2018</a></p>
 ]]></content>
+        </item>
+        
+        <item>
+            <title>Git Push Error</title>
+            <link>https://haleyjung.github.io/posts/2022/01/git-push-error/</link>
+            <pubDate>Mon, 10 Jan 2022 12:19:52 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/git-push-error/</guid>
+            <description>error: failed to push some refs to &#39;origin&#39; &amp;ldquo;This means that someone else pushed a commit to the same branch you&amp;rsquo;re pushing to, but you don&amp;rsquo;t have that commit on your laptop yet. This can happen if it has been awhile since you ran &amp;ldquo;git pull&amp;rdquo; on a branch that many people contribute to, such as staging.&amp;rdquo;
+To fix this issue, run:
+git pull origin &amp;lt;your-branch&amp;gt; git push origin &amp;lt;your-branch&amp;gt; </description>
+            <content type="html"><![CDATA[<pre tabindex="0"><code class="language-error" data-lang="error">error: failed to push some refs to 'origin'
+</code></pre><p>&ldquo;This means that someone else pushed a commit to the same branch you&rsquo;re pushing to, but you don&rsquo;t have that commit on your laptop yet. This can happen if it has been awhile since you ran &ldquo;git pull&rdquo; on a branch that many people contribute to, such as staging.&rdquo;</p>
+<p>To fix this issue, run:</p>
+<pre tabindex="0"><code>git pull origin &lt;your-branch&gt;
+git push origin &lt;your-branch&gt;
+</code></pre>]]></content>
         </item>
         
         <item>

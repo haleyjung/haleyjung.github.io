@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DOM on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/dom/</link>
+    <description>Recent content in DOM on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 20 Jan 2022 10:50:59 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/dom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DOM</title>
+      <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
+      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
+      <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
+    </item>
+    
+  </channel>
+</rss>

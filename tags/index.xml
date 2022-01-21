@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 10:50:59 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DOM</title>
+      <link>https://haleyjung.github.io/tags/dom/</link>
+      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/dom/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Data Types</title>
       <link>https://haleyjung.github.io/tags/data-types/</link>
@@ -45,6 +54,24 @@
     </item>
     
     <item>
+      <title>API</title>
+      <link>https://haleyjung.github.io/tags/api/</link>
+      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://haleyjung.github.io/tags/jquery/</link>
+      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Breakpoints</title>
       <link>https://haleyjung.github.io/tags/breakpoints/</link>
       <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
@@ -68,33 +95,6 @@
       <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/devtools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Problem Solving</title>
-      <link>https://haleyjung.github.io/tags/problem-solving/</link>
-      <pubDate>Wed, 12 Jan 2022 10:26:29 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/problem-solving/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ESLint</title>
-      <link>https://haleyjung.github.io/tags/eslint/</link>
-      <pubDate>Tue, 11 Jan 2022 23:21:14 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/eslint/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Chai</title>
-      <link>https://haleyjung.github.io/tags/chai/</link>
-      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/chai/</guid>
       <description></description>
     </item>
     

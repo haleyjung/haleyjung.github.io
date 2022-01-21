@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/api/</link>
+    <description>Recent content in API on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 15 Jan 2022 12:40:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>APIs &amp; jQuery</title>
+      <link>https://haleyjung.github.io/posts/2022/01/apis-jquery/</link>
+      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/apis-jquery/</guid>
+      <description>APIs  Manipulate (create new or update existing) HTML elements on the page Create event-based user interactivity Embed rich media in documents with HTML &amp;lt;audio&amp;gt; and &amp;lt;video&amp;gt; elements Fetch data from a server Create visualizations by:  Creating SVG (Scalable Vector Graphics) Drawing on HTML canvas elements Rendering high-performance interactive 2D and 3D graphics with WebGL    Define jQuery  A JavaScript library that improves the native DOM API Portable across browsers Has a concise syntax Makes manipulating and adding interactivity to HTML documents easier  Using jQuery Method 1: Download the jQuery library and install it locally in the HTML code</description>
+    </item>
+    
+  </channel>
+</rss>

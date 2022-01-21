@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 19 Jan 2022 12:53:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 10:50:59 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DOM</title>
+      <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
+      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
+      <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
+    </item>
+    
     <item>
       <title>Primitive and Non-Primitive Data Types</title>
       <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
@@ -37,6 +46,15 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
       <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
       <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
  Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
+    </item>
+    
+    <item>
+      <title>APIs &amp; jQuery</title>
+      <link>https://haleyjung.github.io/posts/2022/01/apis-jquery/</link>
+      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/apis-jquery/</guid>
+      <description>APIs  Manipulate (create new or update existing) HTML elements on the page Create event-based user interactivity Embed rich media in documents with HTML &amp;lt;audio&amp;gt; and &amp;lt;video&amp;gt; elements Fetch data from a server Create visualizations by:  Creating SVG (Scalable Vector Graphics) Drawing on HTML canvas elements Rendering high-performance interactive 2D and 3D graphics with WebGL    Define jQuery  A JavaScript library that improves the native DOM API Portable across browsers Has a concise syntax Makes manipulating and adding interactivity to HTML documents easier  Using jQuery Method 1: Download the jQuery library and install it locally in the HTML code</description>
     </item>
     
     <item>
@@ -72,6 +90,17 @@ module.exports = { parserOptions: { ecmaVersion: 5 }, rules: { /* Indentation */
     </item>
     
     <item>
+      <title>Git Push Error</title>
+      <link>https://haleyjung.github.io/posts/2022/01/git-push-error/</link>
+      <pubDate>Mon, 10 Jan 2022 12:19:52 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/git-push-error/</guid>
+      <description>error: failed to push some refs to &#39;origin&#39; &amp;ldquo;This means that someone else pushed a commit to the same branch you&amp;rsquo;re pushing to, but you don&amp;rsquo;t have that commit on your laptop yet. This can happen if it has been awhile since you ran &amp;ldquo;git pull&amp;rdquo; on a branch that many people contribute to, such as staging.&amp;rdquo;
+To fix this issue, run:
+git pull origin &amp;lt;your-branch&amp;gt; git push origin &amp;lt;your-branch&amp;gt; </description>
+    </item>
+    
+    <item>
       <title>Mocha &amp; Chai</title>
       <link>https://haleyjung.github.io/posts/2022/01/mocha-chai/</link>
       <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
@@ -80,36 +109,6 @@ module.exports = { parserOptions: { ecmaVersion: 5 }, rules: { /* Indentation */
       <description>What are Mocha and Chai? They are JavaScript frameworks that are commonly used together for unit testing.
 Mocha is a testing framework that provides functions that are executed according in a specific order, and that logs their results to the terminal window.
 When you read tests written in Mocha, you’ll see regular use of the keywords describe and it. These keywords, provided by Mocha, provide structure to the tests by batching them into test suites and test cases.</description>
-    </item>
-    
-    <item>
-      <title>Underscore.js</title>
-      <link>https://haleyjung.github.io/posts/2022/01/underscore.js/</link>
-      <pubDate>Sun, 09 Jan 2022 12:53:51 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/underscore.js/</guid>
-      <description>&amp;ldquo;Underscore is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. It’s the answer to the question: &amp;lsquo;If I sit down in front of a blank HTML page, and want to start being productive immediately, what do I need?&amp;rsquo; … and the tie to go along with jQuery&amp;rsquo;s tux and Backbone&amp;rsquo;s suspenders.
-You can use Underscore in either an object-oriented or a functional style, depending on your preference.</description>
-    </item>
-    
-    <item>
-      <title>Jasmine</title>
-      <link>https://haleyjung.github.io/posts/2022/01/jasmine/</link>
-      <pubDate>Sat, 08 Jan 2022 14:38:40 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/jasmine/</guid>
-      <description>What is Jasmine? Jasmine is an open-source testing framework for JavaScript. With this tool we are able to describe the code we are testing and make assertions about our code. In the early 2000s, JsUnit was a framework for testing JavaScript applications. It was upgraded and released as Jasmine in 2010 by Pivotal Labs.
-It is a Behavior Driven Development testing framework: i.e. Regardless of which JavaScript framework I use (e.</description>
-    </item>
-    
-    <item>
-      <title>Pug.js</title>
-      <link>https://haleyjung.github.io/posts/2021/12/pug.js/</link>
-      <pubDate>Thu, 30 Dec 2021 16:24:23 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/pug.js/</guid>
-      <description>What is Pug.js?  Pug.js is a HTML templating engine, which means you can write much simpler Pug code, which Pug compiler will compile into HTML code, that browser can understand. Pug.js, as from its name is a JavaScript library. Hence, we can run it inside browser or on node.js  What to do after the installation?   Tell express that our view engine is now PUG
- app.set(&amp;ldquo;view engine&amp;rdquo;, &amp;ldquo;pug&amp;rdquo;); create a views folder inside /.</description>
     </item>
     
   </channel>

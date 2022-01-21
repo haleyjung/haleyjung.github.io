@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 12 Dec 2021 15:32:37 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Jan 2022 12:19:52 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Push Error</title>
+      <link>https://haleyjung.github.io/posts/2022/01/git-push-error/</link>
+      <pubDate>Mon, 10 Jan 2022 12:19:52 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/git-push-error/</guid>
+      <description>error: failed to push some refs to &#39;origin&#39; &amp;ldquo;This means that someone else pushed a commit to the same branch you&amp;rsquo;re pushing to, but you don&amp;rsquo;t have that commit on your laptop yet. This can happen if it has been awhile since you ran &amp;ldquo;git pull&amp;rdquo; on a branch that many people contribute to, such as staging.&amp;rdquo;
+To fix this issue, run:
+git pull origin &amp;lt;your-branch&amp;gt; git push origin &amp;lt;your-branch&amp;gt; </description>
+    </item>
+    
     <item>
       <title>Hugo</title>
       <link>https://haleyjung.github.io/posts/2021/12/hugo/</link>
