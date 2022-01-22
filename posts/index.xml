@@ -6,8 +6,221 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 20 Jan 2022 10:50:59 -0500</lastBuildDate>
+        <lastBuildDate>Sat, 22 Jan 2022 11:10:24 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>IIFE &amp; Scopes</title>
+            <link>https://haleyjung.github.io/posts/2022/01/iife-scopes/</link>
+            <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/iife-scopes/</guid>
+            <description>Function Expression vs. Function Declaration The function name can be omitted in function expressions to create anonymous functions while function declarations (statements) require names.
+A function expression can be used as an IIFE (Immediately Invoked Function Expression).
+//Function Expression let variableName = function() { statements; }; // -&amp;gt; ends with a semicolon because it&amp;#39;s an assignment statement; not part of the function syntax  //Function Declaration function name([param[, param,[..., param]]]) { statements; } Definition of IIFE IIFE, also known as Self-Executing Anonymous Function, is a JavaScript function that runs as soon as it is defined.</description>
+            <content type="html"><![CDATA[<h2 id="function-expression-vs-function-declaration">Function Expression vs. Function Declaration</h2>
+<p>The <em>function name</em> can be <strong>omitted</strong> in function <strong>expressions</strong> to create <strong>anonymous functions</strong> while function declarations (statements) require names.</p>
+<p>A function expression can be used as an IIFE (Immediately Invoked Function Expression).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//Function Expression
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">variableName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">statements</span>;
+}; <span style="color:#75715e">// -&gt; ends with a semicolon because it&#39;s an assignment statement; not part of the function syntax
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">//Function Declaration
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">name</span>([<span style="color:#a6e22e">param</span>[, <span style="color:#a6e22e">param</span>,[..., <span style="color:#a6e22e">param</span>]]]) {
+   <span style="color:#a6e22e">statements</span>;
+}
+</code></pre></div><h2 id="definition-of-iife">Definition of IIFE</h2>
+<p>IIFE, also known as <strong>Self-Executing Anonymous Function</strong>, is a JavaScript function that runs as soon as it is defined.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#66d9ef">function</span> () { <span style="color:#75715e">// -&gt; first part
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">statements</span>
+})(); <span style="color:#75715e">// -&gt; second part
+</span></code></pre></div><p>Using an arrow function to define an IIFE looks like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(() =&gt; {
+    <span style="color:#a6e22e">statements</span>
+})();
+</code></pre></div><h2 id="purpose">Purpose</h2>
+<p>When a function is defined, the JavaScript engine adds the function to the <code>window</code> <strong>global object</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">funcName</span>);
+</code></pre></div><p>When a variable is declared outside of a function using <code>var</code>, it is also added to the global object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(window.<span style="color:#a6e22e">varName</span>);
+</code></pre></div><p>It&rsquo;s important to limit the number of global variables. The application may include many global objects, which can lead to the script using the memory inefficiently, name collisions, and ultimately polluting the global objects.</p>
+<p>Because IIFE invokes anonymous function expression immediately <em>without using an identifier</em>, a <strong>closure</strong> can be used without polluting the current scope.</p>
+<h2 id="use-cases">Use Cases</h2>
+<ul>
+<li>Use IIFE pattern instead of a function declaration or a function expression if there are initiation code that won&rsquo;t be used again.</li>
+</ul>
+<p>The following <strong>firstVar</strong> and <strong>secondVar</strong> will be discarded after the function is executed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#66d9ef">function</span> () {
+  <span style="color:#75715e">// some initiation code
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">firstVar</span>;
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">secondVar</span>;
+})();
+</code></pre></div><h2 id="design-pattern">Design Pattern</h2>
+<p>IIFE&rsquo;s design pattern consists of two parts:</p>
+<ol>
+<li><strong>First part</strong> is an anonymous function with <em>lexical scope enclosed</em> within the <code>Grouping Operator ()</code>.
+<ul>
+<li>This prevents accessing variables within the IIFE idiom as well as polluting the global scope.</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">(<span style="color:#66d9ef">function</span>() { <span style="color:#a6e22e">statements</span> })
+</code></pre></div><ul>
+<li>IIFE can be named <code>(function namedIIFE() {})();</code>, but it cannot be invoked again after execution.</li>
+</ul>
+<ol>
+<li><strong>Second part</strong> creates the IIFE <code>()</code>
+<ul>
+<li>Through this, JS engine will directly interpret the function.</li>
+<li>Values defined in <code>()</code> are passed into a function and copied, or &lsquo;locked.&rsquo;</li>
+</ul>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">();
+</code></pre></div><h2 id="module-pattern">Module Pattern</h2>
+<p>IIFE can be used to create private and public variables and methods.</p>
+<p>Every JavaScript function creates a new execution context when it is invoked. Because the functions and variables defined within a function may only be accessed inside, not outside in the global scope, invoking a function provides an easy way to create <strong>privacy</strong>.</p>
+<h2 id="scopes">Scopes</h2>
+<p>Scopes: the set of rules that govern how JavaScript engine can look up a variable by its identifier name and find it.</p>
+<h3 id="local-scope">Local Scope</h3>
+<p>Other than <strong>global scope</strong>, there is <strong>local scope</strong>, which can be divided into <strong>function scope</strong> and <strong>block scope</strong>.</p>
+<h4 id="1-function-scope">(1) Function Scope</h4>
+<p>When a variable is declared in a function, it&rsquo;s only visible within that function. It cannot be accessed outside the function.</p>
+<p>In the following <code>for</code> loop, <code>var i</code> is function scoped. There is only a single variable called <code>i</code>, and its value changes on each iteration.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+  <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;has a value of &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span>, <span style="color:#66d9ef">function</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;value of i is&#39;</span>, <span style="color:#a6e22e">i</span>);
+  });
+}
+</code></pre></div><h4 id="2-block-scope">(2) Block Scope</h4>
+<p>Refers to the area within <code>if</code> and <code>switch</code> conditions or <code>for</code> and <code>while</code> loops.</p>
+<p><code>{ }</code> generally is considered as a block.</p>
+<p>With ES6, variables can be declared in the block scope with <code>let</code> and <code>const</code>. These only exist within the corresponding block while declaring <code>var</code> within the same scope will be considered as a <strong>function scope</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">foo</span>() {
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">true</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;exists in the function scope&#39;</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">second</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;exists in the block scope&#39;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">third</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;exists in the block scope&#39;</span>;
+  }
+}
+</code></pre></div><h3 id="lexical-scope-static-scope">Lexical Scope (Static Scope)</h3>
+<p>JavaScript has the lexical scope!</p>
+<p>Lexical scope refers to the <strong>children scope</strong> that have access to the <strong>variables defined in the parent scope</strong>.</p>
+<blockquote>
+<p>&ldquo;The children functions are <em>lexically</em> bound to the <em>execution context</em> of their parents.&rdquo;</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">foo1</span>(){
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">varParentScope1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;the first var defined in the parent scope&#39;</span>;
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">varParentScope2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;the second var defined in the parent scope&#39;</span>;
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">varParentScope3</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;the third var defined in the parent scope&#39;</span>;
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">foo2</span>(){ <span style="color:#75715e">// -&gt; child scope
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">varParentScope1</span>);
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">varParentScope2</span>);
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">varParentScope3</span>);
+    }
+    <span style="color:#a6e22e">foo2</span>();
+}
+
+<span style="color:#a6e22e">foo1</span>(); <span style="color:#75715e">// -&gt;  calling the function foo1 to invoke it
+</span></code></pre></div><h3 id="dynamic-scope">Dynamic Scope</h3>
+<ul>
+<li>The mechanism of JavaScript&rsquo;s <code>this</code> keyword is dynamically scoped. But, JavaScript has the <strong>lexical scope</strong>, not the dynamic scope.</li>
+<li>Dynamic scope does not concern itself with <em>how and where</em> functions and scopes are <em>declared</em>, but rather <strong>where they are called from</strong>. That means that, the scope chain is based on call-stack, not the nesting of scopes in code.
+<ul>
+<li><strong>Call-stack</strong>: a mechanism for an interpreter to keep track of its place in a script that calls multiple functions—what function is currently being run and what functions are called from within that function.</li>
+</ul>
+</li>
+</ul>
+<h4 id="call-stack-example">Call-stack Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greeting</span>() {
+   <span style="color:#75715e">// *---* //
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">sayHi</span>();
+   <span style="color:#75715e">// *---* //
+</span><span style="color:#75715e"></span>}
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sayHi</span>() {
+   <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi!&#34;</span>;
+}
+
+<span style="color:#a6e22e">greeting</span>();
+
+<span style="color:#75715e">// *---* //
+</span></code></pre></div><ol>
+<li>Ignore all functions until it reaches the invocation of <code>greeting()</code></li>
+<li>Add <code>greeting()</code> to the call-stack list</li>
+<li>Execute all lines of code inside <code>greeting()</code></li>
+<li>Get to <code>sayHi()</code> function invocation</li>
+<li>Add <code>sayHi()</code> to the call-stack list</li>
+<li>Execute all lines of code inside <code>sayHi()</code> until it reaches the end</li>
+<li>Return execution to the line that invoked <code>sayHi()</code> and continue executing the rest of <code>greeting()</code></li>
+<li>Delete <code>sayHi()</code> from the call-stack list</li>
+<li>When <code>greeting()</code> has been fully executed, return to its invoking line to continue invoking the rest of the JavaScript code.</li>
+<li>Delete <code>greeting()</code> from the call-stack list.</li>
+</ol>
+<h2 id="references">References</h2>
+<p><a href="https://medium.com/@osmanakar_65575/javascript-lexical-and-dynamic-scoping-72c17e4476dd">Akar, Osman. &ldquo;JavaScript - Lexical and Dynamic Scoping?&rdquo;, Medium, February 12, 2019.</a></p>
+<p><a href="https://web.archive.org/web/20171201033208/http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife">Alman, Ben. &ldquo;Immediately-Invoked Function Expression (IIFE)&rdquo;, Ben Alman. November 15, 2010.</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">&ldquo;IIFE&rdquo;, MDN Web Docs.</a></p>
+<p><a href="https://javascript.info/function-expressions%22">Kantor, Ilya. &ldquo;Function expressions&rdquo;, The Modern JavaScript Tutorial, January 13, 2022.</a></p>
+<ul>
+<li>An open source JavaScript tutorial that started in 2007!</li>
+</ul>
+<p><a href="https://www.javascripttutorial.net/javascript-immediately-invoked-function-expression-iife/">&ldquo;JavaScript Immediately Invoked Function Expression&rdquo;, JavaScript Tutorial.</a></p>
+<p><a href="https://www.amazon.com/dp/B008VJSPZE?ref=KC_GS_GB_US">Osmani, Addy. &ldquo;Learning JavaScript Design Patterns&rdquo;, O&rsquo;Reilly Media, July 8, 2021.</a></p>
+<p><a href="https://medium.com/@allansendagi/dynamic-scope-vs-lexical-scope-in-javascript-ca7d21a6d069">Sendagi, Allan. &ldquo;Dynamic Scope VS Lexical Scope in JavaScript&rdquo;, Medium, March 29, 2020.</a></p>
+<p><a href="https://dev.to/sandy8111112004/javascript-introduction-to-scope-function-scope-block-scope-d11">Tsai, Ming-Shiuan. &ldquo;JavaScript: Introduction to Scope (function scope, block scope)&rdquo;, dev.to, November 26, 2018. </a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Function Call vs Function Invocation</title>
+            <link>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</link>
+            <pubDate>Fri, 21 Jan 2022 10:44:05 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
+            <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
+            <content type="html"><![CDATA[<h2 id="function-call">Function Call</h2>
+<ul>
+<li><strong>Directly</strong> telling the function to run.</li>
+<li>The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.</li>
+</ul>
+<h2 id="function-invocation">Function Invocation</h2>
+<ul>
+<li>i.e. Function got executed.</li>
+<li><strong>Indirectly</strong> refers to the calling statement.</li>
+<li>The process required to schedule the function with its fully bound arguments for execution.</li>
+<li>Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</li>
+<li>Exact mechanism does not matter. The notion of scheduling for future execution matters.</li>
+<li>Invoking requires that the will function execution.</li>
+</ul>
+<h2 id="client-vs-server-side">Client vs Server Side</h2>
+<p>These terms are subjective from the point of view of the current code being written.</p>
+<blockquote>
+<p>Invoking a function via a RPC call is only invoking it from the client&rsquo;s side. From the server&rsquo;s side the request has a different invocation point, if the function even has any &ldquo;meaning&rdquo; as a function on the server&rsquo;s side.</p>
+</blockquote>
+<h2 id="javascript">JavaScript</h2>
+<ul>
+<li>Functions can be invoked without being called.</li>
+<li>&ldquo;The code inside the body of the function can be executed without creating an object for the same. It is tied to the global object. When there is no individual object, the value of <code>this</code> (the current/calling object) is associated with the global object.&rdquo;</li>
+<li>&ldquo;The major difference between invoking and calling comes in terms of the this object. Calling let&rsquo;s you set the <code>this</code> value whereas invoking just ties it to the global object.&rdquo;</li>
+</ul>
+<h2 id="other-terms">Other Terms</h2>
+<h3 id="execution">Execution</h3>
+<ul>
+<li>The process of running a code.</li>
+<li>Exact method isn&rsquo;t considered. It doesn&rsquo;t matter whether it can be compiled or executed by a computer or not.</li>
+</ul>
+<h3 id="applyingapplication">Applying/Application</h3>
+<ul>
+<li>The binding of arguments to the function.</li>
+<li>Application can be both partial and complete.</li>
+<li>In functional programming, partial application produces another function with less parameters while complete application produces a thunk. <strong>Thunks</strong> are functions with no parameters and can help with <em>lazy evaluation</em>.</li>
+</ul>
+<h2 id="reference">Reference</h2>
+<p><a href="https://stackoverflow.com/questions/18505422/whats-the-difference-between-call-and-invoke/56475412">Stack Overflow 1</a></p>
+<p><a href="https://stackoverflow.com/questions/50884893/calling-vs-invoking-a-function#:~:text=The%20difference%20is%20semantic%20and,are%20letting%20something%20run%20it.&amp;text=Here%2C%20you%20are%20invoking%20the,run">Stack Overflow 2</a>%20by%20calling%20it%20directly.)</p>
+]]></content>
+        </item>
         
         <item>
             <title>DOM</title>

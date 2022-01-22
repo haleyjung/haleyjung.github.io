@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 20 Jan 2022 10:50:59 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jan 2022 11:10:24 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IIFE &amp; Scopes</title>
+      <link>https://haleyjung.github.io/posts/2022/01/iife-scopes/</link>
+      <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/iife-scopes/</guid>
+      <description>Function Expression vs. Function Declaration The function name can be omitted in function expressions to create anonymous functions while function declarations (statements) require names.
+A function expression can be used as an IIFE (Immediately Invoked Function Expression).
+//Function Expression let variableName = function() { statements; }; // -&amp;gt; ends with a semicolon because it&amp;#39;s an assignment statement; not part of the function syntax  //Function Declaration function name([param[, param,[..., param]]]) { statements; } Definition of IIFE IIFE, also known as Self-Executing Anonymous Function, is a JavaScript function that runs as soon as it is defined.</description>
+    </item>
+    
+    <item>
+      <title>Function Call vs Function Invocation</title>
+      <link>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</link>
+      <pubDate>Fri, 21 Jan 2022 10:44:05 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
+      <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
+    </item>
+    
     <item>
       <title>DOM</title>
       <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
@@ -87,28 +107,6 @@ This is where we can see and inspect every files that the page requests.</descri
       <description>What is ESLint? &amp;ldquo;ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code. It was created by Nicholas C. Zakas in 2013. Rules in ESLint are configurable, and customized rules can be defined and loaded. ESLint covers both code quality and coding style issues.&amp;rdquo;
 ESLint is written using Node.js to provide a fast runtime standard using a customizable set of rules like below.
 module.exports = { parserOptions: { ecmaVersion: 5 }, rules: { /* Indentation */ &amp;#39;no-mixed-spaces-and-tabs&amp;#39;: 2, &amp;#39;indent-legacy&amp;#39;: [2, 2], /* Variable names */ &amp;#39;camelcase&amp;#39;: 2, /* Language constructs */ &amp;#39;curly&amp;#39;: 2, &amp;#39;eqeqeq&amp;#39;: [2, &amp;#39;smart&amp;#39;], &amp;#39;func-style&amp;#39;: [2, &amp;#39;expression&amp;#39;], /* Semicolons */ &amp;#39;semi&amp;#39;: 2, &amp;#39;no-extra-semi&amp;#39;: 2, /* Padding &amp;amp; additional whitespace (perferred but optional) */ &amp;#39;brace-style&amp;#39;: [2, &amp;#39;1tbs&amp;#39;, { &amp;#39;allowSingleLine&amp;#39;: true }], &amp;#39;semi-spacing&amp;#39;: 1, &amp;#39;key-spacing&amp;#39;: 1, &amp;#39;block-spacing&amp;#39;: 1, &amp;#39;comma-spacing&amp;#39;: 1, &amp;#39;no-multi-spaces&amp;#39;: 1, &amp;#39;space-before-blocks&amp;#39;: 1, &amp;#39;keyword-spacing&amp;#39;: [1, { &amp;#39;before&amp;#39;: true, &amp;#39;after&amp;#39;: true }], &amp;#39;space-infix-ops&amp;#39;: 1, /* Variable declaration */ &amp;#39;one-var&amp;#39;: [1, { &amp;#39;uninitialized&amp;#39;: &amp;#39;always&amp;#39;, &amp;#39;initialized&amp;#39;: &amp;#39;never&amp;#39; }], /* Minuta */ &amp;#39;comma-style&amp;#39;: [2, &amp;#39;last&amp;#39;], &amp;#39;quotes&amp;#39;: [1, &amp;#39;single&amp;#39;], &amp;#39;max-len&amp;#39;: [1, { &amp;#39;code&amp;#39;: 100 }], } }; Why should we use ESLint?</description>
-    </item>
-    
-    <item>
-      <title>Git Push Error</title>
-      <link>https://haleyjung.github.io/posts/2022/01/git-push-error/</link>
-      <pubDate>Mon, 10 Jan 2022 12:19:52 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/git-push-error/</guid>
-      <description>error: failed to push some refs to &#39;origin&#39; &amp;ldquo;This means that someone else pushed a commit to the same branch you&amp;rsquo;re pushing to, but you don&amp;rsquo;t have that commit on your laptop yet. This can happen if it has been awhile since you ran &amp;ldquo;git pull&amp;rdquo; on a branch that many people contribute to, such as staging.&amp;rdquo;
-To fix this issue, run:
-git pull origin &amp;lt;your-branch&amp;gt; git push origin &amp;lt;your-branch&amp;gt; </description>
-    </item>
-    
-    <item>
-      <title>Mocha &amp; Chai</title>
-      <link>https://haleyjung.github.io/posts/2022/01/mocha-chai/</link>
-      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/mocha-chai/</guid>
-      <description>What are Mocha and Chai? They are JavaScript frameworks that are commonly used together for unit testing.
-Mocha is a testing framework that provides functions that are executed according in a specific order, and that logs their results to the terminal window.
-When you read tests written in Mocha, you’ll see regular use of the keywords describe and it. These keywords, provided by Mocha, provide structure to the tests by batching them into test suites and test cases.</description>
     </item>
     
   </channel>

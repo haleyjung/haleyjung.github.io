@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IIFE on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/iife/</link>
+    <description>Recent content in IIFE on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 22 Jan 2022 11:10:24 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/iife/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IIFE &amp; Scopes</title>
+      <link>https://haleyjung.github.io/posts/2022/01/iife-scopes/</link>
+      <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/iife-scopes/</guid>
+      <description>Function Expression vs. Function Declaration The function name can be omitted in function expressions to create anonymous functions while function declarations (statements) require names.
+A function expression can be used as an IIFE (Immediately Invoked Function Expression).
+//Function Expression let variableName = function() { statements; }; // -&amp;gt; ends with a semicolon because it&amp;#39;s an assignment statement; not part of the function syntax  //Function Declaration function name([param[, param,[..., param]]]) { statements; } Definition of IIFE IIFE, also known as Self-Executing Anonymous Function, is a JavaScript function that runs as soon as it is defined.</description>
+    </item>
+    
+  </channel>
+</rss>
