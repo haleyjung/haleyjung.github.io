@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 22 Jan 2022 11:10:24 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 12:07:56 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript</title>
+      <link>https://haleyjung.github.io/tags/javascript/</link>
+      <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object Oriented Programming</title>
+      <link>https://haleyjung.github.io/tags/object-oriented-programming/</link>
+      <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/object-oriented-programming/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>IIFE</title>
       <link>https://haleyjung.github.io/tags/iife/</link>
@@ -77,24 +95,6 @@
       <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jQuery</title>
-      <link>https://haleyjung.github.io/tags/jquery/</link>
-      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/jquery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Breakpoints</title>
-      <link>https://haleyjung.github.io/tags/breakpoints/</link>
-      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/breakpoints/</guid>
       <description></description>
     </item>
     

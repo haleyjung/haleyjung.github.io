@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 09 Jan 2022 12:53:51 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/object-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 12:07:56 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/object-oriented-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript: this</title>
+      <link>https://haleyjung.github.io/posts/2022/01/javascript-this/</link>
+      <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/javascript-this/</guid>
+      <description>What is this?  An identifier for values Designed to support object oriented programming  Binding When a method or constructor function is invoked, this binds to a likely-focal object, so that we can easily access that object.
+this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what is this NOT bound to? };   The function object: {f}
+  An instance of the function it appears within: {}</description>
+    </item>
+    
     <item>
       <title>Underscore.js</title>
       <link>https://haleyjung.github.io/posts/2022/01/underscore.js/</link>

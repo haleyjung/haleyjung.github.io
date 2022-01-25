@@ -6,8 +6,123 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 22 Jan 2022 11:10:24 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 25 Jan 2022 12:07:56 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>JavaScript: this</title>
+            <link>https://haleyjung.github.io/posts/2022/01/javascript-this/</link>
+            <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/javascript-this/</guid>
+            <description>What is this?  An identifier for values Designed to support object oriented programming  Binding When a method or constructor function is invoked, this binds to a likely-focal object, so that we can easily access that object.
+this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what is this NOT bound to? };   The function object: {f}
+  An instance of the function it appears within: {}</description>
+            <content type="html"><![CDATA[<h2 id="what-is-this">What is <code>this</code>?</h2>
+<ul>
+<li>An identifier for values</li>
+<li>Designed to support <strong>object oriented programming</strong></li>
+</ul>
+<h2 id="binding">Binding</h2>
+<p>When a method or constructor function is invoked, <code>this</code> binds to a <strong>likely-focal object</strong>, so that we can easily access that object.</p>
+<h3 id="this-is-not-bound-to"><code>this</code> is not bound to&hellip;</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fn</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+  <span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>); <span style="color:#75715e">// what is this NOT bound to?
+</span><span style="color:#75715e"></span>};
+</code></pre></div><ol>
+<li>
+<p>The function object: <code>{f}</code></p>
+</li>
+<li>
+<p>An instance of the function it appears within: <code>{}</code></p>
+</li>
+<li>
+<p>When appearing between the curly braces of an object literal</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">fn</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+    <span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+  }
+};
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj2</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">method</span><span style="color:#f92672">:</span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fn</span>};
+
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fn</span>(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>); <span style="color:#75715e">// invoke the function
+</span><span style="color:#75715e">// related to point 4:
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// with the values for parameters given,
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// will we get {a:3, b:4} when `this` is logged?
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// No. The execution context is never in object format.
+</span></code></pre></div></li>
+<li>
+<p>An execution context/scope of the function call</p>
+</li>
+</ol>
+<h3 id="this-is-bound-to"><code>this</code> is bound to&hellip;</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">fn</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+    <span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>);
+  }
+}
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj2</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">method</span><span style="color:#f92672">:</span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fn</span>}
+
+<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fn</span>(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>); <span style="color:#75715e">// HERE! `this` = obj {} = focal object
+</span></code></pre></div><p><code>this</code> is bound to <code>obj</code>, which is to the <strong>left of the calltime dot</strong> where the <strong>containing function is called</strong>.</p>
+<p>So, the operative determiner of which object is referred to as <code>this</code> has to do with a <strong>function invocation</strong>.</p>
+<h2 id="usage-as-a-parameter">Usage as a parameter</h2>
+<h3 id="method-invocation">Method Invocation</h3>
+<p>Method invocation rule is the most common binding pattern for <code>this</code>.</p>
+<p>To call <code>fn</code> as a method, we first add it as a property of an object: <code>r.method = fn</code></p>
+<p>When we call the function, we can do so right after a dot access on that object, at the key where that function is stored as a property: <code>r.method(g, b)</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fn</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">one</span>, <span style="color:#a6e22e">two</span>) {
+  <span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">one</span>, <span style="color:#a6e22e">two</span>);
+};
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">r</span> <span style="color:#f92672">=</span> {};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">g</span> <span style="color:#f92672">=</span> {};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> {};
+
+<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">method</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fn</span>;
+<span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">method</span>(<span style="color:#a6e22e">g</span>,<span style="color:#a6e22e">b</span>);
+
+<span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">b</span>);
+</code></pre></div><h4 id="focal-object"><strong>Focal Object</strong></h4>
+<p>This means, in addition to the two values being passed, <code>g</code> and <code>b</code>, which get <strong>bound to the positional parameters</strong> <code>one</code> and <code>two</code>, we are also passing a <strong>third parameter</strong> by calling the function on a <strong>dot access property lookup</strong>.</p>
+<p>To find the <strong>focal object</strong>, look at the <strong>left of the dot</strong> or bracket in method invocation: e.g. <code>r['method'](g,b)</code> In both of these cases, the focal object is the variable <code>r</code>.</p>
+<h4 id="global-object"><strong>Global Object</strong></h4>
+<p>If there&rsquo;s no dot specifying a binding for <code>this</code>, it gets bound to the <strong>global object</strong> as a default value.</p>
+<p>To override the default binding to the global object, we can use <code>.call</code> method. This will also disregard the &ldquo;left of the dot&rdquo; rule and just pass in any value we want to get bound to <code>this</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">fn</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">r</span>, <span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">b</span>);
+</code></pre></div><p>We pass one extra value at the beginning of the argument list <code>r</code> which will get bound to the parameter <code>this</code> as long as that function is running.</p>
+<p><strong>Remember</strong>: Only the function&rsquo;s <em>calltime moment</em> influences how <code>this</code> gets bound. For instance, <code>setTimeout(r.method, 1000)</code> where <code>var setTimeout = function(cb, ms) { ... };</code>: <code>this</code> cannot be <code>r</code> because its method is not being called, but <code>setTimeout()</code>. Considering that <code>cb</code> (a callback function) is also an undefined parameter, <code>this</code> will be bound to its default value, the global object.</p>
+<h4 id="setting-this-myself"><strong>Setting <code>this</code> myself</strong></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span>() {
+  <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">method</span>(<span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">b</span>); <span style="color:#75715e">// r = this, one = g, two = b
+</span><span style="color:#75715e"></span>}, <span style="color:#ae81ff">1000</span>);
+</code></pre></div><h3 id="new-amethodb-c"><strong>new a.method(b, c);</strong>*</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">new</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">method</span>(<span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">b</span>);
+</code></pre></div><p>Calling a function with <code>new</code> keyword affects how <code>this</code> receives its binding while <code>.method</code> is running. In a case like this, <code>this</code> will be bound to an <strong>entirely new object</strong> which gets created automatically as an appearance of <code>new</code>.</p>
+<h2 id="summary">Summary</h2>
+<h3 id="how-to-determine-what-this-refers-to">How to determine what <code>this</code> refers to</h3>
+<ol>
+<li>Scan outward from <code>this</code> and look for the closest enclosing braces that represent a function body (ignore braces for object literals and <code>if</code> blocks).</li>
+<li>After finding the function definition where <code>this</code> appears, look for <strong>where the function is called</strong>. Use the <strong>call stack</strong> to <strong>down one step</strong> in the debugger.</li>
+<li>Inspect the syntax of how the function is being called.
+<ul>
+<li>There are <strong>five</strong> patterns for the appearance of <code>this</code>
+<ul>
+<li>Global Reference: <code>log(this)</code></li>
+<li>Free Function Invocation: <code>fun();</code></li>
+<li><code>.call</code>/<code>.apply</code> Invocation: <code>fun.call(obj);</code>, <code>fun.apply(obj);</code></li>
+<li>Construction Mode: <code>new fun();</code></li>
+<li>Method Invocation: <code>obj.method();</code></li>
+</ul>
+</li>
+<li>Each pattern is associated with a specific rule. The interpreter uses this to determine what <code>this</code> gets bound to inside that function for that one invocation.</li>
+</ul>
+</li>
+</ol>
+]]></content>
+        </item>
         
         <item>
             <title>IIFE &amp; Scopes</title>
