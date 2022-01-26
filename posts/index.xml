@@ -2383,6 +2383,7 @@ eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</s
 </ul>
 <p>to the .zprofile initialization file.</p>
 <p>The second command adds those same variables to the current shell, so that you can start using brew without re-reading .zprofile.</p>
+<p>But, I need to do this every time I launch hugo. I can I solve this?</p>
 ]]></content>
         </item>
         
