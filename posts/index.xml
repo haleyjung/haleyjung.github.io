@@ -6,8 +6,64 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 25 Jan 2022 12:07:56 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 26 Jan 2022 11:20:29 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Functional Classes</title>
+            <link>https://haleyjung.github.io/posts/2022/01/functional-classes/</link>
+            <pubDate>Wed, 26 Jan 2022 11:20:29 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/functional-classes/</guid>
+            <description>Decorator Pattern var Car = function (loc) { var obj = { loc: loc }; ob.mov = function() { // Decorator pattern: creates a new function for every function call  obj.loc++; }; }; var amy = Car(1); amy.move(); var ben = Car(9); ben.move(); Functional Class Pattern with Shared Methods &amp;hellip;or Functional-Shared Pattern
+var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; }; var move = function() { this.</description>
+            <content type="html"><![CDATA[<h2 id="decorator-pattern">Decorator Pattern</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">loc</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">loc</span>
+  };
+  <span style="color:#a6e22e">ob</span>.<span style="color:#a6e22e">mov</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() { <span style="color:#75715e">// Decorator pattern: creates a new function for every function call
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>;
+  };
+};
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">amy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">1</span>);
+<span style="color:#a6e22e">amy</span>.<span style="color:#a6e22e">move</span>();
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ben</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">9</span>);
+<span style="color:#a6e22e">ben</span>.<span style="color:#a6e22e">move</span>();
+</code></pre></div><h2 id="functional-class-pattern-with-shared-methods">Functional Class Pattern with Shared Methods</h2>
+<p>&hellip;or Functional-Shared Pattern</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">loc</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">loc</span>
+  };
+  <span style="color:#a6e22e">ob</span>.<span style="color:#a6e22e">mov</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">move</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">move</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>; <span style="color:#75715e">// this will be the obj next to the calltime dot, so amy or ben
+</span><span style="color:#75715e"></span>};
+<span style="color:#75715e">// another way: using jQuery to copy properties for &#39;move&#39;
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// extend(obj, {move: move});
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">amy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">1</span>);
+<span style="color:#a6e22e">amy</span>.<span style="color:#a6e22e">move</span>();
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ben</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">9</span>);
+<span style="color:#a6e22e">ben</span>.<span style="color:#a6e22e">move</span>();
+</code></pre></div><blockquote>
+<p>Any construct that is capable of producing a fleet of similar instances conforming to some interface = a functional class</p>
+</blockquote>
+<h2 id="class">Class</h2>
+<p>A class is any construct capable of producing a fleet of similar objects that all conform to some interface.</p>
+<p>Name the class with a capitalized noun, like a proper noun for categorizing.</p>
+<h2 id="constructor">Constructor</h2>
+<p>The functions that produce these objects are called <strong>constructors</strong>. Their job is to construct objects that qualify as members of the class: <code>Car()</code></p>
+<h2 id="instance-of-the-class">Instance of the class</h2>
+<p>The object that gets returned is called an <em>instance</em> of the class: <code>amy</code> or <code>ben</code>.</p>
+<h2 id="instantiating">Instantiating</h2>
+<p>The braces of <code>Car()</code>, which calls a constructor function to build an instance is called &lsquo;instantiating.&rsquo;</p>
+]]></content>
+        </item>
         
         <item>
             <title>JavaScript: this</title>

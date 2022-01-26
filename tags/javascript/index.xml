@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 25 Jan 2022 12:07:56 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jan 2022 11:20:29 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional Classes</title>
+      <link>https://haleyjung.github.io/posts/2022/01/functional-classes/</link>
+      <pubDate>Wed, 26 Jan 2022 11:20:29 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/functional-classes/</guid>
+      <description>Decorator Pattern var Car = function (loc) { var obj = { loc: loc }; ob.mov = function() { // Decorator pattern: creates a new function for every function call  obj.loc++; }; }; var amy = Car(1); amy.move(); var ben = Car(9); ben.move(); Functional Class Pattern with Shared Methods &amp;hellip;or Functional-Shared Pattern
+var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; }; var move = function() { this.</description>
+    </item>
+    
     <item>
       <title>JavaScript: this</title>
       <link>https://haleyjung.github.io/posts/2022/01/javascript-this/</link>

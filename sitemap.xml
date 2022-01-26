@@ -2,22 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/functional-classes/</loc>
+    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/01/functional-classes/</loc>
+    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/javascript/</loc>
-    <lastmod>2022-01-25T12:07:56-05:00</lastmod>
+    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/javascript-this/</loc>
     <lastmod>2022-01-25T12:07:56-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/object-oriented-programming/</loc>
-    <lastmod>2022-01-25T12:07:56-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-01-25T12:07:56-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-01-25T12:07:56-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
     <lastmod>2022-01-25T12:07:56-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/iife/</loc>
