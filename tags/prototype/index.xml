@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Prototype on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/prototype/</link>
+    <description>Recent content in Prototype on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 27 Jan 2022 07:29:36 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/prototype/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prototype &amp; Class Patterns</title>
+      <link>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</link>
+      <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
+      <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
+    </item>
+    
+  </channel>
+</rss>

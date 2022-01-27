@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 26 Jan 2022 11:20:29 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jan 2022 07:29:36 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prototype &amp; Class Patterns</title>
+      <link>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</link>
+      <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
+      <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
+    </item>
+    
     <item>
       <title>Functional Classes</title>
       <link>https://haleyjung.github.io/posts/2022/01/functional-classes/</link>
@@ -96,18 +105,6 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
       
       <guid>https://haleyjung.github.io/posts/2022/01/apis-jquery/</guid>
       <description>APIs  Manipulate (create new or update existing) HTML elements on the page Create event-based user interactivity Embed rich media in documents with HTML &amp;lt;audio&amp;gt; and &amp;lt;video&amp;gt; elements Fetch data from a server Create visualizations by:  Creating SVG (Scalable Vector Graphics) Drawing on HTML canvas elements Rendering high-performance interactive 2D and 3D graphics with WebGL    Define jQuery  A JavaScript library that improves the native DOM API Portable across browsers Has a concise syntax Makes manipulating and adding interactivity to HTML documents easier  Using jQuery Method 1: Download the jQuery library and install it locally in the HTML code</description>
-    </item>
-    
-    <item>
-      <title>Chrome DevTools: Debugging JavaScript</title>
-      <link>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</link>
-      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</guid>
-      <description>Step 1: Reproduce the bug Finding a series of actions that consistently reproduces a bug is always the first step to debugging.
-Step 2: Get familiar with the Sources panel UI After opening the DevTools by pressing Command+Option+J on Mac, click the Sources tab. This is where we debug JavaScript. It has 3 main parts:
-(1) Top left: File Navigator pane
-This is where we can see and inspect every files that the page requests.</description>
     </item>
     
   </channel>

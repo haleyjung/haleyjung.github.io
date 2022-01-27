@@ -6,8 +6,166 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 26 Jan 2022 11:20:29 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 27 Jan 2022 07:29:36 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Prototype &amp; Class Patterns</title>
+            <link>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</link>
+            <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
+            <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
+            <content type="html"><![CDATA[<h2 id="prototype-chains">Prototype Chains</h2>
+<ul>
+<li>A mechanism for making objects that resemble other objects.</li>
+<li>Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time.</li>
+<li>Prototype chains make it possible for many child objects to all reflect the properties of one parent object.</li>
+<li>We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</li>
+<li>Prototypal and Pseudoclassical instantiation patterns rely on prototype chains for method sharing.</li>
+</ul>
+<h3 id="define-a-lookup">Define a lookup</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
+<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">a</span>);
+</code></pre></div><ul>
+<li><code>test.a</code> is a look up for the key <code>a</code></li>
+<li>The value of <code>a</code> found in the object is <code>1</code></li>
+<li>The value <code>1</code> is provided back as the result of the <strong>property lookup operation</strong>.</li>
+<li>The found value is sent as an output to the logging system.</li>
+</ul>
+<h2 id="copying-properties-1-extend">Copying Properties 1: <code>extend()</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">copiedTest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extend</span>({}, <span style="color:#a6e22e">test</span>);
+</code></pre></div><p>A helper function <code>extend()</code> iterates over the properties and copies them.</p>
+<p>The copying happens at just one moment during the program&rsquo;s execution. So if the original variable <code>test</code> adds another property <em>after</em> <code>copiedTest</code> extended the properties, the new property won&rsquo;t be found in <code>copiedTest</code>.</p>
+<h2 id="copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">linkedToTest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extend</span>({}, <span style="color:#a6e22e">test</span>);
+</code></pre></div><p>Rather than copying the properties, <code>Object.create()</code> method creates some linkage to the original object.</p>
+<p>Whenever a requested property cannot be found in <code>linkedToTest</code>, <code>test</code> is used as a fallback source for properties.</p>
+<p>Unlike <code>extend()</code>, if the original variable <code>test</code> gets modified and includes a new property, <code>linkedToTest</code> will return that new property: i.e, the failed local lookup results in a fall through lookup on the prototype object.</p>
+<h2 id="the-object-prototype">The Object Prototype</h2>
+<p>A top-level object that every JavaScript object delegates to where all the most basic methods are provided. The object prototype provides the shared properties of all objects.</p>
+<h2 id="object-prototype-methods">Object Prototype Methods</h2>
+<h3 id="tostring"><code>.toString</code></h3>
+<p>Every object has a <code>.toString</code> method on it. Using <code>.toString</code> on an object will allow us to access a function that cna do teh appropriate work. We can then call it and the object we initiated the property lookup on will have appeared to the left of the dot at call time: <code>linkedToTest.toString()</code></p>
+<h3 id="constructor"><code>.constructor</code></h3>
+<p>Another useful properties is <code>.constructor</code>, which makes it easy to tell what function was used to create a cretain object. When we ask an object about its <code>.constructor</code>, the object most likely doesn&rsquo;t have a local <code>.constructor</code> property, so the prototype chain gets consulted. The <code>.constructor</code> property on the object prototype points to the constructor function for making objects, so that object is the result.</p>
+<h3 id="hasownproperty"><code>.hasOwnProperty</code></h3>
+<h2 id="the-array-prototype">The Array Prototype</h2>
+<p>Arrays are stored in another prototype object called <strong>the array prototype</strong>. It has its own version of some standard methods like <code>.toString</code>, <code>.slice</code>, etc. The array prototype delegates in turn to the object prototype so that the non-unique aspects of arrays can be inherited from the object constructor and not every method will need to be reimplemented for arrays.</p>
+<h2 id="prototypal-pattern">Prototypal Pattern</h2>
+<p>Function sharing via prototype delegation is the very goal of the prototypal pattern.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 1. A function for making instances
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#75715e">// 2. Object.create --&gt; creating a new instance object
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// 3. (Car.methods) --&gt; a delegation from the new object to some prototype
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">methods</span>);
+  <span style="color:#75715e">// 4. obj.loc = loc --&gt; some logic for augmenting the new object with
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// the properties that make it unique from other objects of the same class
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">loc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">loc</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+};
+
+<span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">methods</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">move</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>;
+  }
+};
+</code></pre></div><p><strong>Official conventions to support the protypal pattern</strong></p>
+<p><strong>What&rsquo;s common?</strong></p>
+<p>The building of a holder object for methods and attaching it as a property of the class function is common, so this gets done automatically.</p>
+<p>Whenever any function gets created, it will have an object attached to it to use as a container for methods just in case you plan on using that function to build instances of a class.</p>
+<p><strong>The Default Object: <code>.prototype</code></strong></p>
+<p>The default object that comes with every function is sotred at the key <code>.prototype</code>.</p>
+<p>Below is a refactoring of the code in step 1 to make usre of this free property.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">prototype</span>);
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">loc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">loc</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+};
+
+<span style="color:#75715e">// Since the prototype object is given
+</span><span style="color:#75715e">// we don&#39;t need to build this object
+</span><span style="color:#75715e">// we can just add to it using the assignment operation
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">move</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>;
+};
+</code></pre></div><p>For <code>var Car = function(loc) {...};</code>:</p>
+<ol>
+<li>Instead of <code>.method</code>, we can now use the provided container object, <code>.prototype</code></li>
+<li>The <code>obj</code> is created and is delegated to the prototype object of <code>Car</code>, the function object.
+* This means any failed lookups on <code>obj</code> will fall through to <code>Function.prototype</code>.
+* When <code>Car</code> runs, it will <strong>create objects</strong> that delegate failed lookups to <code>Car.prototype</code>.
+* <code>Car</code>&rsquo;s prototype is <code>Car.prototype</code>.</li>
+</ol>
+<p><strong>.constructor</strong></p>
+<p>Every <code>.prototype</code> object has a <code>.constructor</code> property pointing back to the function it came attached to. So in the example code above, <code>log(Car.prototype.constructor)</code> is the <code>Car</code> function itself.</p>
+<p><code>.constructor</code> helps to figure out which constructor function built a certain object.</p>
+<p><strong>.instanceof Operator</strong></p>
+<p><code>instanceof</code> operator works by checking to see if the right operand&rsquo;s <code>.prototype</code> object can be found anywhere in the left operand&rsquo;s prototype chain. This does not work when the code is written in the <strong>functional class style</strong>.</p>
+<p>e.g. <code>log(varName instanceof Car)</code></p>
+<h2 id="pseudoclassical-class-instantiation-pattern">Pseudoclassical Class Instantiation Pattern</h2>
+<ul>
+<li>Pseudoclassical Class Pattern tries to resemble the class systems of other languages by adding a thin layer of syntactic conveniences.</li>
+<li>i.e. Pseudoclassical pattern is a thin layer of syntactic convenience on top of the prototypal pattern.</li>
+<li>We call a function with the keyword <code>new</code> in front of it to design a class in the pseudoclassical style.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#75715e">// this = Object.create(Car.prototype); --&gt; momentary*
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">loc</span>; <span style="color:#75715e">// got rid of obj var so the provided object, this, can be used
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// return this --&gt; momentary*
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">move</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>;
+};
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">ben</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">9</span>); <span style="color:#75715e">// because of &#39;new&#39; keyword
+</span><span style="color:#75715e">// *the interpreter momentarily inserts the two lines above
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">ben</span>.<span style="color:#a6e22e">move</span>();
+</code></pre></div><h2 id="two-distinct-sections">Two Distinct Sections</h2>
+<p>Every pseudoclassical, prototypal, and functional-shared class has two distinct sections.</p>
+<p><strong>Section I</strong></p>
+<p>Specifying how all the instances of a class should be familiar.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">move</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>; };
+<span style="color:#75715e">// Similarities are stored as properties on the prototype.
+</span></code></pre></div><p><strong>Section II</strong></p>
+<p>Specifying how each instance should be different from all the others.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">loc</span>;
+  <span style="color:#75715e">// takes place inside the body of the constructor function
+</span><span style="color:#75715e"></span>};
+</code></pre></div><h2 id="patterns-summary">Patterns Summary</h2>
+<h3 id="functional-pattern"><strong>Functional Pattern</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">loc</span><span style="color:#f92672">:</span><span style="color:#a6e22e">loc</span>};
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">move</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() { <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>; };
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+};
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redCar</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">1</span>);
+<span style="color:#a6e22e">redCar</span>.<span style="color:#a6e22e">move</span>();
+</code></pre></div><ul>
+<li>Has a class that is easy to read and explain</li>
+<li>But, a new method is created for every instance</li>
+<li>If I won&rsquo;t be creating thousands of instances, functional pattern is great for most classes</li>
+<li>This also avoids using the keyword <code>this</code>, which could cause confusion about the value it&rsquo;s binding to</li>
+</ul>
+<h3 id="pseudoclassical-pattern"><strong>Pseudoclassical Pattern</strong></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">loc</span>) {
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">loc</span>;
+};
+<span style="color:#a6e22e">Car</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">move</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(){ <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loc</span><span style="color:#f92672">++</span>; };
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">redCar</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Car</span>(<span style="color:#ae81ff">1</span>);
+<span style="color:#a6e22e">redCar</span>.<span style="color:#a6e22e">move</span>();
+</code></pre></div><ul>
+<li>While the code looks cleaner, there&rsquo;s greater complexity</li>
+<li>But, it&rsquo;s deep-rooted and widely used in the JavaScript community</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Functional Classes</title>
