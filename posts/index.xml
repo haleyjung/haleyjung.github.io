@@ -6,8 +6,62 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 27 Jan 2022 07:29:36 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 28 Jan 2022 22:52:16 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>CSS Grid Layout</title>
+            <link>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</link>
+            <pubDate>Fri, 28 Jan 2022 22:52:16 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</guid>
+            <description>CSS Grid Layout is great for creating a responsive web page layout.
+We can also define an area by giving it a name and then specify the location of that area in the value of the grid-template-areas property, such as:
+ header footer sidebar content  The grid-area property can be assigned to a class:
+.header { grid-area: hd; } .footer { grid-area: ft; } .content { grid-area: main; } .</description>
+            <content type="html"><![CDATA[<p>CSS Grid Layout is great for creating a responsive web page layout.</p>
+<p>We can also define an area by giving it a name and then specify the location of that area in the value of the grid-template-areas property, such as:</p>
+<ul>
+<li>header</li>
+<li>footer</li>
+<li>sidebar</li>
+<li>content</li>
+</ul>
+<p>The grid-area property can be assigned to a class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">header</span> {
+    <span style="color:#66d9ef">grid-area</span>: hd;
+}
+.<span style="color:#a6e22e">footer</span> {
+    <span style="color:#66d9ef">grid-area</span>: ft;
+}
+.<span style="color:#a6e22e">content</span> {
+    <span style="color:#66d9ef">grid-area</span>: main;
+}
+.<span style="color:#a6e22e">sidebar</span> {
+    <span style="color:#66d9ef">grid-area</span>: sd;
+}
+</code></pre></div><p>Then the entire layout gets created in the grid container:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wrapper&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;header&#34;</span>&gt;Header&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sidebar&#34;</span>&gt;Sidebar&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;Content&lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;footer&#34;</span>&gt;Footer&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">wrapper</span> {
+    <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">grid</span>;
+    <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#a6e22e">repeat</span>(<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">1</span>fr);
+    <span style="color:#66d9ef">grid-auto-rows</span>: <span style="color:#a6e22e">minmax</span>(<span style="color:#ae81ff">100</span><span style="color:#66d9ef">px</span>, <span style="color:#66d9ef">auto</span>);
+    <span style="color:#66d9ef">grid-template-areas</span>:
+      <span style="color:#e6db74">&#34;hd hd hd hd   hd   hd   hd   hd   hd&#34;</span>
+      <span style="color:#e6db74">&#34;sd sd sd main main main main main main&#34;</span>
+      <span style="color:#e6db74">&#34;ft ft ft ft   ft   ft   ft   ft   ft&#34;</span>;
+}
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://css-tricks.com/snippets/css/complete-guide-grid/">House, Chris. &ldquo;A Complete Guide to Grid&rdquo;, CSS-TRICKS, May 12, 2021 (Updated on November 9, 2021)</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Grid_Template_Areas">&ldquo;Grid template areas&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Realizing_common_layouts_using_CSS_Grid_Layout">&ldquo;Realizing common layouts using CSS Grid Layout&rdquo;, MDN Web Docs</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Prototype &amp; Class Patterns</title>
