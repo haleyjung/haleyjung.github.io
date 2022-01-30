@@ -6,8 +6,98 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 28 Jan 2022 22:52:16 -0500</lastBuildDate>
+        <lastBuildDate>Sat, 29 Jan 2022 23:31:33 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Twitter Clone</title>
+            <link>https://haleyjung.github.io/posts/2022/01/twitter-clone/</link>
+            <pubDate>Sat, 29 Jan 2022 23:31:33 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/twitter-clone/</guid>
+            <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds.
+I used jQuery to create HTML elements and functions to make them dynamic.
+Wireframe I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid.</description>
+            <content type="html"><![CDATA[<h2 id="cloning-twitter-using-jquery--nodejs">Cloning Twitter using jQuery &amp; NodeJS</h2>
+<h2 id="goal">Goal</h2>
+<p>The goal of the Twitter clone project was to create a single page that generates live user feeds.</p>
+<p>I used jQuery to create HTML elements and functions to make them dynamic.</p>
+<h2 id="wireframe">Wireframe</h2>
+<p>I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid. I then drew the wireframe for each component, such as the header, side bar, and main contents. This helped to plan the minimum number of div to contain particular elements.</p>
+<h2 id="user-interface--user-experience">User Interface &amp; User Experience</h2>
+<p>Using jQuery I created the functions to perform the following:</p>
+<ul>
+<li>Generate every users' posts on the home page</li>
+<li>Click the username to show only that user&rsquo;s feeds</li>
+<li>Create a friend list where a username can be clicked and the page renders that user&rsquo;s live feeds</li>
+<li>Show the number of characters when a user types in the message box</li>
+<li>Use Timeago.js to indicate convert the time a feed was posted to a more readable text</li>
+<li>Use jQuery UI library</li>
+</ul>
+<p>Then with CSS:</p>
+<ul>
+<li>CSS Grid</li>
+<li>Margin and padding for layout</li>
+<li>@media for a responsive page</li>
+<li>@keyframes for animation</li>
+<li>Sticky header and side bar</li>
+<li>Scroll manipulation</li>
+<li>:root to create custom color var</li>
+<li>Custom font</li>
+<li>Icon design with :hover</li>
+<li>Button design with box shadow and opacity manipulation</li>
+</ul>
+<h1 id="css">CSS</h1>
+<h2 id="css-functions">CSS Functions</h2>
+<ul>
+<li>attr()</li>
+<li>calc()</li>
+<li>conic-gradient()</li>
+<li>counter()</li>
+<li>cubic-bezier()</li>
+<li>hsl()</li>
+<li>hsla()</li>
+<li>linear-gradient()</li>
+<li>max()</li>
+<li>min()</li>
+<li>radial-gradient()</li>
+<li>repeating-conic-gradient()</li>
+<li>repeating-linear-gradient()</li>
+<li>rgb()</li>
+<li>rgba()</li>
+<li>var()</li>
+</ul>
+<h2 id="css-selections">CSS Selections</h2>
+<ul>
+<li>.class</li>
+<li>.class1.class2</li>
+<li>.class .class2</li>
+<li>#id</li>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>a[href^=&ldquo;https&rdquo;]</li>
+<li>a[href$=&quot;.pdf&quot;]</li>
+<li>a[href*=&ldquo;substring&rdquo;]</li>
+<li>a:active</li>
+<li>a:visited</li>
+<li>p::after</li>
+<li>p::before</li>
+<li>input:checked</li>
+<li>input:default</li>
+<li>input:disabled</li>
+<li>a:hover</li>
+<li>:root</li>
+<li>::selection</li>
+</ul>
+<p>&hellip;etc.</p>
+<h2 id="debugging">Debugging</h2>
+<h2 id="references">References</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>CSS Grid Layout</title>

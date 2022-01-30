@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 28 Jan 2022 22:52:16 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 23:31:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Twitter Clone</title>
+      <link>https://haleyjung.github.io/posts/2022/01/twitter-clone/</link>
+      <pubDate>Sat, 29 Jan 2022 23:31:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/twitter-clone/</guid>
+      <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds.
+I used jQuery to create HTML elements and functions to make them dynamic.
+Wireframe I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid.</description>
+    </item>
+    
     <item>
       <title>CSS Grid Layout</title>
       <link>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</link>
@@ -98,16 +109,6 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
       
       <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
       <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
-    </item>
-    
-    <item>
-      <title>Scopes &amp; Closures</title>
-      <link>https://haleyjung.github.io/posts/2022/01/scopes-closures/</link>
-      <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
-      <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
- Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
     </item>
     
   </channel>

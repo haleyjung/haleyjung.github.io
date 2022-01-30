@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/clone/</loc>
+    <lastmod>2022-01-29T23:31:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-01-29T23:31:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-01-29T23:31:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-01-29T23:31:33-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/01/twitter-clone/</loc>
+    <lastmod>2022-01-29T23:31:33-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/css/</loc>
     <lastmod>2022-01-28T22:52:16-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</loc>
-    <lastmod>2022-01-28T22:52:16-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-01-28T22:52:16-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-01-28T22:52:16-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
     <lastmod>2022-01-28T22:52:16-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/class-patterns/</loc>
