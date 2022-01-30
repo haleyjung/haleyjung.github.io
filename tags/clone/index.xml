@@ -14,8 +14,7 @@
       <pubDate>Sat, 29 Jan 2022 23:31:33 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/01/twitter-clone/</guid>
-      <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds.
-I used jQuery to create HTML elements and functions to make them dynamic.
+      <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds. I used jQuery to create HTML elements and functions to make them dynamic.
 Wireframe I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid.</description>
     </item>
     

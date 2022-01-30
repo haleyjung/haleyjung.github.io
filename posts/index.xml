@@ -15,13 +15,11 @@
             <pubDate>Sat, 29 Jan 2022 23:31:33 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/01/twitter-clone/</guid>
-            <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds.
-I used jQuery to create HTML elements and functions to make them dynamic.
+            <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds. I used jQuery to create HTML elements and functions to make them dynamic.
 Wireframe I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid.</description>
-            <content type="html"><![CDATA[<h2 id="cloning-twitter-using-jquery--nodejs">Cloning Twitter using jQuery &amp; NodeJS</h2>
+            <content type="html"><![CDATA[<h1 id="cloning-twitter-using-jquery--nodejs">Cloning Twitter using jQuery &amp; NodeJS</h1>
 <h2 id="goal">Goal</h2>
-<p>The goal of the Twitter clone project was to create a single page that generates live user feeds.</p>
-<p>I used jQuery to create HTML elements and functions to make them dynamic.</p>
+<p>The goal of the Twitter clone project was to create a single page that generates live user feeds. I used jQuery to create HTML elements and functions to make them dynamic.</p>
 <h2 id="wireframe">Wireframe</h2>
 <p>I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid. I then drew the wireframe for each component, such as the header, side bar, and main contents. This helped to plan the minimum number of div to contain particular elements.</p>
 <h2 id="user-interface--user-experience">User Interface &amp; User Experience</h2>
@@ -47,8 +45,8 @@ Wireframe I began with drawing various wireframes to organize the structure of t
 <li>Icon design with :hover</li>
 <li>Button design with box shadow and opacity manipulation</li>
 </ul>
-<h1 id="css">CSS</h1>
-<h2 id="css-functions">CSS Functions</h2>
+<h2 id="css">CSS</h2>
+<h3 id="css-functions">CSS Functions</h3>
 <ul>
 <li>attr()</li>
 <li>calc()</li>
@@ -67,7 +65,7 @@ Wireframe I began with drawing various wireframes to organize the structure of t
 <li>rgba()</li>
 <li>var()</li>
 </ul>
-<h2 id="css-selections">CSS Selections</h2>
+<h3 id="css-selections">CSS Selections</h3>
 <ul>
 <li>.class</li>
 <li>.class1.class2</li>
@@ -94,6 +92,15 @@ Wireframe I began with drawing various wireframes to organize the structure of t
 </ul>
 <p>&hellip;etc.</p>
 <h2 id="debugging">Debugging</h2>
+<h3 id="duplicate-tweets-are-generated">Duplicate tweets are generated</h3>
+<p>When I press the &lsquo;Update Feed&rsquo; button, duplicate tweets were generated. This happened because when the page loads, an initial set of tweets were generated. These remained on the page when the button was clicked to generate the new tweets. The solution was to remove the initial set of tweets when the new tweets were generated. I used <code>$(&quot;.tweet&quot;).remove();</code> to remove the existing tweets before invoking the render feed function.</p>
+<h3 id="showing-only-the-clicked-usernames-tweets">Showing only the clicked username&rsquo;s tweets</h3>
+<p><code>.remove()</code> was also useful for refactoring the render feed function so that it passes a user input when a username click event occurred.</p>
+<h2 id="clean-code">Clean Code</h2>
+<ul>
+<li>Create resuable helpful functions</li>
+<li>Factor out common texts</li>
+</ul>
 <h2 id="references">References</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout</a></p>
 ]]></content>
