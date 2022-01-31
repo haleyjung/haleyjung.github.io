@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 29 Jan 2022 23:31:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node</title>
+      <link>https://haleyjung.github.io/posts/2022/01/node/</link>
+      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/node/</guid>
+      <description>What is it? An open source, cross-platform runtime system for developing applications in JavaScript.
+It runs JavaScript outside the browser.
+Installation Process In Terminal:
+brew install node
+node -v to check the version
+Node Shell Node Shell provides a read-evaluate-print-loop (REPL) for JavaScript programs.
+Launch the Node shell by running this command, node.
+We can then type and run the JavaScript in it.
+To exit: .exit + Enter or just Command + D</description>
+    </item>
+    
+    <item>
+      <title>Recursion</title>
+      <link>https://haleyjung.github.io/posts/2022/01/recursion/</link>
+      <pubDate>Sun, 30 Jan 2022 01:12:59 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
+      <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
+Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
+    </item>
+    
     <item>
       <title>Twitter Clone</title>
       <link>https://haleyjung.github.io/posts/2022/01/twitter-clone/</link>
@@ -87,27 +114,6 @@ A function expression can be used as an IIFE (Immediately Invoked Function Expre
       
       <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
       <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
-    </item>
-    
-    <item>
-      <title>Primitive and Non-Primitive Data Types</title>
-      <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
-      <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</guid>
-      <description>Definitions Data Type There is a variety of data types, such as number, boolean, string, null, undefined, etc.
-Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
-Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
-let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
-    </item>
-    
-    <item>
-      <title>CDN: Content Delivery Networks</title>
-      <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
-      <pubDate>Tue, 18 Jan 2022 11:27:23 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
-      <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
     </item>
     
   </channel>

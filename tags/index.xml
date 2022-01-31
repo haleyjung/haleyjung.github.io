@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 29 Jan 2022 23:31:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript</title>
+      <link>https://haleyjung.github.io/tags/javascript/</link>
+      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Node</title>
+      <link>https://haleyjung.github.io/tags/node/</link>
+      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recursion</title>
+      <link>https://haleyjung.github.io/tags/recursion/</link>
+      <pubDate>Sun, 30 Jan 2022 01:12:59 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/recursion/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Clone</title>
       <link>https://haleyjung.github.io/tags/clone/</link>
@@ -32,15 +59,6 @@
       <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/class-patterns/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JavaScript</title>
-      <link>https://haleyjung.github.io/tags/javascript/</link>
-      <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
@@ -77,24 +95,6 @@
       <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/iife/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>untagged</title>
-      <link>https://haleyjung.github.io/tags/untagged/</link>
-      <pubDate>Fri, 21 Jan 2022 10:44:05 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/untagged/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DOM</title>
-      <link>https://haleyjung.github.io/tags/dom/</link>
-      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/dom/</guid>
       <description></description>
     </item>
     

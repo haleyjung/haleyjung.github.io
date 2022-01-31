@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 27 Jan 2022 07:29:36 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node</title>
+      <link>https://haleyjung.github.io/posts/2022/01/node/</link>
+      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/node/</guid>
+      <description>What is it? An open source, cross-platform runtime system for developing applications in JavaScript.
+It runs JavaScript outside the browser.
+Installation Process In Terminal:
+brew install node
+node -v to check the version
+Node Shell Node Shell provides a read-evaluate-print-loop (REPL) for JavaScript programs.
+Launch the Node shell by running this command, node.
+We can then type and run the JavaScript in it.
+To exit: .exit + Enter or just Command + D</description>
+    </item>
+    
+    <item>
+      <title>Recursion</title>
+      <link>https://haleyjung.github.io/posts/2022/01/recursion/</link>
+      <pubDate>Sun, 30 Jan 2022 01:12:59 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
+      <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
+Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
+    </item>
+    
     <item>
       <title>Prototype &amp; Class Patterns</title>
       <link>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</link>

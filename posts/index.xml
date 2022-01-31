@@ -6,8 +6,131 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 29 Jan 2022 23:31:33 -0500</lastBuildDate>
+        <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Node</title>
+            <link>https://haleyjung.github.io/posts/2022/01/node/</link>
+            <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/node/</guid>
+            <description>What is it? An open source, cross-platform runtime system for developing applications in JavaScript.
+It runs JavaScript outside the browser.
+Installation Process In Terminal:
+brew install node
+node -v to check the version
+Node Shell Node Shell provides a read-evaluate-print-loop (REPL) for JavaScript programs.
+Launch the Node shell by running this command, node.
+We can then type and run the JavaScript in it.
+To exit: .exit + Enter or just Command + D</description>
+            <content type="html"><![CDATA[<h2 id="what-is-it">What is it?</h2>
+<p>An open source, cross-platform runtime system for developing applications in JavaScript.</p>
+<p>It runs JavaScript outside the browser.</p>
+<h2 id="installation-process">Installation Process</h2>
+<p>In Terminal:</p>
+<p><code>brew install node</code></p>
+<p><code>node -v</code> to check the version</p>
+<h2 id="node-shell">Node Shell</h2>
+<p>Node Shell provides a read-evaluate-print-loop (<strong>REPL</strong>) for JavaScript programs.</p>
+<p>Launch the Node shell by running this command, <code>node</code>.</p>
+<p>We can then type and run the JavaScript in it.</p>
+<p>To exit: <code>.exit</code> + <code>Enter</code> or just Command + D</p>
+<h2 id="node-interpreter">Node Interpreter</h2>
+<p>Node interpreter reads, evaluates, and quits the given JavaScript program stored in a file.</p>
+<p>Unlike the interactive Node shell where we can experiment with JavaScript, Node interpreter does not automatically print the result of each line or loop waiting for us to add more input. It simply <strong>reads and evaluates</strong> a JS program file.</p>
+<p>In the Terminal, open a JavaScript file that includes a line of <code>console.log()</code>: e.g. <code>code ~/Desktop/this.js</code>
+Then run the program with node: <code>node ~/Desktop/this.js</code> The Terminal will then print the output from the console.log.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Recursion</title>
+            <link>https://haleyjung.github.io/posts/2022/01/recursion/</link>
+            <pubDate>Sun, 30 Jan 2022 01:12:59 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
+            <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
+Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
+            <content type="html"><![CDATA[<h2 id="definition">Definition</h2>
+<p>Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.</p>
+<p>Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily. The recursive case is the case where we do need to invoke the function again.</p>
+<h2 id="when-should-we-use-recursion">When should we use Recursion?</h2>
+<h3 id="dynamic-programming">Dynamic programming</h3>
+<h3 id="nested-data-structure">Nested Data Structure</h3>
+<ul>
+<li>When working with nested data structure, in particular when the very when the outer data structure has can have an identical version of itself nested inside
+<ul>
+<li>e.g. If you want to flatten an array of arrays. There&rsquo;s an array in that array, and there&rsquo;s no guarantee that there won&rsquo;t be an array in that array and there could be an array for deep or five d or 60 or 70 and there&rsquo;s no way to know in advance how deep the input array will go</li>
+</ul>
+</li>
+</ul>
+<h4 id="data-structure-linked-list">Data Structure: Linked List</h4>
+<ul>
+<li>A linked list (has next property): An element in a linked list or node only knows about its neighboring node. You can&rsquo;t say like linked list of four.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">LinkedListNode</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">__</span>,
+  <span style="color:#a6e22e">next</span><span style="color:#f92672">:</span> {};
+};
+</code></pre></div><h4 id="data-structure-tree-a-non-linear-linked-list">Data Structure: Tree (a non-linear linked list)</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Tree</span> <span style="color:#f92672">=</span> { <span style="color:#75715e">// e.g. HTML body
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">__</span>,
+  <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">Tree</span>}, {<span style="color:#a6e22e">Tree</span>}. {<span style="color:#a6e22e">Tree</span>}]; <span style="color:#75715e">//e.g. div
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// each {} has the same Tree structure with value and children
+</span><span style="color:#75715e"></span>};
+</code></pre></div><h4 id="combinations-or-permutations-of-data">Combinations or Permutations of Data</h4>
+<h2 id="call-stack">Call Stack</h2>
+<h3 id="definition-1">Definition</h3>
+<p>Where the invoked functions are &lsquo;stacked&rsquo; in an order they were called.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">countDown</span>(<span style="color:#a6e22e">num</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">num</span>;
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">string</span>;
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">string</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">countDown</span>(<span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">string</span>;
+}
+
+<span style="color:#a6e22e">countDown</span>(<span style="color:#ae81ff">3</span>);
+</code></pre></div><h3 id="behavior">Behavior</h3>
+<p>How does the Call Stack behave while a recursive algorithm is running?</p>
+<ul>
+<li>countDown(3) &gt; string = &lsquo;3&rsquo;;</li>
+<li>countDown(2) &gt; string = &lsquo;2&rsquo;;</li>
+<li>countDown(1) &gt; string = &lsquo;1&rsquo;;</li>
+<li>countDown(0) &gt; string = &lsquo;0&rsquo;;</li>
+</ul>
+<h2 id="debugging-steps">Debugging Steps</h2>
+<ol>
+<li>Identify the smallest piece of the data that your function needs to handle</li>
+<li>Write the function to handle this case and only this case</li>
+<li>Identify what will make the function need to continue</li>
+<li>Once identified, make the recursive call</li>
+<li>Accumulate the return</li>
+</ol>
+<h2 id="applications-of-recursion">Applications of Recursion</h2>
+<h3 id="flatten-nested-data">Flatten Nested Data</h3>
+<h3 id="all-combinations">All Combinations</h3>
+<h3 id="tree-traversal">Tree Traversal</h3>
+<h2 id="identify-appropriate-usage-of-recursion">Identify Appropriate Usage of Recursion</h2>
+<ul>
+<li>
+<p>Identify the base case of a recursive algorithm/strategy.</p>
+</li>
+<li>
+<p>Identify the recursive case of a recursive algorithm/strategy.</p>
+</li>
+<li>
+<p>Understand the relationship between the execution contexts that come to exist during a recursive process.</p>
+</li>
+<li>
+<p>Read, write, and understand recursive algorithms.</p>
+</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Twitter Clone</title>
@@ -36,13 +159,14 @@ Wireframe I began with drawing various wireframes to organize the structure of t
 <ul>
 <li>CSS Grid</li>
 <li>Margin and padding for layout</li>
-<li>@media for a responsive page</li>
-<li>@keyframes for animation</li>
+<li><code>@media</code> for a responsive page</li>
+<li><code>@keyframes</code> for animation</li>
 <li>Sticky header and side bar</li>
+<li><code>display:flex</code> on the parent element that contains the div I want</li>
 <li>Scroll manipulation</li>
-<li>:root to create custom color var</li>
+<li><code>:root</code> to create custom color var</li>
 <li>Custom font</li>
-<li>Icon design with :hover</li>
+<li>Icon design with <code>:hover</code></li>
 <li>Button design with box shadow and opacity manipulation</li>
 </ul>
 <h2 id="css">CSS</h2>
