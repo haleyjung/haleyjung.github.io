@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JSON on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/json/</link>
+    <description>Recent content in JSON on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Tue, 01 Feb 2022 01:30:17 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node.js: Content Types</title>
+      <link>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</link>
+      <pubDate>Tue, 01 Feb 2022 01:30:17 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</guid>
+      <description>JSON: JavaScript Object Notation JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
+JSON can be parsed by a standard JavaScript function, and is parsed into a ready-to-use JavaScript object. It is thus faster and easier than XML.
+To read from JSON, we need to first use fs to read in the file as text(strings) and then `JOSN.</description>
+    </item>
+    
+  </channel>
+</rss>

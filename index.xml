@@ -7,22 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 01:30:17 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Node</title>
-      <link>https://haleyjung.github.io/posts/2022/01/node/</link>
+      <title>Node.js: Content Types</title>
+      <link>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</link>
+      <pubDate>Tue, 01 Feb 2022 01:30:17 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</guid>
+      <description>JSON: JavaScript Object Notation JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
+JSON can be parsed by a standard JavaScript function, and is parsed into a ready-to-use JavaScript object. It is thus faster and easier than XML.
+To read from JSON, we need to first use fs to read in the file as text(strings) and then `JOSN.</description>
+    </item>
+    
+    <item>
+      <title>Node.js</title>
+      <link>https://haleyjung.github.io/posts/2022/01/node.js/</link>
       <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/01/node/</guid>
-      <description>What is it? An open source, cross-platform runtime system for developing applications in JavaScript.
-It runs JavaScript outside the browser.
-Installation Process In Terminal:
-brew install node
+      <guid>https://haleyjung.github.io/posts/2022/01/node.js/</guid>
+      <description>What is Node? Node is an open source, cross-platform runtime system for developing applications in JavaScript. It runs JavaScript outside the browser.
+Terminal Commands Installation brew install node
 node -v to check the version
+To generate a package.json file for the module npm init
+To save module dependencies to the package.json file npm install --save modulename
 Node Shell Node Shell provides a read-evaluate-print-loop (REPL) for JavaScript programs.
-Launch the Node shell by running this command, node.
-We can then type and run the JavaScript in it.
-To exit: .exit + Enter or just Command + D</description>
+Launch the Node shell by running this command, node.</description>
     </item>
     
     <item>
@@ -105,15 +114,6 @@ A function expression can be used as an IIFE (Immediately Invoked Function Expre
       
       <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
       <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
-    </item>
-    
-    <item>
-      <title>DOM</title>
-      <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
-      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
-      <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
     </item>
     
   </channel>
