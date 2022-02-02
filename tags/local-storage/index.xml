@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Web Development on Today I Learned</title>
-    <link>https://haleyjung.github.io/tags/web-development/</link>
-    <description>Recent content in Web Development on Today I Learned</description>
+    <title>Local Storage on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/local-storage/</link>
+    <description>Recent content in Local Storage on Today I Learned</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 Feb 2022 01:45:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 01:45:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/local-storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Local Storage</title>
       <link>https://haleyjung.github.io/posts/2022/02/local-storage/</link>
@@ -15,15 +15,6 @@
       
       <guid>https://haleyjung.github.io/posts/2022/02/local-storage/</guid>
       <description>Definition of Local Storage  a browser API that allows a web application to persist its state inside a user&amp;rsquo;s web browser can be used to persist information retrieved from sources like user events, HTTP responses, and calculated results only persists strings has no expiration time until explicitly cleared improves a web application&amp;rsquo;s user experience more data can be stored in localStorage than in cookies  Data model: the software representation of information Data persistence: store data in the application so that when a user comes back to the site, they can pick up from where they left off</description>
-    </item>
-    
-    <item>
-      <title>Absolute vs Relative Path</title>
-      <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
-      <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</guid>
-      <description>What is a path? A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either absolute or relative.</description>
     </item>
     
   </channel>

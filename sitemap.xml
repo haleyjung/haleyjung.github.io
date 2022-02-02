@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/local-storage/</loc>
+    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/02/local-storage/</loc>
+    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/web-development/</loc>
+    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/semantic-versioning/</loc>
+    <lastmod>2022-02-01T10:48:06-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</loc>
+    <lastmod>2022-02-01T10:48:06-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/content-types/</loc>
     <lastmod>2022-02-01T01:30:17-05:00</lastmod>
   </url><url>
@@ -11,22 +35,13 @@
     <loc>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</loc>
     <lastmod>2022-02-01T01:30:17-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-02-01T01:30:17-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-02-01T01:30:17-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
-    <lastmod>2022-02-01T01:30:17-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/tags/javascript/</loc>
     <lastmod>2022-01-31T10:35:53-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/node/</loc>
     <lastmod>2022-01-31T10:35:53-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/posts/2022/01/node.js/</loc>
+    <loc>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</loc>
     <lastmod>2022-01-31T10:35:53-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/npm/</loc>
@@ -264,9 +279,6 @@
     <lastmod>2021-11-23T16:40:02-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</loc>
-    <lastmod>2021-11-22T11:00:33-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/web-development/</loc>
     <lastmod>2021-11-22T11:00:33-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/hello-world/</loc>

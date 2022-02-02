@@ -9,18 +9,13 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/npm/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Node.js</title>
-      <link>https://haleyjung.github.io/posts/2022/01/node.js/</link>
+      <title>Node / Node.JS</title>
+      <link>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</link>
       <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/01/node.js/</guid>
-      <description>What is Node? Node is an open source, cross-platform runtime system for developing applications in JavaScript. It runs JavaScript outside the browser.
-Terminal Commands Installation brew install node
-node -v to check the version
-To generate a package.json file for the module npm init
-To save module dependencies to the package.json file npm install --save modulename
-Node Shell Node Shell provides a read-evaluate-print-loop (REPL) for JavaScript programs.
-Launch the Node shell by running this command, node.</description>
+      <guid>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</guid>
+      <description>What is Node? Nodes in the DOM are elements from the HTML page, which are organized in a hiearchical tree-like structure consisting of parents and children. Elements such as &amp;lt;p&amp;gt;, &amp;lt;div&amp;gt;, &amp;lt;section&amp;gt; are considered as &amp;ldquo;element&amp;rdquo; nodes while comments are &amp;ldquo;comment&amp;rdquo; nodes, &amp;ldquo;text&amp;rdquo; objects and line-breaks are &amp;ldquo;text&amp;rdquo; nodes. Every HTML element is a node, but not every node is an HTML element.
+The topmost node is the root node of the DOM tree, Document, which has two children: &amp;lt;!</description>
     </item>
     
   </channel>

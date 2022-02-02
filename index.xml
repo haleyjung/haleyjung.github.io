@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 01 Feb 2022 01:30:17 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Feb 2022 01:45:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Local Storage</title>
+      <link>https://haleyjung.github.io/posts/2022/02/local-storage/</link>
+      <pubDate>Wed, 02 Feb 2022 01:45:40 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/local-storage/</guid>
+      <description>Definition of Local Storage  a browser API that allows a web application to persist its state inside a user&amp;rsquo;s web browser can be used to persist information retrieved from sources like user events, HTTP responses, and calculated results only persists strings has no expiration time until explicitly cleared improves a web application&amp;rsquo;s user experience more data can be stored in localStorage than in cookies  Data model: the software representation of information Data persistence: store data in the application so that when a user comes back to the site, they can pick up from where they left off</description>
+    </item>
+    
+    <item>
+      <title>Semantic Versioning</title>
+      <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
+      <pubDate>Tue, 01 Feb 2022 10:48:06 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
+      <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
+It consists of 3 components in the format of X.Y.Z
+X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
+    </item>
+    
     <item>
       <title>Node.js: Content Types</title>
       <link>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</link>
@@ -20,18 +40,13 @@ To read from JSON, we need to first use fs to read in the file as text(strings) 
     </item>
     
     <item>
-      <title>Node.js</title>
-      <link>https://haleyjung.github.io/posts/2022/01/node.js/</link>
+      <title>Node / Node.JS</title>
+      <link>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</link>
       <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/01/node.js/</guid>
-      <description>What is Node? Node is an open source, cross-platform runtime system for developing applications in JavaScript. It runs JavaScript outside the browser.
-Terminal Commands Installation brew install node
-node -v to check the version
-To generate a package.json file for the module npm init
-To save module dependencies to the package.json file npm install --save modulename
-Node Shell Node Shell provides a read-evaluate-print-loop (REPL) for JavaScript programs.
-Launch the Node shell by running this command, node.</description>
+      <guid>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</guid>
+      <description>What is Node? Nodes in the DOM are elements from the HTML page, which are organized in a hiearchical tree-like structure consisting of parents and children. Elements such as &amp;lt;p&amp;gt;, &amp;lt;div&amp;gt;, &amp;lt;section&amp;gt; are considered as &amp;ldquo;element&amp;rdquo; nodes while comments are &amp;ldquo;comment&amp;rdquo; nodes, &amp;ldquo;text&amp;rdquo; objects and line-breaks are &amp;ldquo;text&amp;rdquo; nodes. Every HTML element is a node, but not every node is an HTML element.
+The topmost node is the root node of the DOM tree, Document, which has two children: &amp;lt;!</description>
     </item>
     
     <item>
@@ -94,26 +109,6 @@ var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; };
       <description>What is this?  An identifier for values Designed to support object oriented programming  Binding When a method or constructor function is invoked, this binds to a likely-focal object, so that we can easily access that object.
 this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what is this NOT bound to? };   The function object: {f}
   An instance of the function it appears within: {}</description>
-    </item>
-    
-    <item>
-      <title>IIFE &amp; Scopes</title>
-      <link>https://haleyjung.github.io/posts/2022/01/iife-scopes/</link>
-      <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/iife-scopes/</guid>
-      <description>Function Expression vs. Function Declaration The function name can be omitted in function expressions to create anonymous functions while function declarations (statements) require names.
-A function expression can be used as an IIFE (Immediately Invoked Function Expression).
-//Function Expression let variableName = function() { statements; }; // -&amp;gt; ends with a semicolon because it&amp;#39;s an assignment statement; not part of the function syntax  //Function Declaration function name([param[, param,[..., param]]]) { statements; } Definition of IIFE IIFE, also known as Self-Executing Anonymous Function, is a JavaScript function that runs as soon as it is defined.</description>
-    </item>
-    
-    <item>
-      <title>Function Call vs Function Invocation</title>
-      <link>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</link>
-      <pubDate>Fri, 21 Jan 2022 10:44:05 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
-      <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
     </item>
     
   </channel>
