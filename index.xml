@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 Feb 2022 01:45:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Feb 2022 13:50:26 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Client-Side Validation</title>
+      <link>https://haleyjung.github.io/posts/2022/02/client-side-validation/</link>
+      <pubDate>Thu, 03 Feb 2022 13:50:26 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/client-side-validation/</guid>
+      <description>What is client-side validation? It refers to providing feedbacks to users so that they can give us the correct information.
+e.g. &amp;ldquo;your password must be at least 8 characters&amp;rdquo; or &amp;ldquo;this field is required.&amp;rdquo;
+HTML5 Form Validation Form validaiton is a large part of project-specific, dependent on business logic.
+Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Email (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;email&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Age (required, must be older than 13)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;age&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of siblings&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;siblings&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of rooms in your house&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;rooms&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Blog url&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;blog&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Twitter Username&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;twitter&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; HTML5 Constraint API HTML5 constraint validation API helps developers avoid use of JavaScript for simple validations.</description>
+    </item>
+    
     <item>
       <title>Local Storage</title>
       <link>https://haleyjung.github.io/posts/2022/02/local-storage/</link>
@@ -98,17 +110,6 @@ We can also define an area by giving it a name and then specify the location of 
       <guid>https://haleyjung.github.io/posts/2022/01/functional-classes/</guid>
       <description>Decorator Pattern var Car = function (loc) { var obj = { loc: loc }; ob.mov = function() { // Decorator pattern: creates a new function for every function call  obj.loc++; }; }; var amy = Car(1); amy.move(); var ben = Car(9); ben.move(); Functional Class Pattern with Shared Methods &amp;hellip;or Functional-Shared Pattern
 var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; }; var move = function() { this.</description>
-    </item>
-    
-    <item>
-      <title>JavaScript: this</title>
-      <link>https://haleyjung.github.io/posts/2022/01/javascript-this/</link>
-      <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/javascript-this/</guid>
-      <description>What is this?  An identifier for values Designed to support object oriented programming  Binding When a method or constructor function is invoked, this binds to a likely-focal object, so that we can easily access that object.
-this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what is this NOT bound to? };   The function object: {f}
-  An instance of the function it appears within: {}</description>
     </item>
     
   </channel>

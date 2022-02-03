@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Client-side Validation on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/client-side-validation/</link>
+    <description>Recent content in Client-side Validation on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 03 Feb 2022 13:50:26 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/client-side-validation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Client-Side Validation</title>
+      <link>https://haleyjung.github.io/posts/2022/02/client-side-validation/</link>
+      <pubDate>Thu, 03 Feb 2022 13:50:26 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/client-side-validation/</guid>
+      <description>What is client-side validation? It refers to providing feedbacks to users so that they can give us the correct information.
+e.g. &amp;ldquo;your password must be at least 8 characters&amp;rdquo; or &amp;ldquo;this field is required.&amp;rdquo;
+HTML5 Form Validation Form validaiton is a large part of project-specific, dependent on business logic.
+Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Email (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;email&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Age (required, must be older than 13)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;age&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of siblings&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;siblings&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of rooms in your house&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;rooms&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Blog url&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;blog&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Twitter Username&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;twitter&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; HTML5 Constraint API HTML5 constraint validation API helps developers avoid use of JavaScript for simple validations.</description>
+    </item>
+    
+  </channel>
+</rss>

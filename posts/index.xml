@@ -6,8 +6,244 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 02 Feb 2022 01:45:40 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 03 Feb 2022 13:50:26 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Client-Side Validation</title>
+            <link>https://haleyjung.github.io/posts/2022/02/client-side-validation/</link>
+            <pubDate>Thu, 03 Feb 2022 13:50:26 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/client-side-validation/</guid>
+            <description>What is client-side validation? It refers to providing feedbacks to users so that they can give us the correct information.
+e.g. &amp;ldquo;your password must be at least 8 characters&amp;rdquo; or &amp;ldquo;this field is required.&amp;rdquo;
+HTML5 Form Validation Form validaiton is a large part of project-specific, dependent on business logic.
+Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Email (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;email&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Age (required, must be older than 13)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;age&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of siblings&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;siblings&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of rooms in your house&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;rooms&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Blog url&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;blog&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Twitter Username&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;twitter&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; HTML5 Constraint API HTML5 constraint validation API helps developers avoid use of JavaScript for simple validations.</description>
+            <content type="html"><![CDATA[<h2 id="what-is-client-side-validation">What is client-side validation?</h2>
+<p>It refers to providing feedbacks to users so that they can give us the correct information.</p>
+<p>e.g. &ldquo;your password must be at least 8 characters&rdquo; or &ldquo;this field is required.&rdquo;</p>
+<h2 id="html5-form-validation">HTML5 Form Validation</h2>
+<p>Form validaiton is a large part of project-specific, dependent on <strong>business logic</strong>.</p>
+<h3 id="input-types">Input Types</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span>&gt;
+    &lt;<span style="color:#f92672">label</span>&gt;Name (required)&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span>&gt;
+    &lt;<span style="color:#f92672">label</span>&gt;Email (required)&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;
+    &lt;<span style="color:#f92672">label</span>&gt;Age (required, must be older than 13)&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span>&gt;
+
+    &lt;<span style="color:#f92672">label</span>&gt;Number of siblings&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;siblings&#34;</span>&gt;
+
+    &lt;<span style="color:#f92672">label</span>&gt;Number of rooms in your house&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;rooms&#34;</span>&gt;
+
+    &lt;<span style="color:#f92672">label</span>&gt;Blog url&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;blog&#34;</span>&gt;
+
+    &lt;<span style="color:#f92672">label</span>&gt;Twitter Username&lt;/<span style="color:#f92672">label</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;twitter&#34;</span>&gt;
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+
+</code></pre></div><h3 id="html5-constraint-api">HTML5 Constraint API</h3>
+<p>HTML5 constraint validation API helps developers avoid use of JavaScript for simple validations.</p>
+<p><strong>Validation based attributes</strong></p>
+<ol>
+<li>pattern</li>
+</ol>
+<p><code>&lt;input type=”text” pattern=”[1-4]{5}” /&gt;</code></p>
+<ol start="2">
+<li>required</li>
+</ol>
+<p><code>&lt;input type=”text” required /&gt;</code></p>
+<ol start="3">
+<li>maxlength</li>
+</ol>
+<p><code>&lt;input type=”text” maxlength=”20” /&gt;</code></p>
+<ol start="4">
+<li>
+<p>min &amp; max</p>
+</li>
+<li>
+<p>onchange</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ValidationForm&#34;</span>&gt;
+	Password: &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password1&#34;</span>/&gt;
+	Confirm Password:&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password2&#34;</span>/&gt;
+	&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>/&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><p>&ldquo;Whenever a change event is fired, we need to check if both of the passwords match. If yes, we call setCustomValidity() on the input element (password field in this case) with an empty string as the argument. On the other hand, if we detect that the passwords don’t match in a change event we call setCustomValidity() with an error message as argument. It means the password field will be marked as invalid and the error message will be shown when the user submits the form.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span><span style="color:#f92672">&gt;</span>
+ window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> () {
+   document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;password1&#34;</span>).<span style="color:#a6e22e">onchange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">validatePassword</span>;
+   document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;password2&#34;</span>).<span style="color:#a6e22e">onchange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">validatePassword</span>;
+ }
+
+ <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">validatePassword</span>(){
+ <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pass2</span><span style="color:#f92672">=</span>document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;password2&#34;</span>).<span style="color:#a6e22e">value</span>;
+ <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pass1</span><span style="color:#f92672">=</span>document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;password1&#34;</span>).<span style="color:#a6e22e">value</span>;
+ <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">pass1</span><span style="color:#f92672">!=</span><span style="color:#a6e22e">pass2</span>)
+   document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;password2&#34;</span>).<span style="color:#a6e22e">setCustomValidity</span>(<span style="color:#e6db74">&#34;Passwords Don&#39;t Match&#34;</span>);
+ <span style="color:#66d9ef">else</span>
+   document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#34;password2&#34;</span>).<span style="color:#a6e22e">setCustomValidity</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+ <span style="color:#75715e">//empty string means no validation error
+</span><span style="color:#75715e"></span> }
+<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/script&gt;</span>
+</code></pre></div><p><strong>A Sample Form</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myForm&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-group&#34;</span>&gt;
+    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;
+      Email&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;/<span style="color:#f92672">label</span>&gt;
+    <span style="color:#75715e">&lt;!-- Email should be required and validate for a correct email. --&gt;</span>
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">required</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;email&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-group&#34;</span>&gt;
+    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;
+      Password&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;required&#34;</span>&gt;*&lt;/<span style="color:#f92672">span</span>&gt;
+       &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;info&#34;</span>&gt;(Minimum Length of 8 Characters)&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;/<span style="color:#f92672">label</span>&gt;
+    <span style="color:#75715e">&lt;!-- Password is required and must be at least 8 characters that are hidden when typed. --&gt;</span>
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">minlength</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;8&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;password&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-group&#34;</span>&gt;
+    &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;website&#34;</span>&gt;My Website&lt;/<span style="color:#f92672">label</span>&gt;
+    <span style="color:#75715e">&lt;!-- Website is optional but if it is there should be validated as a real URL. --&gt;</span>
+    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;website&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://...&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+
+  &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-primary&#34;</span>&gt;Submit&lt;/<span style="color:#f92672">button</span>&gt;
+
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><h3 id="validating-against-a-regular-expression-regex">Validating against a regular expression (regex)</h3>
+<p>Another useful validation feature is the <strong>pattern attribute</strong>, which expects a <strong>Regular Expression as its value</strong>. A regular expression <a href="https://regexr.com/">(regex)</a> is a pattern that can be used to match <strong>character combinations</strong> in text <strong>strings</strong>, so regexps are ideal for form validation and serve a variety of other uses in JavaScript.</p>
+<p>In JavaScript, regular expressions are also objects. These patterns are used with the exec() and test() methods of RegExp, and with the match(), matchAll(), replace(), replaceAll(), search(), and split() methods of String.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">form</span>&gt;
+  &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;choose&#34;</span>&gt;Would you prefer a banana or a cherry?&lt;/<span style="color:#f92672">label</span>&gt;
+  &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;choose&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;i_like&#34;</span> <span style="color:#a6e22e">required</span> <span style="color:#a6e22e">pattern</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;[Bb]anana|[Cc]herry&#34;</span>&gt;
+  &lt;<span style="color:#f92672">button</span>&gt;Submit&lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">form</span>&gt;
+</code></pre></div><p><strong>REMEMBER</strong>: <code>&lt;textarea&gt;</code> element does not support the <code>pattern</code> attribute.</p>
+<h2 id="validating-with-javascript">Validating with JavaScript</h2>
+<p><strong>Common Steps:</strong></p>
+<ol>
+<li>Select the value of the input(s) you&rsquo;re testing while the input(s) is being changed or on submit</li>
+<li>Run some kind of check against it</li>
+<li>If there&rsquo;s an error, surface it the user</li>
+<li>If there&rsquo;s not an error, continue</li>
+</ol>
+<h3 id="using-vanilla-javascript-vs-jquery-to-access-form-inputs">Using Vanilla JavaScript vs jQuery to access form inputs</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// vanilla javascript
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#some-form&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#39;#some-input&#39;</span>);
+
+document.<span style="color:#a6e22e">forms</span>; <span style="color:#75715e">// Get all forms on a page
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">form</span>.<span style="color:#a6e22e">elements</span>; <span style="color:#75715e">// Get all form elements
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">type</span>.<span style="color:#a6e22e">toLowerCase</span>(); <span style="color:#75715e">// Get input type (radio, checkbox, text, etc.)
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">value</span>; <span style="color:#75715e">// Get input value
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">name</span>; <span style="color:#75715e">// Get input name
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">checked</span>; <span style="color:#75715e">// Get the checked status of a checkbox or radio button
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">disabled</span>; <span style="color:#75715e">// Get input disabled status
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// jQuery
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">form</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#some-form&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#some-input&#39;</span>);
+
+<span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">val</span>(); <span style="color:#75715e">// Get input value
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">getAttr</span>(<span style="color:#e6db74">&#34;name&#34;</span>); <span style="color:#75715e">// Get input name
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">checked</span>; <span style="color:#75715e">// Get the checked status of a checkbox or radio button
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">input</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">disabled</span>; <span style="color:#75715e">// Get input disabled status
+</span></code></pre></div><h3 id="using-jquery-to-access-values">Using jQuery to access values:</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 1. access values on submit: &#34;submit&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#myForm&#34;</span>).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;submit&#34;</span>, <span style="color:#66d9ef">function</span>(){
+    <span style="color:#75715e">// do entire form validation here
+</span><span style="color:#75715e"></span>})
+
+<span style="color:#75715e">// 2. access values as soon as a user is done typing: &#34;blur&#34;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#myInput&#34;</span>).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;blur&#34;</span>, <span style="color:#66d9ef">function</span>(){
+    <span style="color:#75715e">// do single input validation here
+</span><span style="color:#75715e"></span>})
+</code></pre></div><h3 id="handling-errors">Handling Errors:</h3>
+<p>A typical pattern is to display either next to the incorrectly filled out element, or a the top of the form, a new DOM element that lists the error in question.</p>
+<p>When you bind an event handler to something that has a default action, the handler will fire and then the default action will happen. To stop this, we can use <code>event.preventDefault();</code> or call <code>return false</code> from within a jQuery event handler.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#myForm&#34;</span>).<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;submit&#34;</span>, <span style="color:#66d9ef">function</span>(){
+
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">some_error_condition</span>) {
+
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">errDiv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;&lt;div class=&#34;error&#34;&gt;Please fix your phone number&lt;/div&gt;&#39;</span>)
+
+        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#34;#myForm&#34;</span>).<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">errDiv</span>);
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>; <span style="color:#75715e">// This tells the submission not to happen
+</span><span style="color:#75715e"></span>    }
+})
+</code></pre></div><h3 id="cleavejs">Cleave.js</h3>
+<p><a href="https://nosir.github.io/cleave.js/">Cleave.js</a> is a useful library to format input contents when you are typing!</p>
+<h3 id="example-auto-capitalization">Example: Auto-capitalization</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span>&gt;
+      &lt;<span style="color:#f92672">h1</span>&gt;Auto-capitalize&lt;/<span style="color:#f92672">h1</span>&gt;
+      &lt;<span style="color:#f92672">hr</span>&gt;
+      &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myForm&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-group&#34;</span>&gt;
+          &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;Add a Book Title&lt;/<span style="color:#f92672">label</span>&gt;
+          &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+      &lt;/<span style="color:#f92672">form</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">document.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;DOMContentLoaded&#39;</span>, <span style="color:#66d9ef">function</span> () {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementById</span>(<span style="color:#e6db74">&#39;title&#39;</span>)
+  <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#39;keyup&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+  	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">textArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">text</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#39; &#39;</span>)
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">titlecaseArray</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">textArray</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">word</span>) {
+    	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">word</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">word</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">toUpperCase</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">word</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">1</span>) <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
+    })
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">titlecase</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">titlecaseArray</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39; &#39;</span>)
+
+    <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">titlecase</span>
+  })
+})
+</code></pre></div><h2 id="points-of-discussion">Points of Discussion</h2>
+<ul>
+<li>Why do we need to do form validation inside an event listener?</li>
+</ul>
+<p>To perform more complex validation on form input values.</p>
+<ul>
+<li>What is a better experience for the user: using the required attribute, or using JS to ensure all required fields are checked?</li>
+</ul>
+<p>&ldquo;For good user experience, indicate to the user when form fields are required. It isn&rsquo;t only good user experience, it is required by WCAG <a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility">accessibility</a> guidelines. Also, only require users to input data you actually need: For example, why do you really need to know someone&rsquo;s gender or title?&rdquo;</p>
+<ul>
+<li>Why might browser validation not be enough?</li>
+</ul>
+<p>Client-side validation is not enough because its scope of action is strict and is only performed in the browser user-interface. A web server &lsquo;listens&rsquo; to and receives an HTTP request containing data from the browser, and then process it. It places trust in the browser, an entity that should never be trusted. It should only be used to improve user experience and application performance by catching malformed input on the client and saving a roundtrip to the server.</p>
+<p>Client-side validation should never be used for security purposes. It can be easily <strong>bypassed</strong> and does not prevent <strong>malicious attacks</strong>.  All input should be validated <strong>server side</strong>. We can also place a <strong>server-side validator</strong> for all inputs. The following steps outline how to properly set the validation routines:</p>
+<ol>
+<li>Identify input: Determine the data that is to be passed from the client to your application, such as URL-based parameters, form-based parameters, hidden fields, and cookies.</li>
+<li>Understand the use and constraints associated with each input. Define the format and type of each input. Build a server-side validator for each format and type of expected input.</li>
+<li>Create a set of validators for each type of input on the server-side of the application. If there are validators on the client-side, make sure the same validators are implemented on the server-side as well.</li>
+</ol>
+<h2 id="references">References</h2>
+<p><strong>HTML5</strong></p>
+<p><a href="https://education.launchcode.org/intro-to-professional-web-dev/chapters/forms/validation-with-javascript.html">&ldquo;25.9. Validation with JavaScript&rdquo;, Launch Code Education</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_against_a_regular_expression">&ldquo;Client-side form validation&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation">&ldquo;Constraint validation&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://gomakethings.com/ditching-jquery/#working-with-forms">&ldquo;Ditching jQuery&rdquo;, Go Make Things, August 25, 2014</a></p>
+<p><a href="http://diveintohtml5.info/forms.html">&ldquo;Dive Into HTML5&rdquo;</a></p>
+<p><a href="https://www.html5pattern.com/">&ldquo;HTML5 Pattern&rdquo;</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes">&ldquo;HTML attribute reference&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://www.sitepoint.com/using-the-html5-constraint-api-for-form-validation/">Panda, Sandeep. &ldquo;Using the HTML5 Constrint API for Form Validation&rdquo;, sitepoint, August 22, 2013.</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">&ldquo;Regular expressions&rdquo;, MDN Web Doc</a></p>
+<p><a href="https://blog.securityinnovation.com/blog/2011/07/do-not-rely-on-client-side-validation.html#:~:text=A%20client%2Dside%20input%20validation,a%20roundtrip%20to%20the%20server.&amp;text=Always%20use%20server%2Dside%20validation,your%20application%20from%20malicious%20attacks.">Truth, Serge. &ldquo;Do Not Rely on Client-Side Validation&rdquo;, Security Innovation, July 26, 2011.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Local Storage</title>
