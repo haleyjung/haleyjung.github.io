@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Systems on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/systems/</link>
+    <description>Recent content in Systems on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 04 Feb 2022 00:31:44 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Systems</title>
+      <link>https://haleyjung.github.io/posts/2022/02/systems/</link>
+      <pubDate>Fri, 04 Feb 2022 00:31:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/systems/</guid>
+      <description>Webpage Rendering  HTML is received from the server and processed into the DOM. The styles are loaded and parsed into the CSSOM. The render tree is created using the DOM and CSSOM. The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</description>
+    </item>
+    
+  </channel>
+</rss>

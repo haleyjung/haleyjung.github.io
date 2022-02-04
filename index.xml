@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 03 Feb 2022 13:50:26 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Feb 2022 00:31:44 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Systems</title>
+      <link>https://haleyjung.github.io/posts/2022/02/systems/</link>
+      <pubDate>Fri, 04 Feb 2022 00:31:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/systems/</guid>
+      <description>Webpage Rendering  HTML is received from the server and processed into the DOM. The styles are loaded and parsed into the CSSOM. The render tree is created using the DOM and CSSOM. The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</description>
+    </item>
+    
     <item>
       <title>Client-Side Validation</title>
       <link>https://haleyjung.github.io/posts/2022/02/client-side-validation/</link>
@@ -100,16 +109,6 @@ We can also define an area by giving it a name and then specify the location of 
       
       <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
       <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
-    </item>
-    
-    <item>
-      <title>Functional Classes</title>
-      <link>https://haleyjung.github.io/posts/2022/01/functional-classes/</link>
-      <pubDate>Wed, 26 Jan 2022 11:20:29 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/functional-classes/</guid>
-      <description>Decorator Pattern var Car = function (loc) { var obj = { loc: loc }; ob.mov = function() { // Decorator pattern: creates a new function for every function call  obj.loc++; }; }; var amy = Car(1); amy.move(); var ben = Car(9); ben.move(); Functional Class Pattern with Shared Methods &amp;hellip;or Functional-Shared Pattern
-var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; }; var move = function() { this.</description>
     </item>
     
   </channel>

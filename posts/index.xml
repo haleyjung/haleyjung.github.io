@@ -6,8 +6,88 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 03 Feb 2022 13:50:26 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 04 Feb 2022 00:31:44 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Systems</title>
+            <link>https://haleyjung.github.io/posts/2022/02/systems/</link>
+            <pubDate>Fri, 04 Feb 2022 00:31:44 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/systems/</guid>
+            <description>Webpage Rendering  HTML is received from the server and processed into the DOM. The styles are loaded and parsed into the CSSOM. The render tree is created using the DOM and CSSOM. The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</description>
+            <content type="html"><![CDATA[<h2 id="webpage-rendering">Webpage Rendering</h2>
+<ol>
+<li>HTML is received from the server and processed into the DOM.</li>
+<li>The styles are loaded and parsed into the CSSOM.</li>
+<li>The render tree is created using the DOM and CSSOM.</li>
+<li>The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</li>
+<li>The information is displayed in the browser window in its final form through the last stage of the process, also known as painting.</li>
+</ol>
+<h3 id="repaint">Repaint</h3>
+<p>Repaint is a technique that allows the browser to update the appearance of the elements of the webpage without changing the layout, such as the background color, outline of the element, or its visibility.</p>
+<h3 id="reflow">Reflow</h3>
+<p>Reflow takes place when the change to the webpage affects the layout of the page and the position of its elements. Reflow will recalculate the position of all the elements in the DOM, including the child and the parent components, even if the changes concern a single element. Reflow can be triggered by:</p>
+<ul>
+<li>manipulating the elements of the DOM</li>
+<li>changes in the content (including the form field content)</li>
+<li>changes in the CSS properties</li>
+<li>adding or removing style sheets</li>
+<li>changing the <code>class</code> attributes</li>
+<li>resizing the browser window</li>
+<li>scrolling</li>
+<li>pseudo-class action such as <code>:hover</code></li>
+</ul>
+<h3 id="optimization">Optimization</h3>
+<p>Both repaint and reflow slows down the performance of a webpage, especially <strong>reflow</strong>.</p>
+<p>Method 1: <strong>Restricting the areas</strong> where repaint or reflow take place.
+Method 2: <strong>Caching</strong> the changes while running JavaScript and applying the changes in a single pass after the code run has finished.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$body</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;body&#39;</span>);
+  <span style="color:#a6e22e">$body</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;padding&#39;</span>, <span style="color:#e6db74">&#39;1px&#39;</span>); <span style="color:#75715e">// reflow, repaint
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">$body</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;color&#39;</span>, <span style="color:#e6db74">&#39;red&#39;</span>); <span style="color:#75715e">// repaint
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">$body</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;margin&#39;</span>, <span style="color:#e6db74">&#39;2px&#39;</span>); <span style="color:#75715e">// reflow, repaint
+</span></code></pre></div><h2 id="same-origin-and-cors-cross-origin-resource-sharing">Same-origin and CORS (Cross-Origin Resource Sharing)</h2>
+<p>The Cross-Origin Resource Sharing standard works by adding new <strong>HTTP headers</strong> that let servers describe which <strong>origins (domain, scheme, or port) are permitted</strong> to read that information <strong>from a web browser</strong>.</p>
+<p>An example of a cross-origin request: the front-end JavaScript code served from <a href="https://domain-a.com">https://domain-a.com</a> uses <strong>XMLHttpRequest</strong> to make a request for <a href="https://domain-b.com/data.json">https://domain-b.com/data.json</a>.</p>
+<p>CORS failures result in errors but for security reasons, specifics about the error are not available to JavaScript. All the code knows is that an error occurred. The only way to determine what specifically went wrong is to look at the browser&rsquo;s console for details.</p>
+<p>Examples of access control scenarios include:</p>
+<h3 id="1-simple-requests">1. Simple requests</h3>
+<p>Some requests don&rsquo;t trigger a CORS preflight. A simple request is one that meets all the following conditions:</p>
+<ul>
+<li>One of the allowed methods: GET, HEAD, POST</li>
+<li>Apart from the headers automatically set by the user agent, the only headers which are allowed to be manually set are those which the Fetch spec defines as a CORS-safelisted request-header, which are: Accept, Accept-Langauge, Content-Language, Content-Type.</li>
+<li>The only type/subtype combinations allowed for the media type specified in the Content-Type header are: application/x-www-form-urlencoded, multipart/form-data, text/plain</li>
+<li>If the request is made using an XMLHttpRequest object, no event listeners are registered on the object returned by the XMLHttpRequest.upload property used in the request; that is, given an XMLHttpRequest instance xhr, no code has called <code>xhr.upload.addEventListener()</code> to add an event listener to monitor the upload.</li>
+<li>No ReadableStream object is used in the request.</li>
+</ul>
+<h3 id="2-preflighted-requests">2. Preflighted requests</h3>
+<ul>
+<li>The browser first sends an HTTP request using the OPTIONS method to the resource on the other origin, in order to determine if the actual request is safe to send.</li>
+<li>Such cross-origin requests are preflighted since they may have implications for user data.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">xhr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>();
+<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">open</span>(<span style="color:#e6db74">&#39;POST&#39;</span>, <span style="color:#e6db74">&#39;https://bar.other/resources/post-here/&#39;</span>);
+<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#e6db74">&#39;X-PINGOTHER&#39;</span>, <span style="color:#e6db74">&#39;pingpong&#39;</span>);
+<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">setRequestHeader</span>(<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;application/xml&#39;</span>);
+<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">onreadystatechange</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">handler</span>;
+<span style="color:#a6e22e">xhr</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#39;&lt;person&gt;&lt;name&gt;Arun&lt;/name&gt;&lt;/person&gt;&#39;</span>);
+</code></pre></div><h3 id="3-requests-with-credentials">3. Requests with credentials</h3>
+<ul>
+<li>These are aware of HTTP cookies and HTTP Authentication information.</li>
+<li>By default, in cross-origin XMLHttpRequest or Fetch invocations, browsers will not send credentials.</li>
+<li>A specific flag has to be set on the XMLHttpRequest object or the Request constructor when it is invoked.</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://bestwebhostingaustralia.org/browserscope-org-joins-aussie-hosting/">&ldquo;Browser Scope Has Merged With Aussie Hosting&rdquo;, Aussie Hosting</a></p>
+<p><a href="https://eloquentjavascript.net/14_dom.html">&ldquo;Chapter 14: The Document Object Model&rdquo;, Eloquent JavaScript</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">&ldquo;Cross-Origin Resource Sharing (CORS)&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://www.sitepoint.com/working-around-origin-policy/">Daityari, Shaumik. &ldquo;Working With and Around the Same-Origin Policy&rdquo;, sitepoint, February 28, 2014.</a></p>
+<p><a href="https://www.breck-mckye.com/blog/2014/04/document-loading-and-DOM-lifecycle-events/">&ldquo;Document loading and DOM lifecycle events&rdquo;, Jimmy Breck-McKye, April 21, 2014.</a></p>
+<p><a href="https://qarea.com/blog/webpage-rendering-how-it-works-tips-on-optimization">Frontend Dev, &ldquo;Webpage Rendering: How It Works + Tips on Optimization&rdquo;, Qarea, October 13, 2020.</a></p>
+<p><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">Garsiel, Tali. Irish, Paul. &ldquo;How Browsers Work: Behind the scenes of modern web browsers&rdquo;, HTML5Rocks, August 5, 2011.</a></p>
+<p><a href="http://blog.olamisan.com/max-parallel-http-connections-in-a-browser">&ldquo;Max parallel http connections in a browser?&rdquo;, Developer Blog, March 24, 2015.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Client-Side Validation</title>
@@ -3501,7 +3581,7 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
 <p>January 15, 2022: I suddenly received this message in the Terminal when hugo was working just fine yesterday. I tried installing Hugo again, but brew was also not working: <code>bash: brew: command not found</code>. The brew command was indeed located in the standard locations, so the issue was not about configuring the brew environment on my Mac.</p>
 <p>After doing some Google search, it turns out to be a rather common error happening to Apple M1 Pro, but the actual cause of this still seems to be in debate.</p>
 <p>This is the solution that worked:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">echo <span style="color:#960050;background-color:#1e0010">&#39;</span>eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">/</span>Users<span style="color:#f92672">/&lt;</span>yourusername<span style="color:#f92672">&gt;/</span>.zprofile
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">echo <span style="color:#960050;background-color:#1e0010">&#39;</span>eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">/</span>Users<span style="color:#f92672">/</span>haleyjung<span style="color:#f92672">/</span>.zprofile
 eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span>
 </code></pre></div><p>The first command adds:</p>
 <ul>
