@@ -6,8 +6,50 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 04 Feb 2022 00:31:44 -0500</lastBuildDate>
+        <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Semantic Versioning</title>
+            <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
+            <pubDate>Sat, 05 Feb 2022 10:48:06 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
+            <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
+It consists of 3 components in the format of X.Y.Z
+X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
+            <content type="html"><![CDATA[<h2 id="semantic-versioning-semver">Semantic Versioning (SemVer)</h2>
+<p>A versioning system for software releases, such as new plugins, addons, libraries, and extensions.</p>
+<p>It consists of 3 components in the format of <strong>X.Y.Z</strong></p>
+<h3 id="x-major-version">X: Major Version</h3>
+<ul>
+<li>When the major version number is increased, the minor and patch version numbers are reset to zero.</li>
+<li>Increasing the major number breaks the existing API.</li>
+</ul>
+<h3 id="y-minor-version">Y: Minor Version</h3>
+<ul>
+<li>Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</li>
+<li>When this is increased, the patch version number is reset to zero.</li>
+<li>Does not break the existing API.</li>
+</ul>
+<h3 id="z-patch-version">Z: Patch Version</h3>
+<ul>
+<li>For bug fixes; no functionality changes.</li>
+<li>There&rsquo;s no limit to patch version numbers.</li>
+</ul>
+<h3 id="important-notes">Important Notes</h3>
+<ul>
+<li>The first version starts at <strong>0.1.0</strong> not <strong>0.0.1</strong></li>
+<li>The first stable version is <strong>1.0.0</strong>.</li>
+<li>Before <strong>1.0.0</strong> is the Development Phase for Beta versions.</li>
+<li>Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://nodesource.com/blog/the-basics-of-package-json-in-node-js-and-npm/">Cyren, Tierney. &ldquo;The Basics of Package.json in Node.js and npm&rdquo;, Nodesource, March 3, 2017.</a></p>
+<p><a href="https://www.geeksforgeeks.org/introduction-semantic-versioning/">&ldquo;Introduction to Semantic Versioning&rdquo;, GeeksforGeeks, Auguest 17, 2021.</a></p>
+<p><a href="https://semver.org/">&ldquo;Semantic Versioning 2.0.0&rdquo;, Semver</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Systems</title>
@@ -46,11 +88,31 @@ Method 2: <strong>Caching</strong> the changes while running JavaScript and appl
   <span style="color:#a6e22e">$body</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;padding&#39;</span>, <span style="color:#e6db74">&#39;1px&#39;</span>); <span style="color:#75715e">// reflow, repaint
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">$body</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;color&#39;</span>, <span style="color:#e6db74">&#39;red&#39;</span>); <span style="color:#75715e">// repaint
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">$body</span>.<span style="color:#a6e22e">css</span>(<span style="color:#e6db74">&#39;margin&#39;</span>, <span style="color:#e6db74">&#39;2px&#39;</span>); <span style="color:#75715e">// reflow, repaint
-</span></code></pre></div><h2 id="same-origin-and-cors-cross-origin-resource-sharing">Same-origin and CORS (Cross-Origin Resource Sharing)</h2>
-<p>The Cross-Origin Resource Sharing standard works by adding new <strong>HTTP headers</strong> that let servers describe which <strong>origins (domain, scheme, or port) are permitted</strong> to read that information <strong>from a web browser</strong>.</p>
+</span></code></pre></div><h2 id="same-origin">Same-origin</h2>
+<p>Modern web browsers provide many built-in security mechanisms to defent against attackers. Some of these include:</p>
+<ul>
+<li>Same-origin policy</li>
+<li>Cookie Policy</li>
+<li>Content Security Policy</li>
+<li>Browser sandbox</li>
+<li>XSS protection, etc.</li>
+</ul>
+<p>The <strong>origin</strong> in this context refers to the exact location of a specific resource, such as image or script. It consists of <strong>three main elements</strong>:</p>
+<ol>
+<li>The protocol: HTTP or HTTPS</li>
+<li>The hostname: developer.mozilla.org</li>
+<li>The port: 80, 443, 8080, etc.</li>
+</ol>
+<p>When the browser performs the same-origin policy checks, it compares the <strong>originating location</strong> with the location of the <strong>requested resource</strong>.</p>
+<p>Its purpose is to restrict cross-origin interactions between documents, scripts, or media files from one origin to a web page with a different origin.</p>
+<p>The rise of JavaScript and the DOM API to support interactive sites caused security concerns, such as <strong>Cross-Site Request Forgery</strong> where a malicious site can read a user&rsquo;s private info with Asynchronous JavaScript and XML (AJAX) requests. To address such concerns, Netscape introduced the same-origin policy to prevent cross-origin resources from being accessed.</p>
+<p>However, this is by no means a perfect solution. In some cases, it&rsquo;s not restrictive enough while in other caess, it&rsquo;s too restrictive and complicates the workflow of a web application. As a response to this, <strong>CORS</strong> was introduced.</p>
+<h2 id="cors-cross-origin-resource-sharing">CORS (Cross-Origin Resource Sharing)</h2>
+<p>CORS allows servers to <strong>specify trusted origins</strong> that can be used in cross-origin requests, although multiple whitelisted domains cannot be specified. A CORS requests can be either <strong>Simple</strong> or <strong>Preflight</strong>. More on this below.</p>
+<p>The CORS standard works by adding new <strong>HTTP headers</strong> that let servers describe which <strong>origins (domain, scheme, or port) are permitted</strong> to read that information <strong>from a web browser</strong>.</p>
 <p>An example of a cross-origin request: the front-end JavaScript code served from <a href="https://domain-a.com">https://domain-a.com</a> uses <strong>XMLHttpRequest</strong> to make a request for <a href="https://domain-b.com/data.json">https://domain-b.com/data.json</a>.</p>
 <p>CORS failures result in errors but for security reasons, specifics about the error are not available to JavaScript. All the code knows is that an error occurred. The only way to determine what specifically went wrong is to look at the browser&rsquo;s console for details.</p>
-<p>Examples of access control scenarios include:</p>
+<p><strong>Examples of access control scenarios include:</strong></p>
 <h3 id="1-simple-requests">1. Simple requests</h3>
 <p>Some requests don&rsquo;t trigger a CORS preflight. A simple request is one that meets all the following conditions:</p>
 <ul>
@@ -60,7 +122,17 @@ Method 2: <strong>Caching</strong> the changes while running JavaScript and appl
 <li>If the request is made using an XMLHttpRequest object, no event listeners are registered on the object returned by the XMLHttpRequest.upload property used in the request; that is, given an XMLHttpRequest instance xhr, no code has called <code>xhr.upload.addEventListener()</code> to add an event listener to monitor the upload.</li>
 <li>No ReadableStream object is used in the request.</li>
 </ul>
-<h3 id="2-preflighted-requests">2. Preflighted requests</h3>
+<pre tabindex="0"><code>GET /courses HTTP/1.1
+Host: api.developer.mozilla.org
+Origin: https://www.developer.mozilla.org
+...
+And the server responds with:
+
+HTTP/1.1 200 OK
+Access-Control-Allow-Origin: https://www.developer.mozilla.org
+Content-Type: application/json
+...
+</code></pre><h3 id="2-preflighted-requests">2. Preflighted requests</h3>
 <ul>
 <li>The browser first sends an HTTP request using the OPTIONS method to the resource on the other origin, in order to determine if the actual request is safe to send.</li>
 <li>Such cross-origin requests are preflighted since they may have implications for user data.</li>
@@ -86,6 +158,7 @@ Method 2: <strong>Caching</strong> the changes while running JavaScript and appl
 <p><a href="https://qarea.com/blog/webpage-rendering-how-it-works-tips-on-optimization">Frontend Dev, &ldquo;Webpage Rendering: How It Works + Tips on Optimization&rdquo;, Qarea, October 13, 2020.</a></p>
 <p><a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">Garsiel, Tali. Irish, Paul. &ldquo;How Browsers Work: Behind the scenes of modern web browsers&rdquo;, HTML5Rocks, August 5, 2011.</a></p>
 <p><a href="http://blog.olamisan.com/max-parallel-http-connections-in-a-browser">&ldquo;Max parallel http connections in a browser?&rdquo;, Developer Blog, March 24, 2015.</a></p>
+<p><a href="https://www.hackedu.com/blog/same-origin-policy-and-cross-origin-resource-sharing-cors">&ldquo;Same-Origin Policy and Cross-Origin Resource Sharing(CORS)&rdquo;, Hack EDU</a></p>
 ]]></content>
         </item>
         
@@ -311,7 +384,6 @@ document.<span style="color:#a6e22e">forms</span>; <span style="color:#75715e">/
 <li>Create a set of validators for each type of input on the server-side of the application. If there are validators on the client-side, make sure the same validators are implemented on the server-side as well.</li>
 </ol>
 <h2 id="references">References</h2>
-<p><strong>HTML5</strong></p>
 <p><a href="https://education.launchcode.org/intro-to-professional-web-dev/chapters/forms/validation-with-javascript.html">&ldquo;25.9. Validation with JavaScript&rdquo;, Launch Code Education</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_against_a_regular_expression">&ldquo;Client-side form validation&rdquo;, MDN Web Docs</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Constraint_validation">&ldquo;Constraint validation&rdquo;, MDN Web Docs</a></p>
@@ -409,48 +481,6 @@ document.<span style="color:#a6e22e">forms</span>; <span style="color:#75715e">/
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage">&ldquo;Storage&rdquo;, MDN Web Docs</a></p>
 <p><a href="http://diveintohtml5.info/storage.html">&ldquo;The past, present &amp; future of local storage for web applications&rdquo;, Dive Into HTML5</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">&ldquo;Window.localStorage&rdquo;, MDN Web Docs</a></p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Semantic Versioning</title>
-            <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
-            <pubDate>Tue, 01 Feb 2022 10:48:06 -0500</pubDate>
-            
-            <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
-            <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
-It consists of 3 components in the format of X.Y.Z
-X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
-            <content type="html"><![CDATA[<h2 id="semantic-versioning-semver">Semantic Versioning (SemVer)</h2>
-<p>A versioning system for software releases, such as new plugins, addons, libraries, and extensions.</p>
-<p>It consists of 3 components in the format of <strong>X.Y.Z</strong></p>
-<h3 id="x-major-version">X: Major Version</h3>
-<ul>
-<li>When the major version number is increased, the minor and patch version numbers are reset to zero.</li>
-<li>Increasing the major number breaks the existing API.</li>
-</ul>
-<h3 id="y-minor-version">Y: Minor Version</h3>
-<ul>
-<li>Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</li>
-<li>When this is increased, the patch version number is reset to zero.</li>
-<li>Does not break the existing API.</li>
-</ul>
-<h3 id="z-patch-version">Z: Patch Version</h3>
-<ul>
-<li>For bug fixes; no functionality changes.</li>
-<li>There&rsquo;s no limit to patch version numbers.</li>
-</ul>
-<h3 id="important-notes">Important Notes</h3>
-<ul>
-<li>The first version starts at <strong>0.1.0</strong> not <strong>0.0.1</strong></li>
-<li>The first stable version is <strong>1.0.0</strong>.</li>
-<li>Before <strong>1.0.0</strong> is the Development Phase for Beta versions.</li>
-<li>Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.</li>
-</ul>
-<h2 id="references">References</h2>
-<p><a href="https://nodesource.com/blog/the-basics-of-package-json-in-node-js-and-npm/">Cyren, Tierney. &ldquo;The Basics of Package.json in Node.js and npm&rdquo;, Nodesource, March 3, 2017.</a></p>
-<p><a href="https://www.geeksforgeeks.org/introduction-semantic-versioning/">&ldquo;Introduction to Semantic Versioning&rdquo;, GeeksforGeeks, Auguest 17, 2021.</a></p>
-<p><a href="https://semver.org/">&ldquo;Semantic Versioning 2.0.0&rdquo;, Semver</a></p>
 ]]></content>
         </item>
         

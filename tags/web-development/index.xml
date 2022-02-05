@@ -7,7 +7,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 Feb 2022 01:45:40 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Semantic Versioning</title>
+      <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
+      <pubDate>Sat, 05 Feb 2022 10:48:06 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
+      <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
+It consists of 3 components in the format of X.Y.Z
+X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
+    </item>
+    
+    <item>
+      <title>Systems</title>
+      <link>https://haleyjung.github.io/posts/2022/02/systems/</link>
+      <pubDate>Fri, 04 Feb 2022 00:31:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/systems/</guid>
+      <description>Webpage Rendering  HTML is received from the server and processed into the DOM. The styles are loaded and parsed into the CSSOM. The render tree is created using the DOM and CSSOM. The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</description>
+    </item>
+    
+    <item>
+      <title>Client-Side Validation</title>
+      <link>https://haleyjung.github.io/posts/2022/02/client-side-validation/</link>
+      <pubDate>Thu, 03 Feb 2022 13:50:26 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/client-side-validation/</guid>
+      <description>What is client-side validation? It refers to providing feedbacks to users so that they can give us the correct information.
+e.g. &amp;ldquo;your password must be at least 8 characters&amp;rdquo; or &amp;ldquo;this field is required.&amp;rdquo;
+HTML5 Form Validation Form validaiton is a large part of project-specific, dependent on business logic.
+Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Email (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;email&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Age (required, must be older than 13)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;age&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of siblings&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;siblings&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of rooms in your house&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;rooms&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Blog url&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;blog&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Twitter Username&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;twitter&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; HTML5 Constraint API HTML5 constraint validation API helps developers avoid use of JavaScript for simple validations.</description>
+    </item>
+    
     <item>
       <title>Local Storage</title>
       <link>https://haleyjung.github.io/posts/2022/02/local-storage/</link>
@@ -18,12 +50,59 @@
     </item>
     
     <item>
-      <title>Absolute vs Relative Path</title>
-      <link>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</link>
-      <pubDate>Mon, 22 Nov 2021 11:00:33 -0500</pubDate>
+      <title>DOM</title>
+      <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
+      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2021/11/absolute-vs-relative-path/</guid>
-      <description>What is a path? A path is a string of characters that identify a specific location of a file or folder on computer. In another word, it represents the directory and file relationship in the operating system. The characters seperated with a slash in URLs represent a path. From this we can also grasp that a path is essential for constructing Uniform Resource Locators (URLs). A path is either absolute or relative.</description>
+      <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
+      <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
+    </item>
+    
+    <item>
+      <title>CDN: Content Delivery Networks</title>
+      <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
+      <pubDate>Tue, 18 Jan 2022 11:27:23 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
+      <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
+    </item>
+    
+    <item>
+      <title>APIs &amp; jQuery</title>
+      <link>https://haleyjung.github.io/posts/2022/01/apis-jquery/</link>
+      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/apis-jquery/</guid>
+      <description>APIs  Manipulate (create new or update existing) HTML elements on the page Create event-based user interactivity Embed rich media in documents with HTML &amp;lt;audio&amp;gt; and &amp;lt;video&amp;gt; elements Fetch data from a server Create visualizations by:  Creating SVG (Scalable Vector Graphics) Drawing on HTML canvas elements Rendering high-performance interactive 2D and 3D graphics with WebGL    Define jQuery  A JavaScript library that improves the native DOM API Portable across browsers Has a concise syntax Makes manipulating and adding interactivity to HTML documents easier  Using jQuery Method 1: Download the jQuery library and install it locally in the HTML code</description>
+    </item>
+    
+    <item>
+      <title>Pug.js</title>
+      <link>https://haleyjung.github.io/posts/2021/12/pug.js/</link>
+      <pubDate>Thu, 30 Dec 2021 16:24:23 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/pug.js/</guid>
+      <description>What is Pug.js?  Pug.js is a HTML templating engine, which means you can write much simpler Pug code, which Pug compiler will compile into HTML code, that browser can understand. Pug.js, as from its name is a JavaScript library. Hence, we can run it inside browser or on node.js  What to do after the installation?   Tell express that our view engine is now PUG
+ app.set(&amp;ldquo;view engine&amp;rdquo;, &amp;ldquo;pug&amp;rdquo;); create a views folder inside /.</description>
+    </item>
+    
+    <item>
+      <title>Server Standards</title>
+      <link>https://haleyjung.github.io/posts/2021/12/server-standards/</link>
+      <pubDate>Wed, 29 Dec 2021 14:40:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
+      <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
+    </item>
+    
+    <item>
+      <title>Cache</title>
+      <link>https://haleyjung.github.io/posts/2021/12/cache/</link>
+      <pubDate>Sat, 04 Dec 2021 22:03:44 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/cache/</guid>
+      <description>Cache (‘cash’) A reserved space location that collects temporary data that makes a device, browser, or app run faster and more efficiently After opening an app or website for the first time, a cache stashes files, images, and other pertinent data on the device. For every subsequent visit, the cached data will be quickly retrieved instead of locally redownloading the data every single time.
+3 main areas of cache Devices and software The CPU, central processing unit, which is the core component responsible for processing information from the software in the desktop computer, laptop, smartphone or tablet, has its own cache.</description>
     </item>
     
   </channel>

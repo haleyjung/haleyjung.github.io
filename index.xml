@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 04 Feb 2022 00:31:44 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Semantic Versioning</title>
+      <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
+      <pubDate>Sat, 05 Feb 2022 10:48:06 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
+      <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
+It consists of 3 components in the format of X.Y.Z
+X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
+    </item>
+    
     <item>
       <title>Systems</title>
       <link>https://haleyjung.github.io/posts/2022/02/systems/</link>
@@ -36,17 +47,6 @@ Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/la
       
       <guid>https://haleyjung.github.io/posts/2022/02/local-storage/</guid>
       <description>Definition of Local Storage  a browser API that allows a web application to persist its state inside a user&amp;rsquo;s web browser can be used to persist information retrieved from sources like user events, HTTP responses, and calculated results only persists strings has no expiration time until explicitly cleared improves a web application&amp;rsquo;s user experience more data can be stored in localStorage than in cookies  Data model: the software representation of information Data persistence: store data in the application so that when a user comes back to the site, they can pick up from where they left off</description>
-    </item>
-    
-    <item>
-      <title>Semantic Versioning</title>
-      <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
-      <pubDate>Tue, 01 Feb 2022 10:48:06 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
-      <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
-It consists of 3 components in the format of X.Y.Z
-X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
     </item>
     
     <item>

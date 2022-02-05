@@ -20,6 +20,25 @@ git pull origin &amp;lt;your-branch&amp;gt; git push origin &amp;lt;your-branch&
     </item>
     
     <item>
+      <title>Hugo</title>
+      <link>https://haleyjung.github.io/posts/2021/12/hugo/</link>
+      <pubDate>Sun, 12 Dec 2021 15:32:37 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/12/hugo/</guid>
+      <description>What is Hugo? It&amp;rsquo;s one of the static site generators alongside jekyll and hexo.
+How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -D Git push $ hugo -t theme-name $ cd public $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main $ cd .. $ git add . $ git commit -m &amp;#34;commit message&amp;#34; $ git push origin main Error bash: hugo: command not found &amp;amp; bash: brew: command not found January 15, 2022: I suddenly received this message in the Terminal when hugo was working just fine yesterday.</description>
+    </item>
+    
+    <item>
+      <title>Missing Contributions on Github</title>
+      <link>https://haleyjung.github.io/posts/2021/11/missing-contributions-on-github/</link>
+      <pubDate>Wed, 24 Nov 2021 00:03:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2021/11/missing-contributions-on-github/</guid>
+      <description>Why are my contributions missing? After multiple commits on my GitHub for this static site, I noticed that the contributions were not lightening green on my profile. The GitHub page was successfully updated with the latest commit, so at first I thought it was a time lag. GitHub Docs also indicates that &amp;ldquo;you may need to wait for up to 24 hours to see the contribution appear on your contribution graph.</description>
+    </item>
+    
+    <item>
       <title>Submodules</title>
       <link>https://haleyjung.github.io/posts/2021/11/submodules/</link>
       <pubDate>Tue, 23 Nov 2021 16:40:02 -0500</pubDate>

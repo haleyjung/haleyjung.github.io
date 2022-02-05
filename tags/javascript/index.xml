@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 31 Jan 2022 10:35:53 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Feb 2022 01:30:17 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Node.js: Content Types</title>
+      <link>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</link>
+      <pubDate>Tue, 01 Feb 2022 01:30:17 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</guid>
+      <description>JSON: JavaScript Object Notation JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
+JSON can be parsed by a standard JavaScript function, and is parsed into a ready-to-use JavaScript object. It is thus faster and easier than XML.
+To read from JSON, we need to first use fs to read in the file as text(strings) and then `JOSN.</description>
+    </item>
+    
     <item>
       <title>Node / Node.JS</title>
       <link>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</link>
@@ -59,12 +70,45 @@ this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what i
     </item>
     
     <item>
-      <title>Higher Order Functions</title>
-      <link>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</link>
-      <pubDate>Fri, 10 Dec 2021 20:32:49 -0500</pubDate>
+      <title>IIFE &amp; Scopes</title>
+      <link>https://haleyjung.github.io/posts/2022/01/iife-scopes/</link>
+      <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</guid>
-      <description>JavaScript will always pass PRIMITIVE types &amp;lsquo;by value&amp;rsquo; JavaScript will always pass NON-PRIMITIVE types &amp;lsquo;by reference&amp;rsquo;  First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions.</description>
+      <guid>https://haleyjung.github.io/posts/2022/01/iife-scopes/</guid>
+      <description>Function Expression vs. Function Declaration The function name can be omitted in function expressions to create anonymous functions while function declarations (statements) require names.
+A function expression can be used as an IIFE (Immediately Invoked Function Expression).
+//Function Expression let variableName = function() { statements; }; // -&amp;gt; ends with a semicolon because it&amp;#39;s an assignment statement; not part of the function syntax  //Function Declaration function name([param[, param,[..., param]]]) { statements; } Definition of IIFE IIFE, also known as Self-Executing Anonymous Function, is a JavaScript function that runs as soon as it is defined.</description>
+    </item>
+    
+    <item>
+      <title>Function Call vs Function Invocation</title>
+      <link>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</link>
+      <pubDate>Fri, 21 Jan 2022 10:44:05 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
+      <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
+    </item>
+    
+    <item>
+      <title>Primitive and Non-Primitive Data Types</title>
+      <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
+      <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</guid>
+      <description>Definitions Data Type There is a variety of data types, such as number, boolean, string, null, undefined, etc.
+Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
+Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
+let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
+    </item>
+    
+    <item>
+      <title>Scopes &amp; Closures</title>
+      <link>https://haleyjung.github.io/posts/2022/01/scopes-closures/</link>
+      <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
+      <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
+ Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
     </item>
     
   </channel>

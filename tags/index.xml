@@ -7,94 +7,94 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 04 Feb 2022 00:31:44 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Systems</title>
-      <link>https://haleyjung.github.io/tags/systems/</link>
-      <pubDate>Fri, 04 Feb 2022 00:31:44 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/systems/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Client-side Validation</title>
-      <link>https://haleyjung.github.io/tags/client-side-validation/</link>
-      <pubDate>Thu, 03 Feb 2022 13:50:26 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/client-side-validation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Local Storage</title>
-      <link>https://haleyjung.github.io/tags/local-storage/</link>
-      <pubDate>Wed, 02 Feb 2022 01:45:40 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/local-storage/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web Development</title>
       <link>https://haleyjung.github.io/tags/web-development/</link>
-      <pubDate>Wed, 02 Feb 2022 01:45:40 -0500</pubDate>
+      <pubDate>Sat, 05 Feb 2022 10:48:06 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/web-development/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Semantic Versioning</title>
-      <link>https://haleyjung.github.io/tags/semantic-versioning/</link>
-      <pubDate>Tue, 01 Feb 2022 10:48:06 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/semantic-versioning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Content Types</title>
-      <link>https://haleyjung.github.io/tags/content-types/</link>
-      <pubDate>Tue, 01 Feb 2022 01:30:17 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/content-types/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>JSON</title>
-      <link>https://haleyjung.github.io/tags/json/</link>
-      <pubDate>Tue, 01 Feb 2022 01:30:17 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/json/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JavaScript</title>
       <link>https://haleyjung.github.io/tags/javascript/</link>
-      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      <pubDate>Tue, 01 Feb 2022 01:30:17 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Node</title>
-      <link>https://haleyjung.github.io/tags/node/</link>
-      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      <title>Cloning</title>
+      <link>https://haleyjung.github.io/tags/cloning/</link>
+      <pubDate>Sat, 29 Jan 2022 23:31:33 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/tags/node/</guid>
+      <guid>https://haleyjung.github.io/tags/cloning/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>npm</title>
-      <link>https://haleyjung.github.io/tags/npm/</link>
-      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
+      <title>CSS</title>
+      <link>https://haleyjung.github.io/tags/css/</link>
+      <pubDate>Fri, 28 Jan 2022 22:52:16 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/tags/npm/</guid>
+      <guid>https://haleyjung.github.io/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Object Oriented Programming</title>
+      <link>https://haleyjung.github.io/tags/object-oriented-programming/</link>
+      <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/object-oriented-programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debugging</title>
+      <link>https://haleyjung.github.io/tags/debugging/</link>
+      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://haleyjung.github.io/tags/git/</link>
+      <pubDate>Mon, 10 Jan 2022 12:19:52 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://haleyjung.github.io/tags/testing/</link>
+      <pubDate>Mon, 10 Jan 2022 12:16:25 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Algorithms</title>
+      <link>https://haleyjung.github.io/tags/algorithms/</link>
+      <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recommendation Engine</title>
+      <link>https://haleyjung.github.io/tags/recommendation-engine/</link>
+      <pubDate>Fri, 26 Nov 2021 13:38:29 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/recommendation-engine/</guid>
       <description></description>
     </item>
     

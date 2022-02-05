@@ -3,69 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-02-04T00:31:44-05:00</lastmod>
+    <lastmod>2022-02-05T10:48:06-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/systems/</loc>
-    <lastmod>2022-02-04T00:31:44-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/2022/02/systems/</loc>
-    <lastmod>2022-02-04T00:31:44-05:00</lastmod>
+    <loc>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</loc>
+    <lastmod>2022-02-05T10:48:06-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-02-04T00:31:44-05:00</lastmod>
+    <lastmod>2022-02-05T10:48:06-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-02-05T10:48:06-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/web-development/</loc>
+    <lastmod>2022-02-05T10:48:06-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/02/systems/</loc>
     <lastmod>2022-02-04T00:31:44-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/client-side-validation/</loc>
     <lastmod>2022-02-03T13:50:26-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/client-side-validation/</loc>
-    <lastmod>2022-02-03T13:50:26-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/local-storage/</loc>
-    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/local-storage/</loc>
     <lastmod>2022-02-02T01:45:40-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/web-development/</loc>
-    <lastmod>2022-02-02T01:45:40-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/semantic-versioning/</loc>
-    <lastmod>2022-02-01T10:48:06-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</loc>
-    <lastmod>2022-02-01T10:48:06-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/content-types/</loc>
-    <lastmod>2022-02-01T01:30:17-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/json/</loc>
+    <loc>https://haleyjung.github.io/tags/javascript/</loc>
     <lastmod>2022-02-01T01:30:17-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</loc>
     <lastmod>2022-02-01T01:30:17-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/javascript/</loc>
-    <lastmod>2022-01-31T10:35:53-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/node/</loc>
-    <lastmod>2022-01-31T10:35:53-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</loc>
     <lastmod>2022-01-31T10:35:53-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/npm/</loc>
-    <lastmod>2022-01-31T10:35:53-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/recursion/</loc>
-    <lastmod>2022-01-30T01:12:59-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/recursion/</loc>
     <lastmod>2022-01-30T01:12:59-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/clone/</loc>
+    <loc>https://haleyjung.github.io/tags/cloning/</loc>
     <lastmod>2022-01-29T23:31:33-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/twitter-clone/</loc>
@@ -77,17 +50,8 @@
     <loc>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</loc>
     <lastmod>2022-01-28T22:52:16-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/class-patterns/</loc>
-    <lastmod>2022-01-27T07:29:36-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/prototype/</loc>
-    <lastmod>2022-01-27T07:29:36-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</loc>
     <lastmod>2022-01-27T07:29:36-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/functional-classes/</loc>
-    <lastmod>2022-01-26T11:20:29-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/functional-classes/</loc>
     <lastmod>2022-01-26T11:20:29-05:00</lastmod>
@@ -98,26 +62,14 @@
     <loc>https://haleyjung.github.io/tags/object-oriented-programming/</loc>
     <lastmod>2022-01-25T12:07:56-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/iife/</loc>
-    <lastmod>2022-01-22T11:10:24-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/iife-scopes/</loc>
     <lastmod>2022-01-22T11:10:24-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</loc>
     <lastmod>2022-01-21T10:44:05-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/untagged/</loc>
-    <lastmod>2022-01-21T10:44:05-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/dom/</loc>
-    <lastmod>2022-01-20T10:50:59-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/dom/</loc>
     <lastmod>2022-01-20T10:50:59-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/data-types/</loc>
-    <lastmod>2022-01-19T12:53:10-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</loc>
     <lastmod>2022-01-19T12:53:10-05:00</lastmod>
@@ -125,29 +77,11 @@
     <loc>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</loc>
     <lastmod>2022-01-18T11:27:23-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/content-delivery-networks/</loc>
-    <lastmod>2022-01-18T11:27:23-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/execution-contexts/</loc>
-    <lastmod>2022-01-17T18:36:49-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/lexical-scope/</loc>
-    <lastmod>2022-01-17T18:36:49-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/scopes-closures/</loc>
     <lastmod>2022-01-17T18:36:49-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/api/</loc>
-    <lastmod>2022-01-15T12:40:33-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/apis-jquery/</loc>
     <lastmod>2022-01-15T12:40:33-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/jquery/</loc>
-    <lastmod>2022-01-15T12:40:33-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/breakpoints/</loc>
-    <lastmod>2022-01-13T09:33:30-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/chrome-devtools-debugging-javascript/</loc>
     <lastmod>2022-01-13T09:33:30-05:00</lastmod>
@@ -155,17 +89,8 @@
     <loc>https://haleyjung.github.io/tags/debugging/</loc>
     <lastmod>2022-01-13T09:33:30-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/devtools/</loc>
-    <lastmod>2022-01-13T09:33:30-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/approach-to-problem-solving/</loc>
     <lastmod>2022-01-12T10:26:29-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/problem-solving/</loc>
-    <lastmod>2022-01-12T10:26:29-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/eslint/</loc>
-    <lastmod>2022-01-11T23:21:14-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/eslint/</loc>
     <lastmod>2022-01-11T23:21:14-05:00</lastmod>
@@ -176,50 +101,20 @@
     <loc>https://haleyjung.github.io/posts/2022/01/git-push-error/</loc>
     <lastmod>2022-01-10T12:19:52-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/github/</loc>
-    <lastmod>2022-01-10T12:19:52-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/chai/</loc>
-    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/javascript-frameworks/</loc>
-    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/mocha/</loc>
-    <lastmod>2022-01-10T12:16:25-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/mocha-chai/</loc>
     <lastmod>2022-01-10T12:16:25-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/unit-testing/</loc>
+    <loc>https://haleyjung.github.io/tags/testing/</loc>
     <lastmod>2022-01-10T12:16:25-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/functional-programming/</loc>
-    <lastmod>2022-01-09T12:53:51-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/javascript-library/</loc>
-    <lastmod>2022-01-09T12:53:51-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/underscore.js/</loc>
     <lastmod>2022-01-09T12:53:51-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/jasmine/</loc>
-    <lastmod>2022-01-08T14:38:40-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/jasmine/</loc>
     <lastmod>2022-01-08T14:38:40-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/testing/</loc>
-    <lastmod>2022-01-08T14:38:40-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/pug.js/</loc>
-    <lastmod>2021-12-30T16:24:23-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/pug.js/</loc>
     <lastmod>2021-12-30T16:24:23-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/server/</loc>
-    <lastmod>2021-12-29T14:40:44-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/server-standards/</loc>
     <lastmod>2021-12-29T14:40:44-05:00</lastmod>
@@ -227,20 +122,8 @@
     <loc>https://haleyjung.github.io/posts/2021/12/functional-programming/</loc>
     <lastmod>2021-12-20T15:12:08-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/hoisting/</loc>
-    <lastmod>2021-12-20T15:12:08-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/scoping/</loc>
-    <lastmod>2021-12-20T15:12:08-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/hugo/</loc>
-    <lastmod>2021-12-12T15:32:37-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/hugo/</loc>
     <lastmod>2021-12-12T15:32:37-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/higher-order-functions/</loc>
-    <lastmod>2021-12-10T20:32:49-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/higher-order-functions/</loc>
     <lastmod>2021-12-10T20:32:49-05:00</lastmod>
@@ -251,19 +134,10 @@
     <loc>https://haleyjung.github.io/posts/2021/12/debugging-common-errors/</loc>
     <lastmod>2021-12-08T14:19:57-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/errors/</loc>
-    <lastmod>2021-12-08T14:19:57-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/cache/</loc>
     <lastmod>2021-12-04T22:03:44-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/cache/</loc>
-    <lastmod>2021-12-04T22:03:44-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/naming-convention/</loc>
-    <lastmod>2021-12-01T21:45:06-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/naming-convention/</loc>
     <lastmod>2021-12-01T21:45:06-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/algorithms/</loc>
@@ -283,9 +157,6 @@
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/missing-contributions-on-github/</loc>
     <lastmod>2021-11-24T00:03:33-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/submodule/</loc>
-    <lastmod>2021-11-23T16:40:02-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/submodules/</loc>
     <lastmod>2021-11-23T16:40:02-05:00</lastmod>
