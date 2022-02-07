@@ -6,8 +6,67 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate>
+        <lastBuildDate>Sun, 06 Feb 2022 12:20:12 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>SQL</title>
+            <link>https://haleyjung.github.io/posts/2022/02/sql/</link>
+            <pubDate>Sun, 06 Feb 2022 12:20:12 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/sql/</guid>
+            <description>What is it?  SQL: Structured Query Language Lets us access and manipulate databases, such as:  executing queries against a database retrieving data from a database inserting a record in a database updating records in a database deleting records from a database creating new databases creating new tables in a database creating stored procedures in a database creating views in a database setting permissions on tables, procedures, and views    Major Commands  These are not case sensitive   SELECT - extracts data from a database FROM - specifies the parent database WHERE - filters records according to the given condition  &amp;lt;&amp;gt; or !</description>
+            <content type="html"><![CDATA[<h2 id="what-is-it">What is it?</h2>
+<ul>
+<li>SQL: Structured Query Language</li>
+<li>Lets us access and manipulate databases, such as:
+<ul>
+<li>executing queries against a database</li>
+<li>retrieving data from a database</li>
+<li>inserting a record in a database</li>
+<li>updating records in a database</li>
+<li>deleting records from a database</li>
+<li>creating new databases</li>
+<li>creating new tables in a database</li>
+<li>creating stored procedures in a database</li>
+<li>creating views in a database</li>
+<li>setting permissions on tables, procedures, and views</li>
+</ul>
+</li>
+</ul>
+<h2 id="major-commands">Major Commands</h2>
+<ul>
+<li>These are not case sensitive</li>
+</ul>
+<ul>
+<li><code>SELECT</code> - extracts data from a database</li>
+<li><code>FROM</code> - specifies the parent database</li>
+<li><code>WHERE</code> - filters records according to the given condition
+<ul>
+<li><code>&lt;&gt;</code> or <code>!=</code>: not equal</li>
+<li><code>BETWEEN</code>: between a certain range</li>
+<li><code>LIKE</code>: search for a pattern</li>
+<li><code>IN</code>: specifies multiple possible values for a column</li>
+</ul>
+</li>
+<li><code>ORDER BY</code> - organize in a default order</li>
+<li><code>ASC</code> or <code>DESC</code> - organize in ascending or descending order</li>
+<li><code>DISTINCT</code> - display the specified data only (e.g. <code>SELECT DISTINCT</code>)</li>
+<li><code>UPDATE</code> - updates data in a database</li>
+<li><code>DELETE</code> - deletes data from a database</li>
+<li><code>INSERT INTO</code> - inserts new data into a database</li>
+<li><code>CREATE DATABASE</code> / <code>CREATE TABLE</code> - creates a new database/table</li>
+<li><code>ALTER DATABASE</code> / <code>ALTER TABLE</code> - modifies a database/table</li>
+<li><code>DROP TABLE</code> - deletes tables</li>
+<li><code>CREATE INDEX</code> - creates an index (search key)</li>
+<li><code>DROP INDEX</code> - deletes an index</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://www.datacamp.com">DataCamp</a></p>
+<p><a href="https://towardsdatascience.com/natural-language-to-sql-from-scratch-with-tensorflow-adf0d41df0ca">Pangu, Eileen. &ldquo;Natural Language to SQL from Scratch with Tensorflow,&rdquo; Towards Data Science, Febraury 5, 2021.</a></p>
+<p><a href="https://medium.com/analytics-vidhya/from-basic-to-intermediate-sql-in-10-minutes-42b960ed6f9e">Shafi, Adam. &ldquo;From Basic to Intermediate SQL in 10 Minutes,&rdquo; Medium, November 5, 2020.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Semantic Versioning</title>

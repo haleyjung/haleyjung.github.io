@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Feb 2022 12:20:12 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL</title>
+      <link>https://haleyjung.github.io/posts/2022/02/sql/</link>
+      <pubDate>Sun, 06 Feb 2022 12:20:12 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/sql/</guid>
+      <description>What is it?  SQL: Structured Query Language Lets us access and manipulate databases, such as:  executing queries against a database retrieving data from a database inserting a record in a database updating records in a database deleting records from a database creating new databases creating new tables in a database creating stored procedures in a database creating views in a database setting permissions on tables, procedures, and views    Major Commands  These are not case sensitive   SELECT - extracts data from a database FROM - specifies the parent database WHERE - filters records according to the given condition  &amp;lt;&amp;gt; or !</description>
+    </item>
+    
     <item>
       <title>Semantic Versioning</title>
       <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
@@ -100,15 +109,6 @@ Wireframe I began with drawing various wireframes to organize the structure of t
 We can also define an area by giving it a name and then specify the location of that area in the value of the grid-template-areas property, such as:
  header footer sidebar content  The grid-area property can be assigned to a class:
 .header { grid-area: hd; } .footer { grid-area: ft; } .content { grid-area: main; } .</description>
-    </item>
-    
-    <item>
-      <title>Prototype &amp; Class Patterns</title>
-      <link>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</link>
-      <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
-      <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
     </item>
     
   </channel>
