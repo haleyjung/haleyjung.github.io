@@ -812,7 +812,24 @@ Recursive function always come with a function inside. With 2 minimum cases insi
 </ul>
 </li>
 </ul>
-<h4 id="data-structure-linked-list">Data Structure: Linked List</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Input: [1, 2, [3, [4]], 5]
+</span><span style="color:#75715e">// Output: [1, 2, 3, 4, 5]
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flatten</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">input</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">input</span>)) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">input</span>;
+  }
+
+  <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>) {
+    <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">concat</span>(<span style="color:#a6e22e">flatten</span>(<span style="color:#a6e22e">item</span>));
+  });
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+};
+
+<span style="color:#a6e22e">flatten</span>([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, [<span style="color:#ae81ff">3</span>, [<span style="color:#ae81ff">4</span>]], <span style="color:#ae81ff">5</span>]);
+</code></pre></div><h4 id="data-structure-linked-list">Data Structure: Linked List</h4>
 <ul>
 <li>A linked list (has next property): An element in a linked list or node only knows about its neighboring node. You can&rsquo;t say like linked list of four.</li>
 </ul>
