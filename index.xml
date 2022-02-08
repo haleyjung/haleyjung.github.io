@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 06 Feb 2022 12:20:12 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Feb 2022 17:21:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Level Overview (1)</title>
+      <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
+      <pubDate>Mon, 07 Feb 2022 17:21:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
+      <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
+Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
+Interpreted / Just-in-time Compiled Language The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
+    </item>
+    
     <item>
       <title>SQL</title>
       <link>https://haleyjung.github.io/posts/2022/02/sql/</link>
@@ -97,18 +108,6 @@ Recursive function always come with a function inside. With 2 minimum cases insi
       <guid>https://haleyjung.github.io/posts/2022/01/twitter-clone/</guid>
       <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds. I used jQuery to create HTML elements and functions to make them dynamic.
 Wireframe I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid.</description>
-    </item>
-    
-    <item>
-      <title>CSS Grid Layout</title>
-      <link>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</link>
-      <pubDate>Fri, 28 Jan 2022 22:52:16 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</guid>
-      <description>CSS Grid Layout is great for creating a responsive web page layout.
-We can also define an area by giving it a name and then specify the location of that area in the value of the grid-template-areas property, such as:
- header footer sidebar content  The grid-area property can be assigned to a class:
-.header { grid-area: hd; } .footer { grid-area: ft; } .content { grid-area: main; } .</description>
     </item>
     
   </channel>

@@ -6,8 +6,41 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 06 Feb 2022 12:20:12 -0500</lastBuildDate>
+        <lastBuildDate>Mon, 07 Feb 2022 17:21:33 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>High Level Overview (1)</title>
+            <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
+            <pubDate>Mon, 07 Feb 2022 17:21:33 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
+            <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
+Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
+Interpreted / Just-in-time Compiled Language The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
+            <content type="html"><![CDATA[<p>High-level languages, such as JavaScript and Python, have <em>abstractions</em> so that we don&rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.</p>
+<h2 id="garbage-collection">Garbage Collection</h2>
+<p>One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&rsquo;s an algorithm inside the JavaScript engine that <strong>automatically removes old and unused objects from the computer memory</strong>.</p>
+<h2 id="interpreted--just-in-time-compiled-language">Interpreted / Just-in-time Compiled Language</h2>
+<p>The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&rsquo;s processor (only zeros and ones!). This process takes inside the JavaScript engine, making it an interpreted or just-in-time compiled language.</p>
+<p>To note, this compilation/interpretation step is necessary for every single programming language!</p>
+<h2 id="multi-paradigm-language">Multi-paradigm Language</h2>
+<p>A <strong>paradigm</strong> is an approach and an overall mindset of structuring our code, which directs the overall coding style and techniqe.</p>
+<p>While many languages are only procedural, object-oriented, <strong>or</strong> functional, JavaScript <strong>does all of them</strong>. We can decide which paradigm we want to use. The three most popular paradigms are:</p>
+<ul>
+<li><strong>Procedural programming</strong>: organizing the code in a linear way with some functions in between</li>
+<li><strong>Object-oriented programming (OOP)</strong>: the prototype-based, object-oriented approach considers everything in JavaScript as an object except for primitive values such as numbers, strings, etc.</li>
+<li><strong>Functional programming (FP)</strong>: JavaScript is a language with first-class functions, which means that they are treated as regular variables. We can pass functions into other functions and return functions from functions.</li>
+</ul>
+<h2 id="dynamic-language">Dynamic Language</h2>
+<p>We don&rsquo;t assign data types to variables. Instead, they only become <strong>known at runtime</strong> when the JavaScript engine executes the code. The type of variables can also be easily <strong>changed as we reassign variables</strong>, making JavaScript a <strong>dynamically-typed</strong> language.</p>
+<h2 id="concurrency-model-and-event-loop">Concurrency model and Event Loop</h2>
+<p>JavaScript has a <strong>runtime model</strong> based on an <strong>event loop</strong>, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.</p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://constjs.dev/lectures">const: JavaScript Lectures</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">&ldquo;JavaScript Tutorials: Advanced&rdquo;, MDN Web Docs</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>SQL</title>

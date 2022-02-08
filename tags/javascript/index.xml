@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 01 Feb 2022 01:30:17 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 07 Feb 2022 17:21:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Level Overview (1)</title>
+      <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
+      <pubDate>Mon, 07 Feb 2022 17:21:33 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
+      <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
+Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
+Interpreted / Just-in-time Compiled Language The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
+    </item>
+    
     <item>
       <title>Node.js: Content Types</title>
       <link>https://haleyjung.github.io/posts/2022/02/node.js-content-types/</link>
@@ -99,16 +110,6 @@ A function expression can be used as an IIFE (Immediately Invoked Function Expre
 Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
 Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
 let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
-    </item>
-    
-    <item>
-      <title>Scopes &amp; Closures</title>
-      <link>https://haleyjung.github.io/posts/2022/01/scopes-closures/</link>
-      <pubDate>Mon, 17 Jan 2022 18:36:49 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/scopes-closures/</guid>
-      <description>Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
- Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object.</description>
     </item>
     
   </channel>
