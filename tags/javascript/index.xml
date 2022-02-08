@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Feb 2022 17:21:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Feb 2022 00:02:45 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Level Overview (2)</title>
+      <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</link>
+      <pubDate>Tue, 08 Feb 2022 00:02:45 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</guid>
+      <description>The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&amp;rsquo;s execution. The execution context on top of the stack is the one that&amp;rsquo;s currently running. When it&amp;rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context.</description>
+    </item>
+    
     <item>
       <title>High Level Overview (1)</title>
       <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
@@ -16,7 +27,7 @@
       <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
       <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
 Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
-Interpreted / Just-in-time Compiled Language The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
+Interpreted / Just-in-time Compiled Language The JavaScript code we write is a human-readable abstraction over machine code, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
     </item>
     
     <item>
@@ -98,18 +109,6 @@ A function expression can be used as an IIFE (Immediately Invoked Function Expre
       
       <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
       <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
-    </item>
-    
-    <item>
-      <title>Primitive and Non-Primitive Data Types</title>
-      <link>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</link>
-      <pubDate>Wed, 19 Jan 2022 12:53:10 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/primitive-and-non-primitive-data-types/</guid>
-      <description>Definitions Data Type There is a variety of data types, such as number, boolean, string, null, undefined, etc.
-Primitive Data Type  Numbers Strings Booleans undefined null  Primitives are stored by value.
-Every time a new variable is declared using a primitive data type, a new address in memory is created for that value.
-let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data type.</description>
     </item>
     
   </channel>

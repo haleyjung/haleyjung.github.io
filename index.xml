@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Feb 2022 17:21:33 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Feb 2022 00:02:45 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>High Level Overview (2)</title>
+      <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</link>
+      <pubDate>Tue, 08 Feb 2022 00:02:45 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</guid>
+      <description>The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&amp;rsquo;s execution. The execution context on top of the stack is the one that&amp;rsquo;s currently running. When it&amp;rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context.</description>
+    </item>
+    
     <item>
       <title>High Level Overview (1)</title>
       <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
@@ -16,7 +27,7 @@
       <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
       <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
 Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
-Interpreted / Just-in-time Compiled Language The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
+Interpreted / Just-in-time Compiled Language The JavaScript code we write is a human-readable abstraction over machine code, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
     </item>
     
     <item>
@@ -98,16 +109,6 @@ The topmost node is the root node of the DOM tree, Document, which has two child
       <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
       <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
 Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
-    </item>
-    
-    <item>
-      <title>Twitter Clone</title>
-      <link>https://haleyjung.github.io/posts/2022/01/twitter-clone/</link>
-      <pubDate>Sat, 29 Jan 2022 23:31:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/twitter-clone/</guid>
-      <description>Cloning Twitter using jQuery &amp;amp; NodeJS Goal The goal of the Twitter clone project was to create a single page that generates live user feeds. I used jQuery to create HTML elements and functions to make them dynamic.
-Wireframe I began with drawing various wireframes to organize the structure of the overall layout and individual components. The first wireframe was a rough design to indicate the overall layout that was going to be created using CSS Grid.</description>
     </item>
     
   </channel>

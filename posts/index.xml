@@ -6,8 +6,101 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 07 Feb 2022 17:21:33 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 08 Feb 2022 00:02:45 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>High Level Overview (2)</title>
+            <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</link>
+            <pubDate>Tue, 08 Feb 2022 00:02:45 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</guid>
+            <description>The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&amp;rsquo;s execution. The execution context on top of the stack is the one that&amp;rsquo;s currently running. When it&amp;rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context.</description>
+            <content type="html"><![CDATA[<h2 id="the-engine-and-runtime">The Engine and Runtime</h2>
+<p>The JavaScript engine always contains a <strong>call stack</strong> and a <strong>heap</strong>.</p>
+<h3 id="call-stack">Call Stack</h3>
+<p>JavaScript code runs in the call stack.</p>
+<p>The call stack is where execution contexts get stacked on top of each other to keep track of <strong>where we are</strong> in the program&rsquo;s execution. The execution context <strong>on top of</strong> the stack is the one that&rsquo;s <strong>currently running</strong>. When it&rsquo;s <strong>finished</strong> running, it will be <strong>removed</strong> from the stack, and execution will <strong>go back</strong> to the previous execution context.</p>
+<h4 id="more-about-execution-context">More about execution context&hellip;</h4>
+<p>After compilation, the code is ready to be executed. At this moment, a <strong>global execution context</strong> is created for the <strong>top-level code</strong>, which refers to the code that is not inside any function (*the code inside functions will only get executed when the functions are called).</p>
+<p>While there&rsquo;s only one global execution context, a new execution context gets created for every function call. All of these execution contexts make up the call stack.</p>
+<p>Inside an execution context (geerated in a <strong>creation phase</strong>):</p>
+<ul>
+<li><strong>Variable environment</strong>, which stores the <strong>variables and function declarations</strong> and <strong><code>arguments</code> object</strong>
+<ul>
+<li><code>arguments</code> object: an array (object) that contains all the arguments that were passed into the function when it was called.</li>
+</ul>
+</li>
+<li><code>this</code> keyword</li>
+<li>Scope chain</li>
+</ul>
+<p>To note, arrow functions do <em>not</em> have the arguments object and <code>this</code> keyword.</p>
+<h3 id="heap">Heap</h3>
+<p>is an unstructured memory pool that stores all the objects our application needs.</p>
+<h3 id="just-in-time-compilation">Just-In-Time Compilation</h3>
+<p>Every computer programs are converted into machine code using compilation or interpretation.</p>
+<ul>
+<li><strong>Compilation</strong>: the entire source code is converted into machine code at once. This is then written into a portable file that can be executed on any computer.</li>
+<li><strong>Interpretation</strong>: an interpreter runs through the source code and executes it <em>line by line</em>. The code is read and executed all at the same time.</li>
+</ul>
+<p>JavaScript used to be a purely interpreted language, but this was much slower than compiled languages.</p>
+<p>The modern JavaScript uses a mix between compilation and interpretation called <strong>Just-In-Time compilation</strong>. This approach <strong>compiles</strong> the entire code into machine code <strong>at once</strong> and then <strong>executes it right away</strong>, which proved to be much faster than executing code line by line. The following is a simplified breakdown of the overall process:</p>
+<ol>
+<li>
+<p><strong>Parsing</strong></p>
+<ul>
+<li>The JavaScript engine parses (reads) the code as it enters the engine.</li>
+<li>During this process, the code is <strong>parsed into a data structure</strong> called the Abstract Syntax Tree.</li>
+<li>Each line of code gets splitted up into pieces, such as <code>const</code> or <code>function</code> keywords.</li>
+<li>These are then saved into the tree in a structured manner (not related to the DOM tree!).</li>
+<li>The resulting tree <strong>represents the entire code inside the engine</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Compilation</strong></p>
+<ul>
+<li>After this parsing process, the generated AST is compiled into machine code.</li>
+<li>The machine code gets executed right away because the JavaScript engine uses <strong>just-in-time compilation</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimization</strong></p>
+<ul>
+<li>Without stopping the execution, the code is optimized and recompiled as many times as needed.</li>
+<li>After each optimization, the initial unoptimized code is swept for the new, more optimized code.</li>
+</ul>
+</li>
+</ol>
+<p><em>Note</em>: This entire process takes place in a special thread that is separate from the main thread which is running in the call stack executing the code.</p>
+<h3 id="a-runtime-environment">A Runtime Environment</h3>
+<p>JavaScript runtime environment is where the program will be executed. There are <strong>two</strong> types of runtime environments where different data values and functions are available. These differences distinguish front-end applications from back-end applications.</p>
+<ol>
+<li>A browser&rsquo;s runtime environment</li>
+</ol>
+<ul>
+<li>Front-end JavaScript applications are executed in a browser&rsquo;s runtime environment.</li>
+<li>Have access to the <code>window</code> object, through which JavaScript gets access to <strong>Web APIs</strong> for DOM, Timers, Fetch API, etc.</li>
+<li>Alongside the engine, Web APIs, the runtime also includes <strong>callback queue</strong>
+<ul>
+<li>Callback queue is a data structure containing all the callback functions that are ready to be executed</li>
+<li>Event handler functions like <code>onClick</code> is a callback function to DOM element, a button for instance.</li>
+<li>When the event is fired, the callback function is put into the callback queue.</li>
+<li>Then via the <strong>event loop</strong>, the callback function from the callback queue is passed to the stacks to be executed when the stack is empty.</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>The Node runtime environment</li>
+</ol>
+<ul>
+<li>Back-end JavaScript applications are executed in the Node runtime environment.</li>
+<li>Have access to the file system, databases, and networks attached to the server, which are unavailable in a browser.</li>
+<li>Have multiple C++ bindings and a thread pool.</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>High Level Overview (1)</title>
@@ -17,12 +110,12 @@
             <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
             <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
 Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
-Interpreted / Just-in-time Compiled Language The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
+Interpreted / Just-in-time Compiled Language The JavaScript code we write is a human-readable abstraction over machine code, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
             <content type="html"><![CDATA[<p>High-level languages, such as JavaScript and Python, have <em>abstractions</em> so that we don&rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.</p>
 <h2 id="garbage-collection">Garbage Collection</h2>
 <p>One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&rsquo;s an algorithm inside the JavaScript engine that <strong>automatically removes old and unused objects from the computer memory</strong>.</p>
 <h2 id="interpreted--just-in-time-compiled-language">Interpreted / Just-in-time Compiled Language</h2>
-<p>The JavaScript code we write is a ** human-readable abstraction over machine code**, which needs to be compiled/interpreted to machine code that is understood by the computer&rsquo;s processor (only zeros and ones!). This process takes inside the JavaScript engine, making it an interpreted or just-in-time compiled language.</p>
+<p>The JavaScript code we write is a <strong>human-readable abstraction over machine code</strong>, which needs to be compiled/interpreted to machine code that is understood by the computer&rsquo;s processor (only zeros and ones!). This process takes inside the JavaScript engine, making it an interpreted or just-in-time compiled language.</p>
 <p>To note, this compilation/interpretation step is necessary for every single programming language!</p>
 <h2 id="multi-paradigm-language">Multi-paradigm Language</h2>
 <p>A <strong>paradigm</strong> is an approach and an overall mindset of structuring our code, which directs the overall coding style and techniqe.</p>
@@ -938,6 +1031,7 @@ Recursive function always come with a function inside. With 2 minimum cases insi
 </code></pre></div><h4 id="combinations-or-permutations-of-data">Combinations or Permutations of Data</h4>
 <h2 id="call-stack">Call Stack</h2>
 <p>Recursion abstracts away state into the call stack.</p>
+<p>The call stack is where our code is executed using <strong>execution context</strong>.</p>
 <h3 id="definition-1">Definition</h3>
 <p>Where the invoked functions are &lsquo;stacked&rsquo; in an order they were called.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">countDown</span>(<span style="color:#a6e22e">num</span>) {
