@@ -45,7 +45,7 @@
 <meta itemprop="description" content="Lexical Scopes The part of a program where a binding between a variable and value is valid (variables are only available under certain circumstances with different languages having different access rules).
  Describes the regions in my code where I can refer to a variable by name without getting access errors. Defining a function creates a new lexical scope It is a collection of key-value pairs, but is not an object - except the global context object."><meta itemprop="datePublished" content="2022-01-17T18:36:49-05:00" />
 <meta itemprop="dateModified" content="2022-01-17T18:36:49-05:00" />
-<meta itemprop="wordCount" content="313"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="531"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
@@ -140,7 +140,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        2 minutes
+        3 minutes
 
         
       </p>
@@ -162,7 +162,14 @@
     <li><a href="#lexical-scopes">Lexical Scopes</a></li>
     <li><a href="#global-scope">Global Scope</a></li>
     <li><a href="#execution-contexts">Execution Contexts</a></li>
-    <li><a href="#closure">Closure</a></li>
+    <li><a href="#closure">Closure</a>
+      <ul>
+        <li><a href="#what-is-a-closure">What is a Closure?</a></li>
+        <li><a href="#how-do-we-use-a-closure">How do we use a Closure?</a></li>
+        <li><a href="#what-are-two-common-uses-for-closures">What are two common uses for closures?</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
         </aside>
@@ -183,25 +190,55 @@
 <li>Bad practice: a variable that has never been declared can be assigned within a lexical scope (i.e. a function) without &lsquo;var,&rsquo; but such variable will be added to the global scope.</li>
 </ul>
 <h2 id="execution-contexts">Execution Contexts</h2>
+<p>: an abstract concept that holds <strong>information about the environment</strong> within which the current code is being executed.</p>
 <ul>
+<li>Execution Context is not the same as scope!</li>
 <li>In-memory data structures for storing variables</li>
-<li>Built as the code runs instead of when it&rsquo;s typed</li>
-<li>When a program runs, it builds up storage systems for holding variables and their values. These in-memory scope structures are called &ldquo;execution contexts.&rdquo;</li>
-<li>It&rsquo;s impossible to return a context from a function or to make a variable refer to a context, or to get an array full of contexts.</li>
+<li>The JavaScript engine creates the global execution context before it starts to execute any code.</li>
+<li>A new execution context is created every time a function is executed as the engine parses through the code.</li>
 </ul>
 <h2 id="closure">Closure</h2>
-<p>A closure is a pairing of:</p>
+<h3 id="what-is-a-closure">What is a Closure?</h3>
 <ul>
-<li>A function and</li>
-<li>A reference to that function&rsquo;s outer scope (lexical environment)</li>
-</ul>
-<p>A lexical environment is part of every execution context (stack frame) and is a map between identifiers (i.e. local variable names) and values.</p>
+<li>A function object?</li>
+<li>A combination of a function enclosed with references to its surrounding state lexical environment.
 <ul>
-<li>A function object that retains ongoing access to the variables of the context it was created in (even after the outer function calls it was created within have returned).</li>
-<li>In JavaScript, closures are created every time a function is created, at function creation time.</li>
-<li>Inner functions have access to the variables of outer functions, but they cannot access arguments object of outer functions.</li>
-<li>Inner function does not keep the separate copy of outer variables but it reference outer variables: i.e. value of the outer variables will be changed if you change it using inner function.</li>
+<li>A lexical environment is part of every execution context (stack frame) and is a map between identifiers (i.e. local variable names) and values.</li>
 </ul>
+</li>
+<li>It gives us an <strong>access to an outer function&rsquo;s scope</strong> from <strong>an inner function</strong>.</li>
+<li>It&rsquo;s created every time a function is created, at <strong>function creation time</strong>.</li>
+<li>Frequently used for <strong>data privacy</strong>, as well as in event handlers, callback functions, partial applications, currying, and other functional programming patterns.</li>
+</ul>
+<h3 id="how-do-we-use-a-closure">How do we use a Closure?</h3>
+<ul>
+<li>Define a function inside another function and expose it (meaning return or pass the function to another function).</li>
+<li>The inner function will have access to the variables in the outer function scope even after the outer function has returned. But they cannot access arguments object of outer functions.</li>
+<li>The inner function does not keep the separate copy of outer variables but it reference outer variables: i.e. value of the outer variables will be changed if you change it using inner function.</li>
+</ul>
+<h3 id="what-are-two-common-uses-for-closures">What are two common uses for closures?</h3>
+<ol>
+<li>
+<p>Closures are the primary mechanism used to enable <strong>data privacy</strong>.</p>
+<ul>
+<li>Data privay helps us program to an interface, not an implementation.</li>
+<li>Because implementation details are more likely to change in breaking ways than interface contracts, dava privacy helps us to build a more robust software.</li>
+<li>When we use closures for data privacy, the enclosed variables are only in scope within the containing (outer) function.</li>
+<li>We cannot get the data from an outside scope except through the object&rsquo;s privileged methods (any exposed methods within the closure scope is privileged in JavaScript).</li>
+</ul>
+</li>
+<li>
+<p>Closures can also be used to create <strong>stateful functions</strong> whose return values may be influenced by their internal state.</p>
+<ul>
+<li><strong>Stateful functions</strong>: the ones that changes a program&rsquo;s current environment.</li>
+</ul>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36">Elliott, Eric. &ldquo;Master the JavaScript Interview: What is a Closure?&rdquo;, Medium, January 7, 2016.</a></p>
+<p><a href="https://codeburst.io/js-demystified-04-execution-context-97dea52c8ac6">Ogura, Misa. &ldquo;JS Demystified 04 - Execution Context&rdquo;, Codeburst, August 24, 2017.</a></p>
+<p><a href="https://medium.com/@thanhnguyentien/closure-stateful-function-e2a18690e549">Tien, Thanh Nguyen, &ldquo;Closure: Stateful Function&rdquo;, Medium, May 17, 2018.</a></p>
+<p><a href="https://stackoverflow.com/questions/2728278/what-is-a-practical-use-for-a-closure-in-javascript/39045098">&ldquo;What is a practical use for a closure in JavaScript?&rdquo;, Stack Overflow.</a></p>
 
       </div>
     </article>
@@ -227,7 +264,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        313 Words
+        531 Words
       </p>
 
       <p>

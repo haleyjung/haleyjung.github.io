@@ -25,17 +25,14 @@ The call stack is where execution contexts get stacked on top of each other to k
 <p>The call stack is where execution contexts get stacked on top of each other to keep track of <strong>where we are</strong> in the program&rsquo;s execution. The execution context <strong>on top of</strong> the stack is the one that&rsquo;s <strong>currently running</strong>. When it&rsquo;s <strong>finished</strong> running, it will be <strong>removed</strong> from the stack, and execution will <strong>go back</strong> to the previous execution context.</p>
 <h4 id="more-about-execution-context">More about execution context&hellip;</h4>
 <p>After compilation, the code is ready to be executed. At this moment, a <strong>global execution context</strong> is created for the <strong>top-level code</strong>, which refers to the code that is not inside any function (*the code inside functions will only get executed when the functions are called).</p>
-<p>While there&rsquo;s only one global execution context, a new execution context gets created for every function call. All of these execution contexts make up the call stack.</p>
-<p>Inside an execution context (geerated in a <strong>creation phase</strong>):</p>
-<ul>
-<li><strong>Variable environment</strong>, which stores the <strong>variables and function declarations</strong> and <strong><code>arguments</code> object</strong>
-<ul>
-<li><code>arguments</code> object: an array (object) that contains all the arguments that were passed into the function when it was called.</li>
-</ul>
-</li>
-<li><code>this</code> keyword</li>
-<li>Scope chain</li>
-</ul>
+<p>While there&rsquo;s only one global execution context, a <strong>new execution context</strong> gets created for <strong>every function call</strong>. All of these execution contexts make up the call stack. Every execution context has a <strong>variable environment</strong>, which stores the <strong>variables and function declarations</strong> and <strong><code>arguments</code> object</strong>, which is an array (object) that contains all the arguments that were passed into the function when it was called.</p>
+<h4 id="memory-creation-phase">Memory Creation Phase</h4>
+<p>When a new execution context is created on a function call, the JavaScript engine configures it for execution. During this memory creation phase, the following are created.</p>
+<ol>
+<li>A scope</li>
+<li>A scope chain</li>
+<li>Determination of the value of <code>this</code></li>
+</ol>
 <p>To note, arrow functions do <em>not</em> have the arguments object and <code>this</code> keyword.</p>
 <h3 id="heap">Heap</h3>
 <p>is an unstructured memory pool that stores all the objects our application needs.</p>
@@ -1971,25 +1968,55 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
 <li>Bad practice: a variable that has never been declared can be assigned within a lexical scope (i.e. a function) without &lsquo;var,&rsquo; but such variable will be added to the global scope.</li>
 </ul>
 <h2 id="execution-contexts">Execution Contexts</h2>
+<p>: an abstract concept that holds <strong>information about the environment</strong> within which the current code is being executed.</p>
 <ul>
+<li>Execution Context is not the same as scope!</li>
 <li>In-memory data structures for storing variables</li>
-<li>Built as the code runs instead of when it&rsquo;s typed</li>
-<li>When a program runs, it builds up storage systems for holding variables and their values. These in-memory scope structures are called &ldquo;execution contexts.&rdquo;</li>
-<li>It&rsquo;s impossible to return a context from a function or to make a variable refer to a context, or to get an array full of contexts.</li>
+<li>The JavaScript engine creates the global execution context before it starts to execute any code.</li>
+<li>A new execution context is created every time a function is executed as the engine parses through the code.</li>
 </ul>
 <h2 id="closure">Closure</h2>
-<p>A closure is a pairing of:</p>
+<h3 id="what-is-a-closure">What is a Closure?</h3>
 <ul>
-<li>A function and</li>
-<li>A reference to that function&rsquo;s outer scope (lexical environment)</li>
-</ul>
-<p>A lexical environment is part of every execution context (stack frame) and is a map between identifiers (i.e. local variable names) and values.</p>
+<li>A function object?</li>
+<li>A combination of a function enclosed with references to its surrounding state lexical environment.
 <ul>
-<li>A function object that retains ongoing access to the variables of the context it was created in (even after the outer function calls it was created within have returned).</li>
-<li>In JavaScript, closures are created every time a function is created, at function creation time.</li>
-<li>Inner functions have access to the variables of outer functions, but they cannot access arguments object of outer functions.</li>
-<li>Inner function does not keep the separate copy of outer variables but it reference outer variables: i.e. value of the outer variables will be changed if you change it using inner function.</li>
+<li>A lexical environment is part of every execution context (stack frame) and is a map between identifiers (i.e. local variable names) and values.</li>
 </ul>
+</li>
+<li>It gives us an <strong>access to an outer function&rsquo;s scope</strong> from <strong>an inner function</strong>.</li>
+<li>It&rsquo;s created every time a function is created, at <strong>function creation time</strong>.</li>
+<li>Frequently used for <strong>data privacy</strong>, as well as in event handlers, callback functions, partial applications, currying, and other functional programming patterns.</li>
+</ul>
+<h3 id="how-do-we-use-a-closure">How do we use a Closure?</h3>
+<ul>
+<li>Define a function inside another function and expose it (meaning return or pass the function to another function).</li>
+<li>The inner function will have access to the variables in the outer function scope even after the outer function has returned. But they cannot access arguments object of outer functions.</li>
+<li>The inner function does not keep the separate copy of outer variables but it reference outer variables: i.e. value of the outer variables will be changed if you change it using inner function.</li>
+</ul>
+<h3 id="what-are-two-common-uses-for-closures">What are two common uses for closures?</h3>
+<ol>
+<li>
+<p>Closures are the primary mechanism used to enable <strong>data privacy</strong>.</p>
+<ul>
+<li>Data privay helps us program to an interface, not an implementation.</li>
+<li>Because implementation details are more likely to change in breaking ways than interface contracts, dava privacy helps us to build a more robust software.</li>
+<li>When we use closures for data privacy, the enclosed variables are only in scope within the containing (outer) function.</li>
+<li>We cannot get the data from an outside scope except through the object&rsquo;s privileged methods (any exposed methods within the closure scope is privileged in JavaScript).</li>
+</ul>
+</li>
+<li>
+<p>Closures can also be used to create <strong>stateful functions</strong> whose return values may be influenced by their internal state.</p>
+<ul>
+<li><strong>Stateful functions</strong>: the ones that changes a program&rsquo;s current environment.</li>
+</ul>
+</li>
+</ol>
+<h2 id="references">References</h2>
+<p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36">Elliott, Eric. &ldquo;Master the JavaScript Interview: What is a Closure?&rdquo;, Medium, January 7, 2016.</a></p>
+<p><a href="https://codeburst.io/js-demystified-04-execution-context-97dea52c8ac6">Ogura, Misa. &ldquo;JS Demystified 04 - Execution Context&rdquo;, Codeburst, August 24, 2017.</a></p>
+<p><a href="https://medium.com/@thanhnguyentien/closure-stateful-function-e2a18690e549">Tien, Thanh Nguyen, &ldquo;Closure: Stateful Function&rdquo;, Medium, May 17, 2018.</a></p>
+<p><a href="https://stackoverflow.com/questions/2728278/what-is-a-practical-use-for-a-closure-in-javascript/39045098">&ldquo;What is a practical use for a closure in JavaScript?&rdquo;, Stack Overflow.</a></p>
 ]]></content>
         </item>
         
