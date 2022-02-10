@@ -23,7 +23,7 @@
       <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-      <description>Term Definition     Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript. A function is a JavaScript procedure.   Undefined An unconfigurable, unwritable global property / A scalar variable without a scalar value assigned / A variable that has not been assigned a value yet is undefined / A function returns undefined if a value was not returned / A method or statement returns undefined if the variable that is being evaluated does not have an assigned value   Falsy False / 0 / “” / null / undefined / NaN   Null An intentional absence of any object value / Treated as Falsy for Boolean operations   NaN Not a Number: a floating-point value that does not represent a valid number; could be because we tried to combine a number with undefined   Parameter vs.</description>
+      <description>Term Definition     Value Primitives: numbers, booleans, strings, symbols, special values null and undefined   Reference Objects: objects, arrays, functions. &amp;ldquo;Variables hold values that are references to objects.&amp;rdquo; e.g. let x = [1] creates an array, defines a variable x and initializes it with a reference to the created array.   Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript.</description>
     </item>
     
     <item>
