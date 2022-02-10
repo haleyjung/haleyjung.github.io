@@ -5,7 +5,10 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jung ">
-<meta name="description" content="Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over." />
+<meta name="description" content="Prototype Chains JavaScript has only one constructor, objects.
+Each object has a private property which holds a link to another object called prototype.
+ i.e. JavaScript objects have a link to a prototype object.
+ The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain." />
 <meta name="keywords" content=", JavaScript" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -41,21 +44,30 @@
 
 
 <meta itemprop="name" content="Prototype &amp; Class Patterns">
-<meta itemprop="description" content="Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over."><meta itemprop="datePublished" content="2022-01-27T07:29:36-05:00" />
+<meta itemprop="description" content="Prototype Chains JavaScript has only one constructor, objects.
+Each object has a private property which holds a link to another object called prototype.
+ i.e. JavaScript objects have a link to a prototype object.
+ The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain."><meta itemprop="datePublished" content="2022-01-27T07:29:36-05:00" />
 <meta itemprop="dateModified" content="2022-01-27T07:29:36-05:00" />
-<meta itemprop="wordCount" content="1218"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="1336"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
 
 <meta name="twitter:title" content="Prototype &amp; Class Patterns"/>
-<meta name="twitter:description" content="Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over."/>
+<meta name="twitter:description" content="Prototype Chains JavaScript has only one constructor, objects.
+Each object has a private property which holds a link to another object called prototype.
+ i.e. JavaScript objects have a link to a prototype object.
+ The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain."/>
 
 
 
 
     <meta property="og:title" content="Prototype &amp; Class Patterns" />
-<meta property="og:description" content="Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over." />
+<meta property="og:description" content="Prototype Chains JavaScript has only one constructor, objects.
+Each object has a private property which holds a link to another object called prototype.
+ i.e. JavaScript objects have a link to a prototype object.
+ The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-27T07:29:36-05:00" />
@@ -136,7 +148,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        6 minutes
+        7 minutes
 
         
       </p>
@@ -157,13 +169,17 @@
   <ul>
     <li><a href="#prototype-chains">Prototype Chains</a>
       <ul>
+        <li><a href="#additional-explanation">Additional Explanation</a></li>
         <li><a href="#define-a-lookup">Define a lookup</a></li>
       </ul>
     </li>
-    <li><a href="#copying-properties-1-extend">Copying Properties 1: <code>extend()</code></a></li>
-    <li><a href="#copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></a></li>
-    <li><a href="#the-object-prototype">The Object Prototype</a></li>
-    <li><a href="#object-prototype-methods">Object Prototype Methods</a>
+    <li><a href="#helper-functions-to-copy-properties">Helper Functions to Copy Properties</a>
+      <ul>
+        <li><a href="#copying-properties-1-extend">Copying Properties 1: <code>extend()</code></a></li>
+        <li><a href="#copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#the-object-prototype--methods">The Object Prototype &amp; Methods</a>
       <ul>
         <li><a href="#tostring"><code>.toString</code></a></li>
         <li><a href="#constructor"><code>.constructor</code></a></li>
@@ -180,6 +196,7 @@
         <li><a href="#pseudoclassical-pattern"><strong>Pseudoclassical Pattern</strong></a></li>
       </ul>
     </li>
+    <li><a href="#references">References</a></li>
   </ul>
 </nav>
         </aside>
@@ -189,36 +206,47 @@
 
       <div class="post-content">
         <h2 id="prototype-chains">Prototype Chains</h2>
+<p>JavaScript has only one constructor, <strong>objects</strong>.</p>
+<p>Each object has a <strong>private property</strong> which holds a link to another object called <strong>prototype</strong>.</p>
+<blockquote>
+<p>i.e. JavaScript objects have a link to a prototype object.</p>
+</blockquote>
+<p>The prototype object has a prototype of its own, and so on until the object is reached with <code>null</code> as its prototype (i.e. <strong>no prototype</strong>). This acts as the final link in the prototype chain.</p>
+<p><strong>Properties</strong> and <strong>methods</strong> can be <strong>inherited</strong> via prototype chain.</p>
+<h3 id="additional-explanation">Additional Explanation</h3>
 <ul>
-<li>A mechanism for making objects that resemble other objects.</li>
-<li>Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time.</li>
-<li>Prototype chains make it possible for many child objects to all reflect the properties of one parent object.</li>
-<li>We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</li>
-<li>Prototypal and Pseudoclassical instantiation patterns rely on prototype chains for method sharing.</li>
+<li>A mechanism for <strong>making objects</strong> that <strong>resemble other objects</strong>.</li>
+<li>Makes one object behave as if it has the <strong>same properties</strong> of another object by delegating its <strong>failed property lookups</strong> to that other object at <strong>lookup time</strong>.</li>
+<li>Prototype chains make it possible for <strong>many child objects</strong> to all reflect the <strong>properties of one parent object</strong>.</li>
+<li>We can use a prototype object to store all the <strong>shared methods</strong> and make all our instance objects delegrate to that prototype object, <strong>rather than copying</strong> all the methods references over.</li>
+<li>Prototypal and Pseudoclassical instantiation patterns rely on prototype chains for <strong>method sharing</strong>.</li>
 </ul>
 <h3 id="define-a-lookup">Define a lookup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
-<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">a</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
+};
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">a</span>);
 </code></pre></div><ul>
-<li><code>test.a</code> is a look up for the key <code>a</code></li>
+<li><code>test.a</code> is a lookup for the key <code>a</code></li>
 <li>The value of <code>a</code> found in the object is <code>1</code></li>
 <li>The value <code>1</code> is provided back as the result of the <strong>property lookup operation</strong>.</li>
 <li>The found value is sent as an output to the logging system.</li>
 </ul>
-<h2 id="copying-properties-1-extend">Copying Properties 1: <code>extend()</code></h2>
+<h2 id="helper-functions-to-copy-properties">Helper Functions to Copy Properties</h2>
+<h3 id="copying-properties-1-extend">Copying Properties 1: <code>extend()</code></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">copiedTest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extend</span>({}, <span style="color:#a6e22e">test</span>);
 </code></pre></div><p>A helper function <code>extend()</code> iterates over the properties and copies them.</p>
 <p>The copying happens at just one moment during the program&rsquo;s execution. So if the original variable <code>test</code> adds another property <em>after</em> <code>copiedTest</code> extended the properties, the new property won&rsquo;t be found in <code>copiedTest</code>.</p>
-<h2 id="copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></h2>
+<h3 id="copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">linkedToTest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extend</span>({}, <span style="color:#a6e22e">test</span>);
 </code></pre></div><p>Rather than copying the properties, <code>Object.create()</code> method creates some linkage to the original object.</p>
 <p>Whenever a requested property cannot be found in <code>linkedToTest</code>, <code>test</code> is used as a fallback source for properties.</p>
 <p>Unlike <code>extend()</code>, if the original variable <code>test</code> gets modified and includes a new property, <code>linkedToTest</code> will return that new property: i.e, the failed local lookup results in a fall through lookup on the prototype object.</p>
-<h2 id="the-object-prototype">The Object Prototype</h2>
+<h2 id="the-object-prototype--methods">The Object Prototype &amp; Methods</h2>
 <p>A top-level object that every JavaScript object delegates to where all the most basic methods are provided. The object prototype provides the shared properties of all objects.</p>
-<h2 id="object-prototype-methods">Object Prototype Methods</h2>
 <h3 id="tostring"><code>.toString</code></h3>
 <p>Every object has a <code>.toString</code> method on it. Using <code>.toString</code> on an object will allow us to access a function that cna do teh appropriate work. We can then call it and the object we initiated the property lookup on will have appeared to the left of the dot at call time: <code>linkedToTest.toString()</code></p>
 <h3 id="constructor"><code>.constructor</code></h3>
@@ -336,6 +364,10 @@
 <li>While the code looks cleaner, there&rsquo;s greater complexity</li>
 <li>But, it&rsquo;s deep-rooted and widely used in the JavaScript community</li>
 </ul>
+<h2 id="references">References</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">&ldquo;JavaScript Tutorial: Advanced - Inheritance and the prototype chain&rdquo;, MDN Web Docs.</a></p>
+<p><a href="https://www.thegreatcodeadventure.com/javascripts-functional-class-pattern/">&ldquo;Javascript&rsquo;s Functional Class Pattern&rdquo;, The Great Code Adventure, April 30, 2015.</a></p>
+<p><a href="https://techburst.io/class-objects-blueprint-patterns-in-javascript-4bde7c8b9d22">Subra, Prabu. &ldquo;Class Patterns in Javascript (object blueprint)&rdquo;, Techburst.io, December 19, 2017.</a></p>
 
       </div>
     </article>
@@ -361,7 +393,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        1218 Words
+        1336 Words
       </p>
 
       <p>

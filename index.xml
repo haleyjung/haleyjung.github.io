@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 08 Feb 2022 00:02:45 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:01:54 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript Revision 2</title>
+      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
+      <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
+      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.   Scope The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Revision 1</title>
+      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</link>
+      <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
+      <description>Term Definition     Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript. A function is a JavaScript procedure.   Undefined An unconfigurable, unwritable global property / A scalar variable without a scalar value assigned / A variable that has not been assigned a value yet is undefined / A function returns undefined if a value was not returned / A method or statement returns undefined if the variable that is being evaluated does not have an assigned value   Falsy False / 0 / “” / null / undefined / NaN   Null An intentional absence of any object value / Treated as Falsy for Boolean operations   NaN Not a Number: a floating-point value that does not represent a valid number; could be because we tried to combine a number with undefined   Parameter vs.</description>
+    </item>
+    
     <item>
       <title>High Level Overview (2)</title>
       <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</link>
@@ -89,26 +107,6 @@ Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/la
       <description>JSON: JavaScript Object Notation JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
 JSON can be parsed by a standard JavaScript function, and is parsed into a ready-to-use JavaScript object. It is thus faster and easier than XML.
 To read from JSON, we need to first use fs to read in the file as text(strings) and then `JOSN.</description>
-    </item>
-    
-    <item>
-      <title>Node / Node.JS</title>
-      <link>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</link>
-      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</guid>
-      <description>What is Node? Nodes in the DOM are elements from the HTML page, which are organized in a hiearchical tree-like structure consisting of parents and children. Elements such as &amp;lt;p&amp;gt;, &amp;lt;div&amp;gt;, &amp;lt;section&amp;gt; are considered as &amp;ldquo;element&amp;rdquo; nodes while comments are &amp;ldquo;comment&amp;rdquo; nodes, &amp;ldquo;text&amp;rdquo; objects and line-breaks are &amp;ldquo;text&amp;rdquo; nodes. Every HTML element is a node, but not every node is an HTML element.
-The topmost node is the root node of the DOM tree, Document, which has two children: &amp;lt;!</description>
-    </item>
-    
-    <item>
-      <title>Recursion</title>
-      <link>https://haleyjung.github.io/posts/2022/01/recursion/</link>
-      <pubDate>Sun, 30 Jan 2022 01:12:59 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
-      <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
-Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
     </item>
     
   </channel>

@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 08 Feb 2022 00:02:45 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:01:54 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript Revision 2</title>
+      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
+      <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
+      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.   Scope The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript Revision 1</title>
+      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</link>
+      <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
+      <description>Term Definition     Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript. A function is a JavaScript procedure.   Undefined An unconfigurable, unwritable global property / A scalar variable without a scalar value assigned / A variable that has not been assigned a value yet is undefined / A function returns undefined if a value was not returned / A method or statement returns undefined if the variable that is being evaluated does not have an assigned value   Falsy False / 0 / “” / null / undefined / NaN   Null An intentional absence of any object value / Treated as Falsy for Boolean operations   NaN Not a Number: a floating-point value that does not represent a valid number; could be because we tried to combine a number with undefined   Parameter vs.</description>
+    </item>
+    
     <item>
       <title>High Level Overview (2)</title>
       <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</link>
@@ -67,7 +85,10 @@ Recursive function always come with a function inside. With 2 minimum cases insi
       <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
-      <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
+      <description>Prototype Chains JavaScript has only one constructor, objects.
+Each object has a private property which holds a link to another object called prototype.
+ i.e. JavaScript objects have a link to a prototype object.
+ The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain.</description>
     </item>
     
     <item>
@@ -89,26 +110,6 @@ var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; };
       <description>What is this?  An identifier for values Designed to support object oriented programming  Binding When a method or constructor function is invoked, this binds to a likely-focal object, so that we can easily access that object.
 this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what is this NOT bound to? };   The function object: {f}
   An instance of the function it appears within: {}</description>
-    </item>
-    
-    <item>
-      <title>IIFE &amp; Scopes</title>
-      <link>https://haleyjung.github.io/posts/2022/01/iife-scopes/</link>
-      <pubDate>Sat, 22 Jan 2022 11:10:24 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/iife-scopes/</guid>
-      <description>Function Expression vs. Function Declaration The function name can be omitted in function expressions to create anonymous functions while function declarations (statements) require names.
-A function expression can be used as an IIFE (Immediately Invoked Function Expression).
-//Function Expression let variableName = function() { statements; }; // -&amp;gt; ends with a semicolon because it&amp;#39;s an assignment statement; not part of the function syntax  //Function Declaration function name([param[, param,[..., param]]]) { statements; } Definition of IIFE IIFE, also known as Self-Executing Anonymous Function, is a JavaScript function that runs as soon as it is defined.</description>
-    </item>
-    
-    <item>
-      <title>Function Call vs Function Invocation</title>
-      <link>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</link>
-      <pubDate>Fri, 21 Jan 2022 10:44:05 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/function-call-vs-function-invocation/</guid>
-      <description>Function Call  Directly telling the function to run. The combined process of fully applying the function then invoking it, usually with the added semantic that the code will wait for a return value.  Function Invocation  i.e. Function got executed. Indirectly refers to the calling statement. The process required to schedule the function with its fully bound arguments for execution. Includes pushing arguments onto the stack and transferring the PC to the new address, placing messages/objects/functions/thunks on a queue for later execution or various other RPC systems.</description>
     </item>
     
   </channel>

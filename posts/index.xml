@@ -6,8 +6,272 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 08 Feb 2022 00:02:45 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 10 Feb 2022 00:01:54 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>JavaScript Revision 2</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
+            <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
+            <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.   Scope The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</description>
+            <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Execution context</td>
+<td>Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.</td>
+</tr>
+<tr>
+<td>Call Stack</td>
+<td>Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</td>
+</tr>
+<tr>
+<td>Scope Chain</td>
+<td>Refers to the link between scopes: each function defined has its own nested scope, and any function defined in another function has a local scope which is linked to the outer function. Scope Chain helps the engine to know which value is assigned to a specific variable name if there are multiples of them defined at different scopes. When resolving a variable, inner functions first look at their own scope. If the variable cannot be found in its own scope it will climb up the scope chain and look for the variable name in the environment where the function was defined. At the top of the scope chain is the global scope: <code>window</code> object for the browser and <code>global</code> for NodeJS.</td>
+</tr>
+<tr>
+<td>Closure</td>
+<td>A retained scope. When you declare a function within another function, the outer function’s scope is accessible within the inner function. Global variables can be made local (private) with closures. It&rsquo;s often used for data privacy.</td>
+</tr>
+<tr>
+<td>Hoisting</td>
+<td>As the engine scans through the code for variables and function declarations and puts them into memory</td>
+</tr>
+<tr>
+<td>An instance</td>
+<td>JavaScript is a prototype-based language with objects, so it does not differentiate between classes and instances unlike class-based languages (Java / C++). So in JS, instances informally means an object created using a particular constructor function. In class-based languages, instance is an individual instantiation of a class and is fundamentally different from a class.</td>
+</tr>
+<tr>
+<td><code>.prototype</code></td>
+<td>A default container (object) for methods that is created with a function. It’s used for creating instances of a class. Use a prototype property to have a specific property accessible across all the objects. Every <code>.prototype</code> object has a <code>.constructor</code> property that points back to the function it came from. <code>.prototype</code> only works on functions. To access prototype property of an object (instance), use <code>__proto__</code>: both will refer to the same constructor function.</td>
+</tr>
+<tr>
+<td><code>this</code></td>
+<td>An identifier for values designed to support object-oriented programming. When you invoke a method (function as object’s property) or a constructor function, <code>this</code> behaves like a parameter, referencing a likely-focal object. At the call time, look at the left of the dot notation. If there’s no dot specifying its binding, it’s bound to the global object as its default value.</td>
+</tr>
+<tr>
+<td><code>new</code></td>
+<td>An operator that is placed before a constructor (function invocation), which runs the function as if there are these two extra lines of code at the beginning and the end: <code>this: Object.create(___.prototype);</code> &hellip; <code>return this;</code></td>
+</tr>
+<tr>
+<td>Constructor</td>
+<td>A class or function that specifies the type(name) of the object instance. JavaScript has only one constructor, objects. Each object has a private property which holds a link to another object called prototype.</td>
+</tr>
+<tr>
+<td>Constructor function</td>
+<td>Functions that are used as templates for creating objects. Constructor function names commonly start with a capital letter. Uses the <code>new</code> operator to create a new instance of an object, which is referred to by <code>this</code>. Arrow functions cannot be used to define constructor functions. To check if we used <code>new</code> to call the constructor function, add <code>console.log(new.target);</code> in the constructor function.</td>
+</tr>
+<tr>
+<td><code>Class</code></td>
+<td>A template for creating objects, replacing the previous method of using constructor functions. Commonly named with capitalized nouns. Two syntax: (1) Class Declaration: <code>class Name { constructor(x) { this.x = …, } }</code> (2) Class expression: <code>let Name = class { constructor(x) { this.x = .. } }</code></td>
+</tr>
+<tr>
+<td><code>instanceOf</code></td>
+<td>An operator that returns a boolean value to test if the prototype property of a constructor appears anywhere in the prototype chain of an object: <code>objectName instanceof constructor</code></td>
+</tr>
+<tr>
+<td>Decorator</td>
+<td>A design pattern of wrapping one piece of code with another, or applying a wrapper around a function to modify or add properties to enhance the functionality of the function without modifying the underlying function.</td>
+</tr>
+<tr>
+<td>Object Decorator Pattern vs. Functional Class Pattern</td>
+<td>Object Decorator Pattern passes object as a parameter while Functional Class Pattern (the constructor functions) declares object inside the function</td>
+</tr>
+<tr>
+<td>Pseudoclassical Class Instantiation Pattern</td>
+<td>Using a class in Pseudoclassical Style always calls a function with <code>new</code> in front of it. This pattern is a thin layer of syntactic convenience on top of the prototypal pattern.</td>
+</tr>
+<tr>
+<td>Prototypal Pattern</td>
+<td>Describes what you need for a function that creates instances: (1) A line in a function where you create a new instance object (2) A delegation from the new object to some prototype (3) Some logic augmenting the new object with the properties that make it unique from other objects of the same class</td>
+</tr>
+<tr>
+<td>Prototype Chains / Prototypal Inheritance Model</td>
+<td>Prototype chain is a mechanism for making objects resemble other objects by delegating its failed property lookup to that other object at lookup time. Object properties and methods can be inherited.</td>
+</tr>
+<tr>
+<td><code>Object.create()</code></td>
+<td>Creates a new object with the specified prototype object and properties. Pass in a desired fallback object (which is a prototype object) to create a new object that delegates its failed lookups to the fallback object.</td>
+</tr>
+<tr>
+<td>Object Prototype</td>
+<td>A top-level object that every JavaScript object eventually delegates to. The object prototype provides the shared properties of all objects. This is where all the basic methods are provided. Its methods include <code>.toString()</code>, <code>.constructor()</code>, <code>.hasOwnProperty()</code></td>
+</tr>
+<tr>
+<td>Recursive Function</td>
+<td>A function that calls itself. All recursive functions have at least one base case: a case when the function can produce a result without recursing. All recursive functions have at least one recursive case. Recursion should not be utilized without an accompanying base case unless infinite operation is desired. To solve a problem, solve a subproblem that is a smaller instance of the same problem, and then use the solution to that smaller instance to solve the original problem.</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+        </item>
+        
+        <item>
+            <title>JavaScript Revision 1</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</link>
+            <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
+            <description>Term Definition     Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript. A function is a JavaScript procedure.   Undefined An unconfigurable, unwritable global property / A scalar variable without a scalar value assigned / A variable that has not been assigned a value yet is undefined / A function returns undefined if a value was not returned / A method or statement returns undefined if the variable that is being evaluated does not have an assigned value   Falsy False / 0 / “” / null / undefined / NaN   Null An intentional absence of any object value / Treated as Falsy for Boolean operations   NaN Not a Number: a floating-point value that does not represent a valid number; could be because we tried to combine a number with undefined   Parameter vs.</description>
+            <content type="html"><![CDATA[<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable</td>
+<td>A named location for storing a value.</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>The primary method through which we manipulate data in JavaScript. A function is a JavaScript procedure.</td>
+</tr>
+<tr>
+<td>Undefined</td>
+<td>An unconfigurable, unwritable global property / A scalar variable without a scalar value assigned / A variable that has not been assigned a value yet is undefined / A function returns undefined if a value was not returned / A method or statement returns undefined if the variable that is being evaluated does not have an assigned value</td>
+</tr>
+<tr>
+<td>Falsy</td>
+<td>False / 0 / “” / null / undefined / NaN</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>An intentional absence of any object value / Treated as Falsy for Boolean operations</td>
+</tr>
+<tr>
+<td>NaN</td>
+<td>Not a Number: a floating-point value that does not represent a valid number; could be because we tried to combine a number with undefined</td>
+</tr>
+<tr>
+<td>Parameter vs. Argument</td>
+<td><strong>Parameters</strong>: the named variable passed into a function, which is used to import arguments into the function. / <strong>Arguments</strong>: the real values passed into the function.</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Strings are zero indexed and are immutable, but they can be reassigned from one string to another if we don’t use the variable name.</td>
+</tr>
+<tr>
+<td>Scalar</td>
+<td>A single value or unit of data (e.g. undefined, boolean, number, string)</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>It is indeed an object! Arrays are zero indexed &amp; are mutable.</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>A collection of properties: a property is an association between a name (key) and value (type of data). Arrays and Functions are objects.</td>
+</tr>
+<tr>
+<td>Method</td>
+<td>Function(s) that are stored as object properties.  <code>Array.prototype.methodName()</code>  <code>Function.prototype.methodName()</code>    <code>Object.prototype.methodName()</code></td>
+</tr>
+<tr>
+<td>Method invocation</td>
+<td>When I call a function that is the property of an object</td>
+</tr>
+<tr>
+<td><code>Number.parseInt()</code></td>
+<td>Takes a string version of a number and returns a real number</td>
+</tr>
+<tr>
+<td><code>Number.parseFloat()</code></td>
+<td>Takes a string version of a decimal and returns a real decimal</td>
+</tr>
+<tr>
+<td><code>Math.random()</code></td>
+<td>Generates a random number between 0 and 1 / If I want a random number between 2 specific values: <code>Math.random() * (max - min) + min</code></td>
+</tr>
+<tr>
+<td>String Interpolation</td>
+<td>A process of embedding an expression into part of a string.</td>
+</tr>
+<tr>
+<td><code>.substring()</code></td>
+<td>Method for accessing a portion of a string</td>
+</tr>
+<tr>
+<td><code>.indexOf()</code></td>
+<td>Returns the position of the first occurrence of a specified value in a string.</td>
+</tr>
+<tr>
+<td>Escape Characters</td>
+<td>Special characters that invoke an alternative interpretation on subsequent characters in a character sequence: \’  for escaping an apostrophe &amp;  \n for newline character</td>
+</tr>
+<tr>
+<td><code>.push()</code></td>
+<td>Adds an element to the back of an array</td>
+</tr>
+<tr>
+<td><code>.pop()</code></td>
+<td>Removes the last element of an array and returns that element</td>
+</tr>
+<tr>
+<td><code>.unshift()</code></td>
+<td>Adds an element to the front of an existing array</td>
+</tr>
+<tr>
+<td><code>.shift()</code></td>
+<td>Removes an element from the front of an existing array</td>
+</tr>
+<tr>
+<td><code>.splice()</code></td>
+<td>Removes, replaces, or adds element(s) in an array.</td>
+</tr>
+<tr>
+<td><code>.slice()</code></td>
+<td>Makes a copy of an array or a specific section of an array without altering the original array</td>
+</tr>
+<tr>
+<td><code>delete</code></td>
+<td>Operator that removes a property from an existing object / A deleted property returns undefined</td>
+</tr>
+<tr>
+<td><code>Object.keys()</code></td>
+<td>Method that returns an array of an object’s property names (keys)</td>
+</tr>
+<tr>
+<td><code>Object.values()</code></td>
+<td>Method that return an array of all values in a given object</td>
+</tr>
+<tr>
+<td>Iteration vs Loop</td>
+<td><strong>Iteration</strong>: the process in which the code segment is executed once; one iteration refers to one time execution of a loop. / <strong>Loop</strong>: a segment of code that executes multiple times; A loop can undergo many iterations.</td>
+</tr>
+<tr>
+<td>Loop in reverse</td>
+<td><code>for (var i = array.length - 1; i &gt; -1; i --)</code></td>
+</tr>
+<tr>
+<td>A lookup</td>
+<td>When we return/log an object property to get its value. <code>return varName.key</code> varName.key is a lookup for the key</td>
+</tr>
+<tr>
+<td><code>.call()</code> &amp; <code>.apply()</code></td>
+<td>A function.prototype method used to invoke a function immediately with modification of the context. <strong>.call()</strong> passes strings as its arguments while <strong>.apply()</strong> passes arrays as its arguments.</td>
+</tr>
+<tr>
+<td><code>.bind()</code></td>
+<td>A function.prototype method that creates a new bound function, which is useful in events. No matter how this bound function is called, it&rsquo;s called with a particular <code>this</code> value.</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+        </item>
         
         <item>
             <title>High Level Overview (2)</title>
@@ -1077,6 +1341,8 @@ Recursive function always come with a function inside. With 2 minimum cases insi
 <p>Read, write, and understand recursive algorithms.</p>
 </li>
 </ul>
+<h2 id="references">References</h2>
+<p><a href="https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/properties-of-recursive-algorithms">&ldquo;Properties of recursive algorithms&rdquo;, Khan Academy.</a></p>
 ]]></content>
         </item>
         
@@ -1238,38 +1504,52 @@ We can also define an area by giving it a name and then specify the location of 
             <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
-            <description>Prototype Chains  A mechanism for making objects that resemble other objects. Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time. Prototype chains make it possible for many child objects to all reflect the properties of one parent object. We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</description>
+            <description>Prototype Chains JavaScript has only one constructor, objects.
+Each object has a private property which holds a link to another object called prototype.
+ i.e. JavaScript objects have a link to a prototype object.
+ The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain.</description>
             <content type="html"><![CDATA[<h2 id="prototype-chains">Prototype Chains</h2>
+<p>JavaScript has only one constructor, <strong>objects</strong>.</p>
+<p>Each object has a <strong>private property</strong> which holds a link to another object called <strong>prototype</strong>.</p>
+<blockquote>
+<p>i.e. JavaScript objects have a link to a prototype object.</p>
+</blockquote>
+<p>The prototype object has a prototype of its own, and so on until the object is reached with <code>null</code> as its prototype (i.e. <strong>no prototype</strong>). This acts as the final link in the prototype chain.</p>
+<p><strong>Properties</strong> and <strong>methods</strong> can be <strong>inherited</strong> via prototype chain.</p>
+<h3 id="additional-explanation">Additional Explanation</h3>
 <ul>
-<li>A mechanism for making objects that resemble other objects.</li>
-<li>Makes one object behave as if it has the same properties of another object by delegating its failed property lookups to that other object at lookup time.</li>
-<li>Prototype chains make it possible for many child objects to all reflect the properties of one parent object.</li>
-<li>We can use a prototype object to store all the shared methods and make all our instance objects delegrate to that prototype object, rather than copying all the methods references over.</li>
-<li>Prototypal and Pseudoclassical instantiation patterns rely on prototype chains for method sharing.</li>
+<li>A mechanism for <strong>making objects</strong> that <strong>resemble other objects</strong>.</li>
+<li>Makes one object behave as if it has the <strong>same properties</strong> of another object by delegating its <strong>failed property lookups</strong> to that other object at <strong>lookup time</strong>.</li>
+<li>Prototype chains make it possible for <strong>many child objects</strong> to all reflect the <strong>properties of one parent object</strong>.</li>
+<li>We can use a prototype object to store all the <strong>shared methods</strong> and make all our instance objects delegrate to that prototype object, <strong>rather than copying</strong> all the methods references over.</li>
+<li>Prototypal and Pseudoclassical instantiation patterns rely on prototype chains for <strong>method sharing</strong>.</li>
 </ul>
 <h3 id="define-a-lookup">Define a lookup</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
-<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">a</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>
+};
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">test</span>.<span style="color:#a6e22e">a</span>);
 </code></pre></div><ul>
-<li><code>test.a</code> is a look up for the key <code>a</code></li>
+<li><code>test.a</code> is a lookup for the key <code>a</code></li>
 <li>The value of <code>a</code> found in the object is <code>1</code></li>
 <li>The value <code>1</code> is provided back as the result of the <strong>property lookup operation</strong>.</li>
 <li>The found value is sent as an output to the logging system.</li>
 </ul>
-<h2 id="copying-properties-1-extend">Copying Properties 1: <code>extend()</code></h2>
+<h2 id="helper-functions-to-copy-properties">Helper Functions to Copy Properties</h2>
+<h3 id="copying-properties-1-extend">Copying Properties 1: <code>extend()</code></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">copiedTest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extend</span>({}, <span style="color:#a6e22e">test</span>);
 </code></pre></div><p>A helper function <code>extend()</code> iterates over the properties and copies them.</p>
 <p>The copying happens at just one moment during the program&rsquo;s execution. So if the original variable <code>test</code> adds another property <em>after</em> <code>copiedTest</code> extended the properties, the new property won&rsquo;t be found in <code>copiedTest</code>.</p>
-<h2 id="copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></h2>
+<h3 id="copying-properties-2-objectcreate">Copying Properties 2: <code>Object.create()</code></h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">test</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">a</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>};
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">linkedToTest</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extend</span>({}, <span style="color:#a6e22e">test</span>);
 </code></pre></div><p>Rather than copying the properties, <code>Object.create()</code> method creates some linkage to the original object.</p>
 <p>Whenever a requested property cannot be found in <code>linkedToTest</code>, <code>test</code> is used as a fallback source for properties.</p>
 <p>Unlike <code>extend()</code>, if the original variable <code>test</code> gets modified and includes a new property, <code>linkedToTest</code> will return that new property: i.e, the failed local lookup results in a fall through lookup on the prototype object.</p>
-<h2 id="the-object-prototype">The Object Prototype</h2>
+<h2 id="the-object-prototype--methods">The Object Prototype &amp; Methods</h2>
 <p>A top-level object that every JavaScript object delegates to where all the most basic methods are provided. The object prototype provides the shared properties of all objects.</p>
-<h2 id="object-prototype-methods">Object Prototype Methods</h2>
 <h3 id="tostring"><code>.toString</code></h3>
 <p>Every object has a <code>.toString</code> method on it. Using <code>.toString</code> on an object will allow us to access a function that cna do teh appropriate work. We can then call it and the object we initiated the property lookup on will have appeared to the left of the dot at call time: <code>linkedToTest.toString()</code></p>
 <h3 id="constructor"><code>.constructor</code></h3>
@@ -1387,6 +1667,10 @@ We can also define an area by giving it a name and then specify the location of 
 <li>While the code looks cleaner, there&rsquo;s greater complexity</li>
 <li>But, it&rsquo;s deep-rooted and widely used in the JavaScript community</li>
 </ul>
+<h2 id="references">References</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">&ldquo;JavaScript Tutorial: Advanced - Inheritance and the prototype chain&rdquo;, MDN Web Docs.</a></p>
+<p><a href="https://www.thegreatcodeadventure.com/javascripts-functional-class-pattern/">&ldquo;Javascript&rsquo;s Functional Class Pattern&rdquo;, The Great Code Adventure, April 30, 2015.</a></p>
+<p><a href="https://techburst.io/class-objects-blueprint-patterns-in-javascript-4bde7c8b9d22">Subra, Prabu. &ldquo;Class Patterns in Javascript (object blueprint)&rdquo;, Techburst.io, December 19, 2017.</a></p>
 ]]></content>
         </item>
         
@@ -2015,6 +2299,7 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
 <h2 id="references">References</h2>
 <p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36">Elliott, Eric. &ldquo;Master the JavaScript Interview: What is a Closure?&rdquo;, Medium, January 7, 2016.</a></p>
 <p><a href="https://codeburst.io/js-demystified-04-execution-context-97dea52c8ac6">Ogura, Misa. &ldquo;JS Demystified 04 - Execution Context&rdquo;, Codeburst, August 24, 2017.</a></p>
+<p><a href="https://stackoverflow.com/questions/1484143/scope-chain-in-javascript#:~:text=The%20scope%20chain%20is%20used,multiple%20defined%20at%20different%20scopes.">&ldquo;Scope Chain in JavaScript&rdquo;, Stack Overflow.</a></p>
 <p><a href="https://medium.com/@thanhnguyentien/closure-stateful-function-e2a18690e549">Tien, Thanh Nguyen, &ldquo;Closure: Stateful Function&rdquo;, Medium, May 17, 2018.</a></p>
 <p><a href="https://stackoverflow.com/questions/2728278/what-is-a-practical-use-for-a-closure-in-javascript/39045098">&ldquo;What is a practical use for a closure in JavaScript?&rdquo;, Stack Overflow.</a></p>
 ]]></content>
