@@ -6,8 +6,97 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 10 Feb 2022 00:01:54 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 10 Feb 2022 11:35:01 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>LeetCode: Two Sums - easy</title>
+            <link>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</link>
+            <pubDate>Thu, 10 Feb 2022 11:35:01 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</guid>
+            <description>Prompt Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
+Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</description>
+            <content type="html"><![CDATA[<h2 id="prompt">Prompt</h2>
+<p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of the two numbers such that they add up to <code>target</code>. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.</p>
+<p>Example:
+<strong>Input</strong>: nums = [2,7,11,15], target = 9
+<strong>Output</strong>: [0,1]
+<strong>Explanation</strong>: Because nums[0] + nums[1] == 9, we return [0, 1].</p>
+<p>Constraints:</p>
+<ul>
+<li>2 &lt;= nums.length &lt;= 104</li>
+<li>-109 &lt;= nums[i] &lt;= 109</li>
+<li>-109 &lt;= target &lt;= 109</li>
+<li>Only one valid answer exists.</li>
+</ul>
+<p>Can you come up with an algorithm that is less than <code>O(n^2)</code> <em>time complexity</em>?</p>
+<h2 id="a-quadratic-time-complexity-pattern-on2">A Quadratic Time Complexity Pattern: O(n^2)</h2>
+<p><strong>Time Complexity</strong></p>
+<ul>
+<li>The time required to perform an algorithm</li>
+<li>Described by the use of Big O notation</li>
+</ul>
+<p><strong>O(n^2)</strong></p>
+<ul>
+<li><code>O(n^2)</code> = <code>O(n * n)</code> = the growth rate of <code>n</code> is <code>n^2</code></li>
+<li>A quadratic time complexity pattern</li>
+<li>For <strong>nested for loop</strong> over an array of array</li>
+</ul>
+<p><img src="https://miro.medium.com/max/1200/1*5ZLci3SuR0zM_QlZOADv8Q.jpeg" alt="Big-O Complexity Chart"></p>
+<h2 id="first-attemp">First Attemp</h2>
+<p>// declare an empty array for the result
+// iterate over the input array
+// iterate over the input array, starting with the consecutive value (index 1)
+// if target equals to the sum of each value from both iterations
+// push each index to the empty result array
+// return result array</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">twoSum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">target</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">target</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">j</span>]) {
+        <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>);
+      }
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+} <span style="color:#75715e">// -&gt; Runtime: 135ms, Memory: 42.2MB
+</span></code></pre></div><p>Here <code>j</code> is used as a pointer to keep track of numbers in array. I&rsquo;m also iterating over the entire array twice using a nested for loop. Although this solution works, the nested loop results in O(n^2) time complexity which will be very slow and prone to errors for a larger dataset.</p>
+<p>Its current runtime and memory ussage are:</p>
+<p><strong>Runtime</strong>: 132ms
+<strong>Memory Usage</strong>: 42.3 MB</p>
+<h2 id="optimized-soultion">Optimized Soultion</h2>
+<p>A more optimized solution is to use <strong>object</strong>, similar to using the <strong>Hash Table</strong> implementation, which has a more efficient time complexity of <code>O(n)</code>. If we hash all items and store them in a hash table, checking any element will be much faster regardless of the dataset size.</p>
+<ol>
+<li>Iterate over the input array</li>
+<li>The prompt indicates that each input has exactly one solution, so there is only one complementary number that can satisfy the return condition: <code>x + y = target</code> or <code>target - y = x</code></li>
+<li>We are given the value of <code>target</code> as an input, and each time we iterate we get a value of <code>y</code> and we can calculate what <code>x</code> must be for the given <code>y</code>.</li>
+<li>In the empty hash object, we record the key and value:</li>
+</ol>
+<ul>
+<li><strong>key</strong>: <code>target - y</code> = <code>target - nums[i]</code> = value of <code>x</code></li>
+<li><strong>value</strong>: <code>i</code> of <code>nums[i]</code> = index of <code>y</code></li>
+</ul>
+<ol start="5">
+<li>Check if the number exists</li>
+</ol>
+<ul>
+<li>If it does exist, return both indices</li>
+<li>Otherwise set the current index to <code>i</code> which is <code>0</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">twoSum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">nums</span>, <span style="color:#a6e22e">target</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {};
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">nums</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>) {
+      <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]], <span style="color:#a6e22e">i</span>];
+    }
+    <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">target</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">nums</span>[<span style="color:#a6e22e">i</span>]] <span style="color:#f92672">=</span> <span style="color:#a6e22e">i</span>;
+  }
+} <span style="color:#75715e">// -&gt; Runtime: 88ms, Memory: 42.4MB
+</span></code></pre></div><p>Compared to the first solution using a nested loop, using an object optimized the runtime by 47ms.</p>
+]]></content>
+        </item>
         
         <item>
             <title>JavaScript Revision 2</title>
