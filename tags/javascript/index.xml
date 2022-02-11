@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 10 Feb 2022 00:01:54 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 08:07:05 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript Revision 3</title>
+      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</link>
+      <pubDate>Thu, 10 Feb 2022 08:07:05 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</guid>
+      <description>1. Fundamental Concept Value
+ JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol Values are stored in variables, a named unit of data  Reference
+ JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.    2. Higher Order Functions / Callback Functions Higher Order Function
+ A function that accepts functions as parameters and/or returns a function.</description>
+    </item>
+    
     <item>
       <title>JavaScript Revision 2</title>
       <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
@@ -23,7 +35,7 @@
       <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-      <description>Term Definition     Value Primitives: numbers, booleans, strings, symbols, special values null and undefined   Reference Objects: objects, arrays, functions. &amp;ldquo;Variables hold values that are references to objects.&amp;rdquo; e.g. let x = [1] creates an array, defines a variable x and initializes it with a reference to the created array.   Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript.</description>
+      <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
     </item>
     
     <item>
@@ -99,17 +111,6 @@ Each object has a private property which holds a link to another object called p
       <guid>https://haleyjung.github.io/posts/2022/01/functional-classes/</guid>
       <description>Decorator Pattern var Car = function (loc) { var obj = { loc: loc }; ob.mov = function() { // Decorator pattern: creates a new function for every function call  obj.loc++; }; }; var amy = Car(1); amy.move(); var ben = Car(9); ben.move(); Functional Class Pattern with Shared Methods &amp;hellip;or Functional-Shared Pattern
 var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; }; var move = function() { this.</description>
-    </item>
-    
-    <item>
-      <title>JavaScript: this</title>
-      <link>https://haleyjung.github.io/posts/2022/01/javascript-this/</link>
-      <pubDate>Tue, 25 Jan 2022 12:07:56 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/javascript-this/</guid>
-      <description>What is this?  An identifier for values Designed to support object oriented programming  Binding When a method or constructor function is invoked, this binds to a likely-focal object, so that we can easily access that object.
-this is not bound to&amp;hellip; var fn = function (a, b) { log(this); // what is this NOT bound to? };   The function object: {f}
-  An instance of the function it appears within: {}</description>
     </item>
     
   </channel>

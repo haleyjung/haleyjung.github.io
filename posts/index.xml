@@ -99,6 +99,141 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
         </item>
         
         <item>
+            <title>JavaScript Revision 3</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</link>
+            <pubDate>Thu, 10 Feb 2022 08:07:05 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</guid>
+            <description>1. Fundamental Concept Value
+ JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol Values are stored in variables, a named unit of data  Reference
+ JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.    2. Higher Order Functions / Callback Functions Higher Order Function
+ A function that accepts functions as parameters and/or returns a function.</description>
+            <content type="html"><![CDATA[<h2 id="1-fundamental-concept">1. Fundamental Concept</h2>
+<p><strong>Value</strong></p>
+<ul>
+<li>JavaScript has the <strong>scalar primitive types</strong> that are <strong>passed by value</strong>: <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>undefined</code>, <code>null</code>, and <code>Symbol</code></li>
+<li>Values are stored in variables, a named unit of data</li>
+</ul>
+<p><strong>Reference</strong></p>
+<ul>
+<li>JavaScript has 3 data types that are <strong>passed by reference</strong>: <code>Array</code>, <code>Function</code>, and <code>Objcet</code></li>
+<li>These are collectively known as <code>Objects</code>.</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="2-higher-order-functions--callback-functions">2. Higher Order Functions / Callback Functions</h2>
+<p><strong>Higher Order Function</strong></p>
+<ul>
+<li>A function that accepts functions as parameters and/or returns a function.</li>
+</ul>
+<p><strong>Callback Function</strong></p>
+<ul>
+<li>A function passed into another function as an argument.</li>
+<li>This function can then be invoked during the execution of that higher order function.</li>
+</ul>
+<p><strong>Hoisting</strong></p>
+<ul>
+<li>A JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</li>
+</ul>
+<h3 id="when-do-we-use-map-filter-or-reduce">When do we use <code>.map()</code>, <code>.filter()</code> or <code>.reduce()</code>?</h3>
+<ul>
+<li>These methods iterate over an array and execute a callback function on each element.</li>
+<li>This replaces a loop-based solution.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.map()</code></td>
+<td>Returns a new array with the return values from the callback function, which may be different from the original array.</td>
+</tr>
+<tr>
+<td><code>.filter()</code></td>
+<td>The callback function for each element must return either <code>true</code> or <code>false</code>. Returns a new array with elements for which the callback function returned <code>true</code>.</td>
+</tr>
+<tr>
+<td><code>.reduce()</code></td>
+<td>Often used in <strong>state management</strong>. Returns a single value. It takes a callback function with two parameters <code>accumulator</code> and <code>currentValue</code> as arguments.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>can we use reduce?  with all data types as the accumulator input?</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="closures-and-scope">Closures and Scope</h2>
+<p><strong>Lexical Scope / Static Scope</strong></p>
+<ul>
+<li>Defining a function creates a new lexical scope.</li>
+<li>The place where an item got created (the definition area of an expression).</li>
+</ul>
+<p><strong>Execution Contexts</strong></p>
+<ul>
+<li>Calling a function creates a new execution context. It holds information about the environment within which the current code is being executed.</li>
+</ul>
+<p><strong>The Call Stack</strong></p>
+<ul>
+<li>Where execution contexts get stacked on top of each other to keep track of where we are in the program&rsquo;s execution.</li>
+</ul>
+<p><strong>Closure</strong></p>
+<ul>
+<li>A retained scope.</li>
+</ul>
+<ul>
+<li>can we build out a function that uses a closure?</li>
+<li>can we explain what a closure is and how it works?
+<ul>
+<li>we need to make sure we can make a distinction between the requirements for memoize and what the general idea of a closure is</li>
+</ul>
+</li>
+<li>memoize only works because it uses a closure ✅</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="what-is-the-dom">what is the DOM?</h2>
+<ul>
+<li>practice using a front-end library such as jQuery</li>
+<li>how do websites work?</li>
+<li>what are events?</li>
+<li>what is html? css?</li>
+</ul>
+<p> </p>
+<hr>
+<h2 id="recursion">Recursion</h2>
+<h3 id="use-case">Use case</h3>
+<ul>
+<li>For accessing a nested object</li>
+<li>Particularly useful when we do not know how many levels there are</li>
+</ul>
+<h3 id="recursive-pattern-for-nested-data">Recursive Pattern for NESTED data</h3>
+<p>// what do you want to do for the current input?
+// case 1
+// case 2</p>
+<p>// detect nestedness
+// iterate over that nested structure
+// recursively call our function on each value inside that array (or childNode)
+// e.g. we want to merge all arrays that are being returned per each callstack with our local [] (each new callstack will only ever return something to the previous callstack)</p>
+<p>// forcefully send all values as a current input somewhere in the callstack</p>
+<ul>
+<li>Base case is on the top, recursive case is below</li>
+<li>We pass different arguments to recursive functions to move around the nested object</li>
+</ul>
+<h3 id="patterns">Patterns</h3>
+<ul>
+<li>learning different recursive patterns/approaches</li>
+<li>there is a pattern where we use recursion to mimic a loop</li>
+<li>and there is another pattern we use recursion WITH a loop to handle infinitely nested arrays/objects</li>
+</ul>
+]]></content>
+        </item>
+        
+        <item>
             <title>JavaScript Revision 2</title>
             <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
             <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
@@ -135,7 +270,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 </tr>
 <tr>
 <td>Hoisting</td>
-<td>As the engine scans through the code for variables and function declarations and puts them into memory</td>
+<td>a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution</td>
 </tr>
 <tr>
 <td>An instance</td>
@@ -212,7 +347,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
             <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-            <description>Term Definition     Value Primitives: numbers, booleans, strings, symbols, special values null and undefined   Reference Objects: objects, arrays, functions. &amp;ldquo;Variables hold values that are references to objects.&amp;rdquo; e.g. let x = [1] creates an array, defines a variable x and initializes it with a reference to the created array.   Variable A named location for storing a value.   Function The primary method through which we manipulate data in JavaScript.</description>
+            <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
             <content type="html"><![CDATA[<table>
 <thead>
 <tr>
@@ -223,19 +358,19 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <tbody>
 <tr>
 <td>Value</td>
-<td>Primitives: numbers, booleans, strings, symbols, special values <code>null</code> and <code>undefined</code></td>
+<td>JavaScript has the <strong>scalar primitive types</strong> that are <strong>passed by value</strong>: <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>undefined</code>, <code>null</code>, and <code>Symbol</code></td>
 </tr>
 <tr>
 <td>Reference</td>
-<td>Objects: objects, arrays, functions. &ldquo;Variables hold values that are references to objects.&rdquo; e.g. <code>let x = [1]</code> creates an array, defines a variable <code>x</code> and initializes it with a reference to the created array.</td>
+<td>JavaScript has 3 data types that are <strong>passed by reference</strong>: <code>Array</code>, <code>Function</code>, and <code>Objcet</code></td>
 </tr>
 <tr>
 <td>Variable</td>
-<td>A named location for storing a value.</td>
+<td>A named unit of data where values can be stored and referred to by that name</td>
 </tr>
 <tr>
 <td>Function</td>
-<td>The primary method through which we manipulate data in JavaScript. A function is a JavaScript procedure.</td>
+<td>The primary method through which we manipulate data in JavaScript. Functions are JavaScript&rsquo;s first-class objects.</td>
 </tr>
 <tr>
 <td>Undefined</td>
