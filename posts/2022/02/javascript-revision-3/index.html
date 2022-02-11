@@ -49,7 +49,7 @@
  JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.    2. Higher Order Functions / Callback Functions Higher Order Function
  A function that accepts functions as parameters and/or returns a function."><meta itemprop="datePublished" content="2022-02-10T08:07:05-05:00" />
 <meta itemprop="dateModified" content="2022-02-10T08:07:05-05:00" />
-<meta itemprop="wordCount" content="554"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="409"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
@@ -148,7 +148,7 @@
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </svg>
-        3 minutes
+        2 minutes
 
         
       </p>
@@ -173,15 +173,13 @@
         <li><a href="#when-do-we-use-map-filter-or-reduce">When do we use <code>.map()</code>, <code>.filter()</code> or <code>.reduce()</code>?</a></li>
       </ul>
     </li>
-    <li><a href="#closures-and-scope">Closures and Scope</a></li>
-    <li><a href="#what-is-the-dom">what is the DOM?</a></li>
-    <li><a href="#recursion">Recursion</a>
+    <li><a href="#closure-and-scope">Closure and Scope</a>
       <ul>
-        <li><a href="#use-case">Use case</a></li>
-        <li><a href="#recursive-pattern-for-nested-data">Recursive Pattern for NESTED data</a></li>
-        <li><a href="#patterns">Patterns</a></li>
+        <li><a href="#closure-distinction-between-the-requirements-for-memoize-and-the-general-idea-of-a-closure">Closure: distinction between the requirements for memoize and the general idea of a closure</a></li>
+        <li><a href="#closure-function-example">Closure function example</a></li>
       </ul>
     </li>
+    <li><a href="#what-is-the-dom">what is the DOM?</a></li>
   </ul>
 </nav>
         </aside>
@@ -249,7 +247,7 @@
 </ul>
 <p> </p>
 <hr>
-<h2 id="closures-and-scope">Closures and Scope</h2>
+<h2 id="closure-and-scope">Closure and Scope</h2>
 <p><strong>Lexical Scope / Static Scope</strong></p>
 <ul>
 <li>Defining a function creates a new lexical scope.</li>
@@ -262,21 +260,21 @@
 <p><strong>The Call Stack</strong></p>
 <ul>
 <li>Where execution contexts get stacked on top of each other to keep track of where we are in the program&rsquo;s execution.</li>
+<li>Each callstack will only ever return something to the previous callstack.</li>
 </ul>
 <p><strong>Closure</strong></p>
 <ul>
-<li>A retained scope.</li>
+<li>The combination of a function enclosed with references to its surrounding state (lexical environment).</li>
+<li>Even after the outer (parent) function has closed, the inner function still has access to that parent scope.</li>
+<li>Often used for object data privacy</li>
 </ul>
+<h3 id="closure-distinction-between-the-requirements-for-memoize-and-the-general-idea-of-a-closure">Closure: distinction between the requirements for memoize and the general idea of a closure</h3>
 <ul>
-<li>can we build out a function that uses a closure?</li>
-<li>can we explain what a closure is and how it works?
-<ul>
-<li>we need to make sure we can make a distinction between the requirements for memoize and what the general idea of a closure is</li>
-</ul>
-</li>
 <li>memoize only works because it uses a closure ✅</li>
 </ul>
-<p> </p>
+<h3 id="closure-function-example">Closure function example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">???</span>
+</code></pre></div><p> </p>
 <hr>
 <h2 id="what-is-the-dom">what is the DOM?</h2>
 <ul>
@@ -284,33 +282,6 @@
 <li>how do websites work?</li>
 <li>what are events?</li>
 <li>what is html? css?</li>
-</ul>
-<p> </p>
-<hr>
-<h2 id="recursion">Recursion</h2>
-<h3 id="use-case">Use case</h3>
-<ul>
-<li>For accessing a nested object</li>
-<li>Particularly useful when we do not know how many levels there are</li>
-</ul>
-<h3 id="recursive-pattern-for-nested-data">Recursive Pattern for NESTED data</h3>
-<p>// what do you want to do for the current input?
-// case 1
-// case 2</p>
-<p>// detect nestedness
-// iterate over that nested structure
-// recursively call our function on each value inside that array (or childNode)
-// e.g. we want to merge all arrays that are being returned per each callstack with our local [] (each new callstack will only ever return something to the previous callstack)</p>
-<p>// forcefully send all values as a current input somewhere in the callstack</p>
-<ul>
-<li>Base case is on the top, recursive case is below</li>
-<li>We pass different arguments to recursive functions to move around the nested object</li>
-</ul>
-<h3 id="patterns">Patterns</h3>
-<ul>
-<li>learning different recursive patterns/approaches</li>
-<li>there is a pattern where we use recursion to mimic a loop</li>
-<li>and there is another pattern we use recursion WITH a loop to handle infinitely nested arrays/objects</li>
 </ul>
 
       </div>
@@ -337,7 +308,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        554 Words
+        409 Words
       </p>
 
       <p>
