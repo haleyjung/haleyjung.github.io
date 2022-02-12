@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 10 Feb 2022 11:35:01 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 10:46:58 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode: Add Two Numbers - medium</title>
+      <link>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</link>
+      <pubDate>Sat, 12 Feb 2022 10:46:58 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</guid>
+      <description>Prompt You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Example 1: Input: l1 = [2,4,3], l2 = [5,6,4] Output: [7,0,8] Explanation: 342 + 465 = 807.</description>
+    </item>
+    
     <item>
       <title>LeetCode: Two Sums - easy</title>
       <link>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</link>
@@ -97,18 +108,6 @@ X: Major Version  When the major version number is increased, the minor and patc
       
       <guid>https://haleyjung.github.io/posts/2022/02/systems/</guid>
       <description>Webpage Rendering  HTML is received from the server and processed into the DOM. The styles are loaded and parsed into the CSSOM. The render tree is created using the DOM and CSSOM. The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</description>
-    </item>
-    
-    <item>
-      <title>Client-Side Validation</title>
-      <link>https://haleyjung.github.io/posts/2022/02/client-side-validation/</link>
-      <pubDate>Thu, 03 Feb 2022 13:50:26 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/client-side-validation/</guid>
-      <description>What is client-side validation? It refers to providing feedbacks to users so that they can give us the correct information.
-e.g. &amp;ldquo;your password must be at least 8 characters&amp;rdquo; or &amp;ldquo;this field is required.&amp;rdquo;
-HTML5 Form Validation Form validaiton is a large part of project-specific, dependent on business logic.
-Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;name&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Email (required)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;email&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Age (required, must be older than 13)&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;age&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of siblings&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;siblings&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Number of rooms in your house&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;rooms&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Blog url&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;blog&amp;#34;&amp;gt; &amp;lt;label&amp;gt;Twitter Username&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;twitter&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;submit&amp;#34;&amp;gt; &amp;lt;/form&amp;gt; HTML5 Constraint API HTML5 constraint validation API helps developers avoid use of JavaScript for simple validations.</description>
     </item>
     
   </channel>
