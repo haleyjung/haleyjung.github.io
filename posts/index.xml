@@ -609,6 +609,10 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <td>Variables declared inside a function scope are only accessible inside that function.</td>
 </tr>
 <tr>
+<td>Lexical Scoping</td>
+<td>The way variables are organized and accessed is entirely controlled by the placement of functions and blocks in the code. When a variable gets called by an inner function, the engine goes through the scope chain to find the lexical scope (origin) of the specific variable that got called.</td>
+</tr>
+<tr>
 <td>Block Scope</td>
 <td>Refers to the scope of a variable declared inside any curly braces (e.g. a loop or if statement). <code>let</code> and <code>const</code> are block-scoped variables while <code>var</code> is function-scoped and accessible outside of the block. In strict mode, function are also block-scoped.</td>
 </tr>
@@ -622,7 +626,11 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 </tr>
 <tr>
 <td>Hoisting</td>
-<td>a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution</td>
+<td>A JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. <code>let</code> and <code>const</code> are not hoisted; uninitialized.They are block-scoped, so they only exist in the block they were created; <code>var</code> gets hoisted to <code>undefined</code>.</td>
+</tr>
+<tr>
+<td>Temporal Dead Zone (TDZ)</td>
+<td>ES6: The region in the code where <code>let</code> or <code>const</code> variables cannot be accessed before its initialization. Accessing variables before the declaration is bad practice to be avoided. TDZ makes it easier to catch this by throwing an error.</td>
 </tr>
 <tr>
 <td>An instance</td>
@@ -634,7 +642,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 </tr>
 <tr>
 <td><code>this</code></td>
-<td>An identifier for values designed to support object-oriented programming, created for every execution context. When you invoke a method (function as object’s property) or a constructor function, <code>this</code> points to the object calling the method (At the call time, look at the left of the dot notation). In strict mode, <code>this</code> in &lsquo;normal&rsquo; functions will simply be <code>undefined</code>. But otherwise, it will point to the global object, which for browsers is the <code>global</code> object. For arrow functions, <code>this</code> becomes <strong>lexical</strong>, pointing to the value of <code>this</code> in the parent function.</td>
+<td>An identifier for values designed to support object-oriented programming, created for every execution context. When you invoke a method (function as object’s property) or a constructor function, <code>this</code> points to the object calling the method (At the call time, look at the left of the dot notation). In strict mode, <code>this</code> in &lsquo;normal&rsquo; functions will simply be <code>undefined</code>. But otherwise, it will point to the global object, which for browsers is the <code>global</code> object. For arrow functions, <code>this</code> becomes <strong>lexical</strong>, pointing to the value of <code>this</code> in the parent function. For event listener functions, <code>this</code> will always point to the DOM element the handler function is attached to.</td>
 </tr>
 <tr>
 <td><code>new</code></td>
@@ -679,6 +687,10 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <tr>
 <td><code>Object.create()</code></td>
 <td>Creates a new object with the specified prototype object and properties. Pass in a desired fallback object (which is a prototype object) to create a new object that delegates its failed lookups to the fallback object.</td>
+</tr>
+<tr>
+<td><code>Object.assign()</code></td>
+<td>Creates a new object, but it’s a shallow copy and not a deep clone: it will only copy the properties in the first level while deep clone would copy everything.</td>
 </tr>
 <tr>
 <td>Object Prototype</td>
