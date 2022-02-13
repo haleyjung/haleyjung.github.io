@@ -6,8 +6,116 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 12 Feb 2022 10:46:58 -0500</lastBuildDate>
+        <lastBuildDate>Sun, 13 Feb 2022 16:52:11 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Memory Management of Primitives vs. References</title>
+            <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
+            <pubDate>Sun, 13 Feb 2022 16:52:11 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</guid>
+            <description>Define Primitives: number, string, Boolean, undefined, null, symbol and BigInt.
+References: objects (object literal, arrays, functions)
+Memory Management JavaScript engine has two components:
+ The call stack where functions are executed  All primitive types are stored in the call stack, as that&amp;rsquo;s where the execution context runs.   The heap where objects are stored in memory  All reference types (object) get stored in the memory heap.    The Process: Primitive Types in Call Stack let age = 30; let oldAge = age; age = 31;  let age = 30;:  JavaScript engine creates a unique identifier with the variable name.</description>
+            <content type="html"><![CDATA[<h2 id="define">Define</h2>
+<p><strong>Primitives</strong>: <em>number, string, Boolean, undefined, null, symbol</em> and <em>BigInt</em>.</p>
+<p><strong>References</strong>: objects (object literal, arrays, functions)</p>
+<h2 id="memory-management">Memory Management</h2>
+<p>JavaScript engine has two components:</p>
+<ol>
+<li>The <strong>call stack</strong> where functions are executed
+<ul>
+<li>All <strong>primitive types</strong> are stored in the <strong>call stack</strong>, as that&rsquo;s where the execution context runs.</li>
+</ul>
+</li>
+<li>The <strong>heap</strong> where objects are stored in memory
+<ul>
+<li>All <strong>reference types</strong> (object) get stored in the <strong>memory heap</strong>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="the-process-primitive-types-in-call-stack">The Process: Primitive Types in Call Stack</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">oldAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">age</span>;
+<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+</code></pre></div><ul>
+<li><code>let age = 30;</code>:
+<ol>
+<li>JavaScript engine creates a <strong>unique identifier</strong> with the variable name.</li>
+<li>The piece of memory will be allocated with a <strong>certain address</strong>, e.g. <code>0241</code>.</li>
+<li>Finally, the value <code>30</code> will be stored in memory at the specified address <code>0241</code>.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>The identifier points to the address, not the value itself.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>let oldAge = age;</code>:</p>
+<ol>
+<li><code>oldAge</code> simply points to the same memory address as the <code>age</code> variable</li>
+</ol>
+</li>
+<li>
+<p><code>age = 31;</code></p>
+<ol>
+<li>Certain memory address is immutable, so <strong>a new piece of memory is allocated</strong>.</li>
+<li>The <code>age</code> identifier now points to the new address, <code>0242</code> which holds the new value of <code>31</code>.</li>
+</ol>
+</li>
+</ul>
+<h3 id="the-process-reference-types-in-heap">The Process: Reference Types in Heap</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">oldAge</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">age</span>;
+<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tom</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Tom&#39;</span>,
+  <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>
+};
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">friend</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">tom</span>;
+
+<span style="color:#a6e22e">friend</span>.<span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">28</span>;
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Friend: &#39;</span>, <span style="color:#a6e22e">friend</span>);
+<span style="color:#75715e">// logs { name: &#39;Tom&#39;, age: 28 }
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Tom: &#39;</span>, <span style="color:#a6e22e">tom</span>);
+<span style="color:#75715e">// logs { name: &#39;Tom&#39;, age: 28 }
+</span></code></pre></div><ul>
+<li><code>const tom = { /.../ };</code>:
+<ol>
+<li>Stored in the heap with a memory address and the value itself.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>The object identifier (e.g. <code>tom</code>) does not point directly to the newly created memory address in the heap. Instead, <code>tom</code> will point to a new piece of memory that&rsquo;s created in the call stack. This new memory in the call stack has a specified address (<code>0243</code>) and a value. It&rsquo;s this <strong>value</strong> that points to the <strong>memory address in the heap</strong> to <em>reference</em> the value of the object.</p>
+</blockquote>
+<ul>
+<li>
+<p><code>const friend = tom;</code>:</p>
+<ol>
+<li><code>friend</code> identifier points to the same memory addrss as <code>john</code> identifier in the call stack.</li>
+<li>Again, that address contains the reference which points to the object stored in the heap.</li>
+</ol>
+</li>
+<li>
+<p><code>friend.age = 28;</code></p>
+<ol>
+<li><strong>The object stored in the heap changes its age value from 28 to 30.</strong></li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>Even if <code>tom</code> and <code>friend</code> were defined as <code>const</code>, we can still manipulate the object, because we are not changing the value in memory in the call stack. We are changing the reference in the heap. <code>const</code> are immutable for primitive values, but that&rsquo;s not always the case for reference values.</p>
+</blockquote>
+<p><strong>Rembmer</strong>, we are actually not just copying an object. We are creating a new variable that <em>points to the same object</em>.</p>
+]]></content>
+        </item>
         
         <item>
             <title>LeetCode: Add Two Numbers - medium</title>
@@ -462,13 +570,6 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">???</span>
 </code></pre></div><p> </p>
 <hr>
-<h2 id="what-is-the-dom">what is the DOM?</h2>
-<ul>
-<li>practice using a front-end library such as jQuery</li>
-<li>how do websites work?</li>
-<li>what are events?</li>
-<li>what is html? css?</li>
-</ul>
 ]]></content>
         </item>
         
@@ -478,7 +579,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
             <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
-            <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.   Scope The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</description>
+            <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</description>
             <content type="html"><![CDATA[<table>
 <thead>
 <tr>
@@ -489,23 +590,31 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <tbody>
 <tr>
 <td>Execution context</td>
-<td>Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.</td>
+<td>Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and <code>this</code> keyword.</td>
 </tr>
 <tr>
 <td>Call Stack</td>
 <td>Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</td>
 </tr>
 <tr>
+<td>Variable environment</td>
+<td>The environment/region in the code which refers to the variables declared in each execution context.</td>
+</tr>
+<tr>
 <td>Scope</td>
-<td>The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</td>
+<td>The space/environment where we can refer to a variable by name without getting access errors. There are 3 types of scopes: global scope, function scope, block scope</td>
+</tr>
+<tr>
+<td>Local Scope</td>
+<td>Variables declared inside a function scope are only accessible inside that function.</td>
 </tr>
 <tr>
 <td>Block Scope</td>
-<td>Refers to the scope of a variable declared inside any curly brackets: inside a function or loops or if statements.</td>
+<td>Refers to the scope of a variable declared inside any curly braces (e.g. a loop or if statement). <code>let</code> and <code>const</code> are block-scoped variables while <code>var</code> is function-scoped and accessible outside of the block. In strict mode, function are also block-scoped.</td>
 </tr>
 <tr>
 <td>Scope Chain</td>
-<td>Refers to the link between scopes: each function defined has its own nested scope, and any function defined in another function has a local scope which is linked to the outer function. Scope Chain helps the engine to know which value is assigned to a specific variable name if there are multiples of them defined at different scopes. When resolving a variable, inner functions first look at their own scope. If the variable cannot be found in its own scope it will climb up the scope chain and look for the variable name in the environment where the function was defined. At the top of the scope chain is the global scope: <code>window</code> object for the browser and <code>global</code> for NodeJS.</td>
+<td>Refers to the link between scopes: each function defined has its own nested scope, and any function defined in another function has a local scope which is linked to the outer function. Scope Chain helps the engine to know which value is assigned to a specific variable name if there are multiples of them defined at different scopes. When resolving a variable, inner functions first look at their own scope. If the variable cannot be found in its own scope it will climb up the scope chain and look for the variable name in the environment where the function was defined. This process is called <em>variable lookup</em>. At the top of the scope chain is the global scope: <code>window</code> object for the browser and <code>global</code> for NodeJS.</td>
 </tr>
 <tr>
 <td>Closure</td>
@@ -525,7 +634,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 </tr>
 <tr>
 <td><code>this</code></td>
-<td>An identifier for values designed to support object-oriented programming. When you invoke a method (function as object’s property) or a constructor function, <code>this</code> behaves like a parameter, referencing a likely-focal object. At the call time, look at the left of the dot notation. If there’s no dot specifying its binding, it’s bound to the global object as its default value.</td>
+<td>An identifier for values designed to support object-oriented programming, created for every execution context. When you invoke a method (function as object’s property) or a constructor function, <code>this</code> points to the object calling the method (At the call time, look at the left of the dot notation). In strict mode, <code>this</code> in &lsquo;normal&rsquo; functions will simply be <code>undefined</code>. But otherwise, it will point to the global object, which for browsers is the <code>global</code> object. For arrow functions, <code>this</code> becomes <strong>lexical</strong>, pointing to the value of <code>this</code> in the parent function.</td>
 </tr>
 <tr>
 <td><code>new</code></td>
@@ -590,7 +699,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
             <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-            <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
+            <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, Symbol, and BigInt   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
             <content type="html"><![CDATA[<table>
 <thead>
 <tr>
@@ -601,7 +710,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <tbody>
 <tr>
 <td>Value</td>
-<td>JavaScript has the <strong>scalar primitive types</strong> that are <strong>passed by value</strong>: <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>undefined</code>, <code>null</code>, and <code>Symbol</code></td>
+<td>JavaScript has the <strong>scalar primitive types</strong> that are <strong>passed by value</strong>: <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>undefined</code>, <code>null</code>, <code>Symbol</code>, and <code>BigInt</code></td>
 </tr>
 <tr>
 <td>Reference</td>

@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 10 Feb 2022 08:07:05 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 16:52:11 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memory Management of Primitives vs. References</title>
+      <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
+      <pubDate>Sun, 13 Feb 2022 16:52:11 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</guid>
+      <description>Define Primitives: number, string, Boolean, undefined, null, symbol and BigInt.
+References: objects (object literal, arrays, functions)
+Memory Management JavaScript engine has two components:
+ The call stack where functions are executed  All primitive types are stored in the call stack, as that&amp;rsquo;s where the execution context runs.   The heap where objects are stored in memory  All reference types (object) get stored in the memory heap.    The Process: Primitive Types in Call Stack let age = 30; let oldAge = age; age = 31;  let age = 30;:  JavaScript engine creates a unique identifier with the variable name.</description>
+    </item>
+    
     <item>
       <title>JavaScript Revision 3</title>
       <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</link>
@@ -26,7 +38,7 @@
       <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
-      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.   Scope The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</description>
+      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</description>
     </item>
     
     <item>
@@ -35,7 +47,7 @@
       <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-      <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
+      <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, Symbol, and BigInt   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
     </item>
     
     <item>
@@ -101,16 +113,6 @@ Recursive function always come with a function inside. With 2 minimum cases insi
 Each object has a private property which holds a link to another object called prototype.
  i.e. JavaScript objects have a link to a prototype object.
  The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain.</description>
-    </item>
-    
-    <item>
-      <title>Functional Classes</title>
-      <link>https://haleyjung.github.io/posts/2022/01/functional-classes/</link>
-      <pubDate>Wed, 26 Jan 2022 11:20:29 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/functional-classes/</guid>
-      <description>Decorator Pattern var Car = function (loc) { var obj = { loc: loc }; ob.mov = function() { // Decorator pattern: creates a new function for every function call  obj.loc++; }; }; var amy = Car(1); amy.move(); var ben = Car(9); ben.move(); Functional Class Pattern with Shared Methods &amp;hellip;or Functional-Shared Pattern
-var Car = function (loc) { var obj = { loc: loc }; ob.mov = move; return obj; }; var move = function() { this.</description>
     </item>
     
   </channel>

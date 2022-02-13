@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 12 Feb 2022 10:46:58 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Feb 2022 16:52:11 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memory Management of Primitives vs. References</title>
+      <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
+      <pubDate>Sun, 13 Feb 2022 16:52:11 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</guid>
+      <description>Define Primitives: number, string, Boolean, undefined, null, symbol and BigInt.
+References: objects (object literal, arrays, functions)
+Memory Management JavaScript engine has two components:
+ The call stack where functions are executed  All primitive types are stored in the call stack, as that&amp;rsquo;s where the execution context runs.   The heap where objects are stored in memory  All reference types (object) get stored in the memory heap.    The Process: Primitive Types in Call Stack let age = 30; let oldAge = age; age = 31;  let age = 30;:  JavaScript engine creates a unique identifier with the variable name.</description>
+    </item>
+    
     <item>
       <title>LeetCode: Add Two Numbers - medium</title>
       <link>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</link>
@@ -47,7 +59,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
       <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
-      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.   Scope The regions in the code where we can refer to a variable by name without getting access errors; Defining a function creates a new lexical scope.</description>
+      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</description>
     </item>
     
     <item>
@@ -56,7 +68,7 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
       <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-      <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
+      <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, Symbol, and BigInt   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
     </item>
     
     <item>
@@ -99,15 +111,6 @@ Interpreted / Just-in-time Compiled Language The JavaScript code we write is a h
       <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
 It consists of 3 components in the format of X.Y.Z
 X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
-    </item>
-    
-    <item>
-      <title>Systems</title>
-      <link>https://haleyjung.github.io/posts/2022/02/systems/</link>
-      <pubDate>Fri, 04 Feb 2022 00:31:44 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/systems/</guid>
-      <description>Webpage Rendering  HTML is received from the server and processed into the DOM. The styles are loaded and parsed into the CSSOM. The render tree is created using the DOM and CSSOM. The browser creates a layout for each render tree element with its individual coordinates using the flow method, which requires just one pass to layout all the elements, compared to the tables method that requires more than one pass.</description>
     </item>
     
   </channel>
