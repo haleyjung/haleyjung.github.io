@@ -16,8 +16,9 @@
       <guid>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</guid>
       <description>Define Primitives: number, string, Boolean, undefined, null, symbol and BigInt.
 References: objects (object literal, arrays, functions)
-Memory Management JavaScript engine has two components:
- The call stack where functions are executed  All primitive types are stored in the call stack, as that&amp;rsquo;s where the execution context runs.   The heap where objects are stored in memory  All reference types (object) get stored in the memory heap.    The Process: Primitive Types in Call Stack let age = 30; let oldAge = age; age = 31;  let age = 30;:  JavaScript engine creates a unique identifier with the variable name.</description>
+A side note on Numbers Numbers in JavaScript are treated with a floating point precision!
+Qs. What will the code below output? Explain your answer.
+console.log(0.1 + 0.2); console.log(0.1 + 0.2 = 0.3); &amp;ldquo;You can&amp;rsquo;t be sure. It might print out 0.3 and true, or not. Numbers in JavaScript are all treated with floating point precision, and as much, may not always yield the expected results.</description>
     </item>
     
     <item>
