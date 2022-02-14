@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 13 Feb 2022 16:52:11 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 01:08:55 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asynchronous vs Synchronous Programming</title>
+      <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
+      <pubDate>Mon, 14 Feb 2022 01:08:55 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</guid>
+      <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
+  Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
+console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
+    </item>
+    
     <item>
       <title>Memory Management of Primitives vs. References</title>
       <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
@@ -102,18 +113,6 @@ The topmost node is the root node of the DOM tree, Document, which has two child
       <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
       <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
 Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
-    </item>
-    
-    <item>
-      <title>Prototype &amp; Class Patterns</title>
-      <link>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</link>
-      <pubDate>Thu, 27 Jan 2022 07:29:36 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/prototype-class-patterns/</guid>
-      <description>Prototype Chains JavaScript has only one constructor, objects.
-Each object has a private property which holds a link to another object called prototype.
- i.e. JavaScript objects have a link to a prototype object.
- The prototype object has a prototype of its own, and so on until the object is reached with null as its prototype (i.e. no prototype). This acts as the final link in the prototype chain.</description>
     </item>
     
   </channel>

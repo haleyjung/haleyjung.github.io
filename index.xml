@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 13 Feb 2022 16:52:11 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 01:08:55 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Asynchronous vs Synchronous Programming</title>
+      <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
+      <pubDate>Mon, 14 Feb 2022 01:08:55 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</guid>
+      <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
+  Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
+console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
+    </item>
+    
     <item>
       <title>Memory Management of Primitives vs. References</title>
       <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
@@ -101,17 +112,6 @@ Interpreted / Just-in-time Compiled Language The JavaScript code we write is a h
       
       <guid>https://haleyjung.github.io/posts/2022/02/sql/</guid>
       <description>What is it?  SQL: Structured Query Language Lets us access and manipulate databases, such as:  executing queries against a database retrieving data from a database inserting a record in a database updating records in a database deleting records from a database creating new databases creating new tables in a database creating stored procedures in a database creating views in a database setting permissions on tables, procedures, and views    Major Commands  These are not case sensitive   SELECT - extracts data from a database FROM - specifies the parent database WHERE - filters records according to the given condition  &amp;lt;&amp;gt; or !</description>
-    </item>
-    
-    <item>
-      <title>Semantic Versioning</title>
-      <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
-      <pubDate>Sat, 05 Feb 2022 10:48:06 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</guid>
-      <description>Semantic Versioning (SemVer) A versioning system for software releases, such as new plugins, addons, libraries, and extensions.
-It consists of 3 components in the format of X.Y.Z
-X: Major Version  When the major version number is increased, the minor and patch version numbers are reset to zero. Increasing the major number breaks the existing API.  Y: Minor Version  Minor version indicates the release of new functionality in the system (when implementing new features in a backwards-incompatible way).</description>
     </item>
     
   </channel>

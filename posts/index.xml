@@ -6,8 +6,116 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 13 Feb 2022 16:52:11 -0500</lastBuildDate>
+        <lastBuildDate>Mon, 14 Feb 2022 01:08:55 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Asynchronous vs Synchronous Programming</title>
+            <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
+            <pubDate>Mon, 14 Feb 2022 01:08:55 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</guid>
+            <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
+  Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
+console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>By <em>default</em>, JavaScript is a** synchronous, blocking, single-threaded** language</p>
+</blockquote>
+<ul>
+<li>Synchronous: executing one thing at a time</li>
+<li>Single-threaded: executing the code line by line</li>
+</ul>
+<h2 id="issue-of-being-synchronous">Issue of Being Synchronous</h2>
+<p>When we are working on a big application with a lot of server requests, being synchronous will slow down the application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Start&#34;</span>)
+
+ <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">20</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">i</span>)
+ }
+ <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;End&#34;</span>)
+ <span style="color:#75715e">/* Start
+</span><span style="color:#75715e"> 0
+</span><span style="color:#75715e"> 1
+</span><span style="color:#75715e"> 2
+</span><span style="color:#75715e"> 3
+</span><span style="color:#75715e"> 4
+</span><span style="color:#75715e"> ...
+</span><span style="color:#75715e"> 18
+</span><span style="color:#75715e"> 19
+</span><span style="color:#75715e"> End */</span>
+</code></pre></div><h2 id="solution-asynchrnous-model-of-programmingmulti-threaded">Solution: Asynchrnous Model of Programming/Multi-Threaded</h2>
+<p>With an asynchronous model, JavaScript can perform multiple tasks simultaneously; we don&rsquo;t need to wait for the current execution to finish before moving on to the next one.</p>
+<p>JavaScript can be manipulated to behave in asynchronously with <strong>Async/Await</strong>, <strong>Promises</strong>, and <strong>Callbacks</strong>.</p>
+<blockquote>
+<p>JavaScript is <em>also</em> an <strong>asynchronous, non-blocking, multi-threaded</strong> language.</p>
+</blockquote>
+<h2 id="behind-the-scene-of-asynchronous-code">Behind the Scene of Asynchronous Code</h2>
+<ul>
+<li>JavaScript engines have Web APIs that are responsible for handling the asynchronous code in the background.</li>
+<li>The call stack recognizes functions like Async/Await, <code>setTimeout()</code> of the Web API, and they are passed to be handled by the browser.</li>
+<li>Once those tasks are finished by the browser, they return and are pushed onto the stack as a callback.</li>
+</ul>
+<h3 id="example-settimeout">Example: <code>setTimeout()</code></h3>
+<p><code>setTimeout()</code> delays the execution of a function.</p>
+<p>The first argument is the callback function and the other is the time in milliseconds.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Start&#34;</span>);
+
+<span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Middle&#34;</span>);
+}, <span style="color:#ae81ff">1000</span>)
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;End&#34;</span>);
+
+<span style="color:#75715e">// Output:
+</span><span style="color:#75715e">// Start
+</span><span style="color:#75715e">// End
+</span><span style="color:#75715e">// Middle
+</span></code></pre></div><ol>
+<li>First on the stack: <code>console.log(&quot;Start&quot;);</code></li>
+<li>🔔 The engine notices <code>setTimeout()</code>, but this is handled <strong>asynchronously</strong> by the <strong>Web API</strong>, not by JavaScript!</li>
+<li>The call stack skips this code block handed off to the Web API, moving on to <code>console.log(&quot;End&quot;);</code>.</li>
+</ol>
+<ul>
+<li><code>setTimeout()</code> will be logged after <code>End</code> even if the time interval is changed to zero seconds.</li>
+<li>This process of skipping the asynchrnous code block and moving on to the next line of code without blocking the execution of code makes JavaScript <strong>Non-Blocking</strong>.</li>
+</ul>
+<h2 id="callbakcs">Callbakcs</h2>
+<ul>
+<li>Callback is a function that is is passed as an argument to another function.</li>
+<li>Its execution is delayed until that function in which it is passed is executed.</li>
+<li>Callbacks are a fundamental part of Functional Programming.</li>
+<li>Useful for short asynchronous operations where two or max. three nested callbacks are used.</li>
+<li>Methods like <code>.map()</code>, <code>.filter()</code>, and <code>.reduce()</code> uses callback functions.</li>
+</ul>
+<h3 id="anonymous-callback-function">Anonymous Callback Function</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>];
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">elem</span> =&gt; {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">elem</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">elem</span>;
+})
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">newArr</span>);
+</code></pre></div><h3 id="named-callback-function">Named Callback Function</h3>
+<ul>
+<li>By making a new function with the same logic, <code>square()</code>, and referencing it inside <code>.map()</code></li>
+<li>Note: <code>square()</code> is passed as an <strong>argument</strong> inside <code>.map()</code>; it&rsquo;s not being called! That&rsquo;s why it&rsquo;s <code>arr.map(square);</code> and not <code>arr.map(square());</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>];
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">square</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">num</span>) =&gt; { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span><span style="color:#f92672">*</span><span style="color:#a6e22e">num</span> };
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">square</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">newArr</span>);
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://eloquentjavascript.net/11_async.html">&ldquo;Chapter 11: Asynchrnous Programming&rdquo;, Eloquent JavaScript</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">&ldquo;async function&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://betterprogramming.pub/understanding-async-await-in-javascript-1d81bb079b2c">Gokul N K, &ldquo;Understanding async-await in JavaScript&rdquo;, Better Programming, July 20, 2018.</a></p>
+<p><a href="https://html.spec.whatwg.org/multipage/webappapis.html#task-queue">&ldquo;HTML: Living Standard&rdquo;</a></p>
+<p><a href="https://betterprogramming.pub/callbacks-vs-promises-in-javascript-1f074e93a3b5">jsmanifest, &ldquo;Callbacks vs. Promises in JavaScript&rdquo;, Medium, December 3, 2019.</a></p>
+<p><a href="https://medium.com/swlh/synchronous-vs-asynchronous-programming-1bfef19f032c">Singh, Ashutosh K. &ldquo;Synchronous vs Asynchronous Programming,&rdquo; Medium, September 12, 2020.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Memory Management of Primitives vs. References</title>
