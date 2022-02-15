@@ -47,7 +47,7 @@ console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i&#43;&#43;)
   Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
 console.log(&#34;Start&#34;) for (let i = 0; i &lt; 20; i&#43;&#43;) { console.log(i) } console.log(&#34;End&#34;) /* Start 0 1 2 3 4 ."><meta itemprop="datePublished" content="2022-02-14T01:08:55-05:00" />
 <meta itemprop="dateModified" content="2022-02-14T01:08:55-05:00" />
-<meta itemprop="wordCount" content="503"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="526"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
@@ -167,7 +167,8 @@ console.log(&#34;Start&#34;) for (let i = 0; i &lt; 20; i&#43;&#43;) { console.l
     <li><a href="#solution-asynchrnous-model-of-programmingmulti-threaded">Solution: Asynchrnous Model of Programming/Multi-Threaded</a></li>
     <li><a href="#behind-the-scene-of-asynchronous-code">Behind the Scene of Asynchronous Code</a>
       <ul>
-        <li><a href="#example-settimeout">Example: <code>setTimeout()</code></a></li>
+        <li><a href="#example-1-settimeout">Example 1: <code>setTimeout()</code></a></li>
+        <li><a href="#example-2-addeventlistener">Example 2: <code>addEventListener()</code></a></li>
       </ul>
     </li>
     <li><a href="#callbakcs">Callbakcs</a>
@@ -222,7 +223,7 @@ console.log(&#34;Start&#34;) for (let i = 0; i &lt; 20; i&#43;&#43;) { console.l
 <li>The call stack recognizes functions like Async/Await, <code>setTimeout()</code> of the Web API, and they are passed to be handled by the browser.</li>
 <li>Once those tasks are finished by the browser, they return and are pushed onto the stack as a callback.</li>
 </ul>
-<h3 id="example-settimeout">Example: <code>setTimeout()</code></h3>
+<h3 id="example-1-settimeout">Example 1: <code>setTimeout()</code></h3>
 <p><code>setTimeout()</code> delays the execution of a function.</p>
 <p>The first argument is the callback function and the other is the time in milliseconds.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Start&#34;</span>);
@@ -246,7 +247,14 @@ console.log(&#34;Start&#34;) for (let i = 0; i &lt; 20; i&#43;&#43;) { console.l
 <li><code>setTimeout()</code> will be logged after <code>End</code> even if the time interval is changed to zero seconds.</li>
 <li>This process of skipping the asynchrnous code block and moving on to the next line of code without blocking the execution of code makes JavaScript <strong>Non-Blocking</strong>.</li>
 </ul>
-<h2 id="callbakcs">Callbakcs</h2>
+<h3 id="example-2-addeventlistener">Example 2: <code>addEventListener()</code></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">window.<span style="color:#a6e22e">onload</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  document.<span style="color:#a6e22e">querySelector</span>(<span style="color:#e6db74">&#34;callback-btn&#34;</span>)
+    .<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;click&#34;</span>, <span style="color:#66d9ef">function</span>() { <span style="color:#75715e">// callback fn
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;User has clicked on the button!&#34;</span>);
+    });
+}
+</code></pre></div><h2 id="callbakcs">Callbakcs</h2>
 <ul>
 <li>Callback is a function that is is passed as an argument to another function.</li>
 <li>Its execution is delayed until that function in which it is passed is executed.</li>
@@ -306,7 +314,7 @@ console.log(&#34;Start&#34;) for (let i = 0; i &lt; 20; i&#43;&#43;) { console.l
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        503 Words
+        526 Words
       </p>
 
       <p>

@@ -61,8 +61,8 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</guid>
       <description>1. Fundamental Concept Value
  JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol Values are stored in variables, a named unit of data  Reference
- JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.    2. Higher Order Functions / Callback Functions Higher Order Function
- A function that accepts functions as parameters and/or returns a function.</description>
+ JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.  Hoisting
+ A JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</description>
     </item>
     
     <item>
