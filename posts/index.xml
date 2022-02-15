@@ -6,8 +6,152 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 14 Feb 2022 01:08:55 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 15 Feb 2022 00:03:42 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Promises</title>
+            <link>https://haleyjung.github.io/posts/2022/02/promises/</link>
+            <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
+            <description>Promise  Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code. There are 3 PromiseStates: pending, fulfilled, and rejected  For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</description>
+            <content type="html"><![CDATA[<h2 id="promise">Promise</h2>
+<ul>
+<li>Promise is an <strong>object</strong> that returns a value in the future.</li>
+<li>It represents the an eventual completion or failures of an asynchronous operation.</li>
+<li>If a function cannot return a value or throw an exception without blocking, it can return a promise instead.</li>
+<li>Use promise whenever we are using async or blocking code.</li>
+<li>There are 3 <em>PromiseStates</em>: <strong>pending</strong>, <strong>fulfilled</strong>, and <strong>rejected</strong>
+<ul>
+<li>For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</li>
+</ul>
+</li>
+<li><code>resolve</code> maps to <code>then</code> and <code>reject</code> maps to <code>catch</code>
+<ul>
+<li><code>.then()</code> if resolved</li>
+<li><code>.catch()</code> if rejected</li>
+<li>If something needs to be done in both cases use <code>.finally</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="promises-vs-callbacks">Promises vs Callbacks</h2>
+<ul>
+<li>You can achieve results from performing asynchronous operations using the callback approach or by using promises.</li>
+<li>Unlike callbacks where you pass a callback into a function, with promise you <strong>attach callbacks on the returned promise object</strong>.</li>
+<li>The common issue for using the callback approach is that when we perform multiple asynchronous operations simultaneously, we can easily end up with <strong>callback hell</strong>. With promises, we can use <code>.then()</code> method to chain the codes at the root of the first handler.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">//Callbacks:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMoneyBack</span>(<span style="color:#a6e22e">money</span>, <span style="color:#a6e22e">callback</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">money</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+    <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;money is not a number&#39;</span>));
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">money</span>);
+  }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">money</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getMoneyBack</span>(<span style="color:#ae81ff">1200</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">money</span>);
+
+<span style="color:#75715e">// Promises:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMoneyBack</span>(<span style="color:#a6e22e">money</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">money</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+      <span style="color:#a6e22e">reject</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;money is not a number&#39;</span>))
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">resolve</span>(<span style="color:#a6e22e">money</span>);
+    }
+  });
+}
+
+<span style="color:#a6e22e">getMoneyBack</span>(<span style="color:#ae81ff">1200</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">money</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">money</span>);
+}
+</code></pre></div><h2 id="creating-promise">Creating Promise</h2>
+<blockquote>
+<p><code>new Promise(function(resolve, reject) =&gt; { ... });</code></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">myPromise</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Promise((<span style="color:#a6e22e">resolve</span>, <span style="color:#a6e22e">reject</span>) {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">connection</span>) {
+    <span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#39;Connection established&#39;</span>);
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#a6e22e">reject</span>(<span style="color:#e6db74">&#39;Connection refused&#39;</span>);
+  }
+});
+
+<span style="color:#75715e">// if resolved
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">myPromise</span>.<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">message</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">message</span>);
+<span style="color:#75715e">// if rejected
+</span><span style="color:#75715e"></span>}).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">message</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">message</span>);
+});
+</code></pre></div><h2 id="promise-chaining">Promise Chaining</h2>
+<ul>
+<li>Useful when we need to execute a chain of asynchronous tasks.</li>
+<li>Each task that’s being chained can only start as soon as the previous task has completed, controlled by the <code>.then()</code> method of the chain.</li>
+<li>Each promise represents the completion of another asynchronous step in the chain.</li>
+</ul>
+<h2 id="promise-prototype-methods">Promise Prototype Methods</h2>
+<ol>
+<li><code>Promise.prototype.then(onFullfilled, onRejected)</code>: to schedule a callback to be executed when the promise is successfully resolved</li>
+<li><code>Promise.prototype.catch(onRejected)</code>: if you want to schedule a callback to be executed when the promise is rejected</li>
+<li><code>Promise.prototype.finally(onFinally)</code>: to executed the same piece of code whether the promise is fulfilled or rejected.</li>
+</ol>
+<h2 id="promise-helper-functions">Promise Helper Functions</h2>
+<ol>
+<li><code>Promise.all(iterable)</code>: to accumulate a batch of asynchronous operations and receive each of their values as an array; promise rejects with an error if at least one of the operations failed; used if multiple asyncrhonous tasks are <strong>dependent</strong> on each other.</li>
+<li><code>Promise.race(iterable)</code>: returns a promise that either fulfills or rejects whenever one of the promises in an iterable resolves or rejects with either the value or the reason from that promise.</li>
+<li><code>Promise.allSettled(iterable)</code>: returns a promise that resolves after all of the given promises have either fulfilled or rejected, with an array of objects that each describes the outcome of each promise; used when multiple asynchronous tasks are <strong>not dependent</strong> on one another to complete successfully.</li>
+<li><code>Promise.any(iterable)</code>: takes an iterable of <code>Promise</code> objects and returns a single promise that resolves as soon as any of the promises in the iterable fulfills, with the value of the fulfilled promise.</li>
+</ol>
+<h2 id="promise-to-asyncawait">Promise to async/await</h2>
+<p><strong>await</strong>: wait for the promise to resolve; only works for asynchronous functions</p>
+<p>Just using promises and its methods:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">wordnikAPI</span>) <span style="color:#75715e">// fetch returns a promise
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()) <span style="color:#75715e">// .json returns a promise
+</span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">json</span> =&gt; {
+    <span style="color:#a6e22e">createP</span>(<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">word</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">giphyAPI</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">word</span>); <span style="color:#75715e">// return to chain promises!
+</span><span style="color:#75715e"></span>  })
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>())
+  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">json</span> =&gt; {
+    <span style="color:#a6e22e">createImg</span>(<span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">images</span>[<span style="color:#e6db74">&#39;fixed_height_small&#39;</span>].<span style="color:#a6e22e">url</span>);
+  })
+  .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>));
+</code></pre></div><p>Converting the code above using <code>async</code> and <code>await</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setup</span>() {
+  <span style="color:#a6e22e">noCanvas</span>();
+  <span style="color:#a6e22e">wordGIF</span>().
+    <span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">results</span> =&gt; {
+      <span style="color:#a6e22e">createP</span>(<span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">word</span>);
+      <span style="color:#a6e22e">createImg</span>(<span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">img</span>);
+    }).
+    <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#a6e22e">err</span>));
+}
+
+<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">wordGIF</span>() {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">response1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">wordnikAPI</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">json1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response1</span>.<span style="color:#a6e22e">json</span>();
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">response2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">giphyAPI</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">json1</span>.<span style="color:#a6e22e">word</span>);
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">json2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response2</span>.<span style="color:#a6e22e">json</span>();
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">img_url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">json2</span>.<span style="color:#a6e22e">data</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">images</span>[<span style="color:#e6db74">&#39;fixed_height_small&#39;</span>].<span style="color:#a6e22e">url</span>;
+
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">word</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">json1</span>.<span style="color:#a6e22e">word</span>,
+    <span style="color:#a6e22e">img</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">img_url</span>
+  }
+}
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://html.spec.whatwg.org/multipage/webappapis.html#task-queue">&ldquo;HTML: Living Standard&rdquo;</a></p>
+<p><a href="https://promisesaplus.com/">&ldquo;Promises/A+&quot;</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">&ldquo;Promise&rdquo;, MDN Web Docs</a></p>
+<p><a href="https://medium.com/swlh/understanding-promises-in-javascript-e55511e38134">Sonawane, Prasad. &ldquo;Understanding Promises in Javascript&rdquo;, Medium, November 1, 2020.</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">&ldquo;Using Promises&rdquo;, MDN Web Docs</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Asynchronous vs Synchronous Programming</title>

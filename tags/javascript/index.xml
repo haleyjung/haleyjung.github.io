@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 14 Feb 2022 01:08:55 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 00:03:42 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Promises</title>
+      <link>https://haleyjung.github.io/posts/2022/02/promises/</link>
+      <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
+      <description>Promise  Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code. There are 3 PromiseStates: pending, fulfilled, and rejected  For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</description>
+    </item>
+    
     <item>
       <title>Asynchronous vs Synchronous Programming</title>
       <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
@@ -103,16 +112,6 @@ To read from JSON, we need to first use fs to read in the file as text(strings) 
       <guid>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</guid>
       <description>What is Node? Nodes in the DOM are elements from the HTML page, which are organized in a hiearchical tree-like structure consisting of parents and children. Elements such as &amp;lt;p&amp;gt;, &amp;lt;div&amp;gt;, &amp;lt;section&amp;gt; are considered as &amp;ldquo;element&amp;rdquo; nodes while comments are &amp;ldquo;comment&amp;rdquo; nodes, &amp;ldquo;text&amp;rdquo; objects and line-breaks are &amp;ldquo;text&amp;rdquo; nodes. Every HTML element is a node, but not every node is an HTML element.
 The topmost node is the root node of the DOM tree, Document, which has two children: &amp;lt;!</description>
-    </item>
-    
-    <item>
-      <title>Recursion</title>
-      <link>https://haleyjung.github.io/posts/2022/01/recursion/</link>
-      <pubDate>Sun, 30 Jan 2022 01:12:59 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/recursion/</guid>
-      <description>Definition Recursion is a technique for solving problems wherein a function makes calls to itself. By doing so, it can complete a small amount of the processing, and delegate the rest of the problem to the recursive calls.
-Recursive function always come with a function inside. With 2 minimum cases inside: a base case, and a recursive case. The base case is the situation or condition where we don&amp;rsquo;t need to recursively invoke the function and is safe to assume that that function can end easily.</description>
     </item>
     
   </channel>

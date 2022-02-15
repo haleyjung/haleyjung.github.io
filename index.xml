@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 14 Feb 2022 01:08:55 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Feb 2022 00:03:42 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Promises</title>
+      <link>https://haleyjung.github.io/posts/2022/02/promises/</link>
+      <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
+      <description>Promise  Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code. There are 3 PromiseStates: pending, fulfilled, and rejected  For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</description>
+    </item>
+    
     <item>
       <title>Asynchronous vs Synchronous Programming</title>
       <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
@@ -103,15 +112,6 @@ The call stack is where execution contexts get stacked on top of each other to k
       <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
 Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
 Interpreted / Just-in-time Compiled Language The JavaScript code we write is a human-readable abstraction over machine code, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
-    </item>
-    
-    <item>
-      <title>SQL</title>
-      <link>https://haleyjung.github.io/posts/2022/02/sql/</link>
-      <pubDate>Sun, 06 Feb 2022 12:20:12 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/sql/</guid>
-      <description>What is it?  SQL: Structured Query Language Lets us access and manipulate databases, such as:  executing queries against a database retrieving data from a database inserting a record in a database updating records in a database deleting records from a database creating new databases creating new tables in a database creating stored procedures in a database creating views in a database setting permissions on tables, procedures, and views    Major Commands  These are not case sensitive   SELECT - extracts data from a database FROM - specifies the parent database WHERE - filters records according to the given condition  &amp;lt;&amp;gt; or !</description>
     </item>
     
   </channel>
