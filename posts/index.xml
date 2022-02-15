@@ -103,13 +103,31 @@
 <h2 id="promise-helper-functions">Promise Helper Functions</h2>
 <ol>
 <li><code>Promise.all(iterable)</code>: to accumulate a batch of asynchronous operations and receive each of their values as an array; promise rejects with an error if at least one of the operations failed; used if multiple asyncrhonous tasks are <strong>dependent</strong> on each other.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">setup</span>() {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">promises</span> <span style="color:#f92672">=</span> [<span style="color:#a6e22e">wordGIF</span>(<span style="color:#ae81ff">3</span>), <span style="color:#a6e22e">wordGIF</span>(<span style="color:#ae81ff">4</span>), <span style="color:#a6e22e">wordGIT</span>(<span style="color:#ae81ff">5</span>)];
+  Promise.<span style="color:#a6e22e">all</span>(<span style="color:#a6e22e">promises</span>)
+    .<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">results</span>) =&gt; {
+      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+        <span style="color:#a6e22e">createP</span>(<span style="color:#a6e22e">results</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">word</span>);
+        <span style="color:#a6e22e">createImg</span>(<span style="color:#a6e22e">results</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">img</span>);
+      }
+    })
+    .<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">err</span>) =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>));
+}
+</code></pre></div><ol start="2">
 <li><code>Promise.race(iterable)</code>: returns a promise that either fulfills or rejects whenever one of the promises in an iterable resolves or rejects with either the value or the reason from that promise.</li>
 <li><code>Promise.allSettled(iterable)</code>: returns a promise that resolves after all of the given promises have either fulfilled or rejected, with an array of objects that each describes the outcome of each promise; used when multiple asynchronous tasks are <strong>not dependent</strong> on one another to complete successfully.</li>
 <li><code>Promise.any(iterable)</code>: takes an iterable of <code>Promise</code> objects and returns a single promise that resolves as soon as any of the promises in the iterable fulfills, with the value of the fulfilled promise.</li>
 </ol>
 <h2 id="promise-to-asyncawait">Promise to async/await</h2>
+<p>An async function is a function declared with the async keyword, and the await keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.</p>
 <p><strong>await</strong>: wait for the promise to resolve; only works for asynchronous functions</p>
-<p>Just using promises and its methods:</p>
+<p>Syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">name</span>([<span style="color:#a6e22e">param</span>[, <span style="color:#a6e22e">param</span>[, ...<span style="color:#a6e22e">param</span>]]]) {
+   <span style="color:#a6e22e">statements</span>
+}
+</code></pre></div><p>Just using promises and its methods:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">wordnikAPI</span>) <span style="color:#75715e">// fetch returns a promise
 </span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()) <span style="color:#75715e">// .json returns a promise
 </span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">json</span> =&gt; {
@@ -145,10 +163,12 @@
   }
 }
 </code></pre></div><h2 id="references">References</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">&ldquo;async function&rdquo;, MDN Web Docs</a></p>
 <p><a href="https://html.spec.whatwg.org/multipage/webappapis.html#task-queue">&ldquo;HTML: Living Standard&rdquo;</a></p>
 <p><a href="https://promisesaplus.com/">&ldquo;Promises/A+&quot;</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">&ldquo;Promise&rdquo;, MDN Web Docs</a></p>
 <p><a href="https://medium.com/swlh/understanding-promises-in-javascript-e55511e38134">Sonawane, Prasad. &ldquo;Understanding Promises in Javascript&rdquo;, Medium, November 1, 2020.</a></p>
+<p><a href="https://www.youtube.com/watch?v=vn3tm0quoqE">Fireship, &ldquo;The Async Await Episode I Promised&rdquo;, YouTube, October 11, 2018.</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">&ldquo;Using Promises&rdquo;, MDN Web Docs</a></p>
 ]]></content>
         </item>
