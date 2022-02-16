@@ -6,8 +6,119 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 15 Feb 2022 00:03:42 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 16 Feb 2022 09:01:36 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>The Event Loop</title>
+            <link>https://haleyjung.github.io/posts/2022/02/the-event-loop/</link>
+            <pubDate>Wed, 16 Feb 2022 09:01:36 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/the-event-loop/</guid>
+            <description>JavaScript Runtime &amp;amp; Web API console.log(&amp;#34;Start script&amp;#34;); setTimeout(() =&amp;gt; { task(&amp;#34;Download a file&amp;#34;); }, 1000); console.log(&amp;#34;Done&amp;#34;); /* output: Start script Done Download a file */  setTimeout(), fetch requests, and DOM events (such as clicking a button) are parts of the Web APIs of the web browser. These operations can be performed concurrently and asynchronously.
+  When setTimeout() function is called, the JavaScript engine places it on the call stack &amp;amp; the Web API creates a timer that expires in 1 second.</description>
+            <content type="html"><![CDATA[<h2 id="javascript-runtime--web-api">JavaScript Runtime &amp; Web API</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Start script&#34;</span>);
+
+<span style="color:#a6e22e">setTimeout</span>(() =&gt; {
+  <span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#34;Download a file&#34;</span>);
+}, <span style="color:#ae81ff">1000</span>);
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Done&#34;</span>);
+
+<span style="color:#75715e">/* output:
+</span><span style="color:#75715e">Start script
+</span><span style="color:#75715e">Done
+</span><span style="color:#75715e">Download a file */</span>
+</code></pre></div><blockquote>
+<p><code>setTimeout()</code>, fetch requests, and DOM events (such as clicking a button) are parts of the Web APIs of the web browser. These operations can be performed concurrently and asynchronously.</p>
+</blockquote>
+<ol>
+<li>When <code>setTimeout()</code> function is called, the JavaScript engine places it on the call stack &amp; the Web API creates a timer that expires in 1 second.</li>
+<li>The JavaScript engine places the <code>task()</code> function into the <strong>callback queue</strong> (also called a task queue).</li>
+<li><strong>The event loop is constantly running process that monitors both the callback queue and the call stack.</strong></li>
+<li>If the call stack is not empty, the event loop waits until it is empty and places the next function from the callback queue to the call stack. If the callback queue is empty, nothing happens.</li>
+</ol>
+<p><img src="https://www.javascripttutorial.net/wp-content/uploads/2019/12/javascript-event-loop.png" alt="An illustration of JavaScript runtime, Web API, Call stack, and Event Loop"></p>
+<h3 id="stack">Stack</h3>
+<ul>
+<li>Function calls form a stack of frames: The Call Statck!</li>
+</ul>
+<h3 id="heap">Heap</h3>
+<ul>
+<li>Objects get stored in the heap with a specific memory address and its value</li>
+</ul>
+<h3 id="queue">Queue</h3>
+<ul>
+<li>A list of messages to be processed.</li>
+<li>Each message has an associated function that gets called to handle the message.</li>
+<li>The functions are processed until the call stack is empty. Then, the event loop will process the next message in the queue if there&rsquo;s one.</li>
+</ul>
+<h2 id="the-event-loop">The Event Loop</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">waitForMessage</span>()) {
+  <span style="color:#a6e22e">queue</span>.<span style="color:#a6e22e">processNextMessage</span>();
+}
+</code></pre></div><ul>
+<li>Responsible for executing the code, collecting and processing events, and executing queued sub-tasks.</li>
+<li>Allows Node.js to perform <strong>non-blocking I/O operations</strong>, despite JavaScript being a single-threaded language, by offloading operations to the system kernel whenever possible.</li>
+<li>Handling I/O is typically performed via events and callbacks, so when the application is waiting for an IndexedDB query to return or an XHR request to return, it can still process other things like user input.</li>
+</ul>
+<p><img src="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop/the_javascript_runtime_environment_example.svg" alt="A Theoretical Model of the JavaScript Engine"></p>
+<h3 id="order-of-operations">Order of Operations</h3>
+<p>A simplified overview of the event loop&rsquo;s order of operations from <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop">nodejs.org</a></p>
+<pre tabindex="0"><code>   ┌───────────────────────────┐
+┌─&gt;│           timers          │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │     pending callbacks     │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │       idle, prepare       │
+│  └─────────────┬─────────────┘      ┌───────────────┐
+│  ┌─────────────┴─────────────┐      │   incoming:   │
+│  │           poll            │&lt;─────┤  connections, │
+│  └─────────────┬─────────────┘      │   data, etc.  │
+│  ┌─────────────┴─────────────┐      └───────────────┘
+│  │           check           │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+└──┤      close callbacks      │
+   └───────────────────────────┘
+
+</code></pre><ul>
+<li><strong>timers</strong>: this phase executes callbacks scheduled by <code>setTimeout()</code> and <code>setInterval()</code>.</li>
+<li><strong>pending callbacks</strong>: executes I/O callbacks deferred to the next loop iteration.</li>
+<li><strong>idle, prepare</strong>: only used internally.</li>
+<li><strong>poll</strong>: retrieve new I/O events &amp; execute I/O related callbacks
+<ul>
+<li>almost all with the exception of close callbacks, the ones scheduled by timers, and <code>setImmediate()</code></li>
+<li>node will block here when appropriate.</li>
+</ul>
+</li>
+<li><strong>check</strong>:<code> setImmediate()</code> callbacks are invoked here.</li>
+<li><strong>close</strong> callbacks: some close callbacks, e.g. socket.on(&lsquo;close&rsquo;, &hellip;).</li>
+</ul>
+<h2 id="macrotasks-vs-microtasks">Macrotasks vs Microtasks</h2>
+<p><strong>Macrotasks/task queue</strong></p>
+<ul>
+<li>The event loop will have exactly one task being processed from the macrotask queue (also called the <strong>task queue</strong>)</li>
+<li>After this macrotask has finished, all available microtasks will be processed within the same go-around cycle</li>
+</ul>
+<p><strong>Microtasks</strong></p>
+<ul>
+<li>For performing asynchronous operation in a synchronous way</li>
+<li>These are processed when the call stack empies</li>
+<li>e.g. process.nextTick, <strong>Promises</strong>, queueMicrotask(), MutationObserver&hellip;</li>
+<li>While these microtasks are processed, they can queue even more microtasks, which will all be run one by one until the microtask queue has exhausted.</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://html.spec.whatwg.org/multipage/webappapis.html#event-loops">&ldquo;8.1.6 Event Loops&rdquo;, HTML Living Standard</a></p>
+<p><a href="https://stackoverflow.com/questions/25915634/difference-between-microtask-and-macrotask-within-an-event-loop-context">&ldquo;Difference between microtask and macrotask within an event loop context&rdquo;, Stack Overflow.</a></p>
+<p><a href="https://www.javascripttutorial.net/javascript-event-loop/#:~:text=The%20event%20loop%20is%20a,queue%20and%20the%20call%20stack.&amp;text=The%20JavaScript%20engine%20places%20the%20following%20function%20call%20on%20the,executes%20it%20after%20the%20console.">&ldquo;JavaScript Event Loop&rdquo;, JavaScript Tutorial</a></p>
+<p><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#what-is-the-event-loop">&ldquo;The Node.js Event Loop, Timers, and processs.nextTick(), nodeJS.</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop">&ldquo;The event loop&rdquo;, MDN Web Docs</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Promises</title>
@@ -15,8 +126,12 @@
             <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
             
             <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
-            <description>Promise  Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code. There are 3 PromiseStates: pending, fulfilled, and rejected  For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</description>
+            <description>Promise  A function operates asynchronously via an event loop An async function uses Promise to return the result   Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code.</description>
             <content type="html"><![CDATA[<h2 id="promise">Promise</h2>
+<ol>
+<li>A function operates asynchronously via an event loop</li>
+<li>An async function uses <code>Promise</code> to return the result</li>
+</ol>
 <ul>
 <li>Promise is an <strong>object</strong> that returns a value in the future.</li>
 <li>It represents the an eventual completion or failures of an asynchronous operation.</li>
@@ -120,14 +235,43 @@
 <li><code>Promise.allSettled(iterable)</code>: returns a promise that resolves after all of the given promises have either fulfilled or rejected, with an array of objects that each describes the outcome of each promise; used when multiple asynchronous tasks are <strong>not dependent</strong> on one another to complete successfully.</li>
 <li><code>Promise.any(iterable)</code>: takes an iterable of <code>Promise</code> objects and returns a single promise that resolves as soon as any of the promises in the iterable fulfills, with the value of the fulfilled promise.</li>
 </ol>
-<h2 id="promise-to-asyncawait">Promise to async/await</h2>
-<p>An async function is a function declared with the async keyword, and the await keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.</p>
-<p><strong>await</strong>: wait for the promise to resolve; only works for asynchronous functions</p>
+<h2 id="promise-extension-async--await">Promise Extension: <code>async</code> &amp; <code>await</code></h2>
+<ul>
+<li>An async function is a function declared with the <code>async</code> keyword, and the <code>await</code> keyword is permitted within it. The <code>async</code> and <code>await</code> keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.</li>
+<li><code>await</code> is for <strong>a single promise</strong>. It blocks the code execution within <code>async</code> function. The next line is only executed when the promise is resolved.
+<ul>
+<li><strong>Blocking</strong>: when a function takes a long time to complete, blocking all the interactions on the webpage like a mouse click, is called a blocking function (e.g. a function that calls an API from a remote server).</li>
+</ul>
+</li>
+<li>When using <code>async</code>/<code>await</code>, make sure to use <code>try</code> and <code>catch</code> for error handling.</li>
+<li>To use <code>await</code> for multiple promises, create an array of promises and then pass it to <code>Promise.all</code>.</li>
+<li>If the code contains blocking code, it&rsquo;s better to make it an <code>async</code> function so that a user can use the function asynchronously.</li>
+<li>Be careful when using <code>await</code> with loops and iterators. A common mistake is to write sequentially executing code when it could have been easily done in parallel.</li>
+<li></li>
+</ul>
+<blockquote>
+<p>Create a promise for each async call. Add all the promises to an array. Then pass the promises array to <code>Promise.all</code>. This in turn returns a single promise for which we can use <code>await</code>.</p>
+</blockquote>
 <p>Syntax:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">name</span>([<span style="color:#a6e22e">param</span>[, <span style="color:#a6e22e">param</span>[, ...<span style="color:#a6e22e">param</span>]]]) {
    <span style="color:#a6e22e">statements</span>
 }
-</code></pre></div><p>Just using promises and its methods:</p>
+</code></pre></div><p>General Syntax with Statements</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">asyn</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">name</span>() {
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">try</span> {
+      <span style="color:#a6e22e">result1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>();
+      <span style="color:#a6e22e">result2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">test</span>();
+    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">e</span>) {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">e</span>);
+    } <span style="color:#66d9ef">finally</span> {
+      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Completed!&#34;</span>);
+    }
+  }
+}
+<span style="color:#a6e22e">name</span>();
+</code></pre></div><h3 id="example-1-from-then-and-catch-to-async-and-await">Example 1: From <code>.then()</code> and <code>.catch()</code> to <code>async</code> and <code>await</code></h3>
+<p>Just using promises and its methods:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">wordnikAPI</span>) <span style="color:#75715e">// fetch returns a promise
 </span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>()) <span style="color:#75715e">// .json returns a promise
 </span><span style="color:#75715e"></span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">json</span> =&gt; {
@@ -162,6 +306,36 @@
     <span style="color:#a6e22e">img</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">img_url</span>
   }
 }
+</code></pre></div><h3 id="example-2">Example 2</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">startTime</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">performance</span>.<span style="color:#a6e22e">now</span>();
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">executingAt</span>() {
+  <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">performance</span>.<span style="color:#a6e22e">now</span>() <span style="color:#f92672">-</span> <span style="color:#a6e22e">startTime</span>) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1000</span>;
+
+}
+<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchAllUserDetailsParallelyWithStats</span>() {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">singleUsersDetailsPromises</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#66d9ef">for</span> (<span style="color:#a6e22e">name</span> <span style="color:#66d9ef">of</span> [<span style="color:#e6db74">&#34;firstUser&#34;</span>, <span style="color:#e6db74">&#34;secondUser&#34;</span>, <span style="color:#e6db74">&#34;thirdUser&#34;</span>]) {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">promise</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fetchSingleUsersDetailsWithStats</span>(<span style="color:#a6e22e">name</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Created Promise for API call of &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; at &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">executigAt</span>());
+  };
+
+  <span style="color:#a6e22e">singleUsersDetailsPromises</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">promise</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Finished adding all promises at &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">executingAt</span>());
+
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">allUserDetails</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> Promise.<span style="color:#a6e22e">all</span>(<span style="color:#a6e22e">singleUsersDetailsPromises</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Got the result for all promises at &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">executingAt</span>());
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">allUsersDetails</span>);
+}
+
+<span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchSingleUsersDetailsWithStats</span>(<span style="color:#a6e22e">name</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Starting API call for &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; at &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">executingAt</span>());
+  <span style="color:#a6e22e">userDetails</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#34;http://api.github.com/users/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span>);
+  <span style="color:#a6e22e">userDetailsJSON</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">userDetails</span>.<span style="color:#a6e22e">json</span>();
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Finished API call for &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; at &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">executingAt</span>());
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">userDetailsJSON</span>;
+}
+<span style="color:#a6e22e">fetchAllUserDetailsParallelyWithStats</span>();
 </code></pre></div><h2 id="references">References</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">&ldquo;async function&rdquo;, MDN Web Docs</a></p>
 <p><a href="https://html.spec.whatwg.org/multipage/webappapis.html#task-queue">&ldquo;HTML: Living Standard&rdquo;</a></p>
@@ -169,6 +343,7 @@
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">&ldquo;Promise&rdquo;, MDN Web Docs</a></p>
 <p><a href="https://medium.com/swlh/understanding-promises-in-javascript-e55511e38134">Sonawane, Prasad. &ldquo;Understanding Promises in Javascript&rdquo;, Medium, November 1, 2020.</a></p>
 <p><a href="https://www.youtube.com/watch?v=vn3tm0quoqE">Fireship, &ldquo;The Async Await Episode I Promised&rdquo;, YouTube, October 11, 2018.</a></p>
+<p><a href="https://betterprogramming.pub/understanding-async-await-in-javascript-1d81bb079b2c">Gokul N K, &ldquo;Understanding async-await in JavaScript&rdquo;, Better Programming, July 20, 2018.</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">&ldquo;Using Promises&rdquo;, MDN Web Docs</a></p>
 ]]></content>
         </item>
@@ -281,7 +456,6 @@ console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { conso
 </code></pre></div><h2 id="references">References</h2>
 <p><a href="https://eloquentjavascript.net/11_async.html">&ldquo;Chapter 11: Asynchrnous Programming&rdquo;, Eloquent JavaScript</a></p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">&ldquo;async function&rdquo;, MDN Web Docs</a></p>
-<p><a href="https://betterprogramming.pub/understanding-async-await-in-javascript-1d81bb079b2c">Gokul N K, &ldquo;Understanding async-await in JavaScript&rdquo;, Better Programming, July 20, 2018.</a></p>
 <p><a href="https://html.spec.whatwg.org/multipage/webappapis.html#task-queue">&ldquo;HTML: Living Standard&rdquo;</a></p>
 <p><a href="https://betterprogramming.pub/callbacks-vs-promises-in-javascript-1f074e93a3b5">jsmanifest, &ldquo;Callbacks vs. Promises in JavaScript&rdquo;, Medium, December 3, 2019.</a></p>
 <p><a href="https://medium.com/swlh/synchronous-vs-asynchronous-programming-1bfef19f032c">Singh, Ashutosh K. &ldquo;Synchronous vs Asynchronous Programming,&rdquo; Medium, September 12, 2020.</a></p>
@@ -399,7 +573,7 @@ console.log(0.1 + 0.2); console.log(0.1 + 0.2 = 0.3); &amp;ldquo;You can&amp;rsq
 <blockquote>
 <p>Even if <code>tom</code> and <code>friend</code> were defined as <code>const</code>, we can still manipulate the object, because we are not changing the value in memory in the call stack. We are changing the reference in the heap. <code>const</code> are immutable for primitive values, but that&rsquo;s not always the case for reference values.</p>
 </blockquote>
-<p><strong>Rembmer</strong>, we are actually not just copying an object. We are creating a new variable that <em>points to the same object</em>.</p>
+<p><strong>Remember</strong>, we are actually not just copying an object. We are creating a new variable that <em>points to the same object</em>.</p>
 ]]></content>
         </item>
         
@@ -2238,7 +2412,7 @@ Recursive function always come with a function inside. With 2 minimum cases insi
 };
 </code></pre></div><h2 id="when-should-we-use-recursion">When should we use Recursion?</h2>
 <h3 id="dynamic-programming">Dynamic programming</h3>
-<h3 id="nested-data-structure">Nested Data Structure</h3>
+<h3 id="flatten-nested-data">Flatten Nested Data</h3>
 <ul>
 <li>When working with nested data structure, in particular when the outer data structure has an identical version of itself nested inside
 <ul>
@@ -2271,7 +2445,7 @@ Recursive function always come with a function inside. With 2 minimum cases insi
   <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">__</span>,
   <span style="color:#a6e22e">next</span><span style="color:#f92672">:</span> {};
 };
-</code></pre></div><h4 id="data-structure-tree-a-non-linear-linked-list">Data Structure: Tree (a non-linear linked list)</h4>
+</code></pre></div><h4 id="data-structure-tree-traversal-a-non-linear-linked-list">Data Structure: Tree Traversal (a non-linear linked list)</h4>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Tree</span> <span style="color:#f92672">=</span> { <span style="color:#75715e">// e.g. HTML body
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">__</span>,
   <span style="color:#a6e22e">children</span><span style="color:#f92672">:</span> [{<span style="color:#a6e22e">Tree</span>}, {<span style="color:#a6e22e">Tree</span>}. {<span style="color:#a6e22e">Tree</span>}]; <span style="color:#75715e">//e.g. div
@@ -2310,10 +2484,6 @@ Recursive function always come with a function inside. With 2 minimum cases insi
 <li>Once identified, make the recursive call</li>
 <li>Accumulate the return</li>
 </ol>
-<h2 id="applications-of-recursion">Applications of Recursion</h2>
-<h3 id="flatten-nested-data">Flatten Nested Data</h3>
-<h3 id="all-combinations">All Combinations</h3>
-<h3 id="tree-traversal">Tree Traversal</h3>
 <h2 id="identify-appropriate-usage-of-recursion">Identify Appropriate Usage of Recursion</h2>
 <ul>
 <li>
@@ -5171,9 +5341,24 @@ eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</s
 </ol>
 <h2 id="callback-function">Callback function</h2>
 <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
-<h2 id="references">References</h2>
-<p><a href="https://eloquentjavascript.net/05_higher_order.html">Eloquent Javascript</a>
-<a href="https://javascript.plainenglish.io/javascript-reviewing-primitive-and-non-primitive-data-types-5bc4ca68c3de">Louie, Benny. &ldquo;JavaScript: Reviewing Primitive and Non-Primitive Data Types,&rdquo; Medium, Jan 16, 2020.</a></p>
+<h2 id="reduce-method"><code>.reduce()</code> Method</h2>
+<h3 id="syntax">Syntax</h3>
+<p><code>arr.reduce(callback, initialValue);</code></p>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numArr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>, [<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>]], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]], <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>];
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">flattenArray</span>(<span style="color:#a6e22e">data</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialValue</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">total</span>, <span style="color:#a6e22e">value</span>) =&gt; {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">total</span>.<span style="color:#a6e22e">concat</span>(Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">value</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">flattenArray</span>(<span style="color:#a6e22e">value</span>) <span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>);
+    }, <span style="color:#a6e22e">initialValue</span>);
+}
+
+<span style="color:#a6e22e">flattenArray</span>(<span style="color:#a6e22e">numArray</span>);
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://eloquentjavascript.net/05_higher_order.html">Eloquent Javascript</a></p>
+<p><a href="https://javascript.plainenglish.io/javascript-reviewing-primitive-and-non-primitive-data-types-5bc4ca68c3de">Louie, Benny. &ldquo;JavaScript: Reviewing Primitive and Non-Primitive Data Types,&rdquo; Medium, Jan 16, 2020.</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/js-finally-understand-reduce">Ryan, Paul. &ldquo;The JavaScript Reduce Method Explained,&rdquo; Digital Ocean, September 4, 2020.</a></p>
 ]]></content>
         </item>
         

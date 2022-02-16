@@ -7,14 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 15 Feb 2022 00:03:42 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 09:01:36 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Event Loop</title>
+      <link>https://haleyjung.github.io/posts/2022/02/the-event-loop/</link>
+      <pubDate>Wed, 16 Feb 2022 09:01:36 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/the-event-loop/</guid>
+      <description>JavaScript Runtime &amp;amp; Web API console.log(&amp;#34;Start script&amp;#34;); setTimeout(() =&amp;gt; { task(&amp;#34;Download a file&amp;#34;); }, 1000); console.log(&amp;#34;Done&amp;#34;); /* output: Start script Done Download a file */  setTimeout(), fetch requests, and DOM events (such as clicking a button) are parts of the Web APIs of the web browser. These operations can be performed concurrently and asynchronously.
+  When setTimeout() function is called, the JavaScript engine places it on the call stack &amp;amp; the Web API creates a timer that expires in 1 second.</description>
+    </item>
+    
     <item>
       <title>Promises</title>
       <link>https://haleyjung.github.io/posts/2022/02/promises/</link>
       <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
-      <description>Promise  Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code. There are 3 PromiseStates: pending, fulfilled, and rejected  For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</description>
+      <description>Promise  A function operates asynchronously via an event loop An async function uses Promise to return the result   Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code.</description>
     </item>
     
     <item>
@@ -101,17 +111,6 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
       <description>The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
 Call Stack JavaScript code runs in the call stack.
 The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&amp;rsquo;s execution. The execution context on top of the stack is the one that&amp;rsquo;s currently running. When it&amp;rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context.</description>
-    </item>
-    
-    <item>
-      <title>High Level Overview (1)</title>
-      <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
-      <pubDate>Mon, 07 Feb 2022 17:21:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
-      <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
-Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
-Interpreted / Just-in-time Compiled Language The JavaScript code we write is a human-readable abstraction over machine code, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>
     </item>
     
   </channel>

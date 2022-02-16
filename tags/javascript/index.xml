@@ -7,14 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 15 Feb 2022 00:03:42 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Feb 2022 09:01:36 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Event Loop</title>
+      <link>https://haleyjung.github.io/posts/2022/02/the-event-loop/</link>
+      <pubDate>Wed, 16 Feb 2022 09:01:36 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/the-event-loop/</guid>
+      <description>JavaScript Runtime &amp;amp; Web API console.log(&amp;#34;Start script&amp;#34;); setTimeout(() =&amp;gt; { task(&amp;#34;Download a file&amp;#34;); }, 1000); console.log(&amp;#34;Done&amp;#34;); /* output: Start script Done Download a file */  setTimeout(), fetch requests, and DOM events (such as clicking a button) are parts of the Web APIs of the web browser. These operations can be performed concurrently and asynchronously.
+  When setTimeout() function is called, the JavaScript engine places it on the call stack &amp;amp; the Web API creates a timer that expires in 1 second.</description>
+    </item>
+    
     <item>
       <title>Promises</title>
       <link>https://haleyjung.github.io/posts/2022/02/promises/</link>
       <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
       
       <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
-      <description>Promise  Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code. There are 3 PromiseStates: pending, fulfilled, and rejected  For multiple operations, after each promise has either resolved for rejected, we enter the pending state of the next promise in the chain.</description>
+      <description>Promise  A function operates asynchronously via an event loop An async function uses Promise to return the result   Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code.</description>
     </item>
     
     <item>
@@ -102,16 +112,6 @@ Interpreted / Just-in-time Compiled Language The JavaScript code we write is a h
       <description>JSON: JavaScript Object Notation JSON, or JavaScript Object Notation, is a minimal, readable format for structuring data. It is used primarily to transmit data between a server and web application, as an alternative to XML.
 JSON can be parsed by a standard JavaScript function, and is parsed into a ready-to-use JavaScript object. It is thus faster and easier than XML.
 To read from JSON, we need to first use fs to read in the file as text(strings) and then `JOSN.</description>
-    </item>
-    
-    <item>
-      <title>Node / Node.JS</title>
-      <link>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</link>
-      <pubDate>Mon, 31 Jan 2022 10:35:53 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/node-/-node.js/</guid>
-      <description>What is Node? Nodes in the DOM are elements from the HTML page, which are organized in a hiearchical tree-like structure consisting of parents and children. Elements such as &amp;lt;p&amp;gt;, &amp;lt;div&amp;gt;, &amp;lt;section&amp;gt; are considered as &amp;ldquo;element&amp;rdquo; nodes while comments are &amp;ldquo;comment&amp;rdquo; nodes, &amp;ldquo;text&amp;rdquo; objects and line-breaks are &amp;ldquo;text&amp;rdquo; nodes. Every HTML element is a node, but not every node is an HTML element.
-The topmost node is the root node of the DOM tree, Document, which has two children: &amp;lt;!</description>
     </item>
     
   </channel>

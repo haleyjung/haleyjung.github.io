@@ -43,7 +43,7 @@
 <meta itemprop="name" content="Higher Order Functions">
 <meta itemprop="description" content="JavaScript will always pass PRIMITIVE types &lsquo;by value&rsquo; JavaScript will always pass NON-PRIMITIVE types &lsquo;by reference&rsquo;  First Class Functions (Function Literal) In JavaScript functions are first-class, meaning anything that can be done to other types can be done to functions. This means that the language supports constructing new functions during the execution of a program, storing them in data structures, passing them as arguments to other functions, and returning them as the values of other functions."><meta itemprop="datePublished" content="2021-12-10T20:32:49-05:00" />
 <meta itemprop="dateModified" content="2021-12-10T20:32:49-05:00" />
-<meta itemprop="wordCount" content="230"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="285"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
@@ -160,6 +160,12 @@
     <li><a href="#parameterization">Parameterization</a></li>
     <li><a href="#benefits-of-higher-order-functions">Benefits of Higher Order Functions</a></li>
     <li><a href="#callback-function">Callback function</a></li>
+    <li><a href="#reduce-method"><code>.reduce()</code> Method</a>
+      <ul>
+        <li><a href="#syntax">Syntax</a></li>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
     <li><a href="#references">References</a></li>
   </ul>
 </nav>
@@ -204,9 +210,24 @@
 </ol>
 <h2 id="callback-function">Callback function</h2>
 <p>A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.</p>
-<h2 id="references">References</h2>
-<p><a href="https://eloquentjavascript.net/05_higher_order.html">Eloquent Javascript</a>
-<a href="https://javascript.plainenglish.io/javascript-reviewing-primitive-and-non-primitive-data-types-5bc4ca68c3de">Louie, Benny. &ldquo;JavaScript: Reviewing Primitive and Non-Primitive Data Types,&rdquo; Medium, Jan 16, 2020.</a></p>
+<h2 id="reduce-method"><code>.reduce()</code> Method</h2>
+<h3 id="syntax">Syntax</h3>
+<p><code>arr.reduce(callback, initialValue);</code></p>
+<h3 id="example">Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numArr</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">10</span>, [<span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>]], [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]], <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>];
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">flattenArray</span>(<span style="color:#a6e22e">data</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialValue</span> <span style="color:#f92672">=</span> [];
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">total</span>, <span style="color:#a6e22e">value</span>) =&gt; {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">total</span>.<span style="color:#a6e22e">concat</span>(Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">value</span>) <span style="color:#f92672">?</span> <span style="color:#a6e22e">flattenArray</span>(<span style="color:#a6e22e">value</span>) <span style="color:#f92672">:</span> <span style="color:#a6e22e">value</span>);
+    }, <span style="color:#a6e22e">initialValue</span>);
+}
+
+<span style="color:#a6e22e">flattenArray</span>(<span style="color:#a6e22e">numArray</span>);
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://eloquentjavascript.net/05_higher_order.html">Eloquent Javascript</a></p>
+<p><a href="https://javascript.plainenglish.io/javascript-reviewing-primitive-and-non-primitive-data-types-5bc4ca68c3de">Louie, Benny. &ldquo;JavaScript: Reviewing Primitive and Non-Primitive Data Types,&rdquo; Medium, Jan 16, 2020.</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/js-finally-understand-reduce">Ryan, Paul. &ldquo;The JavaScript Reduce Method Explained,&rdquo; Digital Ocean, September 4, 2020.</a></p>
 
       </div>
     </article>
@@ -232,7 +253,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        230 Words
+        285 Words
       </p>
 
       <p>
