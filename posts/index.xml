@@ -6,8 +6,290 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 16 Feb 2022 09:01:36 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 17 Feb 2022 00:05:21 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Recursion Prompts</title>
+            <link>https://haleyjung.github.io/posts/2022/02/recursion-prompts/</link>
+            <pubDate>Thu, 17 Feb 2022 00:05:21 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/recursion-prompts/</guid>
+            <description>In Progres&amp;hellip;
+// Solve the following prompts using recursion.  // 1. Calculate the factorial of a number. The factorial of a non-negative integer n, // denoted by n!, is the product of all positive integers less than or equal to n. // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120 // factorial(5); // 120 var factorial = function(n) { if (isNaN(n) || n &amp;lt; 0) { return null; } if (n === 0 || n === 1) { return 1; } return n * factorial(n-1); }; // 2.</description>
+            <content type="html"><![CDATA[<p>In Progres&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Solve the following prompts using recursion.
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
+</span><span style="color:#75715e">// denoted by n!, is the product of all positive integers less than or equal to n.
+</span><span style="color:#75715e">// Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
+</span><span style="color:#75715e">// factorial(5); // 120
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">factorial</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+  <span style="color:#66d9ef">if</span> (isNaN(<span style="color:#a6e22e">n</span>) <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+  }
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
+  }
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">factorial</span>(<span style="color:#a6e22e">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+};
+
+<span style="color:#75715e">// 2. Compute the sum of an array of integers.
+</span><span style="color:#75715e">// sum([1,2,3,4,5,6]); // 21
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">array</span>)) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+  }
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">1</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>[<span style="color:#ae81ff">0</span>]
+  }
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">firstItem</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#ae81ff">0</span>];
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">slice</span>[<span style="color:#ae81ff">1</span>];
+  <span style="color:#a6e22e">newArr</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">newArr</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#a6e22e">firstItem</span>;
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">newArray</span>);
+};
+
+<span style="color:#75715e">// 3. Sum all numbers in an array containing nested arrays.
+</span><span style="color:#75715e">// arraySum([1,[2,3],[[4]],5]); // 15
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arraySum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 4. Check if a number is even.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isEven</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+};
+
+<span style="color:#75715e">// 5. Sum all integers below a given integer.
+</span><span style="color:#75715e">// sumBelow(10); // 45
+</span><span style="color:#75715e">// sumBelow(7); // 21
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sumBelow</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+};
+
+<span style="color:#75715e">// 6. Get the integers within a range (x, y).
+</span><span style="color:#75715e">// range(2,9); // [3,4,5,6,7,8]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">range</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+};
+
+<span style="color:#75715e">// 7. Compute the exponent of a number.
+</span><span style="color:#75715e">// The exponent of a number says how many times the base number is used as a factor.
+</span><span style="color:#75715e">// 8^2 = 8 x 8 = 64. Here, 8 is the base and 2 is the exponent.
+</span><span style="color:#75715e">// exponent(4,3); // 64
+</span><span style="color:#75715e">// https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">exponent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">base</span>, <span style="color:#a6e22e">exp</span>) {
+};
+
+<span style="color:#75715e">// 8. Determine if a number is a power of two.
+</span><span style="color:#75715e">// powerOfTwo(1); // true
+</span><span style="color:#75715e">// powerOfTwo(16); // true
+</span><span style="color:#75715e">// powerOfTwo(10); // false
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">powerOfTwo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+};
+
+<span style="color:#75715e">// 9. Write a function that reverses a string.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">reverse</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">string</span>) {
+};
+
+<span style="color:#75715e">// 10. Write a function that determines if a string is a palindrome.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">palindrome</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">string</span>) {
+};
+
+<span style="color:#75715e">// 11. Write a function that returns the remainder of x divided by y without using the
+</span><span style="color:#75715e">// modulo (%) operator.
+</span><span style="color:#75715e">// modulo(5,2) // 1
+</span><span style="color:#75715e">// modulo(17,5) // 2
+</span><span style="color:#75715e">// modulo(22,6) // 4
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">modulo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+};
+
+<span style="color:#75715e">// 12. Write a function that multiplies two numbers without using the * operator or
+</span><span style="color:#75715e">// Math methods.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">multiply</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+};
+
+<span style="color:#75715e">// 13. Write a function that divides two numbers without using the / operator or
+</span><span style="color:#75715e">// Math methods to arrive at an approximate quotient (ignore decimal endings).
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">divide</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+};
+
+<span style="color:#75715e">// 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
+</span><span style="color:#75715e">// integers is the greatest integer that divides both x and y with no remainder.
+</span><span style="color:#75715e">// gcd(4,36); // 4
+</span><span style="color:#75715e">// http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
+</span><span style="color:#75715e">// https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gcd</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>) {
+};
+
+<span style="color:#75715e">// 15. Write a function that compares each character of two strings and returns true if
+</span><span style="color:#75715e">// both are identical.
+</span><span style="color:#75715e">// compareStr(&#39;house&#39;, &#39;houses&#39;) // false
+</span><span style="color:#75715e">// compareStr(&#39;tomato&#39;, &#39;tomato&#39;) // true
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">compareStr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">str1</span>, <span style="color:#a6e22e">str2</span>) {
+};
+
+<span style="color:#75715e">// 16. Write a function that accepts a string and creates an array where each letter
+</span><span style="color:#75715e">// occupies an index of the array.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">createArray</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">str</span>) {
+};
+
+<span style="color:#75715e">// 17. Reverse the order of an array
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">reverseArr</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 18. Create a new array with a given value and length.
+</span><span style="color:#75715e">// buildList(0,5) // [0,0,0,0,0]
+</span><span style="color:#75715e">// buildList(7,3) // [7,7,7]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">buildList</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">length</span>) {
+};
+
+<span style="color:#75715e">// 19. Implement FizzBuzz. Given integer n, return an array of the string representations of 1 to n.
+</span><span style="color:#75715e">// For multiples of three, output &#39;Fizz&#39; instead of the number.
+</span><span style="color:#75715e">// For multiples of five, output &#39;Buzz&#39; instead of the number.
+</span><span style="color:#75715e">// For numbers which are multiples of both three and five, output “FizzBuzz” instead of the number.
+</span><span style="color:#75715e">// fizzBuzz(5) // [&#39;1&#39;,&#39;2&#39;,&#39;Fizz&#39;,&#39;4&#39;,&#39;Buzz&#39;]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fizzBuzz</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+};
+
+<span style="color:#75715e">// 20. Count the occurrence of a value in a list.
+</span><span style="color:#75715e">// countOccurrence([2,7,4,4,1,4], 4) // 3
+</span><span style="color:#75715e">// countOccurrence([2,&#39;banana&#39;,4,4,1,&#39;banana&#39;], &#39;banana&#39;) // 2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">countOccurrence</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">value</span>) {
+};
+
+<span style="color:#75715e">// 21. Write a recursive version of map.
+</span><span style="color:#75715e">// rMap([1,2,3], timesTwo); // [2,4,6]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">rMap</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">callback</span>) {
+};
+
+<span style="color:#75715e">// 22. Write a function that counts the number of times a key occurs in an object.
+</span><span style="color:#75715e">// var obj = {&#39;e&#39;:{&#39;x&#39;:&#39;y&#39;},&#39;t&#39;:{&#39;r&#39;:{&#39;e&#39;:&#39;r&#39;},&#39;p&#39;:{&#39;y&#39;:&#39;r&#39;}},&#39;y&#39;:&#39;e&#39;};
+</span><span style="color:#75715e">// countKeysInObj(obj, &#39;r&#39;) // 1
+</span><span style="color:#75715e">// countKeysInObj(obj, &#39;e&#39;) // 2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">countKeysInObj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">key</span>) {
+};
+
+<span style="color:#75715e">// 23. Write a function that counts the number of times a value occurs in an object.
+</span><span style="color:#75715e">// var obj = {&#39;e&#39;:{&#39;x&#39;:&#39;y&#39;},&#39;t&#39;:{&#39;r&#39;:{&#39;e&#39;:&#39;r&#39;},&#39;p&#39;:{&#39;y&#39;:&#39;r&#39;}},&#39;y&#39;:&#39;e&#39;};
+</span><span style="color:#75715e">// countValuesInObj(obj, &#39;r&#39;) // 2
+</span><span style="color:#75715e">// countValuesInObj(obj, &#39;e&#39;) // 1
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">countValuesInObj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">value</span>) {
+};
+
+<span style="color:#75715e">// 24. Find all keys in an object (and nested objects) by a provided name and rename
+</span><span style="color:#75715e">// them to a provided new name while preserving the value stored at that key.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">replaceKeysInObj</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">oldKey</span>, <span style="color:#a6e22e">newKey</span>) {
+};
+
+<span style="color:#75715e">// 25. Get the first n Fibonacci numbers. In the Fibonacci sequence, each subsequent
+</span><span style="color:#75715e">// number is the sum of the previous two.
+</span><span style="color:#75715e">// Example: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34.....
+</span><span style="color:#75715e">// fibonacci(5); // [0,1,1,2,3,5]
+</span><span style="color:#75715e">// Note: The 0 is not counted.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fibonacci</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+};
+
+<span style="color:#75715e">// 26. Return the Fibonacci number located at index n of the Fibonacci sequence.
+</span><span style="color:#75715e">// [0,1,1,2,3,5,8,13,21]
+</span><span style="color:#75715e">// nthFibo(5); // 5
+</span><span style="color:#75715e">// nthFibo(7); // 13
+</span><span style="color:#75715e">// nthFibo(3); // 2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nthFibo</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">n</span>) {
+};
+
+<span style="color:#75715e">// 27. Given an array of words, return a new array containing each word capitalized.
+</span><span style="color:#75715e">// var words = [&#39;i&#39;, &#39;am&#39;, &#39;learning&#39;, &#39;recursion&#39;];
+</span><span style="color:#75715e">// capitalizedWords(words); // [&#39;I&#39;, &#39;AM&#39;, &#39;LEARNING&#39;, &#39;RECURSION&#39;]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">capitalizeWords</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 28. Given an array of strings, capitalize the first letter of each index.
+</span><span style="color:#75715e">// capitalizeFirst([&#39;car&#39;,&#39;poop&#39;,&#39;banana&#39;]); // [&#39;Car&#39;,&#39;Poop&#39;,&#39;Banana&#39;]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">capitalizeFirst</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 29. Return the sum of all even numbers in an object containing nested objects.
+</span><span style="color:#75715e">// var obj1 = {
+</span><span style="color:#75715e">//   a: 2,
+</span><span style="color:#75715e">//   b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+</span><span style="color:#75715e">//   c: {c: {c: 2}, cc: &#39;ball&#39;, ccc: 5},
+</span><span style="color:#75715e">//   d: 1,
+</span><span style="color:#75715e">//   e: {e: {e: 2}, ee: &#39;car&#39;}
+</span><span style="color:#75715e">// };
+</span><span style="color:#75715e">// nestedEvenSum(obj1); // 10
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nestedEvenSum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>) {
+};
+
+<span style="color:#75715e">// 30. Flatten an array containing nested arrays.
+</span><span style="color:#75715e">// flatten([1,[2],[3,[[4]]],5]); // [1,2,3,4,5]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">flatten</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 31. Given a string, return an object containing tallies of each letter.
+</span><span style="color:#75715e">// letterTally(&#39;potato&#39;); // {p:1, o:2, t:2, a:1}
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">letterTally</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">str</span>, <span style="color:#a6e22e">obj</span>) {
+};
+
+<span style="color:#75715e">// 32. Eliminate consecutive duplicates in a list. If the list contains repeated
+</span><span style="color:#75715e">// elements they should be replaced with a single copy of the element. The order of the
+</span><span style="color:#75715e">// elements should not be changed.
+</span><span style="color:#75715e">// compress([1,2,2,3,4,4,5,5,5]) // [1,2,3,4,5]
+</span><span style="color:#75715e">// compress([1,2,2,3,4,4,2,5,5,5,4,4]) // [1,2,3,4,2,5,4]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">compress</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">list</span>) {
+};
+
+<span style="color:#75715e">// 33. Augment every element in a list with a new value where each element is an array
+</span><span style="color:#75715e">// itself.
+</span><span style="color:#75715e">// augmentElements([[],[3],[7]], 5); // [[5],[3,5],[7,5]]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">augmentElements</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">aug</span>) {
+};
+
+<span style="color:#75715e">// 34. Reduce a series of zeroes to a single 0.
+</span><span style="color:#75715e">// minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
+</span><span style="color:#75715e">// minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">minimizeZeroes</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 35. Alternate the numbers in an array between positive and negative regardless of
+</span><span style="color:#75715e">// their original sign. The first number in the index always needs to be positive.
+</span><span style="color:#75715e">// alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
+</span><span style="color:#75715e">// alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">alternateSign</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 36. Given a string, return a string with digits converted to their word equivalent.
+</span><span style="color:#75715e">// Assume all numbers are single digits (less than 10).
+</span><span style="color:#75715e">// numToText(&#34;I have 5 dogs and 6 ponies&#34;); // &#34;I have five dogs and six ponies&#34;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">numToText</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">str</span>) {
+};
+
+<span style="color:#75715e">// 37. Return the number of times a tag occurs in the DOM.
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tagCount</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">tag</span>, <span style="color:#a6e22e">node</span>) {
+};
+
+<span style="color:#75715e">// 38. Write a function for binary search.
+</span><span style="color:#75715e">// var array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+</span><span style="color:#75715e">// binarySearch(array, 5) // 5
+</span><span style="color:#75715e">// https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">binarySearch</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">target</span>, <span style="color:#a6e22e">min</span>, <span style="color:#a6e22e">max</span>) {
+};
+
+<span style="color:#75715e">// 39. Write a merge sort function.
+</span><span style="color:#75715e">// mergeSort([34,7,23,32,5,62]) // [5,7,23,32,34,62]
+</span><span style="color:#75715e">// https://www.khanacademy.org/computing/computer-science/algorithms/merge-sort/a/divide-and-conquer-algorithms
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mergeSort</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+};
+
+<span style="color:#75715e">// 40. Deeply clone objects and arrays.
+</span><span style="color:#75715e">// var obj1 = {a:1,b:{bb:{bbb:2}},c:3};
+</span><span style="color:#75715e">// var obj2 = clone(obj1);
+</span><span style="color:#75715e">// console.log(obj2); // {a:1,b:{bb:{bbb:2}},c:3}
+</span><span style="color:#75715e">// obj1 === obj2 // false
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">clone</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">input</span>) {
+};
+</code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>The Event Loop</title>
@@ -840,6 +1122,160 @@ Example 1: Input: l1 = [2,4,3], l2 = [5,6,4] Output: [7,0,8] Explanation: 342 + 
 <li>Runtime: 141ms</li>
 <li>Memory: 47.2MB</li>
 </ul>
+]]></content>
+        </item>
+        
+        <item>
+            <title>JavaScript Revision 4: Recursion</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-4-recursion/</link>
+            <pubDate>Fri, 11 Feb 2022 14:09:48 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-4-recursion/</guid>
+            <description>Recursion Review 🔔 What is it for?  For accessing a nested data structure Particularly useful when we do not know how many levels of nested arrays/objects there are Recursion acts as a looping mechanism unto itself and leverages the callstack to complete its task   🔔 How Does It Works? 🌟 function recurson() { // &amp;lt;-- (2) Runs this recursion function script  return ⚡recursion(); // &amp;lt;-- (3) Runs the inner recursion function } 🌟 recursion(); // &amp;lt;-- (1) Starts from the global scope  NOTE: The recursion function is executed twice: (1) ⚡ within the scope of our fuction (2) 🌟outside in the global scope   We first execute the 🌟recursion function in the global scope ➡️ it runs the 🌟recursion function script ➡️ This calls the ⚡inner recursion function ➡️ The inner recursion function runs the 🌟recursion function again ➡️ Continues, adding recursion continously to our callstack, thereby creating a loop   🔔 Recursive Pattern  Base case is on the top, recursive case is below We pass different arguments to recursive functions to move around the nested object  // (1) what do you want to do for the current input?</description>
+            <content type="html"><![CDATA[<h1 id="recursion-review">Recursion Review</h1>
+<h3 id="-what-is-it-for">🔔 What is it for?</h3>
+<ul>
+<li>For accessing a nested data structure</li>
+<li>Particularly useful when we do not know how many levels of nested arrays/objects there are</li>
+<li>Recursion acts as a <strong>looping mechanism</strong> unto itself and <strong>leverages the callstack</strong> to complete its task</li>
+</ul>
+<p> </p>
+<h3 id="-how-does-it-works">🔔 How Does It Works?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">🌟</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">recurson</span>() { <span style="color:#75715e">// &lt;-- (2) Runs this recursion function script
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#960050;background-color:#1e0010">⚡</span><span style="color:#a6e22e">recursion</span>(); <span style="color:#75715e">// &lt;-- (3) Runs the inner recursion function
+</span><span style="color:#75715e"></span>}
+<span style="color:#960050;background-color:#1e0010">🌟</span> <span style="color:#a6e22e">recursion</span>(); <span style="color:#75715e">// &lt;-- (1) Starts from the global scope
+</span></code></pre></div><dl>
+<dt><strong>NOTE</strong>: The recursion function is executed twice:</dt>
+<dd>(1) ⚡ within the scope of our fuction</dd>
+<dd>(2) 🌟outside in the global scope</dd>
+</dl>
+<ul>
+<li>We <strong>first</strong> execute the 🌟recursion function in the <strong>global scope</strong></li>
+<li>➡️ it runs the 🌟recursion function script</li>
+<li>➡️ This calls the ⚡inner recursion function</li>
+<li>➡️ The inner recursion function runs the 🌟recursion function again</li>
+<li>➡️ Continues, adding recursion continously to our <strong>callstack</strong>, thereby creating a <strong>loop</strong></li>
+</ul>
+<p> </p>
+<h3 id="-recursive-pattern">🔔 Recursive Pattern</h3>
+<ul>
+<li>Base case is on the top, recursive case is below</li>
+<li>We pass different arguments to recursive functions to move around the nested object</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">  <span style="color:#75715e">// (1) what do you want to do for the current input?
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// case 1
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// case 2
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// (2) detect nestedness
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// iterate over that nested structure
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// recursively call our function on each value inside that array/obj (or childNode)
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// (3) forcefully send all values as a current input somewhere in the callstack
+</span></code></pre></div><h4 id="example-1">Example 1:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">recursion</span>(<span style="color:#a6e22e">num</span>) {
+  <span style="color:#75715e">// base case
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">// recursion execution
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">recursion</span>(<span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+  }
+}
+
+<span style="color:#a6e22e">recursion</span>(<span style="color:#ae81ff">5</span>);
+</code></pre></div><ul>
+<li>The output will be 0.</li>
+<li>The inner recursion <code>num - 1</code> continues the loop until num is 0.</li>
+</ul>
+<h4 id="example-2">Example 2:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">factorialSum</span>(<span style="color:#a6e22e">num</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">num</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">factorialSum</span>(<span style="color:#a6e22e">num</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+    }
+}
+
+<span style="color:#a6e22e">factorialSum</span>(<span style="color:#ae81ff">5</span>);
+</code></pre></div><ul>
+<li>The output will be 15.</li>
+<li>It starts by <code>5</code>, the initial argument, getting added in memory to the callstack.</li>
+<li>The recursion substracts 1 from the argument, so the new argument num is now 4, which gets added in memory to the callstack.</li>
+<li>This continues until we reach the base case of 0.</li>
+<li>❗ Once we <strong>reach the base case</strong>, the <strong>callstack returns all the nested functions</strong>
+<ul>
+<li>➡️ the stacked up execution contexts from each recursion gets popped off, returning from the last function called to the first function.</li>
+<li>➡️ 1 + 2 + 3 + 4 + 5 = 15</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h3 id="-recursive-pattern-for-infinitely-nested-arraysobjects">🔔 Recursive Pattern for Infinitely Nested Arrays/Objects</h3>
+<p>We can also use recursion <strong>with a loop</strong> to handle <strong>infinitely nested</strong> arrays/objects.</p>
+<h4 id="case-1-getelementsbyclassname">Case 1: <code>getElementsByClassName()</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">getElementsByClassName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">className</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">body</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">body</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#75715e">// iterate over the htmlStrings
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">hasClassName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">body</span>) {
+    <span style="color:#75715e">// if each element has a class and the class is the same as className
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">classList</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">contains</span>(<span style="color:#a6e22e">className</span>)) {
+      <span style="color:#75715e">// add the element to the result arr
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">body</span>);
+    }
+
+    <span style="color:#75715e">// if the element has child node
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">hasChildNodes</span>()) {
+      <span style="color:#75715e">// iterate over child nodes
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">childNodes</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+        <span style="color:#75715e">// use recursion to check if the child node has a class, which is the same as className
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">hasClassName</span>(<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">childNodes</span>[<span style="color:#a6e22e">i</span>]);
+      }
+    }
+  };
+  <span style="color:#a6e22e">hasClassName</span>(<span style="color:#a6e22e">body</span>);
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+};
+</code></pre></div><p> </p>
+<h3 id="-recursion-problem-solving-tip">🔔 Recursion Problem Solving Tip</h3>
+<p>For every recursive solution, there&rsquo;s an equal <strong>iterative solution</strong>. For coding challenges, first write out the iterative solution and use that to structure the recursive solution.</p>
+<h4 id="iterative-solution">Iterative Solution:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Input: Two numbers - a start and end value
+</span><span style="color:#75715e">// Output: [2, 3, 4, 5, 6] - an array that starts with startValue and ends with endValue
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">inclusiveArrayParam</span>(<span style="color:#a6e22e">startValue</span>, <span style="color:#a6e22e">endValue</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">startValue</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#a6e22e">endValue</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#a6e22e">arr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">i</span>);
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">arr</span>;
+}
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;iterative inclusive array solution: &#39;</span>, <span style="color:#a6e22e">inclusiveArrayParam</span>(<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">6</span>));
+</code></pre></div><ul>
+<li>Using a for loop, we&rsquo;ve set <code>i</code> to the <code>startValue</code> and iterate it until it is less than or equal to <code>endValue</code></li>
+</ul>
+<h4 id="recursive-solution">Recursive Solution:</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">inclusiveArrayParamRecursive</span>(<span style="color:#a6e22e">startValue</span>, <span style="color:#a6e22e">endValue</span>) {
+  <span style="color:#75715e">// base case: consider the for loop condition
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">startValue</span> <span style="color:#f92672">&gt;=</span> <span style="color:#a6e22e">endValue</span>) {
+    <span style="color:#66d9ef">return</span> [<span style="color:#a6e22e">startValue</span>];
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">// recursive case
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">resultArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">inclusiveArrayParamRecursive</span>(<span style="color:#a6e22e">startValue</span>, <span style="color:#a6e22e">endValue</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+    <span style="color:#a6e22e">resultArr</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">endValue</span>);
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">resultArr</span>;
+  }
+}
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;recursive inclusive array solution: &#39;</span>, <span style="color:#a6e22e">inclusiveArrayParamRecursive</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">6</span>))
+</code></pre></div><ul>
+<li>Base Case sets the loop paramenters to return <code>startValue</code>.</li>
+<li>Once <code>startValue</code> equals <code>endValue</code> we return the callstack to unwind.</li>
+</ul>
+<p> </p>
 ]]></content>
         </item>
         

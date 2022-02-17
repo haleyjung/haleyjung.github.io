@@ -3,18 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://haleyjung.github.io/tags/javascript/</loc>
-    <lastmod>2022-02-16T09:01:36-05:00</lastmod>
+    <lastmod>2022-02-17T00:05:21-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-02-16T09:01:36-05:00</lastmod>
+    <lastmod>2022-02-17T00:05:21-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/02/recursion-prompts/</loc>
+    <lastmod>2022-02-17T00:05:21-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-02-16T09:01:36-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/posts/2022/02/the-event-loop/</loc>
-    <lastmod>2022-02-16T09:01:36-05:00</lastmod>
+    <lastmod>2022-02-17T00:05:21-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-02-17T00:05:21-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/02/the-event-loop/</loc>
     <lastmod>2022-02-16T09:01:36-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/promises/</loc>
@@ -31,6 +34,9 @@
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</loc>
     <lastmod>2022-02-12T10:46:58-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/02/javascript-revision-4-recursion/</loc>
+    <lastmod>2022-02-11T14:09:48-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</loc>
     <lastmod>2022-02-10T11:35:01-05:00</lastmod>
