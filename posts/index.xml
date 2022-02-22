@@ -6,8 +6,231 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 20 Feb 2022 08:04:41 -0500</lastBuildDate>
+        <lastBuildDate>Mon, 21 Feb 2022 23:46:14 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Instantiation Patterns</title>
+            <link>https://haleyjung.github.io/posts/2022/02/instantiation-patterns/</link>
+            <pubDate>Mon, 21 Feb 2022 23:46:14 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/instantiation-patterns/</guid>
+            <description>What is an instantiation pattern in JavaScript? It&amp;rsquo;s a way to create an object using functions.
+5 Types of Instantiation Patterns 1. Functional Instantiation  Create a function Create an empty object inside the function  Properties and methods can be created here They will be accessible every time the function is called   Return the object  Pros
+ Easy to understand Private properties (contained within the closure scope)  Cons</description>
+            <content type="html"><![CDATA[<h2 id="what-is-an-instantiation-pattern-in-javascript">What is an instantiation pattern in JavaScript?</h2>
+<p>It&rsquo;s a way to create an <strong>object using functions</strong>.</p>
+<h2 id="5-types-of-instantiation-patterns">5 Types of Instantiation Patterns</h2>
+<h3 id="1-functional-instantiation">1. Functional Instantiation</h3>
+<ol>
+<li>Create a function</li>
+<li>Create an empty object inside the function
+<ul>
+<li>Properties and methods can be created here</li>
+<li>They will be accessible every time the function is called</li>
+</ul>
+</li>
+<li>Return the object</li>
+</ol>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Easy to understand</li>
+<li>Private properties (contained within the closure scope)</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>The properties and methods need to be <strong>duplicated in memory</strong> every time we create a new object.</li>
+<li>If an object was created using functional instantiation, then change its method and create a new instance, the two objects will be referencing different methods.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">species</span>, <span style="color:#a6e22e">names</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {};
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">species</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">species</span>;
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">makeSound</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">eat</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">sleep</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+}
+
+<span style="color:#75715e">// implementing functional instantiation
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Animal</span>(<span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;mio&#39;</span>);
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">eat</span>();
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">makeSound</span>();
+</code></pre></div><h3 id="2-functional-shared-instantiation">2. Functional Shared Instantiation</h3>
+<ol>
+<li>Create a function with an empty object inside</li>
+<li>Define properties within the function</li>
+<li>Define methods in <strong>another</strong> object</li>
+<li><code>extend</code> the object with these methods</li>
+<li>Return the object</li>
+</ol>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Every object created with functional shared instantiation will have a <strong>pointer</strong> to the same methods without duplication, improving <strong>memory management</strong>.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>The pointers to the shared methods are created when the object is instantiated.</li>
+<li>If the methods are modified and then new objects are created, the original object and the new object will refer to different methods.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">species</span>, <span style="color:#a6e22e">name</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {};
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">species</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">species</span>;
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+
+  <span style="color:#a6e22e">extend</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">objMethods</span>);
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+}
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">extend</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">methods</span>) {
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">methods</span>) {
+    <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">methods</span>[<span style="color:#a6e22e">key</span>];
+  }
+}
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objMethods</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">makeSound</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#a6e22e">eat</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#a6e22e">sleep</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+}
+
+<span style="color:#75715e">// implementing functional shared instantiation
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Animal</span>(<span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;meo&#39;</span>);
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">eat</span>();
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">makeSound</span>();
+</code></pre></div><h3 id="3-prototypical-instantiation">3. Prototypical Instantiation</h3>
+<ol>
+<li>Create all the methods on a separate object</li>
+<li>Create a function</li>
+<li>Inside the function, use <code>Object.create()</code> to attach methods</li>
+<li>Define any properties inside the function</li>
+<li>Return the object</li>
+</ol>
+<p><strong>Pros</strong></p>
+<ul>
+<li>It utilizes the prototype chain to create objects, so methods are attached to the object&rsquo;s prototype instead of being returned within the object</li>
+<li>Every method is available to every object created without duplicating methods in memory.</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>To use this method, we need to create an object, decorate it, and return it from the constructor function.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">species</span>, <span style="color:#a6e22e">name</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> Object.<span style="color:#a6e22e">create</span>(<span style="color:#a6e22e">objMethods</span>);
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">species</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">species</span>;
+  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+}
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">objMethods</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">makeSound</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#a6e22e">eat</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#a6e22e">sleep</span><span style="color:#f92672">:</span><span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+}
+
+<span style="color:#75715e">// implementing functional shared instantiation
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Animal</span>(<span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;meo&#39;</span>);
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">eat</span>();
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">makeSound</span>();
+</code></pre></div><h3 id="4-pseudoclassical-instantiation">4. Pseudoclassical Instantiation</h3>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Optimized method of object creation that utilizes the functionality built into JavaScript, the <code>new</code> keyword and <code>this</code> keyword</li>
+</ul>
+<ol>
+<li>Create properties with <code>this</code></li>
+<li>Assign methods to the prototype</li>
+<li>Use <code>new</code> to create a new object</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Animal</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">species</span>, <span style="color:#a6e22e">name</span>) {
+
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">species</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">species</span>;
+  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+
+}
+
+<span style="color:#a6e22e">Animal</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">makeSound</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>},
+
+<span style="color:#a6e22e">Animal</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">eat</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>},
+<span style="color:#a6e22e">Animal</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">sleep</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#75715e">// implementing functional shared instantiation
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Animal</span>(<span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;meo&#39;</span>);
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">eat</span>();
+<span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">makeSound</span>();
+</code></pre></div><h3 id="5-es6-instantiation">5. ES6 Instantiation</h3>
+<ol>
+<li>Use <code>class</code> keyword instead of regular functions to create an object.</li>
+<li>We can create a <code>constructor</code> function inside class, where we initialize the object’s <strong>properties</strong>.</li>
+<li>Methods for the object is implemented within the class scope.</li>
+</ol>
+<ul>
+<li>Classes can only contain method definitions, not data properties</li>
+<li>When defining methods, use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions">shorthand syntax</a></li>
+<li>Do not separate method definitions in class bodies with commas like objects</li>
+<li>Properties on instances of the class can be referred to directly (e.g. <code>firstRec.height</code>)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Rectangle</span> {
+   <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">height</span>, <span style="color:#a6e22e">width</span>) {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">height</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">height</span>;
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">width</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">width</span>;
+   }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">firstRec</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Rectangle</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">5</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">firstRec</span>.<span style="color:#a6e22e">height</span>); <span style="color:#75715e">//10
+</span></code></pre></div><h4 id="shorthand-syntax">Shorthand Syntax</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// From this
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">foo</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#a6e22e">bar</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+}
+
+<span style="color:#75715e">// To this
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">foo</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  },
+  <span style="color:#a6e22e">bar</span>() {
+    <span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span>  }
+}
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b">Bland, Jennifer. &ldquo;Instantiation Patterns in JavaScript&rdquo;, Medium, Aug 9, 2017.</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/better-javascript-with-es6-pt-ii-a-deep-dive-into-classes">Sengstacke, Peleke. &ldquo;Better JavaScript with ES6, Pt. II: A Deep Dive into Classes&rdquo;, Digital Ocean, Sept 15, 2020.</a></p>
+<p><a href="https://medium.com/@taylorshephard1/instantiation-patterns-in-javascript-7f9463b95839#:~:text=An%20instantiation%20pattern%20in%20JavaScript,Prototypical%2C%20Pseudoclassical%2C%20and%20ES6.">Shephard, Taylor. &ldquo;Instantiation Patterns in JavaScript&rdquo;, Medium, May 14, 2018.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>MVC: Model-View-Controller</title>
@@ -388,6 +611,12 @@ Categorizing Patterns Creational Design Patterns  Focuses on handling object cre
 <span style="color:#75715e">// 3. Sum all numbers in an array containing nested arrays.
 </span><span style="color:#75715e">// arraySum([1,[2,3],[[4]],5]); // 15
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arraySum</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">array</span>)) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">curr</span>) =&gt; {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>
+  })
 };
 
 <span style="color:#75715e">// 4. Check if a number is even.
@@ -1701,11 +1930,11 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
         </item>
         
         <item>
-            <title>JavaScript Revision 3</title>
-            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</link>
+            <title>JavaScript Revision 3: HOF, Closure &amp; Scope</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3-hof-closure-scope/</link>
             <pubDate>Thu, 10 Feb 2022 08:07:05 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3-hof-closure-scope/</guid>
             <description>1. Fundamental Concept Value
  JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol Values are stored in variables, a named unit of data  Reference
  JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.  Hoisting
@@ -1908,11 +2137,11 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
         </item>
         
         <item>
-            <title>JavaScript Revision 2</title>
-            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
+            <title>JavaScript Revision 2: Terms</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2-terms/</link>
             <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2-terms/</guid>
             <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</description>
             <content type="html"><![CDATA[<table>
 <thead>
@@ -2034,17 +2263,29 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
 <td>Recursive Function</td>
 <td>A function that calls itself. All recursive functions have at least one base case: a case when the function can produce a result without recursing. All recursive functions have at least one recursive case. Recursion should not be utilized without an accompanying base case unless infinite operation is desired. To solve a problem, solve a subproblem that is a smaller instance of the same problem, and then use the solution to that smaller instance to solve the original problem.</td>
 </tr>
+<tr>
+<td>Promise</td>
+<td>A JavaScript object that represents an eventual completion or failure of an asynchronous operation. You can achieve results from performing asynchronous operations using the callback approach or by using promises. Unlike callbacks where you pass a callback into a function, with promise you attach callbacks on the returned promise object. To perform multiple asynchronous operations simultaneously, promises are better practice as with callbacks we can easily end up in callback hell with unmanageable and hard-to-read codes. With promises, we can use the <code>.then()</code> method to chain the codes at the root of the first handler = Promise Chaining</td>
+</tr>
+<tr>
+<td>Promise Chaining</td>
+<td>Useful when we need to execute a chain of asynchronous tasks. Each task that’s being chained can only start as soon as the previous task has completed, controlled by the <code>.then()</code> method of the chain.</td>
+</tr>
+<tr>
+<td>async/await</td>
+<td><strong>async</strong>: we can add <code>async</code> modifier in front of a function <code>async function() { ... }</code> / <strong>Await</strong>: wait for the promise to resolve; only works for asynchronous functions</td>
+</tr>
 </tbody>
 </table>
 ]]></content>
         </item>
         
         <item>
-            <title>JavaScript Revision 1</title>
-            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</link>
+            <title>JavaScript Revision 1: Terms</title>
+            <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-1-terms/</link>
             <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1-terms/</guid>
             <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, Symbol, and BigInt   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
             <content type="html"><![CDATA[<table>
 <thead>
@@ -2204,11 +2445,11 @@ Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Becaus
         </item>
         
         <item>
-            <title>High Level Overview (2)</title>
-            <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</link>
+            <title>The Runtime Environment: Call Stack &amp; Heap</title>
+            <link>https://haleyjung.github.io/posts/2022/02/the-runtime-environment-call-stack-heap/</link>
             <pubDate>Tue, 08 Feb 2022 00:02:45 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-2/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/02/the-runtime-environment-call-stack-heap/</guid>
             <description>The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
 Call Stack JavaScript code runs in the call stack.
 The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&amp;rsquo;s execution. The execution context on top of the stack is the one that&amp;rsquo;s currently running. When it&amp;rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context.</description>
@@ -2294,11 +2535,11 @@ The call stack is where execution contexts get stacked on top of each other to k
         </item>
         
         <item>
-            <title>High Level Overview (1)</title>
-            <link>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</link>
+            <title>The Interpreted, Multi-Paradigm, Dynamic language</title>
+            <link>https://haleyjung.github.io/posts/2022/02/the-interpreted-multi-paradigm-dynamic-language/</link>
             <pubDate>Mon, 07 Feb 2022 17:21:33 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/02/high-level-overview-1/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/02/the-interpreted-multi-paradigm-dynamic-language/</guid>
             <description>High-level languages, such as JavaScript and Python, have abstractions so that we don&amp;rsquo;t need to manage resources (i.e. memory/CPU) like we do for low level languages like C.
 Garbage Collection One of the powerful tools in JavaScript that takes away the memory management from developers is garbage collection. It&amp;rsquo;s an algorithm inside the JavaScript engine that automatically removes old and unused objects from the computer memory.
 Interpreted / Just-in-time Compiled Language The JavaScript code we write is a human-readable abstraction over machine code, which needs to be compiled/interpreted to machine code that is understood by the computer&amp;rsquo;s processor (only zeros and ones!</description>

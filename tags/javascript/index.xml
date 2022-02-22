@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 20 Feb 2022 08:04:41 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Feb 2022 23:46:14 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instantiation Patterns</title>
+      <link>https://haleyjung.github.io/posts/2022/02/instantiation-patterns/</link>
+      <pubDate>Mon, 21 Feb 2022 23:46:14 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/instantiation-patterns/</guid>
+      <description>What is an instantiation pattern in JavaScript? It&amp;rsquo;s a way to create an object using functions.
+5 Types of Instantiation Patterns 1. Functional Instantiation  Create a function Create an empty object inside the function  Properties and methods can be created here They will be accessible every time the function is called   Return the object  Pros
+ Easy to understand Private properties (contained within the closure scope)  Cons</description>
+    </item>
+    
     <item>
       <title>MVC: Model-View-Controller</title>
       <link>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</link>
@@ -92,24 +103,15 @@ console.log(0.1 + 0.2); console.log(0.1 + 0.2 = 0.3); &amp;ldquo;You can&amp;rsq
     </item>
     
     <item>
-      <title>JavaScript Revision 3</title>
-      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</link>
+      <title>JavaScript Revision 3: HOF, Closure &amp; Scope</title>
+      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3-hof-closure-scope/</link>
       <pubDate>Thu, 10 Feb 2022 08:07:05 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</guid>
+      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3-hof-closure-scope/</guid>
       <description>1. Fundamental Concept Value
  JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol Values are stored in variables, a named unit of data  Reference
  JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.  Hoisting
  A JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</description>
-    </item>
-    
-    <item>
-      <title>JavaScript Revision 2</title>
-      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</link>
-      <pubDate>Thu, 10 Feb 2022 00:01:54 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
-      <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</description>
     </item>
     
   </channel>

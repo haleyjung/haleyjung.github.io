@@ -5,17 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jung ">
-<meta name="description" content="What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
-  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript." />
+<meta name="description" content="The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&amp;rsquo;s execution. The execution context on top of the stack is the one that&amp;rsquo;s currently running. When it&amp;rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context." />
 <meta name="keywords" content=", JavaScript" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/" />
+<link rel="canonical" href="https://haleyjung.github.io/posts/2022/02/the-runtime-environment-call-stack-heap/" />
 
 
     <title>
         
-            MVC: Model-View-Controller :: Today I Learned 
+            The Runtime Environment: Call Stack &amp; Heap :: Today I Learned 
         
     </title>
 
@@ -41,29 +42,32 @@
     <meta name="theme-color" content="#1b1c1d">
 
 
-<meta itemprop="name" content="MVC: Model-View-Controller">
-<meta itemprop="description" content="What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
-  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&rsquo;s being applied to JavaScript."><meta itemprop="datePublished" content="2022-02-20T08:04:41-05:00" />
-<meta itemprop="dateModified" content="2022-02-20T08:04:41-05:00" />
-<meta itemprop="wordCount" content="650"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="name" content="The Runtime Environment: Call Stack &amp; Heap">
+<meta itemprop="description" content="The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&rsquo;s execution. The execution context on top of the stack is the one that&rsquo;s currently running. When it&rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context."><meta itemprop="datePublished" content="2022-02-08T00:02:45-05:00" />
+<meta itemprop="dateModified" content="2022-02-08T00:02:45-05:00" />
+<meta itemprop="wordCount" content="750"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="JavaScript," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
 
-<meta name="twitter:title" content="MVC: Model-View-Controller"/>
-<meta name="twitter:description" content="What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
-  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&rsquo;s being applied to JavaScript."/>
+<meta name="twitter:title" content="The Runtime Environment: Call Stack &amp; Heap"/>
+<meta name="twitter:description" content="The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&rsquo;s execution. The execution context on top of the stack is the one that&rsquo;s currently running. When it&rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context."/>
 
 
 
 
-    <meta property="og:title" content="MVC: Model-View-Controller" />
-<meta property="og:description" content="What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
-  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&rsquo;s being applied to JavaScript." />
+    <meta property="og:title" content="The Runtime Environment: Call Stack &amp; Heap" />
+<meta property="og:description" content="The Engine and Runtime The JavaScript engine always contains a call stack and a heap.
+Call Stack JavaScript code runs in the call stack.
+The call stack is where execution contexts get stacked on top of each other to keep track of where we are in the program&rsquo;s execution. The execution context on top of the stack is the one that&rsquo;s currently running. When it&rsquo;s finished running, it will be removed from the stack, and execution will go back to the previous execution context." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-20T08:04:41-05:00" />
-<meta property="article:modified_time" content="2022-02-20T08:04:41-05:00" />
+<meta property="og:url" content="https://haleyjung.github.io/posts/2022/02/the-runtime-environment-call-stack-heap/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-08T00:02:45-05:00" />
+<meta property="article:modified_time" content="2022-02-08T00:02:45-05:00" />
 
 
 
@@ -71,7 +75,7 @@
 
 
 
-    <meta property="article:published_time" content="2022-02-20 08:04:41 -0500 EST" />
+    <meta property="article:published_time" content="2022-02-08 00:02:45 -0500 EST" />
 
 
 
@@ -148,7 +152,7 @@
 
     <article>
       <h1 class="post-title">
-        <a href="https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/">MVC: Model-View-Controller</a>
+        <a href="https://haleyjung.github.io/posts/2022/02/the-runtime-environment-call-stack-heap/">The Runtime Environment: Call Stack &amp; Heap</a>
       </h1>
 
       
@@ -159,17 +163,14 @@
           <div class="toc-title">Table of Contents</div>
           <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-is-mvc">What is MVC?</a>
+    <li><a href="#the-engine-and-runtime">The Engine and Runtime</a>
       <ul>
-        <li><a href="#history-smalltalk-80s-mvc-in-the-1970s">History: Smalltalk-80&rsquo;s MVC in the 1970s</a></li>
+        <li><a href="#call-stack">Call Stack</a></li>
+        <li><a href="#heap">Heap</a></li>
+        <li><a href="#just-in-time-compilation">Just-In-Time Compilation</a></li>
+        <li><a href="#a-runtime-environment">A Runtime Environment</a></li>
       </ul>
     </li>
-    <li><a href="#mvc-for-javascript">MVC for JavaScript</a>
-      <ul>
-        <li><a href="#3-components-of-mvc">3 Components of MVC</a></li>
-      </ul>
-    </li>
-    <li><a href="#benefits-of-mvc">Benefits of MVC</a></li>
   </ul>
 </nav>
         </aside>
@@ -178,101 +179,83 @@
       
 
       <div class="post-content">
-        <h2 id="what-is-mvc">What is MVC?</h2>
-<blockquote>
-<p><strong>Model</strong>: business data / <strong>View</strong>: user interface / <strong>Controller</strong>: a component traditionally managing logic, user-input and coordinating both the models and views.</p>
-</blockquote>
-<ul>
-<li>An architectural design pattern</li>
-<li>MVC encourages improved application organization through a separation of conerns.</li>
-</ul>
-<h3 id="history-smalltalk-80s-mvc-in-the-1970s">History: Smalltalk-80&rsquo;s MVC in the 1970s</h3>
-<ul>
-<li>Designed by <strong>Trygve Reenskaug</strong> during his time working on <strong>Smalltalk-80</strong> (1979) where it was initially called <em>Model-View-Controller-Editor</em>.</li>
-<li>Before, it was heavily used for structuring desktop and sever-side applications, but recently it&rsquo;s being applied to JavaScript.</li>
-<li>Originally aimed to separate out the application logic from the user interface; an idea that decoupling these parts of the application would also allow the reuse of models for other interfaces in the application.
-<ul>
-<li>Back in the 70s, graphical user-interfaces were far and few between and a concept known as Separated Presentation began to be used as a means to make a clear division between domain objects which modeled concepets in the real world and the presentation objects which were rended to the user&rsquo;s screen.</li>
-</ul>
-</li>
-<li>Smalltalk-80&rsquo;s MVC architecture:
-<ul>
-<li>A Domain element (Model) was ignorant of the user-interface (Views and Controllers)</li>
-<li>The View and Controller both observed the Model. Anytime the Model changes, the Views react (e.g. stock market data)</li>
-<li>Presentation was taken care of by the View and the Controller, but there wasn&rsquo;t a single view and controller.</li>
-<li>A View-Controller pair was required for each element being displayed on the screen, so there was no true separation between them.</li>
-<li>The Controller&rsquo;s role in this pair was handling user input (e.g. click events or key-presses).</li>
-<li>The Observer pattern was relied upon for updating the View whenever the Model changed.</li>
-</ul>
-</li>
-</ul>
-<h2 id="mvc-for-javascript">MVC for JavaScript</h2>
-<ul>
-<li>JavaScript has a number of frameworks boasting support for MVC (or the MV* family).</li>
-<li>These frameworks allow us to easily add structure to our applications without great effort.</li>
-<li>e.g. Backbone, Ember.js, JavaScriptMVC</li>
-</ul>
-<h3 id="3-components-of-mvc">3 Components of MVC</h3>
+        <h2 id="the-engine-and-runtime">The Engine and Runtime</h2>
+<p>The JavaScript engine always contains a <strong>call stack</strong> and a <strong>heap</strong>.</p>
+<h3 id="call-stack">Call Stack</h3>
+<p>JavaScript code runs in the call stack.</p>
+<p>The call stack is where execution contexts get stacked on top of each other to keep track of <strong>where we are</strong> in the program&rsquo;s execution. The execution context <strong>on top of</strong> the stack is the one that&rsquo;s <strong>currently running</strong>. When it&rsquo;s <strong>finished</strong> running, it will be <strong>removed</strong> from the stack, and execution will <strong>go back</strong> to the previous execution context.</p>
+<h4 id="more-about-execution-context">More about execution context&hellip;</h4>
+<p>After compilation, the code is ready to be executed. At this moment, a <strong>global execution context</strong> is created for the <strong>top-level code</strong>, which refers to the code that is not inside any function (*the code inside functions will only get executed when the functions are called).</p>
+<p>While there&rsquo;s only one global execution context, a <strong>new execution context</strong> gets created for <strong>every function call</strong>. All of these execution contexts make up the call stack. Every execution context has a <strong>variable environment</strong>, which stores the <strong>variables and function declarations</strong> and <strong><code>arguments</code> object</strong>, which is an array (object) that contains all the arguments that were passed into the function when it was called.</p>
+<h4 id="memory-creation-phase">Memory Creation Phase</h4>
+<p>When a new execution context is created on a function call, the JavaScript engine configures it for execution. During this memory creation phase, the following are created.</p>
 <ol>
-<li>Models</li>
+<li>A scope</li>
+<li>A scope chain</li>
+<li>Determination of the value of <code>this</code></li>
+</ol>
+<p>To note, arrow functions do <em>not</em> have the arguments object and <code>this</code> keyword.</p>
+<h3 id="heap">Heap</h3>
+<p>is an unstructured memory pool that stores all the objects our application needs.</p>
+<h3 id="just-in-time-compilation">Just-In-Time Compilation</h3>
+<p>Every computer programs are converted into machine code using compilation or interpretation.</p>
+<ul>
+<li><strong>Compilation</strong>: the entire source code is converted into machine code at once. This is then written into a portable file that can be executed on any computer.</li>
+<li><strong>Interpretation</strong>: an interpreter runs through the source code and executes it <em>line by line</em>. The code is read and executed all at the same time.</li>
+</ul>
+<p>JavaScript used to be a purely interpreted language, but this was much slower than compiled languages.</p>
+<p>The modern JavaScript uses a mix between compilation and interpretation called <strong>Just-In-Time compilation</strong>. This approach <strong>compiles</strong> the entire code into machine code <strong>at once</strong> and then <strong>executes it right away</strong>, which proved to be much faster than executing code line by line. The following is a simplified breakdown of the overall process:</p>
+<ol>
+<li>
+<p><strong>Parsing</strong></p>
+<ul>
+<li>The JavaScript engine parses (reads) the code as it enters the engine.</li>
+<li>During this process, the code is <strong>parsed into a data structure</strong> called the Abstract Syntax Tree.</li>
+<li>Each line of code gets splitted up into pieces, such as <code>const</code> or <code>function</code> keywords.</li>
+<li>These are then saved into the tree in a structured manner (not related to the DOM tree!).</li>
+<li>The resulting tree <strong>represents the entire code inside the engine</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Compilation</strong></p>
+<ul>
+<li>After this parsing process, the generated AST is compiled into machine code.</li>
+<li>The machine code gets executed right away because the JavaScript engine uses <strong>just-in-time compilation</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimization</strong></p>
+<ul>
+<li>Without stopping the execution, the code is optimized and recompiled as many times as needed.</li>
+<li>After each optimization, the initial unoptimized code is swept for the new, more optimized code.</li>
+</ul>
+</li>
+</ol>
+<p><em>Note</em>: This entire process takes place in a special thread that is separate from the main thread which is running in the call stack executing the code.</p>
+<h3 id="a-runtime-environment">A Runtime Environment</h3>
+<p>JavaScript runtime environment is where the program will be executed. There are <strong>two</strong> types of runtime environments where different data values and functions are available. These differences distinguish front-end applications from back-end applications.</p>
+<ol>
+<li>A browser&rsquo;s runtime environment</li>
 </ol>
 <ul>
-<li>Manage the data for an application</li>
-<li>Represent unique forms of data that an application may require</li>
-<li>Not concerned with the user inferface nor presentation layers</li>
-<li>When a model changes, it notifies its observers (views) that a change has occurred so that they may react accordingly.</li>
+<li>Front-end JavaScript applications are executed in a browser&rsquo;s runtime environment.</li>
+<li>Have access to the <code>window</code> object, through which JavaScript gets access to <strong>Web APIs</strong> for DOM, Timers, Fetch API, etc.</li>
+<li>Alongside the engine, Web APIs, the runtime also includes <strong>callback queue</strong>
+<ul>
+<li>Callback queue is a data structure containing all the callback functions that are ready to be executed</li>
+<li>Event handler functions like <code>onClick</code> is a callback function to DOM element, a button for instance.</li>
+<li>When the event is fired, the callback function is put into the callback queue.</li>
+<li>Then via the <strong>event loop</strong>, the callback function from the callback queue is passed to the stacks to be executed when the stack is empty.</li>
+</ul>
+</li>
 </ul>
 <ol start="2">
-<li>Views</li>
+<li>The Node runtime environment</li>
 </ol>
 <ul>
-<li>A visual representation of models that present a filtered view of their current state</li>
-<li>Observes a model and is notified when the model changes</li>
-<li>Users are able to interact with views:
-<ul>
-<li>e.g. reading and editing models such as editing a meta-data of a photo in a photo gallery application</li>
-</ul>
-</li>
-</ul>
-<ol start="3">
-<li>Controllers</li>
-</ol>
-<ul>
-<li>Intermediary between models and views
-<ul>
-<li>Both update the view when the model changes and update the model when the user manipulates the view</li>
-<li>e.g. responsible for handling changes the user made to the edit view for a particular photo, updating a specific photo model when a user has finished editing</li>
-</ul>
-</li>
-<li>Controllers in another library:
-<ul>
-<li>Spine.js</li>
-<li>Backbone.js</li>
-</ul>
-</li>
-</ul>
-<p>Extra note: <strong>Templating</strong></p>
-<ul>
-<li>Bad practice: manually creating large blocks of HTML markup in-memory through string concatenation</li>
-<li>JavaScript templating solutions (e.g. Handlebars.js and Mustache) are often used to define templates for views as markup containing template variables</li>
-<li>In Single-page JavaScript applications:
-<ul>
-<li>Once data is fetched from a server via Ajax, it can be dynamically rendered in a new view within the same page without any refreshing of a page</li>
-<li>The role of navigation becomes a &ldquo;router&rdquo;, which assists in managing application state</li>
-<li>Routers are neither a part of MVC nor present in every MVC-like framework</li>
-</ul>
-</li>
-</ul>
-<h2 id="benefits-of-mvc">Benefits of MVC</h2>
-<ul>
-<li>Facilitates simpler modularization of an application&rsquo;s functionality and enables:
-<ul>
-<li>Easier overall maintenance: when updates needs to be made to the application, it&rsquo;s clear whether the changes are data-centric (changes to models and maybe controllers), or merely visual (changes to views)</li>
-<li>Decoupling models and views: more straight-forward to write unit tests for business logic</li>
-<li>Duplication of low-level model and controller code is eliminated across the application</li>
-<li>Allows developers responsible for core logic and developers workign on the user-interfaces to work simultaneously (though this depends on the size of the application and separation of roles)</li>
-</ul>
-</li>
+<li>Back-end JavaScript applications are executed in the Node runtime environment.</li>
+<li>Have access to the file system, databases, and networks attached to the server, which are unavailable in a browser.</li>
+<li>Have multiple C++ bindings and a thread pool.</li>
 </ul>
 
       </div>
@@ -299,7 +282,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        650 Words
+        750 Words
       </p>
 
       <p>
@@ -310,7 +293,7 @@
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
         
-          2022-02-20 08:04
+          2022-02-08 00:02
         
 
          
@@ -321,7 +304,7 @@
       <hr />
       <div class="sharing-buttons">
         
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
   <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
     </div>
@@ -329,7 +312,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
   <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
       <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
@@ -338,7 +321,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=MVC%3a%20Model-View-Controller&amp;caption=MVC%3a%20Model-View-Controller&amp;canonicalUrl=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap&amp;caption=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap&amp;canonicalUrl=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
   <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
     <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
@@ -347,7 +330,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="mailto:?subject=MVC%3a%20Model-View-Controller&amp;body=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+<a class="resp-sharing-button__link" href="mailto:?subject=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap&amp;body=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
   <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
     </div>
@@ -355,7 +338,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f&amp;media=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f;description=MVC%3a%20Model-View-Controller" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f&amp;media=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f;description=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
   <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
     </div>
@@ -363,7 +346,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f&amp;title=MVC%3a%20Model-View-Controller&amp;summary=MVC%3a%20Model-View-Controller&amp;source=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f&amp;title=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap&amp;summary=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap&amp;source=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
   <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
     </div>
@@ -371,7 +354,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f&amp;resubmit=true&amp;title=MVC%3a%20Model-View-Controller" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f&amp;resubmit=true&amp;title=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
   <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
     </div>
@@ -379,7 +362,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f;title=MVC%3a%20Model-View-Controller" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f;title=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap" target="_blank" rel="noopener" aria-label="" title="Share on xing">
   <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
     </div>
@@ -387,7 +370,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="whatsapp://send?text=MVC%3a%20Model-View-Controller%20https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+<a class="resp-sharing-button__link" href="whatsapp://send?text=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap%20https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
   <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </div>
@@ -395,7 +378,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f&amp;t=MVC%3a%20Model-View-Controller" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f&amp;t=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
   <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
     </div>
@@ -403,7 +386,7 @@
 </a>
 
 
-<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=MVC%3a%20Model-View-Controller&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fmvc-model-view-controller%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=The%20Runtime%20Environment%3a%20Call%20Stack%20%26%20Heap&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fthe-runtime-environment-call-stack-heap%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
   <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
     </div>
@@ -422,17 +405,17 @@
         <div class="pagination__buttons">
             
             <span class="button previous">
-                <a href="https://haleyjung.github.io/posts/2022/02/instantiation-patterns/">
+                <a href="https://haleyjung.github.io/posts/2022/02/javascript-revision-1-terms/">
                     <span class="button__icon">←</span>
-                    <span class="button__text">Instantiation Patterns</span>
+                    <span class="button__text">JavaScript Revision 1: Terms</span>
                 </a>
             </span>
             
 
             
             <span class="button next">
-                <a href="https://haleyjung.github.io/posts/2022/02/patterns/">
-                    <span class="button__text">Patterns</span>
+                <a href="https://haleyjung.github.io/posts/2022/02/the-interpreted-multi-paradigm-dynamic-language/">
+                    <span class="button__text">The Interpreted, Multi-Paradigm, Dynamic language</span>
                     <span class="button__icon">→</span>
                 </a>
             </span>

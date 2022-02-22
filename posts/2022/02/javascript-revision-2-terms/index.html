@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Jung ">
+<meta name="description" content="Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution." />
+<meta name="keywords" content=", JavaScript" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://haleyjung.github.io/posts/2022/02/javascript-revision-2-terms/" />
+
+
+    <title>
+        
+            JavaScript Revision 2: Terms :: Today I Learned 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://haleyjung.github.io/main.17863a81d979b637a02cd7632a4d86e9d80563ef460fd6af1a56962efcaa066b.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://haleyjung.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://haleyjung.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://haleyjung.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://haleyjung.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://haleyjung.github.io/safari-pinned-tab.svg" color="#1b1c1d">
+    <link rel="shortcut icon" href="https://haleyjung.github.io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#1b1c1d">
+    <meta name="theme-color" content="#1b1c1d">
+
+
+<meta itemprop="name" content="JavaScript Revision 2: Terms">
+<meta itemprop="description" content="Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution."><meta itemprop="datePublished" content="2022-02-10T00:01:54-05:00" />
+<meta itemprop="dateModified" content="2022-02-10T00:01:54-05:00" />
+<meta itemprop="wordCount" content="1468"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="keywords" content="JavaScript," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://haleyjung.github.io/"/>
+
+<meta name="twitter:title" content="JavaScript Revision 2: Terms"/>
+<meta name="twitter:description" content="Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution."/>
+
+
+
+
+    <meta property="og:title" content="JavaScript Revision 2: Terms" />
+<meta property="og:description" content="Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haleyjung.github.io/posts/2022/02/javascript-revision-2-terms/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-02-10T00:01:54-05:00" />
+<meta property="article:modified_time" content="2022-02-10T00:01:54-05:00" />
+
+
+
+
+
+
+
+    <meta property="article:published_time" content="2022-02-10 00:01:54 -0500 EST" />
+
+
+
+
+
+
+
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://haleyjung.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">&gt;</span>
+            <span class="logo__text">Today I Learned</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://haleyjung.github.io/about/">About</a></li><li><a href="https://haleyjung.github.io/posts/">Posts</a></li><li><a href="https://haleyjung.github.io/tags/">Tags</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+                <span class="theme-toggle not-selectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+   3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+   13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+ </svg></span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        7 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://haleyjung.github.io/posts/2022/02/javascript-revision-2-terms/">JavaScript Revision 2: Terms</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Execution context</td>
+<td>Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and <code>this</code> keyword.</td>
+</tr>
+<tr>
+<td>Call Stack</td>
+<td>Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</td>
+</tr>
+<tr>
+<td>Variable environment</td>
+<td>The environment/region in the code which refers to the variables declared in each execution context.</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>The space/environment where we can refer to a variable by name without getting access errors. There are 3 types of scopes: global scope, function scope, block scope</td>
+</tr>
+<tr>
+<td>Local Scope</td>
+<td>Variables declared inside a function scope are only accessible inside that function.</td>
+</tr>
+<tr>
+<td>Lexical Scoping</td>
+<td>The way variables are organized and accessed is entirely controlled by the placement of functions and blocks in the code. When a variable gets called by an inner function, the engine goes through the scope chain to find the lexical scope (origin) of the specific variable that got called.</td>
+</tr>
+<tr>
+<td>Block Scope</td>
+<td>Refers to the scope of a variable declared inside any curly braces (e.g. a loop or if statement). <code>let</code> and <code>const</code> are block-scoped variables while <code>var</code> is function-scoped and accessible outside of the block. In strict mode, function are also block-scoped.</td>
+</tr>
+<tr>
+<td>Scope Chain</td>
+<td>Refers to the link between scopes: each function defined has its own nested scope, and any function defined in another function has a local scope which is linked to the outer function. Scope Chain helps the engine to know which value is assigned to a specific variable name if there are multiples of them defined at different scopes. When resolving a variable, inner functions first look at their own scope. If the variable cannot be found in its own scope it will climb up the scope chain and look for the variable name in the environment where the function was defined. This process is called <em>variable lookup</em>. At the top of the scope chain is the global scope: <code>window</code> object for the browser and <code>global</code> for NodeJS.</td>
+</tr>
+<tr>
+<td>Closure</td>
+<td>A retained scope. When you declare a function within another function, the outer function’s scope is accessible within the inner function. Global variables can be made local (private) with closures. It&rsquo;s often used for data privacy.</td>
+</tr>
+<tr>
+<td>Hoisting</td>
+<td>A JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. <code>let</code> and <code>const</code> are not hoisted; uninitialized.They are block-scoped, so they only exist in the block they were created; <code>var</code> gets hoisted to <code>undefined</code>.</td>
+</tr>
+<tr>
+<td>Temporal Dead Zone (TDZ)</td>
+<td>ES6: The region in the code where <code>let</code> or <code>const</code> variables cannot be accessed before its initialization. Accessing variables before the declaration is bad practice to be avoided. TDZ makes it easier to catch this by throwing an error.</td>
+</tr>
+<tr>
+<td>An instance</td>
+<td>JavaScript is a prototype-based language with objects, so it does not differentiate between classes and instances unlike class-based languages (Java / C++). So in JS, instances informally means an object created using a particular constructor function. In class-based languages, instance is an individual instantiation of a class and is fundamentally different from a class.</td>
+</tr>
+<tr>
+<td><code>.prototype</code></td>
+<td>A default container (object) for methods that is created with a function. It’s used for creating instances of a class. Use a prototype property to have a specific property accessible across all the objects. Every <code>.prototype</code> object has a <code>.constructor</code> property that points back to the function it came from. <code>.prototype</code> only works on functions. To access prototype property of an object (instance), use <code>__proto__</code>: both will refer to the same constructor function.</td>
+</tr>
+<tr>
+<td><code>this</code></td>
+<td>An identifier for values designed to support object-oriented programming, created for every execution context. When you invoke a method (function as object’s property) or a constructor function, <code>this</code> points to the object calling the method (At the call time, look at the left of the dot notation). In strict mode, <code>this</code> in &lsquo;normal&rsquo; functions will simply be <code>undefined</code>. But otherwise, it will point to the global object, which for browsers is the <code>global</code> object. For arrow functions, <code>this</code> becomes <strong>lexical</strong>, pointing to the value of <code>this</code> in the parent function. For event listener functions, <code>this</code> will always point to the DOM element the handler function is attached to.</td>
+</tr>
+<tr>
+<td><code>new</code></td>
+<td>An operator that is placed before a constructor (function invocation), which runs the function as if there are these two extra lines of code at the beginning and the end: <code>this: Object.create(___.prototype);</code> &hellip; <code>return this;</code></td>
+</tr>
+<tr>
+<td>Constructor</td>
+<td>A class or function that specifies the type(name) of the object instance. JavaScript has only one constructor, objects. Each object has a private property which holds a link to another object called prototype.</td>
+</tr>
+<tr>
+<td>Constructor function</td>
+<td>Functions that are used as templates for creating objects. Constructor function names commonly start with a capital letter. Uses the <code>new</code> operator to create a new instance of an object, which is referred to by <code>this</code>. Arrow functions cannot be used to define constructor functions. To check if we used <code>new</code> to call the constructor function, add <code>console.log(new.target);</code> in the constructor function.</td>
+</tr>
+<tr>
+<td><code>Class</code></td>
+<td>A template for creating objects, replacing the previous method of using constructor functions. Commonly named with capitalized nouns. Two syntax: (1) Class Declaration: <code>class Name { constructor(x) { this.x = …, } }</code> (2) Class expression: <code>let Name = class { constructor(x) { this.x = .. } }</code></td>
+</tr>
+<tr>
+<td><code>instanceOf</code></td>
+<td>An operator that returns a boolean value to test if the prototype property of a constructor appears anywhere in the prototype chain of an object: <code>objectName instanceof constructor</code></td>
+</tr>
+<tr>
+<td>Decorator</td>
+<td>A design pattern of wrapping one piece of code with another, or applying a wrapper around a function to modify or add properties to enhance the functionality of the function without modifying the underlying function.</td>
+</tr>
+<tr>
+<td>Object Decorator Pattern vs. Functional Class Pattern</td>
+<td>Object Decorator Pattern passes object as a parameter while Functional Class Pattern (the constructor functions) declares object inside the function</td>
+</tr>
+<tr>
+<td>Pseudoclassical Class Instantiation Pattern</td>
+<td>Using a class in Pseudoclassical Style always calls a function with <code>new</code> in front of it. This pattern is a thin layer of syntactic convenience on top of the prototypal pattern.</td>
+</tr>
+<tr>
+<td>Prototypal Pattern</td>
+<td>Describes what you need for a function that creates instances: (1) A line in a function where you create a new instance object (2) A delegation from the new object to some prototype (3) Some logic augmenting the new object with the properties that make it unique from other objects of the same class</td>
+</tr>
+<tr>
+<td>Prototype Chains / Prototypal Inheritance Model</td>
+<td>Prototype chain is a mechanism for making objects resemble other objects by delegating its failed property lookup to that other object at lookup time. Object properties and methods can be inherited.</td>
+</tr>
+<tr>
+<td><code>Object.create()</code></td>
+<td>Creates a new object with the specified prototype object and properties. Pass in a desired fallback object (which is a prototype object) to create a new object that delegates its failed lookups to the fallback object.</td>
+</tr>
+<tr>
+<td><code>Object.assign()</code></td>
+<td>Creates a new object, but it’s a shallow copy and not a deep clone: it will only copy the properties in the first level while deep clone would copy everything.</td>
+</tr>
+<tr>
+<td>Object Prototype</td>
+<td>A top-level object that every JavaScript object eventually delegates to. The object prototype provides the shared properties of all objects. This is where all the basic methods are provided. Its methods include <code>.toString()</code>, <code>.constructor()</code>, <code>.hasOwnProperty()</code></td>
+</tr>
+<tr>
+<td>Recursive Function</td>
+<td>A function that calls itself. All recursive functions have at least one base case: a case when the function can produce a result without recursing. All recursive functions have at least one recursive case. Recursion should not be utilized without an accompanying base case unless infinite operation is desired. To solve a problem, solve a subproblem that is a smaller instance of the same problem, and then use the solution to that smaller instance to solve the original problem.</td>
+</tr>
+<tr>
+<td>Promise</td>
+<td>A JavaScript object that represents an eventual completion or failure of an asynchronous operation. You can achieve results from performing asynchronous operations using the callback approach or by using promises. Unlike callbacks where you pass a callback into a function, with promise you attach callbacks on the returned promise object. To perform multiple asynchronous operations simultaneously, promises are better practice as with callbacks we can easily end up in callback hell with unmanageable and hard-to-read codes. With promises, we can use the <code>.then()</code> method to chain the codes at the root of the first handler = Promise Chaining</td>
+</tr>
+<tr>
+<td>Promise Chaining</td>
+<td>Useful when we need to execute a chain of asynchronous tasks. Each task that’s being chained can only start as soon as the previous task has completed, controlled by the <code>.then()</code> method of the chain.</td>
+</tr>
+<tr>
+<td>async/await</td>
+<td><strong>async</strong>: we can add <code>async</code> modifier in front of a function <code>async function() { ... }</code> / <strong>Await</strong>: wait for the promise to resolve; only works for asynchronous functions</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://haleyjung.github.io/tags/javascript/">JavaScript</a></span>
+        
+    </p>
+
+      
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1468 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2022-02-10 00:01
+        
+
+         
+          
+        
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_blank" rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_blank" rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+      <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=JavaScript%20Revision%202%3a%20Terms&amp;caption=JavaScript%20Revision%202%3a%20Terms&amp;canonicalUrl=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_blank" rel="noopener" aria-label="" title="Share on tumblr">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=JavaScript%20Revision%202%3a%20Terms&amp;body=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_self" rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://pinterest.com/pin/create/button/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f&amp;media=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f;description=JavaScript%20Revision%202%3a%20Terms" target="_blank" rel="noopener" aria-label="" title="Share on pinterest">
+  <div class="resp-sharing-button resp-sharing-button--pinterest resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f&amp;title=JavaScript%20Revision%202%3a%20Terms&amp;summary=JavaScript%20Revision%202%3a%20Terms&amp;source=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f&amp;resubmit=true&amp;title=JavaScript%20Revision%202%3a%20Terms" target="_blank" rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.xing.com/app/user?op=share;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f;title=JavaScript%20Revision%202%3a%20Terms" target="_blank" rel="noopener" aria-label="" title="Share on xing">
+  <div class="resp-sharing-button resp-sharing-button--xing resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="whatsapp://send?text=JavaScript%20Revision%202%3a%20Terms%20https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_blank" rel="noopener" aria-label="" title="Share on whatsapp">
+  <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f&amp;t=JavaScript%20Revision%202%3a%20Terms" target="_blank" rel="noopener" aria-label="" title="Share on hacker news">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896h-1.88z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=JavaScript%20Revision%202%3a%20Terms&amp;url=https%3a%2f%2fhaleyjung.github.io%2fposts%2f2022%2f02%2fjavascript-revision-2-terms%2f" target="_blank" rel="noopener" aria-label="" title="Share on telegram">
+  <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    </div>
+  </div>
+</a>
+
+      </div>
+
+    
+    <div class="pagination">
+        <div class="pagination__title">
+            <span class="pagination__title-h"></span>
+            <hr />
+        </div>
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://haleyjung.github.io/posts/2022/02/javascript-revision-3-hof-closure-scope/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">JavaScript Revision 3: HOF, Closure &amp; Scope</span>
+                </a>
+            </span>
+            
+
+            
+            <span class="button next">
+                <a href="https://haleyjung.github.io/posts/2022/02/javascript-revision-1-terms/">
+                    <span class="button__text">JavaScript Revision 1: Terms</span>
+                    <span class="button__icon">→</span>
+                </a>
+            </span>
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            <span><a href="https://haleyjung.github.io/">Jung</a></span>
+            <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            <span><a href="https://haleyjung.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="https://haleyjung.github.io/bundle.min.599099f1f14b78b657d524b28e10e0c5098e7cd46e9c7aed73d577068a276c3ff1bb234cbf29cb313333e83cf411727b43157c91ce5b809e2ffc81664614608e.js" integrity="sha512-WZCZ8fFLeLZX1SSyjhDgxQmOfNRunHrtc9V3BoonbD/xuyNMvynLMTMz6Dz0EXJ7QxV8kc5bgJ4v/IFmRhRgjg=="></script>
+
+
+
+    </body>
+</html>
