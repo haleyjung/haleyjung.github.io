@@ -6,8 +6,115 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sat, 19 Feb 2022 18:57:18 -0500</lastBuildDate>
+        <lastBuildDate>Sun, 20 Feb 2022 08:04:41 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>MVC: Model-View-Controller</title>
+            <link>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</link>
+            <pubDate>Sun, 20 Feb 2022 08:04:41 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</guid>
+            <description>What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
+  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript.</description>
+            <content type="html"><![CDATA[<h2 id="what-is-mvc">What is MVC?</h2>
+<blockquote>
+<p><strong>Model</strong>: business data / <strong>View</strong>: user interface / <strong>Controller</strong>: a component traditionally managing logic, user-input and coordinating both the models and views.</p>
+</blockquote>
+<ul>
+<li>An architectural design pattern</li>
+<li>MVC encourages improved application organization through a separation of conerns.</li>
+</ul>
+<h3 id="history-smalltalk-80s-mvc-in-the-1970s">History: Smalltalk-80&rsquo;s MVC in the 1970s</h3>
+<ul>
+<li>Designed by <strong>Trygve Reenskaug</strong> during his time working on <strong>Smalltalk-80</strong> (1979) where it was initially called <em>Model-View-Controller-Editor</em>.</li>
+<li>Before, it was heavily used for structuring desktop and sever-side applications, but recently it&rsquo;s being applied to JavaScript.</li>
+<li>Originally aimed to separate out the application logic from the user interface; an idea that decoupling these parts of the application would also allow the reuse of models for other interfaces in the application.
+<ul>
+<li>Back in the 70s, graphical user-interfaces were far and few between and a concept known as Separated Presentation began to be used as a means to make a clear division between domain objects which modeled concepets in the real world and the presentation objects which were rended to the user&rsquo;s screen.</li>
+</ul>
+</li>
+<li>Smalltalk-80&rsquo;s MVC architecture:
+<ul>
+<li>A Domain element (Model) was ignorant of the user-interface (Views and Controllers)</li>
+<li>The View and Controller both observed the Model. Anytime the Model changes, the Views react (e.g. stock market data)</li>
+<li>Presentation was taken care of by the View and the Controller, but there wasn&rsquo;t a single view and controller.</li>
+<li>A View-Controller pair was required for each element being displayed on the screen, so there was no true separation between them.</li>
+<li>The Controller&rsquo;s role in this pair was handling user input (e.g. click events or key-presses).</li>
+<li>The Observer pattern was relied upon for updating the View whenever the Model changed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="mvc-for-javascript">MVC for JavaScript</h2>
+<ul>
+<li>JavaScript has a number of frameworks boasting support for MVC (or the MV* family).</li>
+<li>These frameworks allow us to easily add structure to our applications without great effort.</li>
+<li>e.g. Backbone, Ember.js, JavaScriptMVC</li>
+</ul>
+<h3 id="3-components-of-mvc">3 Components of MVC</h3>
+<ol>
+<li>Models</li>
+</ol>
+<ul>
+<li>Manage the data for an application</li>
+<li>Represent unique forms of data that an application may require</li>
+<li>Not concerned with the user inferface nor presentation layers</li>
+<li>When a model changes, it notifies its observers (views) that a change has occurred so that they may react accordingly.</li>
+</ul>
+<ol start="2">
+<li>Views</li>
+</ol>
+<ul>
+<li>A visual representation of models that present a filtered view of their current state</li>
+<li>Observes a model and is notified when the model changes</li>
+<li>Users are able to interact with views:
+<ul>
+<li>e.g. reading and editing models such as editing a meta-data of a photo in a photo gallery application</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>Controllers</li>
+</ol>
+<ul>
+<li>Intermediary between models and views
+<ul>
+<li>Both update the view when the model changes and update the model when the user manipulates the view</li>
+<li>e.g. responsible for handling changes the user made to the edit view for a particular photo, updating a specific photo model when a user has finished editing</li>
+</ul>
+</li>
+<li>Controllers in another library:
+<ul>
+<li>Spine.js</li>
+<li>Backbone.js</li>
+</ul>
+</li>
+</ul>
+<p>Extra note: <strong>Templating</strong></p>
+<ul>
+<li>Bad practice: manually creating large blocks of HTML markup in-memory through string concatenation</li>
+<li>JavaScript templating solutions (e.g. Handlebars.js and Mustache) are often used to define templates for views as markup containing template variables</li>
+<li>In Single-page JavaScript applications:
+<ul>
+<li>Once data is fetched from a server via Ajax, it can be dynamically rendered in a new view within the same page without any refreshing of a page</li>
+<li>The role of navigation becomes a &ldquo;router&rdquo;, which assists in managing application state</li>
+<li>Routers are neither a part of MVC nor present in every MVC-like framework</li>
+</ul>
+</li>
+</ul>
+<h2 id="benefits-of-mvc">Benefits of MVC</h2>
+<ul>
+<li>Facilitates simpler modularization of an application&rsquo;s functionality and enables:
+<ul>
+<li>Easier overall maintenance: when updates needs to be made to the application, it&rsquo;s clear whether the changes are data-centric (changes to models and maybe controllers), or merely visual (changes to views)</li>
+<li>Decoupling models and views: more straight-forward to write unit tests for business logic</li>
+<li>Duplication of low-level model and controller code is eliminated across the application</li>
+<li>Allows developers responsible for core logic and developers workign on the user-interfaces to work simultaneously (though this depends on the size of the application and separation of roles)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Patterns</title>

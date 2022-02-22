@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 19 Feb 2022 18:57:18 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 08:04:41 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MVC: Model-View-Controller</title>
+      <link>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</link>
+      <pubDate>Sun, 20 Feb 2022 08:04:41 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</guid>
+      <description>What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
+  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript.</description>
+    </item>
+    
     <item>
       <title>Patterns</title>
       <link>https://haleyjung.github.io/posts/2022/02/patterns/</link>
@@ -100,15 +110,6 @@ console.log(0.1 + 0.2); console.log(0.1 + 0.2 = 0.3); &amp;ldquo;You can&amp;rsq
       
       <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-2/</guid>
       <description>Term Definition     Execution context Holds information about the environment within which the current code is being executed; Calling a function creates a new execution context. An execution context always contains 3 parts: a variable environment, the scope chain in the current context, and this keyword.   Call Stack Where execution contexts get stacked on top of each other to keep track of where we are in the program’s execution.</description>
-    </item>
-    
-    <item>
-      <title>JavaScript Revision 1</title>
-      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</link>
-      <pubDate>Wed, 09 Feb 2022 22:17:53 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-1/</guid>
-      <description>Term Definition     Value JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, Symbol, and BigInt   Reference JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet   Variable A named unit of data where values can be stored and referred to by that name   Function The primary method through which we manipulate data in JavaScript.</description>
     </item>
     
   </channel>

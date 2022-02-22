@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 19 Feb 2022 18:57:18 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 08:04:41 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MVC: Model-View-Controller</title>
+      <link>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</link>
+      <pubDate>Sun, 20 Feb 2022 08:04:41 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</guid>
+      <description>What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
+  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript.</description>
+    </item>
+    
     <item>
       <title>Patterns</title>
       <link>https://haleyjung.github.io/posts/2022/02/patterns/</link>
@@ -100,18 +110,6 @@ Example 1: Input: l1 = [2,4,3], l2 = [5,6,4] Output: [7,0,8] Explanation: 342 + 
       <guid>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</guid>
       <description>Prompt Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
 Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</description>
-    </item>
-    
-    <item>
-      <title>JavaScript Revision 3</title>
-      <link>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</link>
-      <pubDate>Thu, 10 Feb 2022 08:07:05 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/javascript-revision-3/</guid>
-      <description>1. Fundamental Concept Value
- JavaScript has the scalar primitive types that are passed by value: Number, String, Boolean, undefined, null, and Symbol Values are stored in variables, a named unit of data  Reference
- JavaScript has 3 data types that are passed by reference: Array, Function, and Objcet These are collectively known as Objects.  Hoisting
- A JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</description>
     </item>
     
   </channel>
