@@ -6,8 +6,230 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Mon, 21 Feb 2022 23:46:14 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 23 Feb 2022 00:27:45 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Writing My Own `StringifyJSON`</title>
+            <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</link>
+            <pubDate>Wed, 23 Feb 2022 00:27:45 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</guid>
+            <description>Goal I&amp;rsquo;m going to write out the JSON.stringify() method, which converts a JavaScript object or value to a JSON string.
+ Boolean, Number, and String objects are converted to the corresponding primitive values during stringification.  String will be wrapped in extra quotation marks   undefined, Function, and Symbol are not valid JSON values. If they are found in an array, they will be changed to null. The numbers Infinity and NaN, as well as the value null, are all considered null.</description>
+            <content type="html"><![CDATA[<h2 id="goal">Goal</h2>
+<p>I&rsquo;m going to write out the <code>JSON.stringify()</code> method, which converts a JavaScript object or value to a JSON string.</p>
+<ul>
+<li><code>Boolean</code>, <code>Number</code>, and <code>String</code> objects are converted to the corresponding primitive values during stringification.
+<ul>
+<li><code>String</code> will be wrapped in extra quotation marks</li>
+</ul>
+</li>
+<li><code>undefined</code>, <code>Function</code>, and <code>Symbol</code> are not valid JSON values. If they are found in an array, they will be changed to <code>null</code>.</li>
+<li>The numbers <code>Infinity</code> and <code>NaN</code>, as well as the value <code>null</code>, are all considered <code>null</code>.
+<ul>
+<li>Note: <code>null</code> is an object, but it gets returned as &lsquo;null&rsquo;.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Selected Examples:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({});
+<span style="color:#75715e">// &#39;{}&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#66d9ef">true</span>);
+<span style="color:#75715e">// &#39;true&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#e6db74">&#39;foo&#39;</span>);
+<span style="color:#75715e">// &#39;&#34;foo&#34;&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>([<span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;false&#39;</span>, <span style="color:#66d9ef">false</span>]);
+<span style="color:#75715e">// &#39;[1,&#34;false&#34;,false]&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>([<span style="color:#66d9ef">NaN</span>, <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">Infinity</span>]);
+<span style="color:#75715e">// &#39;[null,null,null]&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({ <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span> });
+<span style="color:#75715e">// &#39;{&#34;x&#34;:5}&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>({ <span style="color:#a6e22e">x</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">5</span>, <span style="color:#a6e22e">y</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">6</span> });
+<span style="color:#75715e">// &#39;{&#34;x&#34;:5,&#34;y&#34;:6}&#39;
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>([<span style="color:#66d9ef">new</span> Number(<span style="color:#ae81ff">3</span>), <span style="color:#66d9ef">new</span> String(<span style="color:#e6db74">&#39;false&#39;</span>), <span style="color:#66d9ef">new</span> Boolean(<span style="color:#66d9ef">false</span>)]);
+<span style="color:#75715e">// &#39;[3,&#34;false&#34;,false]&#39;
+</span></code></pre></div><h2 id="pseudocodes">Pseudocodes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// Declare a variable `stringify`
+// and initialize it to an empty string
+
+// If the input is `NaN`, `null`, or `undefined`
+  // return &#39;null&#39; (this should be wrapped in &#39;&#39;)
+
+// If the input is a number or boolean
+  // merge the input with stringify var, the empty string
+
+// If the input is an array
+  // If it&#39;s an empty array (its length being 0)
+    // Return an empty array wrapped in strings
+  // Otherwise
+    // Declare a result var, initialize it to an empty array
+    // Iterate over the input using forEach
+      // Use recursion to pass each array element
+      // as a parameter to stringifyJSON
+    // Join the array elements with a comma using `.join` (now it&#39;s a string)
+    // Add stringified result var with stringified square brackets
+    // Merge this with the stingify var (string) and return it
+
+// If the input is an object
+  // Iterate over the object using for in loop
+    // If its value is defined and its value type is not a function
+      // Use recursion to stringify the key, colon, value followed by a comma
+  // Outside the iteration
+  // Return the stringified value, add the curly braces as strings,
+  // also slice the last element (the last comma) from the string
+
+// Return the stringify variable
+</code></pre></div><h2 id="methodsoperator">Methods/Operator</h2>
+<p>The JavaScript <code>+=</code> operator can merge two strings together. This operator is more convenient than the long-form <code>variable = x + y</code> syntax.</p>
+<p>To iterate over the input for checking arrays, I can write the iteration in 3 different ways:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// 1. using forEach
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">element</span>) {
+  <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">stringifyJSON</span>(<span style="color:#a6e22e">element</span>));
+});
+
+<span style="color:#75715e">// 2. using an arrow function with forEach
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">element</span> =&gt; {
+  <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">stringifyJSON</span>(<span style="color:#a6e22e">element</span>));
+});
+
+<span style="color:#75715e">// 3. using a for loop
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+  <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">stringifyJSON</span>(<span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">i</span>]));
+}
+</code></pre></div><h2 id="solution">Solution</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stringifyJSON</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stringify</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">NaN</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;undefined&#39;</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;null&#39;</span>;
+  }
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;number&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;boolean&#39;</span>) {
+    <span style="color:#a6e22e">stringify</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">obj</span>;
+  }
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;string&#39;</span>) {
+    <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#34;&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;&#34;&#39;</span>;
+    <span style="color:#a6e22e">stringify</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">obj</span>;
+  }
+
+  <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">obj</span>)) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stringify</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;[]&#39;</span>;
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+
+      <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">element</span>) {
+        <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">stringifyJSON</span>(<span style="color:#a6e22e">element</span>));
+      });
+
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stringify</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;[&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#39;,&#39;</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;]&#39;</span>;
+    }
+  }
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;object&#39;</span>) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">obj</span>) {
+      <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">!==</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;function&#39;</span>) {
+        <span style="color:#a6e22e">stringify</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">stringifyJSON</span>(<span style="color:#a6e22e">key</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">stringifyJSON</span>(<span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;,&#39;</span>;
+      }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;{&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">stringify</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;}&#39;</span>;
+  }
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stringify</span>;
+};
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify">&ldquo;JSON.stringify&rdquo;, MDN Web Docs.</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Writing My Own `getElementsByClassName()`</title>
+            <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-getelementsbyclassname/</link>
+            <pubDate>Tue, 22 Feb 2022 00:23:20 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/writing-my-own-getelementsbyclassname/</guid>
+            <description>Goal I&amp;rsquo;m going to write out the getElementsByClassName() method, using JavaScript. When it&amp;rsquo;s called on the document object, it returns an array-like object of all child elements which have all of the given class name(s).
+Pseudocodes // Declare an empty array to store the result // Declare a function expression `hasClassName` // with a function parameter as `node` // to check which node has the same class name as `className` // Call the function expression `hasClassName` // and pass `document.</description>
+            <content type="html"><![CDATA[<h2 id="goal">Goal</h2>
+<p>I&rsquo;m going to write out the <code>getElementsByClassName()</code> method, using JavaScript. When it&rsquo;s called on the <code>document</code> object, it returns an <strong>array-like object</strong> of all child elements which have all of the given class name(s).</p>
+<h2 id="pseudocodes">Pseudocodes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">// Declare an empty array to store the result
+
+// Declare a function expression `hasClassName`
+// with a function parameter as `node`
+// to check which node has the same class name as `className`
+
+// Call the function expression `hasClassName`
+// and pass `document.body` as its argument
+
+// Inside `hasClassName`, declare two if statements
+  // **The first if statement is a base case**
+  // If the node has a class name, which contains `className`
+    // Push the node to the result array
+  // **The second if statement is a recursive case
+  // to check if the DOM has a nested structure**
+  // If the node has child nodes
+    // Iterate over the child nodes
+      // Call the recursive function `hasClassName`
+      // and pass the current child node as its argument
+      // **This will then push the child node that has `className` to the result array**
+
+// return the result array
+</code></pre></div><h2 id="methods">Methods</h2>
+<h3 id="1-getelementsbyclassname">1. <code>getElementsByClassName()</code></h3>
+<ul>
+<li>The method I&rsquo;m trying to unfold returns a collection of elements with a specified class name(s).</li>
+<li>It returns an <strong>HTMLCollection</strong>, which is a collection of HTML nodes
+<ul>
+<li>Nodes can be accessed by index numbers starting with 0</li>
+<li>The length property returns the number of elements in the collection</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-classlist">2. <code>.classList</code></h3>
+<p><code>classList</code> is a <strong>DOMTokenList</strong> that returns the class of the selected element:</p>
+<ul>
+<li><code>p.classList.add(‘bold’, ‘big-font’);</code></li>
+<li><code>p.classList.remove(‘bold’);</code></li>
+<li><code>p.classList.replace(‘big-font’, ‘red-bg’);</code> // replace big-font with red-background</li>
+<li><code>p.classList.contains(className)</code> // the method I&rsquo;m using for this prompt</li>
+</ul>
+<h3 id="3-classlistcontains">3. <code>.classList.contains()</code></h3>
+<p>To check if an element contains a class, you use the <code>contains()</code> method of the <code>classList</code> property of the element:</p>
+<p><code>element.classList.contains(className);</code></p>
+<h2 id="solution">Solution</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">getElementsByClassName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">className</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">hasClassName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">node</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">classList</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">classList</span>.<span style="color:#a6e22e">contains</span>(<span style="color:#a6e22e">className</span>)) {
+      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">node</span>);
+    }
+
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">hasChildNodes</span>()) {
+      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">childNodes</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+        <span style="color:#a6e22e">hasClassName</span>(<span style="color:#a6e22e">node</span>.<span style="color:#a6e22e">childNodes</span>[<span style="color:#a6e22e">i</span>]);
+      }
+    }
+  };
+  <span style="color:#a6e22e">hasClassName</span>(document.<span style="color:#a6e22e">body</span>);
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+};
+</code></pre></div><h2 id="reference">Reference</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName">&ldquo;Document.getElementsByClassName()&rdquo;, MDN Web Docs.</a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMTokenList">&ldquo;DOMTokenList&rdquo;, MDN Web Docs.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Instantiation Patterns</title>
@@ -614,9 +836,10 @@ Categorizing Patterns Creational Design Patterns  Focuses on handling object cre
   <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">array</span>)) {
     <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>;
   }
+
   <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">curr</span>) =&gt; {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">a</span>
-  })
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">acc</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arraySum</span>(<span style="color:#a6e22e">curr</span>);
+  }, <span style="color:#ae81ff">0</span>);
 };
 
 <span style="color:#75715e">// 4. Check if a number is even.
