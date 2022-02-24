@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 23 Feb 2022 00:27:45 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Feb 2022 07:06:01 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode: Shifting Letters - medium</title>
+      <link>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</link>
+      <pubDate>Thu, 24 Feb 2022 07:06:01 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</guid>
+      <description>Prompt You are given a string s of lowercase English letters and an integer array shifts of the same length.
+Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that &amp;lsquo;z&amp;rsquo; becomes &amp;lsquo;a&amp;rsquo;).
+For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;, and shift(&#39;z&#39;) = &#39;a&#39;. Now for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.</description>
+    </item>
+    
     <item>
       <title>Writing My Own `StringifyJSON`</title>
       <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</link>
@@ -98,19 +109,6 @@ Categorizing Patterns Creational Design Patterns  Focuses on handling object cre
       <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
   Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
 console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
-    </item>
-    
-    <item>
-      <title>Memory Management of Primitives vs. References</title>
-      <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
-      <pubDate>Sun, 13 Feb 2022 16:52:11 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</guid>
-      <description>Define Primitives: number, string, Boolean, undefined, null, symbol and BigInt.
-References: objects (object literal, arrays, functions)
-A side note on Numbers Numbers in JavaScript are treated with a floating point precision!
-Qs. What will the code below output? Explain your answer.
-console.log(0.1 + 0.2); console.log(0.1 + 0.2 = 0.3); &amp;ldquo;You can&amp;rsquo;t be sure. It might print out 0.3 and true, or not. Numbers in JavaScript are all treated with floating point precision, and as much, may not always yield the expected results.</description>
     </item>
     
   </channel>

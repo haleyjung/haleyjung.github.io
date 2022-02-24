@@ -6,8 +6,75 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 23 Feb 2022 00:27:45 -0500</lastBuildDate>
+        <lastBuildDate>Thu, 24 Feb 2022 07:06:01 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>LeetCode: Shifting Letters - medium</title>
+            <link>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</link>
+            <pubDate>Thu, 24 Feb 2022 07:06:01 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</guid>
+            <description>Prompt You are given a string s of lowercase English letters and an integer array shifts of the same length.
+Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that &amp;lsquo;z&amp;rsquo; becomes &amp;lsquo;a&amp;rsquo;).
+For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;, and shift(&#39;z&#39;) = &#39;a&#39;. Now for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.</description>
+            <content type="html"><![CDATA[<h2 id="prompt">Prompt</h2>
+<p>You are given a string <code>s</code> of lowercase English letters and an integer array shifts of the same length.</p>
+<p>Call the <code>shift()</code> of a letter, the next letter in the alphabet, (wrapping around so that &lsquo;z&rsquo; becomes &lsquo;a&rsquo;).</p>
+<p>For example, <code>shift('a') = 'b'</code>, <code>shift('t') = 'u'</code>, and <code>shift('z') = 'a'</code>.
+Now for each <code>shifts[i] = x</code>, we want to shift the first <code>i + 1</code> letters of <code>s</code>, <code>x</code> times.</p>
+<p>Return the <em>final string after all such shifts</em> to s are applied.</p>
+<p>Example 1:
+<strong>Input</strong>: s = &ldquo;abc&rdquo;, shifts = [3,5,9]
+<strong>Output</strong>: &ldquo;rpl&rdquo;
+<strong>Explanation</strong>: We start with &ldquo;abc&rdquo;.</p>
+<ul>
+<li>After shifting the first 1 letters of s by 3, we have &ldquo;dbc&rdquo;.</li>
+<li>After shifting the first 2 letters of s by 5, we have &ldquo;igc&rdquo;.</li>
+<li>After shifting the first 3 letters of s by 9, we have &ldquo;rpl&rdquo;, the answer.</li>
+</ul>
+<p>Example 2:
+<strong>Input</strong>: s = &ldquo;aaa&rdquo;, shifts = [1,2,3]
+<strong>Output</strong>: &ldquo;gfd&rdquo;</p>
+<p>Constraints:</p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 105</code></li>
+<li><code>s</code> consists of lowercase English letters.</li>
+<li><code>shifts.length == s.length</code></li>
+<li><code>0 &lt;= shifts[i] &lt;= 109</code></li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li><code>.charCodeAt()</code> to get the code of the current char</li>
+<li>change the code back to alphabets with <code>String.fromCharCode()</code></li>
+</ul>
+<h2 id="solution">Solution</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">shiftingLetters</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">shifts</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">strArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">shifts</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">i</span> <span style="color:#f92672">!==</span> <span style="color:#a6e22e">shifts</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) {
+      <span style="color:#a6e22e">shifts</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">+=</span> <span style="color:#a6e22e">shifts</span>[<span style="color:#a6e22e">i</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>];
+    }
+
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">shiftCount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">shifts</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">%</span> <span style="color:#ae81ff">26</span>; <span style="color:#75715e">// 26 = the total number of alphabets
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">curTotal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">strArr</span>[<span style="color:#a6e22e">i</span>].<span style="color:#a6e22e">charCodeAt</span>(<span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">shiftCount</span>;
+
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">curTotal</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">122</span>) { <span style="color:#75715e">// ASCII a ~ z = 65 ~ 122
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">curTotal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">curTotal</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">26</span>;
+    }
+
+    <span style="color:#a6e22e">strArr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> String.<span style="color:#a6e22e">fromCharCode</span>(<span style="color:#a6e22e">curTotal</span>);
+  }
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strArr</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;&#34;</span>);
+}
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html">&ldquo;ascii tABLE</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Writing My Own `StringifyJSON`</title>
@@ -4687,6 +4754,42 @@ let a = 1; let b = a;  a has value of 1, which is a Number, a Primitive data typ
 </ul>
 </li>
 </ol>
+<h2 id="sample-codes">Sample Codes</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">x</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">y</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>;
+  }
+}
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">foo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">1</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;first foo: &#39;</span>, <span style="color:#a6e22e">foo</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">bar</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">3</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;first bar: &#39;</span>, <span style="color:#a6e22e">bar</span>);
+
+<span style="color:#a6e22e">foo</span>(<span style="color:#ae81ff">3</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;foo(3): &#39;</span>, <span style="color:#a6e22e">foo</span>(<span style="color:#ae81ff">3</span>));
+<span style="color:#a6e22e">bar</span>(<span style="color:#ae81ff">2</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;bar(2): &#39;</span>, <span style="color:#a6e22e">bar</span>(<span style="color:#ae81ff">2</span>));
+</code></pre></div><ul>
+<li>
+<p><code>var foo</code> calls the return function of <code>add</code></p>
+<ul>
+<li><code>x</code> = 1</li>
+</ul>
+</li>
+<li>
+<p><code>foo(3)</code> = <code>add(3)(1)</code> = 3 + 1 = 4</p>
+</li>
+<li>
+<p><code>var bar</code> calls the return function of <code>add</code></p>
+<ul>
+<li><code>x</code> = 3</li>
+</ul>
+</li>
+<li>
+<p><code>bar(2)</code> = <code>add(2)(3)</code> = 2 + 3 = 5</p>
+</li>
+</ul>
 <h2 id="references">References</h2>
 <p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36">Elliott, Eric. &ldquo;Master the JavaScript Interview: What is a Closure?&rdquo;, Medium, January 7, 2016.</a></p>
 <p><a href="https://codeburst.io/js-demystified-04-execution-context-97dea52c8ac6">Ogura, Misa. &ldquo;JS Demystified 04 - Execution Context&rdquo;, Codeburst, August 24, 2017.</a></p>
@@ -5259,8 +5362,9 @@ When you read tests written in Mocha, you’ll see regular use of the keywords d
 <p>They are JavaScript frameworks that are commonly used together for unit testing.</p>
 <p>Mocha is a testing framework that provides functions that are executed according in a specific order, and that logs their results to the terminal window.</p>
 <p>When you read tests written in Mocha, you’ll see regular use of the keywords describe and it. These keywords, provided by Mocha, provide structure to the tests by batching them into test suites and test cases.</p>
+<p>Mocha provides tools for cleaning the state of the software being tested in order to insure that test cases are being run independently of each other. You might end up using other tools, to stub or mock the desired behaviors of other units that a given unit of code might interact with. The independence of test cases is a key principle of unit testing, as it allows the cause of errors to be pinpointed more specifically if a test case fails, thereby speeding up the debugging process.</p>
+<h2 id="what-is-a-test-suite">What is a test suite?</h2>
 <p>A test suite is a collection of tests all relating to a single functionality or behavior. A test case or a unit test is a single description about the desired behavior of the code that either passes or fails. Test suites are batched underneath the describe keyword, and test cases are batched under the it keyword.</p>
-<p>Additionally, Mocha provides tools for cleaning the state of the software being tested in order to insure that test cases are being run independently of each other. You might end up using other tools, to stub or mock the desired behaviors of other units that a given unit of code might interact with. The independence of test cases is a key principle of unit testing, as it allows the cause of errors to be pinpointed more specifically if a test case fails, thereby speeding up the debugging process.</p>
 <h2 id="assertions">Assertions</h2>
 <p>The base component of test cases are assertions. Assertions are tied to particular values (whereas test cases are descriptions of behavior) and they will fail if the expected value does not match the actual value.</p>
 <p>Every assertion in a test case must be met in order for the test case to pass.</p>
@@ -5269,8 +5373,66 @@ When you read tests written in Mocha, you’ll see regular use of the keywords d
 <p>This code will check whether that the variable exampleArray has a length of three or not.</p>
 <h2 id="failing-and-passing-tests">Failing and Passing Tests</h2>
 <p>Robust tests are accurate for both failing and passing conditions! When writing tests, you need to make sure that the test fails if the feature that it is testing was not implemented properly, as well as making sure that the test passes if it is. Tests that will erroneously pass can be enormously misleading, and might lead to broken code getting merged and deployed.</p>
-<h2 id="reference">Reference</h2>
+<h2 id="mocha-test-driven-development-tdd">Mocha: Test Driven Development (TDD)</h2>
+<ul>
+<li>assert
+<ul>
+<li><code>assert</code> helps to determine the test status. It determines the test failure.</li>
+</ul>
+</li>
+<li>describe
+<ul>
+<li><code>describe</code> is a function which holds the collection of tests or we could sat test suite. It’s having two parameters, first one is the meaningful name which describe the functionality under the method, and second on is the function which basically contains one or multiple test. A nested ‘describe’ can also be declared.</li>
+</ul>
+</li>
+<li>it
+<ul>
+<li><code>it</code> is a function, which holds the actual test or test steps that needs to be executed. It’s having two parameters as well, first one is the meaningful name to the test and second one is the function which contains the body or steps of the test.</li>
+</ul>
+</li>
+</ul>
+<h2 id="chai-behavior-driven-development-bdd">Chai: Behavior Driven Development (BDD)</h2>
+<ul>
+<li>The assert style
+<ul>
+<li><code>assert.XXX(value)</code></li>
+</ul>
+</li>
+<li>The <strong>BDD</strong> style
+<ul>
+<li><code>expect</code>
+<ul>
+<li><code>expect(value).XXX</code></li>
+</ul>
+</li>
+<li><code>should</code>
+<ul>
+<li><code>value.should.XXX</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="equal-vs-eql"><code>.equal</code> vs <code>.eql</code></h3>
+<ul>
+<li><strong>equal</strong>: Asserts that the target is <em>strictly</em> (===) equal to the given value.
+<ul>
+<li>i.e. we are comparing the <em>exact</em> same objects</li>
+</ul>
+</li>
+<li><strong>eql</strong>: Asserts that the target is <em>deeply</em> equal to value
+<ul>
+<li>every <em>property</em> of the compared objects have the same value (including deep linked objects)</li>
+</ul>
+</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://www.chaijs.com/guide/styles/">&ldquo;Chai Assertion Library&rdquo;</a></p>
 <p><a href="https://www.codecademy.com/article/bapi-testing-intro">&ldquo;Introduction to Testing with Mocha and Chai</a></p>
+<p><a href="https://medium.com/building-ibotta/testing-arrays-and-objects-with-chai-js-4b372310fe6d">Stone, Titus. &ldquo;Testing Arrays and Objects with Chai.js&rdquo;, Medium, Jan 29, 2018.</a></p>
+<p><a href="https://medium.com/building-ibotta/understanding-chai-js-language-mechanics-cc28e4c9604b">Stone, Titus. &ldquo;Understanding Chai.js Language Mechanics&rdquo;, Medium, Dec 19, 2017.</a></p>
+<p><a href="https://www.nexsoftsys.com/articles/test-mocha-chai-test-driven-development.html">&ldquo;Tutorial to Write your Test with Mocha and Chai followed by Test Driven Development (TDD)&rdquo;, NEX Software.</a></p>
+<p><a href="https://stackoverflow.com/questions/36798993/what-is-the-difference-between-equal-and-eql-in-chai-library#:~:text=equal%20%3A%20Asserts%20that%20the%20target,is%20deeply%20equal%20to%20value.">&ldquo;What is the difference between equal and eql in Chai Library&rdquo;, Stack Overflow.</a></p>
 ]]></content>
         </item>
         

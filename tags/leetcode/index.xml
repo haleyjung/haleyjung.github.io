@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 12 Feb 2022 10:46:58 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Feb 2022 07:06:01 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode: Shifting Letters - medium</title>
+      <link>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</link>
+      <pubDate>Thu, 24 Feb 2022 07:06:01 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</guid>
+      <description>Prompt You are given a string s of lowercase English letters and an integer array shifts of the same length.
+Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that &amp;lsquo;z&amp;rsquo; becomes &amp;lsquo;a&amp;rsquo;).
+For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;, and shift(&#39;z&#39;) = &#39;a&#39;. Now for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.</description>
+    </item>
+    
     <item>
       <title>LeetCode: Add Two Numbers - medium</title>
       <link>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</link>
