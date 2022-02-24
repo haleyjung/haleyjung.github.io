@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 23 Feb 2022 00:27:45 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Feb 2022 23:09:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Underscore Review</title>
+      <link>https://haleyjung.github.io/posts/2022/02/underscore-review/</link>
+      <pubDate>Wed, 23 Feb 2022 23:09:10 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/underscore-review/</guid>
+      <description>_.identity = function(val) { return val; }; // first: return the first element if n is undefined  // if n is defined, return an array of the first n elements of the array _.first = function(array, n) { return n === undefined ? array[0] : array.slice(0, n); }; // last: return the last element if n is undefined  // if n is defined, return an array of the last n elements of the array _.</description>
+    </item>
+    
     <item>
       <title>Writing My Own `StringifyJSON`</title>
       <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</link>
@@ -98,19 +107,6 @@ Categorizing Patterns Creational Design Patterns  Focuses on handling object cre
       <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
   Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
 console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
-    </item>
-    
-    <item>
-      <title>Memory Management of Primitives vs. References</title>
-      <link>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</link>
-      <pubDate>Sun, 13 Feb 2022 16:52:11 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/memory-management-of-primitives-vs.-references/</guid>
-      <description>Define Primitives: number, string, Boolean, undefined, null, symbol and BigInt.
-References: objects (object literal, arrays, functions)
-A side note on Numbers Numbers in JavaScript are treated with a floating point precision!
-Qs. What will the code below output? Explain your answer.
-console.log(0.1 + 0.2); console.log(0.1 + 0.2 = 0.3); &amp;ldquo;You can&amp;rsquo;t be sure. It might print out 0.3 and true, or not. Numbers in JavaScript are all treated with floating point precision, and as much, may not always yield the expected results.</description>
     </item>
     
   </channel>

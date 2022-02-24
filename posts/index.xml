@@ -77,6 +77,254 @@ Now for each <code>shifts[i] = x</code>, we want to shift the first <code>i + 1<
         </item>
         
         <item>
+            <title>Underscore Review</title>
+            <link>https://haleyjung.github.io/posts/2022/02/underscore-review/</link>
+            <pubDate>Wed, 23 Feb 2022 23:09:10 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/underscore-review/</guid>
+            <description>_.identity = function(val) { return val; }; // first: return the first element if n is undefined  // if n is defined, return an array of the first n elements of the array _.first = function(array, n) { return n === undefined ? array[0] : array.slice(0, n); }; // last: return the last element if n is undefined  // if n is defined, return an array of the last n elements of the array _.</description>
+            <content type="html"><![CDATA[<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">identity</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">val</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span>;
+};
+
+<span style="color:#75715e">// first: return the first element if n is undefined
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// if n is defined, return an array of the first n elements of the array
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">first</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">n</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">array</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">:</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">slice</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">n</span>);
+};
+
+<span style="color:#75715e">// last: return the last element if n is undefined
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// if n is defined, return an array of the last n elements of the array
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">last</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">n</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">n</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">:</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">slice</span>(Math.<span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">n</span>));
+};
+
+<span style="color:#75715e">// each: Call iterator(value, key, collection) for each element of collection without returning anything
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">iterator</span>) {
+  <span style="color:#66d9ef">if</span> (Array.<span style="color:#a6e22e">isArray</span>(<span style="color:#a6e22e">collection</span>)) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+      <span style="color:#75715e">// iterator(key, value, collection)
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">iterator</span>(<span style="color:#a6e22e">collection</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">collection</span>);
+    }
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">collection</span>) {
+      <span style="color:#a6e22e">iterator</span>(<span style="color:#a6e22e">collection</span>[<span style="color:#a6e22e">key</span>], <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">collection</span>);
+    }
+  }
+};
+
+<span style="color:#75715e">// Index: Returns the index at which value can be found in the array, or -1 if value is not present in the array.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">indexOf</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">target</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">array</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>, <span style="color:#a6e22e">index</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">item</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">===</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+      <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">index</span>;
+    }
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+};
+
+<span style="color:#75715e">// Filter &amp; Reject: where iterator function is used as a truthy test
+</span><span style="color:#75715e">// Filter: Return all elements of an array that pass a truth test.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">filter</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">test</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">value</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">value</span>)) {
+      <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">value</span>);
+    }
+  });
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">results</span>;
+};
+
+<span style="color:#75715e">// reject: Return all elements of an array that don&#39;t pass a truth test.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">reject</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">test</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">value</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">value</span>);
+  })
+};
+
+<span style="color:#75715e">// uniq: creates a duplicate-free version of the array
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// an array of unique elements
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">uniq</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>, <span style="color:#a6e22e">isSorted</span>, <span style="color:#a6e22e">iterator</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">obj</span> <span style="color:#f92672">=</span> {};
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">iter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iterator</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">iterator</span>(<span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#f92672">:</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>];
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">iter</span>]) {
+      <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">iter</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>[<span style="color:#a6e22e">i</span>];
+    }
+  }
+  <span style="color:#66d9ef">return</span> Object.<span style="color:#a6e22e">values</span>(<span style="color:#a6e22e">obj</span>);
+};
+
+<span style="color:#75715e">// map: returns the results of applying an iterator to each element.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">iterator</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">collection</span>) {
+    <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">iterator</span>(<span style="color:#a6e22e">value</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">collection</span>));
+  });
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">results</span>;
+};
+
+<span style="color:#75715e">// pluck: returns the values from the input object&#39;s keys
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">pluck</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">key</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">item</span>[<span style="color:#a6e22e">key</span>];
+  });
+}
+
+<span style="color:#75715e">// reduce: reduces an array or object to a single value by repetitively calling iterator for each item
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">reduce</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">iterator</span>, <span style="color:#a6e22e">accumulator</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">initializing</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">2</span>;
+  <span style="color:#75715e">// if there are only 2 arguments,
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// that means the third argument, accumulator, is not defined!
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// to get a single value, use each instead of map
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">value</span>) {
+    <span style="color:#75715e">// if accumulator is undefined
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">initializing</span>) {
+      <span style="color:#75715e">// grab the first element and set that to the accumulator value
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">accumulator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>; <span style="color:#75715e">// value = first elemenet from the collection
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">initializing</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">accumulator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iterator</span>(<span style="color:#a6e22e">accumulator</span>, <span style="color:#a6e22e">value</span>);
+    }
+  });
+
+  <span style="color:#75715e">// The accumulator is the value that we end with
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">accumulator</span>;
+};
+
+<span style="color:#75715e">// contains: determines if the array or object contains a given value
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">contains</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">target</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">found</span>, <span style="color:#a6e22e">item</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">found</span>) {
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">item</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">target</span>;
+  }, <span style="color:#66d9ef">false</span>);
+};
+
+<span style="color:#75715e">// every: Determine whether all of the elements match a truth test.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">every</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">iterator</span>) {
+  <span style="color:#a6e22e">iterator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iterator</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">identity</span>;
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">reduce</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">trueSoFar</span>, <span style="color:#a6e22e">value</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">trueSoFar</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">value</span>;
+  }, <span style="color:#66d9ef">true</span>);
+
+  <span style="color:#75715e">// or
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// return !!_.reduce(collection, function (isTrue, item) {
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">//   return isTrue &amp;&amp; iterator(item);
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// }, true);
+</span><span style="color:#75715e"></span>};
+
+<span style="color:#75715e">// some: Determine whether any of the elements pass a truth test.
+</span><span style="color:#75715e">// If no iterator is provided, provide a default one
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">some</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">iterator</span>) {
+  <span style="color:#a6e22e">iterator</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">iterator</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">identity</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">every</span>(<span style="color:#a6e22e">collection</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">item</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">iterator</span>(<span style="color:#a6e22e">item</span>);
+  });
+};
+
+<span style="color:#75715e">// extend: Extend a given object with
+</span><span style="color:#75715e">// all the properties of the passed in object(s)
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">extend</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">slice</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">arguments</span>, <span style="color:#ae81ff">1</span>);
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">args</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">sourceObj</span>) {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">sourceObj</span>) {
+      <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">sourceObj</span>[<span style="color:#a6e22e">key</span>];
+    }
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+};
+
+<span style="color:#75715e">// defaults: like extend, but doesn&#39;t overwrite
+</span><span style="color:#75715e">// a key that already exists in obj
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">defaults</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">obj</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">slice</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">arguments</span>, <span style="color:#ae81ff">1</span>);
+  <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">each</span>(<span style="color:#a6e22e">args</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">sourceObj</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">hasOwnProperty</span>(<span style="color:#a6e22e">key</span>)) {
+      <span style="color:#a6e22e">obj</span>[<span style="color:#a6e22e">key</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">sourceObj</span>[<span style="color:#a6e22e">key</span>];
+    }
+  });
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+}
+
+<span style="color:#75715e">// Return a function that can be called at most one time. Subsequent calls
+</span><span style="color:#75715e">// should return the previously returned value.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">once</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">func</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">alreadyCalled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span>;
+
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">alreadyCalled</span>) {
+      <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">arguments</span>);
+      <span style="color:#a6e22e">alreadyCalled</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>;
+  };
+};
+
+<span style="color:#75715e">// memoize: an expensive function&#39;s results by storing them. You may assume
+</span><span style="color:#75715e">// that the function only takes primitives as arguments.
+</span><span style="color:#75715e">// memoize could be renamed to oncePerUniqueArgumentList; memoize does the
+</span><span style="color:#75715e">// same thing as once, but based on many sets of unique arguments.
+</span><span style="color:#75715e">// It should return a function that, when called, will check if it has
+</span><span style="color:#75715e">// already computed the result for the given argument and return that value
+</span><span style="color:#75715e">// instead if possible.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">memoize</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">func</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">computed</span> <span style="color:#f92672">=</span> {};
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">arguments</span>);
+    <span style="color:#66d9ef">return</span> (<span style="color:#a6e22e">computed</span>[<span style="color:#a6e22e">args</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">computed</span>[<span style="color:#a6e22e">args</span>] <span style="color:#f92672">||</span> <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">arguments</span>));
+  };
+};
+
+<span style="color:#75715e">// delay: Delays a function for the given number of milliseconds,
+</span><span style="color:#75715e">// and then calls it with the arguments supplied.
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">delay</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">wait</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">slice</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">arguments</span>, <span style="color:#ae81ff">2</span>);
+  <span style="color:#a6e22e">setTimeout</span>(<span style="color:#66d9ef">function</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">args</span>);
+  }, <span style="color:#a6e22e">wait</span>);
+};
+
+<span style="color:#75715e">// shuffle: randomize the order of an array&#39;s contents
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">shuffle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">inputs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">slice</span>();
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> [];
+  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">inputs</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">rand</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">random</span>();
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">rand</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>) {
+     <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">inputs</span>.<span style="color:#a6e22e">pop</span>());
+    } <span style="color:#66d9ef">else</span> {
+      <span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">inputs</span>.<span style="color:#a6e22e">shift</span>());
+    }
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">results</span>;
+};
+
+<span style="color:#75715e">// or
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">shuffle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">array</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">newArr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">slice</span>();
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">array</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">--</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">random</span> <span style="color:#f92672">=</span> Math.<span style="color:#a6e22e">round</span>(Math.<span style="color:#a6e22e">random</span>() <span style="color:#f92672">*</span> <span style="color:#a6e22e">i</span>);
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">temp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">newArr</span>[<span style="color:#a6e22e">random</span>];
+    <span style="color:#a6e22e">newArr</span>[<span style="color:#a6e22e">random</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">newArr</span>[<span style="color:#a6e22e">i</span>];
+    <span style="color:#a6e22e">newArr</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">temp</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">newArr</span>;
+};
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
             <title>Writing My Own `StringifyJSON`</title>
             <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</link>
             <pubDate>Wed, 23 Feb 2022 00:27:45 -0500</pubDate>

@@ -20,6 +20,15 @@ For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;,
     </item>
     
     <item>
+      <title>Underscore Review</title>
+      <link>https://haleyjung.github.io/posts/2022/02/underscore-review/</link>
+      <pubDate>Wed, 23 Feb 2022 23:09:10 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/underscore-review/</guid>
+      <description>_.identity = function(val) { return val; }; // first: return the first element if n is undefined  // if n is defined, return an array of the first n elements of the array _.first = function(array, n) { return n === undefined ? array[0] : array.slice(0, n); }; // last: return the last element if n is undefined  // if n is defined, return an array of the last n elements of the array _.</description>
+    </item>
+    
+    <item>
       <title>Writing My Own `StringifyJSON`</title>
       <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</link>
       <pubDate>Wed, 23 Feb 2022 00:27:45 -0500</pubDate>
@@ -98,17 +107,6 @@ Categorizing Patterns Creational Design Patterns  Focuses on handling object cre
       
       <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
       <description>Promise  A function operates asynchronously via an event loop An async function uses Promise to return the result   Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code.</description>
-    </item>
-    
-    <item>
-      <title>Asynchronous vs Synchronous Programming</title>
-      <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
-      <pubDate>Mon, 14 Feb 2022 01:08:55 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</guid>
-      <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
-  Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
-console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
     </item>
     
   </channel>
