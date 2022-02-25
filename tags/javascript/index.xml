@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 23 Feb 2022 23:09:10 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 25 Feb 2022 00:01:03 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Currying</title>
+      <link>https://haleyjung.github.io/posts/2022/02/understanding-currying/</link>
+      <pubDate>Fri, 25 Feb 2022 00:01:03 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/understanding-currying/</guid>
+      <description>What is Currying?  a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c). It transforms a function, and does not call it.  Example Code function curry(f) { // curry(f) does the currying transform  return function(a) { return function(b) { return f(a, b); }; }; } // usage function sum(a, b) { return a + b; } let curriedSum = curry(sum); alert( curriedSum(1)(2)); // 3 References &amp;ldquo;Currying&amp;rdquo;, JavaScript.</description>
+    </item>
+    
+    <item>
+      <title>For Loop with SetTimeout()</title>
+      <link>https://haleyjung.github.io/posts/2022/02/for-loop-with-settimeout/</link>
+      <pubDate>Thu, 24 Feb 2022 23:40:53 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/for-loop-with-settimeout/</guid>
+      <description>Prompt 1 // Prompt 1 var array = [1, 2, 3, 4, 5] for(var i = 0; i &amp;lt; array.length; i++) { setTimeout(() =&amp;gt; { console.log(array[i]) }, 1000); } console.log(array[i]); // 5  For loop executes first  the for loop only exits until the set condition breaks.   After it&amp;rsquo;s finished, setTimeout() is executed  setTimeout() usually takes a callback function as its argument   setTimeout() has access to i in the for loop, thanks to closure arrayp[i] is therefore the last element of array when the console.</description>
+    </item>
+    
+    <item>
+      <title>Prototypes Review: Object.create()</title>
+      <link>https://haleyjung.github.io/posts/2022/02/prototypes-review-object.create/</link>
+      <pubDate>Thu, 24 Feb 2022 21:47:06 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/prototypes-review-object.create/</guid>
+      <description>Case 1 var obj1 = { x: 10 }; var obj2 = Object.create(obj1); var obj3 = Object.create(obj1); obj1.x = 15; var result = obj2.x + obj3.x; console.log(result); // 15 + 15 = 30  obj1.x = 15; updates obj2.x and obj3.x to 15 from 10 Hence the result will be 15 + 15 = 30  Case 2 var obj1 = { x: 10 }; var obj2 = Object.create(obj1); obj2.x += 10; obj1.</description>
+    </item>
+    
     <item>
       <title>Underscore Review</title>
       <link>https://haleyjung.github.io/posts/2022/02/underscore-review/</link>
@@ -77,36 +104,6 @@ Categorizing Patterns Creational Design Patterns  Focuses on handling object cre
       <guid>https://haleyjung.github.io/posts/2022/02/recursion-prompts/</guid>
       <description>In Progres&amp;hellip;
 // Solve the following prompts using recursion.  // 1. Calculate the factorial of a number. The factorial of a non-negative integer n, // denoted by n!, is the product of all positive integers less than or equal to n. // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120 // factorial(5); // 120 var factorial = function(n) { if (isNaN(n) || n &amp;lt; 0) { return null; } if (n === 0 || n === 1) { return 1; } return n * factorial(n-1); }; // 2.</description>
-    </item>
-    
-    <item>
-      <title>The Event Loop</title>
-      <link>https://haleyjung.github.io/posts/2022/02/the-event-loop/</link>
-      <pubDate>Wed, 16 Feb 2022 09:01:36 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/the-event-loop/</guid>
-      <description>JavaScript Runtime &amp;amp; Web API console.log(&amp;#34;Start script&amp;#34;); setTimeout(() =&amp;gt; { task(&amp;#34;Download a file&amp;#34;); }, 1000); console.log(&amp;#34;Done&amp;#34;); /* output: Start script Done Download a file */  setTimeout(), fetch requests, and DOM events (such as clicking a button) are parts of the Web APIs of the web browser. These operations can be performed concurrently and asynchronously.
-  When setTimeout() function is called, the JavaScript engine places it on the call stack &amp;amp; the Web API creates a timer that expires in 1 second.</description>
-    </item>
-    
-    <item>
-      <title>Promises</title>
-      <link>https://haleyjung.github.io/posts/2022/02/promises/</link>
-      <pubDate>Tue, 15 Feb 2022 00:03:42 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/promises/</guid>
-      <description>Promise  A function operates asynchronously via an event loop An async function uses Promise to return the result   Promise is an object that returns a value in the future. It represents the an eventual completion or failures of an asynchronous operation. If a function cannot return a value or throw an exception without blocking, it can return a promise instead. Use promise whenever we are using async or blocking code.</description>
-    </item>
-    
-    <item>
-      <title>Asynchronous vs Synchronous Programming</title>
-      <link>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</link>
-      <pubDate>Mon, 14 Feb 2022 01:08:55 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/asynchronous-vs-synchronous-programming/</guid>
-      <description>By default, JavaScript is a** synchronous, blocking, single-threaded** language
-  Synchronous: executing one thing at a time Single-threaded: executing the code line by line  Issue of Being Synchronous When we are working on a big application with a lot of server requests, being synchronous will slow down the application.
-console.log(&amp;#34;Start&amp;#34;) for (let i = 0; i &amp;lt; 20; i++) { console.log(i) } console.log(&amp;#34;End&amp;#34;) /* Start 0 1 2 3 4 .</description>
     </item>
     
   </channel>
