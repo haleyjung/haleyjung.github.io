@@ -903,7 +903,7 @@ Pseudocodes // Declare an empty array to store the result // Declare a function 
 </span><span style="color:#75715e"></span>}
 
 <span style="color:#75715e">// implementing functional shared instantiation
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Animal</span>(<span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;meo&#39;</span>);
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cat</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Animal</span>(<span style="color:#e6db74">&#39;cat&#39;</span>, <span style="color:#e6db74">&#39;meo&#39;</span>);
 <span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">eat</span>();
 <span style="color:#a6e22e">cat</span>.<span style="color:#a6e22e">makeSound</span>();
 </code></pre></div><h3 id="5-es6-instantiation">5. ES6 Instantiation</h3>
