@@ -6,8 +6,138 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 25 Feb 2022 00:01:03 -0500</lastBuildDate>
+        <lastBuildDate>Sun, 27 Feb 2022 16:52:02 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Time Complexity</title>
+            <link>https://haleyjung.github.io/posts/2022/02/time-complexity/</link>
+            <pubDate>Sun, 27 Feb 2022 16:52:02 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/02/time-complexity/</guid>
+            <description>Big O Notation  A mathematical notation that shows how efficient an algorithm is in the worst-case scenario relative to its input size. It captures how much time or space an algorithm would require approximately as the input size grows: time complexity &amp;amp; space complexity f(n) = O(inputSize)  What is Time Complexity?  Does NOT represent the actual time required to execute a code The computational time (CPU time) it will take to execute an algorithm, determined by the input size and the solution of the algorithm.</description>
+            <content type="html"><![CDATA[<h2 id="big-o-notation">Big O Notation</h2>
+<ul>
+<li>A mathematical notation that shows how efficient an algorithm is in the <em>worst-case</em> scenario relative to its input size.</li>
+<li>It captures how much time or space an algorithm would require <em>approximately</em> as the input size grows: time complexity &amp; space complexity</li>
+<li><code>f(n) = O(inputSize)</code></li>
+</ul>
+<h2 id="what-is-time-complexity">What is Time Complexity?</h2>
+<ul>
+<li>Does NOT represent the actual time required to execute a code</li>
+<li>The computational time (CPU time) it will take to execute an algorithm, determined by the input size and the solution of the algorithm.</li>
+</ul>
+<h2 id="selected-types-of-time-complexity">Selected Types of Time Complexity</h2>
+<p><img src="https://lh6.googleusercontent.com/vZ313y9mfhFsmgDC4A6TRL52X2GBuhZX0xolzd0OH1SAiNtEvLQFM2ad1VxF9KqOcgdybcOfQt7YmnDALSB175Tu7QNkODnJ2pIaTGp9CFkuj9dE8mlEVmVxQABl2ml9aEEnyrQeIaWw7xuJDg" alt=""></p>
+<h3 id="constant-time-o1">Constant time: O(1)</h3>
+<ul>
+<li>Not dependent on the input size <code>n</code></li>
+<li>The runtime is the same irrespective of the input size</li>
+<li>e.g. finding the first element of an array/stack</li>
+</ul>
+<h3 id="logarithmic-time-olog-n">Logarithmic time: O(log n)</h3>
+<ul>
+<li>When the size of the input is reduced in each step</li>
+<li>The number of operations is not the same as the input</li>
+<li>The execution time increases, but at a decreasing rate</li>
+<li>e.g. Binary trees or binary search functions</li>
+<li><strong>Divide and conquer</strong> approach
+<ol>
+<li>Divide the given problem into sub-problems of the same type.</li>
+<li>Recursively solve these sub-problems.</li>
+<li>Appropriately combine the sub-answers to answer the given problem.</li>
+</ol>
+</li>
+</ul>
+<h3 id="linear-time-on">Linear time: O(n)</h3>
+<ul>
+<li>The runtime increases in direct propertion with the input size</li>
+<li>i.e. processes the input in <code>n</code> number of operations</li>
+<li>Looking at every item in a list to complete a task
+<ul>
+<li>e.g. using a for loop to check the values in the input data</li>
+</ul>
+</li>
+</ul>
+<h3 id="quadratic-on2">Quadratic: O(n^2)</h3>
+<ul>
+<li>A non–linear time complexity</li>
+<li>The running time increases non-linearly (n^2) with the length of the input</li>
+<li>Execution time increases at an increasing rate</li>
+<li>e.g. <strong>nested loops</strong>: O(n) * O(n) = O(n^2)</li>
+</ul>
+<h3 id="exponential-ocn">Exponential: O(c^n)</h3>
+<ul>
+<li>Execution time increases exponentially as input <code>n</code> grows</li>
+<li>The runtime doubles with each addition of the input <code>n</code>, often iterating through all subsets of the input elements</li>
+<li>Used when we don&rsquo;t know the best solution so we have to try every possible combination or permutation on the data</li>
+<li><strong>Brute-Force algorithms</strong> that blindly iterate the possible solutions in search of one or more solutions that satisfy a condition</li>
+<li>Used in <strong>brute-force attach</strong>: also known as an exhaustive search, is a cryptographic hack that relies on guessing possible combinations of a targeted password until the correct password is discovered.</li>
+</ul>
+<h2 id="how-to-calculate-time-complexity">How to Calculate Time Complexity</h2>
+<ul>
+<li>Generic steps to determine the time complexity
+<ol>
+<li>List all the basic operations</li>
+<li>Count the number of times each gets executed</li>
+<li>Sum all the counts to get an equation in terms of <code>n</code></li>
+</ol>
+</li>
+</ul>
+<h3 id="example-calculation">Example Calculation</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">main</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+    <span style="color:#a6e22e">sum</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">sum</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">i</span>;
+  }
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><table>
+<thead>
+<tr>
+<th>Operations</th>
+<th>Number of Execution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>var sum = 0;</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>for (var i = 0; i &lt; 5; i++)</code></td>
+<td>6</td>
+</tr>
+<tr>
+<td><code>sum = sum + i;</code></td>
+<td>5</td>
+</tr>
+<tr>
+<td><code>return 0;</code></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Calculation</strong>:</p>
+<ul>
+<li>1 + 6 + 5 + 1</li>
+</ul>
+<p><strong>Rewriting this with the input <code>n</code></strong>:</p>
+<ul>
+<li>1 + (<code>n</code> + 1) + <code>n</code> + 1</li>
+<li>= <strong>2n + 3</strong></li>
+</ul>
+<p><strong>To find Big-O notation</strong>:</p>
+<ul>
+<li>Discard the leading constants: 2n+3 =&gt; <strong>n+3</strong></li>
+<li>Ignore the lower order terms: n+3 =&gt; <strong>n</strong> =&gt; <strong>O(n)</strong></li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://pages.cs.wisc.edu/~vernon/cs367/notes/3.COMPLEXITY.html#:~:text=The%20outer%20loop%20executes%20N,O(N%20*%20M).">&ldquo;Complexity and Big O-Notation&rdquo;, University of Wisconsin-Madison, School of Computer, Data &amp; Information Sciences.</a></p>
+<p><a href="https://www.educative.io/edpresso/what-is-big-o-notation">Edpresso Team, &ldquo;What is Big-O Notation?&rdquo;, Educative.</a></p>
+<p>[Yse, Diego Lopez. &ldquo;Essential Programming | Time Complexity&rdquo;, Towards Data Science, Jan 17, 2020.](<a href="https://towardsdatascience.com/essential-programming-time-complexity-a95bb2608cac#:~:text=Exponential%20Time%20Complexity%3A%20O(2,the%20number%20of%20operations%20performed.)">https://towardsdatascience.com/essential-programming-time-complexity-a95bb2608cac#:~:text=Exponential%20Time%20Complexity%3A%20O(2,the%20number%20of%20operations%20performed.)</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Understanding Currying</title>

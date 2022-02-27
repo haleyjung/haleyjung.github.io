@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 25 Feb 2022 00:01:03 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Feb 2022 16:52:02 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Time Complexity</title>
+      <link>https://haleyjung.github.io/posts/2022/02/time-complexity/</link>
+      <pubDate>Sun, 27 Feb 2022 16:52:02 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/time-complexity/</guid>
+      <description>Big O Notation  A mathematical notation that shows how efficient an algorithm is in the worst-case scenario relative to its input size. It captures how much time or space an algorithm would require approximately as the input size grows: time complexity &amp;amp; space complexity f(n) = O(inputSize)  What is Time Complexity?  Does NOT represent the actual time required to execute a code The computational time (CPU time) it will take to execute an algorithm, determined by the input size and the solution of the algorithm.</description>
+    </item>
+    
     <item>
       <title>Understanding Currying</title>
       <link>https://haleyjung.github.io/posts/2022/02/understanding-currying/</link>
@@ -94,16 +103,6 @@ Pseudocodes // Declare an empty array to store the result // Declare a function 
       <description>What is a design pattern? A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design.
 A design pattern identifies the participatign class and their instances, their roles and collaborations, and the distribution of responsibilities.
 Categorizing Patterns Creational Design Patterns  Focuses on handling object creation mechanisms By controlling the creation process, it aims to solve the problem of the basic approach to object creation adding complexity in a project   Constructor, Factory, Abstract, Prototype, Singleton, and Builder are some of the creational design patterns.</description>
-    </item>
-    
-    <item>
-      <title>Recursion Prompts</title>
-      <link>https://haleyjung.github.io/posts/2022/02/recursion-prompts/</link>
-      <pubDate>Thu, 17 Feb 2022 00:05:21 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/recursion-prompts/</guid>
-      <description>In Progres&amp;hellip;
-// Solve the following prompts using recursion.  // 1. Calculate the factorial of a number. The factorial of a non-negative integer n, // denoted by n!, is the product of all positive integers less than or equal to n. // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120 // factorial(5); // 120 var factorial = function(n) { if (isNaN(n) || n &amp;lt; 0) { return null; } if (n === 0 || n === 1) { return 1; } return n * factorial(n-1); }; // 2.</description>
     </item>
     
   </channel>
