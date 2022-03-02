@@ -6,8 +6,186 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 27 Feb 2022 16:52:02 -0500</lastBuildDate>
+        <lastBuildDate>Tue, 01 Mar 2022 22:40:46 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Backtracking Algorithm</title>
+            <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</link>
+            <pubDate>Tue, 01 Mar 2022 22:40:46 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</guid>
+            <description>What is a backtracking algorithm? An algorithmic-technique for solving problems recursively by trying to build a solution incrementally one piece at a time, removing solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).
+It works incrementally.
+Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current digit we added doesn&amp;rsquo;t lead to a solution, we remove it = backtrack We try another digit.</description>
+            <content type="html"><![CDATA[<h2 id="what-is-a-backtracking-algorithm">What is a backtracking algorithm?</h2>
+<p>An algorithmic-technique for solving problems <strong>recursively</strong> by trying to build a solution <strong>incrementally</strong> one piece at a time, <strong>removing</strong> solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).</p>
+<p>It works <strong>incrementally</strong>.</p>
+<h2 id="think-of-sudoku">Think of SudoKu!</h2>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg/250px-Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg.png" alt="Stellmach, Tim. &ldquo;A typical Sudoku puzzle,&rdquo; Wikipedia, April 8, 2017."></p>
+<ol>
+<li>To solve SudoKu, we fill digits one by one.</li>
+<li>When the current digit we added doesn&rsquo;t lead to a solution, we remove it = <strong>backtrack</strong></li>
+<li>We try another digit.</li>
+</ol>
+<p>This is better than the Naive approach of trying every possible combination one by one, reducing a set of <strong>permutations</strong> each time it backtracks.</p>
+<h2 id="common-problems-using-backtracking">Common Problems Using Backtracking</h2>
+<ol>
+<li>These problems can only be solved by trying every possible configuration.</li>
+<li>Each configuration is tried only once.</li>
+</ol>
+<h3 id="1-knights-tour">1. Knight&rsquo;s Tour</h3>
+<p><img src="https://camo.githubusercontent.com/b646ce848afb3bde6b162e4ac3108896d74a7523c3a5ab21eb7087334dce79b9/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f642f64612f4b6e69676874253237735f746f75725f616e696d5f322e676966" alt=""></p>
+<p><strong>Prompt</strong>: Given a N*N board with Knight placed on the first block of an empty board. Moving according to the rules of chess knight must visit <strong>each square</strong> exactly <strong>once</strong>. Print the order of each cell in which they are visited.</p>
+<p>Note: this is an instance of the more general <strong>Hamiltonian path problem</strong> in graph theory.</p>
+<p><strong>Knight&rsquo;s movements</strong>:</p>
+<p><img src="https://www.codeproject.com/KB/recipes/725633/Center_of_the_chess_board_with_circle.jpg" alt=""></p>
+<ul>
+<li>Knight move can be described as &lsquo;L&rsquo;</li>
+<li>The delta coordinates for each move is (2, 1)</li>
+<li>Each move is a radius of a circle: <code>x**2 + y**2 = R**2</code> = <code>2**2 + 1**2 = 5</code></li>
+<li>So the radius (move) is a square root of 5: <code>Math.sqrt(5)</code></li>
+<li>Possible x-coordinates are -2, -1, 1, 2: <code>var arrayX = [-2, -1, 1, 2];</code></li>
+</ul>
+<h4 id="naive-algorithm">Naive Algorithm</h4>
+<p>The Naive approach will generate all tours one by one and check if the generated tour satisfies the constraints.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// while there are untried tours
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// generate the next tour
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// if this tour covers all squares
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// print this path
+</span></code></pre></div><h4 id="backtracking-algorithm">Backtracking Algorithm</h4>
+<ul>
+<li>When we add an item (Knight), check if adding the current item violates the problem constraint.</li>
+<li>If it does, we remove the item and try another.</li>
+<li>If none of the alternatives work, we go to the previous stage and remove the item added in the previous stage.</li>
+<li>If we reach the initial stage, then we output that no solution exists.</li>
+<li>If no constraint is violated, we recursively add items one by one.</li>
+</ul>
+<p><strong>Pseudocode</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Input: num of max movements
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// If all squares are visited
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// print the solution
+</span><span style="color:#75715e">// else
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// 1. Add one of the next moves to solution vector
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// &amp; recursively check if this move leads to a solution.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Note: Knight can make max 8 moves; choose one of the 8 moves
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// 2. If the chosen move doesn&#39;t lead to the solution
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// remove this move from the solution vector and try another
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// 3. If none of the alternatives work
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// return false,
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// which will remove the previously added item in recursion
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// if false is returned by the initial call of recursion
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// then &#39;no solution exists
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Output:
+</span><span style="color:#75715e">// A nested array with x, y-coordinates
+</span><span style="color:#75715e">// [[x, y], [x, y], [x, y]]
+</span></code></pre></div><p><strong>JavaScript Implementation</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * @param {number[][]} chessboard
+</span><span style="color:#75715e"> * @param {number[]} position
+</span><span style="color:#75715e"> * @return {number[][]}
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getPossibleMoves</span>(<span style="color:#a6e22e">chessboard</span>, <span style="color:#a6e22e">position</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">possibleMoves</span> <span style="color:#f92672">=</span> [
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>],
+    [<span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">position</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>],
+  ];
+
+  <span style="color:#75715e">// filter out all moves that go beyond the board
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">possibleMoves</span>.<span style="color:#a6e22e">filter</span>((<span style="color:#a6e22e">move</span>) =&gt; {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">boardSize</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">chessboard</span>.<span style="color:#a6e22e">length</span>;
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">move</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">move</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">move</span>[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">boardSize</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">move</span>[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">boardSize</span>;
+  });
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * @param {number[][]} chessboard
+</span><span style="color:#75715e"> * @param {number[]} move
+</span><span style="color:#75715e"> * @return {boolean}
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isMoveAllowed</span>(<span style="color:#a6e22e">chessboard</span>, <span style="color:#a6e22e">move</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">chessboard</span>[<span style="color:#a6e22e">move</span>[<span style="color:#ae81ff">0</span>]][<span style="color:#a6e22e">move</span>[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">!==</span> <span style="color:#ae81ff">1</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isBoardCompletelyVisited</span>(<span style="color:#a6e22e">chessboard</span>, <span style="color:#a6e22e">moves</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">totalPossibleMovesCount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">chessboard</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>;
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">existingMovesCount</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moves</span>.<span style="color:#a6e22e">length</span>;
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">totalPossibleMovesCount</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">existingMovesCount</span>;
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">knightTourRecursive</span>(<span style="color:#a6e22e">chessboard</span>, <span style="color:#a6e22e">moves</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentChessboard</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">chessboard</span>;
+
+  <span style="color:#75715e">// 1. if board is completely visited, we&#39;ve found a solution!
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isBoardCompletelyVisited</span>(<span style="color:#a6e22e">currentChessboard</span>, <span style="color:#a6e22e">moves</span>)) {
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+  }
+
+  <span style="color:#75715e">// 2. else get the next possible moves
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lastMove</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">moves</span>[<span style="color:#a6e22e">moves</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">possibleMoves</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getPossibleMoves</span>(<span style="color:#a6e22e">currentChessboard</span>, <span style="color:#a6e22e">lastMove</span>);
+
+  <span style="color:#75715e">// 3. try next moves
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">moveIndex</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">moveIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">possibleMoves</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">moveIndex</span> <span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentMove</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">possibleMoves</span>[<span style="color:#a6e22e">moveIndex</span>];
+
+    <span style="color:#75715e">// a. is current move allowed? i.e. visited already?
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isMoveAllowed</span>(<span style="color:#a6e22e">currentChessboard</span>, <span style="color:#a6e22e">currentMove</span>)) {
+      <span style="color:#75715e">// if so, move!
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">moves</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">currentMove</span>);
+      <span style="color:#a6e22e">currentChessboard</span>[<span style="color:#a6e22e">currentMove</span>[<span style="color:#ae81ff">0</span>]][<span style="color:#a6e22e">currentMove</span>[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+    }
+
+    <span style="color:#75715e">// if more moves from the current are successful, then solution&#39;s found
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">knightTourRecursive</span>(<span style="color:#a6e22e">currentChessboard</span>, <span style="color:#a6e22e">moves</span>)) {
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+
+    <span style="color:#75715e">// BACKTRACKING
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// if current move was unsuccessful, then step back and try another move
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">moves</span>.<span style="color:#a6e22e">pop</span>();
+    <span style="color:#a6e22e">currentChessboard</span>[<span style="color:#a6e22e">currentMove</span>[<span style="color:#ae81ff">0</span>]][<span style="color:#a6e22e">currentMove</span>[<span style="color:#ae81ff">1</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+  }
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * @param {number} chessboardSize
+</span><span style="color:#75715e"> * @return {number[][]}
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">knightTour</span>(<span style="color:#a6e22e">chessboardSize</span>) {
+  <span style="color:#75715e">// Init chessboard
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">chessboard</span> <span style="color:#f92672">=</span> Array(<span style="color:#a6e22e">chessboardSize</span>).<span style="color:#a6e22e">fill</span>(<span style="color:#66d9ef">null</span>).<span style="color:#a6e22e">map</span>(() =&gt; Array(<span style="color:#a6e22e">chessboardSize</span>).<span style="color:#a6e22e">fill</span>(<span style="color:#ae81ff">0</span>));
+
+  <span style="color:#75715e">// Init moves array
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">moves</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#75715e">// Do first move and place the knight to the 0x0 cell
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">firstMove</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>];
+  <span style="color:#a6e22e">moves</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">firstMove</span>);
+  <span style="color:#a6e22e">chessboard</span>[<span style="color:#a6e22e">firstMove</span>[<span style="color:#ae81ff">0</span>]][<span style="color:#a6e22e">firstMove</span>[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+
+  <span style="color:#75715e">// Recursively try to do the next move.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">solutionWasFound</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">knightTourRecursive</span>(<span style="color:#a6e22e">chessboard</span>, <span style="color:#a6e22e">moves</span>);
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">solutionWasFound</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">moves</span> <span style="color:#f92672">:</span> [];
+}
+</code></pre></div><h2 id="references">References</h2>
+<p><a href="https://www.codeproject.com/Articles/725633/Knights-Tour-A-JavaScript-Implementation-of-Knight#:~:text=board%20only%20once%3F-,Knight%20tour%20is%20a%20mathematical%20problem.,least%20amount%20of%20possible%20moves.">&ldquo;Knight&rsquo;s Tour - A JavaScript Implementation of Knight&rsquo;s Tour Problem&rdquo;, Code Project, Feb 20, 2020.</a></p>
+<p><a href="https://www.geeksforgeeks.org/the-knights-tour-problem-backtracking-1/">&ldquo;The Knight’s tour problem | Backtracking-1&rdquo;, GeeksforGeeks, Oct 21, 2021.</a></p>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/uncategorized/knight-tour">trekhleb/javascript-algorithms, GitHub.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Time Complexity</title>

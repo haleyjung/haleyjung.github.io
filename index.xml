@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 27 Feb 2022 16:52:02 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Mar 2022 22:40:46 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backtracking Algorithm</title>
+      <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</link>
+      <pubDate>Tue, 01 Mar 2022 22:40:46 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</guid>
+      <description>What is a backtracking algorithm? An algorithmic-technique for solving problems recursively by trying to build a solution incrementally one piece at a time, removing solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).
+It works incrementally.
+Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current digit we added doesn&amp;rsquo;t lead to a solution, we remove it = backtrack We try another digit.</description>
+    </item>
+    
     <item>
       <title>Time Complexity</title>
       <link>https://haleyjung.github.io/posts/2022/02/time-complexity/</link>
@@ -93,16 +104,6 @@ Pseudocodes // Declare an empty array to store the result // Declare a function 
       <description>What is an instantiation pattern in JavaScript? It&amp;rsquo;s a way to create an object using functions.
 5 Types of Instantiation Patterns 1. Functional Instantiation  Create a function Create an empty object inside the function  Properties and methods can be created here They will be accessible every time the function is called   Return the object  Pros
  Easy to understand Private properties (contained within the closure scope)  Cons</description>
-    </item>
-    
-    <item>
-      <title>MVC: Model-View-Controller</title>
-      <link>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</link>
-      <pubDate>Sun, 20 Feb 2022 08:04:41 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</guid>
-      <description>What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
-  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript.</description>
     </item>
     
   </channel>

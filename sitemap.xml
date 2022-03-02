@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/tags/algorithms/</loc>
+    <lastmod>2022-03-01T22:40:46-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</loc>
+    <lastmod>2022-03-01T22:40:46-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-03-01T22:40:46-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-03-01T22:40:46-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-03-01T22:40:46-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/javascript/</loc>
     <lastmod>2022-02-27T16:52:02-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-02-27T16:52:02-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-02-27T16:52:02-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/time-complexity/</loc>
-    <lastmod>2022-02-27T16:52:02-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
     <lastmod>2022-02-27T16:52:02-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/understanding-currying/</loc>
@@ -217,9 +223,6 @@
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/12/naming-convention/</loc>
     <lastmod>2021-12-01T21:45:06-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/algorithms/</loc>
-    <lastmod>2021-11-26T14:06:25-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</loc>
     <lastmod>2021-11-26T14:06:25-05:00</lastmod>

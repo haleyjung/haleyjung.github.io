@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 26 Nov 2021 14:06:25 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 01 Mar 2022 22:40:46 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backtracking Algorithm</title>
+      <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</link>
+      <pubDate>Tue, 01 Mar 2022 22:40:46 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</guid>
+      <description>What is a backtracking algorithm? An algorithmic-technique for solving problems recursively by trying to build a solution incrementally one piece at a time, removing solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).
+It works incrementally.
+Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current digit we added doesn&amp;rsquo;t lead to a solution, we remove it = backtrack We try another digit.</description>
+    </item>
+    
     <item>
       <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>
       <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</link>
