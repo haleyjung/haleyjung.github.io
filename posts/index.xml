@@ -6,15 +6,186 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 01 Mar 2022 22:40:46 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 02 Mar 2022 00:16:04 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Backtracking Algorithm</title>
-            <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</link>
+            <title>Backtracking Algorithm: N Queen</title>
+            <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-n-queen/</link>
+            <pubDate>Wed, 02 Mar 2022 00:16:04 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-n-queen/</guid>
+            <description>Prompt The eight queens puzzle is the problem of placing eight chess queens on an 8×8 chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general n queens problem of placing n non-attacking queens on an n×n chessboard, for which solutions exist for all natural numbers n with the exception of n=2 and n=3.</description>
+            <content type="html"><![CDATA[<h2 id="prompt">Prompt</h2>
+<p>The eight queens puzzle is the problem of placing eight chess queens on an <code>8×8</code> chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general <code>n</code> queens problem of placing <code>n</code> non-attacking queens on an <code>n×n</code> chessboard, for which solutions exist for all natural numbers n with the exception of <code>n=2</code> and <code>n=3</code>.</p>
+<p><strong>Queen&rsquo;s movements:</strong></p>
+<ul>
+<li>1 - 7 squares</li>
+<li>Any direction: up, down, left, right, or diagonal</li>
+</ul>
+<h2 id="example-4-queen-problem">Example: 4 Queen problem</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// A binary matrix
+</span><span style="color:#75715e"></span>{ <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>}
+{ <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">1</span>}
+{ <span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>}
+{ <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">0</span>,  <span style="color:#ae81ff">1</span>,  <span style="color:#ae81ff">0</span>}
+</code></pre></div><p><img src="https://camo.githubusercontent.com/7be1f4b6ab3beb8a128977e639fc7c16af8b04ed5fc8bfc608235d6351cdef6d/68747470733a2f2f63646e636f6e747269627574652e6765656b73666f726765656b732e6f72672f77702d636f6e74656e742f75706c6f6164732f4e5f517565656e5f50726f626c656d2e6a7067" alt=""></p>
+<h2 id="backtracking-approach-breakdown">Backtracking Approach Breakdown</h2>
+<ol>
+<li>Start from the leftmost column</li>
+<li>If all Queens are placed
+<ul>
+<li>return true</li>
+</ul>
+</li>
+<li>Try all rows in the current column. For every tried row:
+<ul>
+<li>(A) If Queen can be placed safely in this row, then mark this <code>[row, column]</code> as part of the solution. <em>Recursively</em> check if placing Queen here leads to a solution</li>
+<li>(B) If placing queen in [row, column] leads to a solution then return <code>true</code></li>
+<li>(C) If placing queen doesn&rsquo;t lead to a solution then unmark this <code>[row, column]</code> <strong>(Backtrack)</strong> and go to step (A) to try other rows.</li>
+</ul>
+</li>
+<li>If all rows have been tried and nothing worked, return <code>false</code> to trigger backtracking.</li>
+</ol>
+<p><img src="https://camo.githubusercontent.com/6406345d2f9ca78f9280f68c58c3feebd3d67b1c5b53c3c75ad3c3adbdf3536e/687474703a2f2f6772656774726f776272696467652e636f6d2f636f6e74656e742f696d616765732f323031342f4a756c2f53637265656e73686f742d66726f6d2d323031342d30362d31372d31392d34362d32302e706e67" alt=""></p>
+<ul>
+<li>For <code>N = 8</code>, a position can have a value of <code>00000000</code> where <code>1</code> represents the position of a Queen.</li>
+<li>The recursive function would accpet 3 parameters: <code>leftDiagnol</code>, <code>column</code>, and <code>rightDiagnol</code></li>
+</ul>
+<h2 id="1-get-queens-positions">1. Get Queen&rsquo;s Positions</h2>
+<p>Create a class that represents Queen&rsquo;s position on the chessboard.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">QueenPosition</span> {
+  <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">rowIndex</span>, <span style="color:#a6e22e">columnIndex</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">rowIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">rowIndex</span>;
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">columnIndex</span>;
+  }
+
+  <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">leftDiagonal</span>() {
+    <span style="color:#75715e">// each posiiton on the same left(\) diagonal
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// has the same difference of rowIndex and columnIndex
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">rowIndex</span> <span style="color:#f92672">-</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">columnIndex</span>;
+  }
+
+  <span style="color:#a6e22e">get</span> <span style="color:#a6e22e">rightDiagonal</span>() {
+    <span style="color:#75715e">// each position the right(/) diagonal
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// has the same sum of rowIndex and columnIndex
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">rowIndex</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">columnIndex</span>;
+  }
+
+  <span style="color:#a6e22e">toString</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">rowIndex</span><span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">columnIndex</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+  }
+}
+</code></pre></div><h2 id="2-recurse">2. Recurse!</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * @param {QueenPosition[]} queensPositions
+</span><span style="color:#75715e"> * @param {number} rowIndex
+</span><span style="color:#75715e"> * @param {number} columnIndex
+</span><span style="color:#75715e"> * @return {boolean}
+</span><span style="color:#75715e"> */</span>
+
+ <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">isSafe</span>(<span style="color:#a6e22e">queensPositions</span>, <span style="color:#a6e22e">rowIndex</span>, <span style="color:#a6e22e">columnIndex</span>) {
+   <span style="color:#75715e">// 1. New position to which the Queen is going to be placed
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">// = create a new instance of QueenPosition
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newQueenPosition</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">QueenPosition</span>(<span style="color:#a6e22e">rowIndex</span>, <span style="color:#a6e22e">columnIndex</span>);
+
+   <span style="color:#75715e">// 2. Check if new Queen&#39;s position conflicts with any other Queens
+</span><span style="color:#75715e"></span>   <span style="color:#75715e">// queensPositions is an array from new QueenPosition: [row, column]
+</span><span style="color:#75715e"></span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">queenIndex</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">queenIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">queensPositions</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">queenIndex</span><span style="color:#f92672">++</span>) {
+     <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentQueenPosition</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">queensPositions</span>[<span style="color:#a6e22e">queenIndex</span>];
+
+    <span style="color:#75715e">// 2(1). Check if Queen has already been placed
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">currentQueenPosition</span> <span style="color:#f92672">&amp;&amp;</span> {
+      <span style="color:#75715e">// + check if there are any other queen on the same column
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">newQueenPosition</span>.<span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">currentQueenPosition</span>.<span style="color:#a6e22e">columnIndex</span>
+      <span style="color:#75715e">// + check if there are any other queen on the same row
+</span><span style="color:#75715e"></span>      <span style="color:#f92672">||</span> <span style="color:#a6e22e">newQueenPosition</span>.<span style="color:#a6e22e">rowIndex</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">currentQueenPosition</span>.<span style="color:#a6e22e">rowIndex</span>
+      <span style="color:#75715e">// + check if there are any other queen on the same left diagonal
+</span><span style="color:#75715e"></span>      <span style="color:#f92672">||</span> <span style="color:#a6e22e">newQueenPosition</span>.<span style="color:#a6e22e">leftDiagonal</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">currentQueenPosition</span>.<span style="color:#a6e22e">leftDiagonal</span>
+      <span style="color:#75715e">// + check if there are any other queen on the same right diagonal
+</span><span style="color:#75715e"></span>      <span style="color:#f92672">||</span> <span style="color:#a6e22e">newQueenPosition</span>.<span style="color:#a6e22e">rightDiagonal</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">currentQueenPosition</span>.<span style="color:#a6e22e">rightDiagonal</span>
+    }) {
+      <span style="color:#75715e">// if yes, we can&#39;t place Queen otherwise it will be attacked!
+</span><span style="color:#75715e"></span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+    }
+   }
+  <span style="color:#75715e">// otherwise we are safe!
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+ }
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * @param {QueenPosition[][]} solutions
+</span><span style="color:#75715e"> * @param {QueenPosition[]} previousQueensPositions
+</span><span style="color:#75715e"> * @param {number} queensCount
+</span><span style="color:#75715e"> * @param {number} rowIndex
+</span><span style="color:#75715e"> * @return {boolean}
+</span><span style="color:#75715e"> */</span>
+
+ <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">nQueensRecursive</span>(<span style="color:#a6e22e">solutions</span>, <span style="color:#a6e22e">previousQueensPositions</span>, <span style="color:#a6e22e">queensCount</span>, <span style="color:#a6e22e">rowIndex</span>) {
+  <span style="color:#75715e">// Clone positions array.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">queensPositions</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">previousQueensPositions</span>].<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">queenPosition</span>) =&gt; {
+    <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">queenPosition</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">queenPosition</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">QueenPosition</span>(
+      <span style="color:#a6e22e">queenPosition</span>.<span style="color:#a6e22e">rowIndex</span>,
+      <span style="color:#a6e22e">queenPosition</span>.<span style="color:#a6e22e">columnIndex</span>,
+    );
+  });
+
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">rowIndex</span> <span style="color:#f92672">===</span> <span style="color:#a6e22e">queensCount</span>) {
+    <span style="color:#75715e">// We&#39;ve successfully reached the end of the board.
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// Store solution to the list of solutions.
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">solutions</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">queensPositions</span>);
+
+    <span style="color:#75715e">// Solution found.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+  }
+
+  <span style="color:#75715e">// Let&#39;s try to put queen at row rowIndex into its safe column position.
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">queensCount</span>; <span style="color:#a6e22e">columnIndex</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>) {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">isSafe</span>(<span style="color:#a6e22e">queensPositions</span>, <span style="color:#a6e22e">rowIndex</span>, <span style="color:#a6e22e">columnIndex</span>)) {
+      <span style="color:#75715e">// Place current queen to its current position.
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">queensPositions</span>[<span style="color:#a6e22e">rowIndex</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">QueenPosition</span>(<span style="color:#a6e22e">rowIndex</span>, <span style="color:#a6e22e">columnIndex</span>);
+
+      <span style="color:#75715e">// Try to place all other queens as well.
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">nQueensRecursive</span>(<span style="color:#a6e22e">solutions</span>, <span style="color:#a6e22e">queensPositions</span>, <span style="color:#a6e22e">queensCount</span>, <span style="color:#a6e22e">rowIndex</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+
+      <span style="color:#75715e">// BACKTRACKING.
+</span><span style="color:#75715e"></span>      <span style="color:#75715e">// Remove the queen from the row to avoid isSafe() returning false.
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">queensPositions</span>[<span style="color:#a6e22e">rowIndex</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    }
+  }
+
+  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+}
+
+<span style="color:#75715e">/*
+</span><span style="color:#75715e"> * @param {number} queensCount
+</span><span style="color:#75715e"> * @return {QueenPosition[][]}
+</span><span style="color:#75715e"> */</span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">nQueens</span>(<span style="color:#a6e22e">queensCount</span>) {
+  <span style="color:#75715e">// Init NxN chessboard with zeros.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// const chessboard = Array(queensCount).fill(null).map(() =&gt; Array(queensCount).fill(0));
+</span><span style="color:#75715e"></span>
+  <span style="color:#75715e">// This array will hold positions or coordinates of each of
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// N queens in form of [rowIndex, columnIndex].
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">queensPositions</span> <span style="color:#f92672">=</span> Array(<span style="color:#a6e22e">queensCount</span>).<span style="color:#a6e22e">fill</span>(<span style="color:#66d9ef">null</span>);
+
+  <span style="color:#75715e">/** @var {QueenPosition[][]} solutions */</span>
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">solutions</span> <span style="color:#f92672">=</span> [];
+
+  <span style="color:#75715e">// Solve problem recursively.
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">nQueensRecursive</span>(<span style="color:#a6e22e">solutions</span>, <span style="color:#a6e22e">queensPositions</span>, <span style="color:#a6e22e">queensCount</span>, <span style="color:#ae81ff">0</span>);
+
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">solutions</span>;
+}
+</code></pre></div>]]></content>
+        </item>
+        
+        <item>
+            <title>Backtracking Algorithm: Knight&#39;s Tour</title>
+            <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-knights-tour/</link>
             <pubDate>Tue, 01 Mar 2022 22:40:46 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-knights-tour/</guid>
             <description>What is a backtracking algorithm? An algorithmic-technique for solving problems recursively by trying to build a solution incrementally one piece at a time, removing solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).
 It works incrementally.
 Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current digit we added doesn&amp;rsquo;t lead to a solution, we remove it = backtrack We try another digit.</description>

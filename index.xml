@@ -7,13 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 01 Mar 2022 22:40:46 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 02 Mar 2022 00:16:04 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Backtracking Algorithm</title>
-      <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</link>
+      <title>Backtracking Algorithm: N Queen</title>
+      <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-n-queen/</link>
+      <pubDate>Wed, 02 Mar 2022 00:16:04 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-n-queen/</guid>
+      <description>Prompt The eight queens puzzle is the problem of placing eight chess queens on an 8×8 chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general n queens problem of placing n non-attacking queens on an n×n chessboard, for which solutions exist for all natural numbers n with the exception of n=2 and n=3.</description>
+    </item>
+    
+    <item>
+      <title>Backtracking Algorithm: Knight&#39;s Tour</title>
+      <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-knights-tour/</link>
       <pubDate>Tue, 01 Mar 2022 22:40:46 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm/</guid>
+      <guid>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-knights-tour/</guid>
       <description>What is a backtracking algorithm? An algorithmic-technique for solving problems recursively by trying to build a solution incrementally one piece at a time, removing solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).
 It works incrementally.
 Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current digit we added doesn&amp;rsquo;t lead to a solution, we remove it = backtrack We try another digit.</description>
@@ -93,17 +102,6 @@ For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;,
       <guid>https://haleyjung.github.io/posts/2022/02/writing-my-own-getelementsbyclassname/</guid>
       <description>Goal I&amp;rsquo;m going to write out the getElementsByClassName() method, using JavaScript. When it&amp;rsquo;s called on the document object, it returns an array-like object of all child elements which have all of the given class name(s).
 Pseudocodes // Declare an empty array to store the result // Declare a function expression `hasClassName` // with a function parameter as `node` // to check which node has the same class name as `className` // Call the function expression `hasClassName` // and pass `document.</description>
-    </item>
-    
-    <item>
-      <title>Instantiation Patterns</title>
-      <link>https://haleyjung.github.io/posts/2022/02/instantiation-patterns/</link>
-      <pubDate>Mon, 21 Feb 2022 23:46:14 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/instantiation-patterns/</guid>
-      <description>What is an instantiation pattern in JavaScript? It&amp;rsquo;s a way to create an object using functions.
-5 Types of Instantiation Patterns 1. Functional Instantiation  Create a function Create an empty object inside the function  Properties and methods can be created here They will be accessible every time the function is called   Return the object  Pros
- Easy to understand Private properties (contained within the closure scope)  Cons</description>
     </item>
     
   </channel>
