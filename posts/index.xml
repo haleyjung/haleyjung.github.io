@@ -17,7 +17,7 @@
             <guid>https://haleyjung.github.io/posts/2022/03/understanding-redux/</guid>
             <description>Redux: Predictable State Container for JavaScript apps
  I&amp;rsquo;ve just finished a two-day sprint using React, and will be moving onto using Redux with React. So here are some fundamentals of Redux before the next sprint.
-What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components)   Debuggable  Redux DevTools extension to debug Redux applications Shows when, where, why, and how the states changed Makes the app testable   Flexible  Works with any UI layer Has a large ecosystem of add-ons    When to Use Redux?</description>
+What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure Reduces server calls: only made when state change requires the server call  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components) const rootReducer = Redux.</description>
             <content type="html"><![CDATA[<blockquote>
 <p>Redux: Predictable State Container for JavaScript apps</p>
 </blockquote>
@@ -31,6 +31,7 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
 </ul>
 </li>
 <li>Uses a <strong>one-way data flow</strong> app structure</li>
+<li>Reduces server calls: only made when state change requires the server call</li>
 </ul>
 <h2 id="key-points">Key Points</h2>
 <ol>
@@ -43,6 +44,9 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
 <li><strong>Centralized</strong>
 <ul>
 <li>States can be used from any components (instead of lifting state to parent components)</li>
+<li><code>const rootReducer = Redux.combineReducers({ partofState: reducerResponsibleForTahtPart, / *** / })</code></li>
+<li>Combine <code>rootReducer</code> as a single usable object</li>
+<li><code>const store = Redux.createStore(rootReducer)</code></li>
 </ul>
 </li>
 <li><strong>Debuggable</strong>
@@ -125,12 +129,13 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
   <span style="color:#75715e">// otherwise return the existing state unchanged
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>
 }
-</code></pre></div><h3 id="4-store-obj">4. Store (Obj)</h3>
+</code></pre></div><h3 id="4-store-obj-with-storegetstate--storesubscribe">4. Store (Obj) with store.getState() &amp; store.subscribe()</h3>
 <ul>
 <li>Runs the root reducer whenever an action is dispatched</li>
 <li>The <strong>current state</strong> lives in an object called the store</li>
 <li>Created by passing in a reducer</li>
-<li>Has a method <code>getState</code> that returns the current state value</li>
+<li>Has a method <code>store.getState()</code> that returns the current state value</li>
+<li>To use store: <code>store.subscribe(() =&gt; { ... })</code></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">configureStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@reduxjs/toolkit&#39;</span>
 
@@ -138,10 +143,10 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
 
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">getState</span>())
 <span style="color:#75715e">// {value: 0}
-</span></code></pre></div><h3 id="5-dispatch-method-in-store">5. Dispatch (Method in Store)</h3>
+</span></code></pre></div><h3 id="5-storedispatch----method-in-store">5. store.dispatch() &ndash;&gt; Method in Store</h3>
 <ul>
 <li>&ldquo;Triggering an event&rdquo;</li>
-<li>Use <code>store.dispatch()</code> to update the state (it&rsquo;s the only way!)</li>
+<li>Use <code>store.dispatch()</code> to <strong>update</strong> the state (it&rsquo;s the only way!)</li>
 <li>Pass in an action object</li>
 <li><code>store</code> will run its reducer function and save the new state value inside</li>
 <li>Then we can call <code>getState()</code> to retrieve the updated value</li>
@@ -172,11 +177,11 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
         </item>
         
         <item>
-            <title>Notes from a React Sprint</title>
-            <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</link>
+            <title>Notes from a ReactJS Sprint</title>
+            <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-reactjs-sprint/</link>
             <pubDate>Tue, 08 Mar 2022 01:10:37 -0500</pubDate>
             
-            <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</guid>
+            <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-reactjs-sprint/</guid>
             <description>Setting up Babel to watch all changes and compile automatically  In package.json’s scripts, create “start” and add the following including watch:  npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch npx: allows local dependencies to run as commands babel: hey npx, search for and run the Babel command-line utility .: hey Babel, transpile all JS files in the current working directory --out-dir: hey again Babel, put the transpiled files into the compiled/ folder --presets hey hey Babel, make this kind of transformations.</description>
             <content type="html"><![CDATA[<ul>
 <li>Setting up Babel to watch all changes and compile automatically
@@ -230,6 +235,7 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">MDN: import</a></li>
 <li><a href="https://medium.com/@Sharad35386442/6-different-ways-to-do-ajax-calls-in-javascript-b47200fe7a38">6 different ways to do Ajax call</a>
 <ul>
 <li>Using callback in <code>$.ajax({ ... success: function(data) { callback(data) }, ...});</code></li>

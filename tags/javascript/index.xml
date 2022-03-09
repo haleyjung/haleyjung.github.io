@@ -9,11 +9,11 @@
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Tue, 08 Mar 2022 01:10:37 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Notes from a React Sprint</title>
-      <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</link>
+      <title>Notes from a ReactJS Sprint</title>
+      <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-reactjs-sprint/</link>
       <pubDate>Tue, 08 Mar 2022 01:10:37 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</guid>
+      <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-reactjs-sprint/</guid>
       <description>Setting up Babel to watch all changes and compile automatically  In package.json’s scripts, create “start” and add the following including watch:  npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch npx: allows local dependencies to run as commands babel: hey npx, search for and run the Babel command-line utility .: hey Babel, transpile all JS files in the current working directory --out-dir: hey again Babel, put the transpiled files into the compiled/ folder --presets hey hey Babel, make this kind of transformations.</description>
     </item>
     

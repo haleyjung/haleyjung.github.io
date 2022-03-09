@@ -16,7 +16,7 @@
       <guid>https://haleyjung.github.io/posts/2022/03/understanding-redux/</guid>
       <description>Redux: Predictable State Container for JavaScript apps
  I&amp;rsquo;ve just finished a two-day sprint using React, and will be moving onto using Redux with React. So here are some fundamentals of Redux before the next sprint.
-What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components)   Debuggable  Redux DevTools extension to debug Redux applications Shows when, where, why, and how the states changed Makes the app testable   Flexible  Works with any UI layer Has a large ecosystem of add-ons    When to Use Redux?</description>
+What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure Reduces server calls: only made when state change requires the server call  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components) const rootReducer = Redux.</description>
     </item>
     
   </channel>
