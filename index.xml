@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 02 Mar 2022 00:16:04 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Mar 2022 00:40:48 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Redux</title>
+      <link>https://haleyjung.github.io/posts/2022/03/understanding-redux/</link>
+      <pubDate>Wed, 09 Mar 2022 00:40:48 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/understanding-redux/</guid>
+      <description>Redux: Predictable State Container for JavaScript apps
+ I&amp;rsquo;ve just finished a two-day sprint using React, and will be moving onto using Redux with React. So here are some fundamentals of Redux before the next sprint.
+What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components)   Debuggable  Redux DevTools extension to debug Redux applications Shows when, where, why, and how the states changed Makes the app testable   Flexible  Works with any UI layer Has a large ecosystem of add-ons    When to Use Redux?</description>
+    </item>
+    
+    <item>
+      <title>Notes from a React Sprint</title>
+      <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</link>
+      <pubDate>Tue, 08 Mar 2022 01:10:37 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</guid>
+      <description>Setting up Babel to watch all changes and compile automatically  In package.json’s scripts, create “start” and add the following including watch:  npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch npx: allows local dependencies to run as commands babel: hey npx, search for and run the Babel command-line utility .: hey Babel, transpile all JS files in the current working directory --out-dir: hey again Babel, put the transpiled files into the compiled/ folder --presets hey hey Babel, make this kind of transformations.</description>
+    </item>
+    
     <item>
       <title>Backtracking Algorithm: N Queen</title>
       <link>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-n-queen/</link>
@@ -82,26 +102,6 @@ For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;,
       
       <guid>https://haleyjung.github.io/posts/2022/02/underscore-review/</guid>
       <description>_.identity = function(val) { return val; }; // first: return the first element if n is undefined  // if n is defined, return an array of the first n elements of the array _.first = function(array, n) { return n === undefined ? array[0] : array.slice(0, n); }; // last: return the last element if n is undefined  // if n is defined, return an array of the last n elements of the array _.</description>
-    </item>
-    
-    <item>
-      <title>Writing My Own `StringifyJSON`</title>
-      <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</link>
-      <pubDate>Wed, 23 Feb 2022 00:27:45 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/writing-my-own-stringifyjson/</guid>
-      <description>Goal I&amp;rsquo;m going to write out the JSON.stringify() method, which converts a JavaScript object or value to a JSON string.
- Boolean, Number, and String objects are converted to the corresponding primitive values during stringification.  String will be wrapped in extra quotation marks   undefined, Function, and Symbol are not valid JSON values. If they are found in an array, they will be changed to null. The numbers Infinity and NaN, as well as the value null, are all considered null.</description>
-    </item>
-    
-    <item>
-      <title>Writing My Own `getElementsByClassName()`</title>
-      <link>https://haleyjung.github.io/posts/2022/02/writing-my-own-getelementsbyclassname/</link>
-      <pubDate>Tue, 22 Feb 2022 00:23:20 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/writing-my-own-getelementsbyclassname/</guid>
-      <description>Goal I&amp;rsquo;m going to write out the getElementsByClassName() method, using JavaScript. When it&amp;rsquo;s called on the document object, it returns an array-like object of all child elements which have all of the given class name(s).
-Pseudocodes // Declare an empty array to store the result // Declare a function expression `hasClassName` // with a function parameter as `node` // to check which node has the same class name as `className` // Call the function expression `hasClassName` // and pass `document.</description>
     </item>
     
   </channel>

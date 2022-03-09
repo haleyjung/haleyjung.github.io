@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 27 Feb 2022 16:52:02 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 08 Mar 2022 01:10:37 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes from a React Sprint</title>
+      <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</link>
+      <pubDate>Tue, 08 Mar 2022 01:10:37 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</guid>
+      <description>Setting up Babel to watch all changes and compile automatically  In package.json’s scripts, create “start” and add the following including watch:  npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch npx: allows local dependencies to run as commands babel: hey npx, search for and run the Babel command-line utility .: hey Babel, transpile all JS files in the current working directory --out-dir: hey again Babel, put the transpiled files into the compiled/ folder --presets hey hey Babel, make this kind of transformations.</description>
+    </item>
+    
     <item>
       <title>Time Complexity</title>
       <link>https://haleyjung.github.io/posts/2022/02/time-complexity/</link>
@@ -92,17 +101,6 @@ Pseudocodes // Declare an empty array to store the result // Declare a function 
       <guid>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</guid>
       <description>What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
   An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript.</description>
-    </item>
-    
-    <item>
-      <title>Patterns</title>
-      <link>https://haleyjung.github.io/posts/2022/02/patterns/</link>
-      <pubDate>Sat, 19 Feb 2022 18:57:18 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/patterns/</guid>
-      <description>What is a design pattern? A design pattern names, abstracts, and identifies the key aspects of a common design structure that make it useful for creating a reusable object-oriented design.
-A design pattern identifies the participatign class and their instances, their roles and collaborations, and the distribution of responsibilities.
-Categorizing Patterns Creational Design Patterns  Focuses on handling object creation mechanisms By controlling the creation process, it aims to solve the problem of the basic approach to object creation adding complexity in a project   Constructor, Factory, Abstract, Prototype, Singleton, and Builder are some of the creational design patterns.</description>
     </item>
     
   </channel>

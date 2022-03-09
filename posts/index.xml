@@ -6,8 +6,241 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 02 Mar 2022 00:16:04 -0500</lastBuildDate>
+        <lastBuildDate>Wed, 09 Mar 2022 00:40:48 -0500</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Understanding Redux</title>
+            <link>https://haleyjung.github.io/posts/2022/03/understanding-redux/</link>
+            <pubDate>Wed, 09 Mar 2022 00:40:48 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/understanding-redux/</guid>
+            <description>Redux: Predictable State Container for JavaScript apps
+ I&amp;rsquo;ve just finished a two-day sprint using React, and will be moving onto using Redux with React. So here are some fundamentals of Redux before the next sprint.
+What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components)   Debuggable  Redux DevTools extension to debug Redux applications Shows when, where, why, and how the states changed Makes the app testable   Flexible  Works with any UI layer Has a large ecosystem of add-ons    When to Use Redux?</description>
+            <content type="html"><![CDATA[<blockquote>
+<p>Redux: Predictable State Container for JavaScript apps</p>
+</blockquote>
+<p>I&rsquo;ve just finished a two-day sprint using React, and will be moving onto using Redux with React. So here are some fundamentals of Redux before the next sprint.</p>
+<h2 id="what-is-it">What is it?</h2>
+<ul>
+<li><strong>Predictable State Container</strong> for JavaScript apps</li>
+<li>A JS library for managing global application state
+<ul>
+<li>Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension</li>
+</ul>
+</li>
+<li>Uses a <strong>one-way data flow</strong> app structure</li>
+</ul>
+<h2 id="key-points">Key Points</h2>
+<ol>
+<li><strong>Predictable</strong>
+<ul>
+<li>Helps applications to behave consistently</li>
+<li>Runs in different environments: client, server, native</li>
+</ul>
+</li>
+<li><strong>Centralized</strong>
+<ul>
+<li>States can be used from any components (instead of lifting state to parent components)</li>
+</ul>
+</li>
+<li><strong>Debuggable</strong>
+<ul>
+<li>Redux DevTools extension to debug Redux applications</li>
+<li>Shows when, where, why, and how the states changed</li>
+<li>Makes the app testable</li>
+</ul>
+</li>
+<li><strong>Flexible</strong>
+<ul>
+<li>Works with any UI layer</li>
+<li>Has a large ecosystem of add-ons</li>
+</ul>
+</li>
+</ol>
+<h2 id="when-to-use-redux">When to Use Redux?</h2>
+<ol>
+<li>Large amounts of application states in many places?</li>
+<li>State is updated frequently over time?</li>
+<li>Complex logic to update state?</li>
+<li>Medium/large-sized codebase? Many people involved?</li>
+</ol>
+<p>Then use Redux.</p>
+<p>Otherwise, Redux has tradeoffs, such as more concepts to learn, more code to write, some indirection to code, having certain restrictions, etc.</p>
+<h2 id="terminology">Terminology</h2>
+<h3 id="1-actions-obj">1. Actions (Obj)</h3>
+<ul>
+<li>A plain JavaScript object that has a <code>type</code> field</li>
+<li>An event that describes something that happened in the application</li>
+<li><code>type</code> string is written like <code>domain/eventName</code> where domain is feature/category the action belongs to</li>
+<li><code>payload</code> indicates any additional info about what happened</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">addTodoAction</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;todos/todoAdded&#39;</span>,
+  <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Buy milk&#39;</span>
+}
+</code></pre></div><h3 id="2-action-creators-func">2. Action Creators (Func)</h3>
+<ul>
+<li>A function that creates and <em>returns</em> an action object</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">addTodo</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">text</span> =&gt; {
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;todos/todoAdded&#39;</span>,
+    <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">text</span>
+  }
+}
+</code></pre></div><h3 id="3-reducers-func">3. Reducers (Func)</h3>
+<ul>
+<li>A function that calculates a new <code>state</code> value based on previous <code>state</code> + an <code>action</code>
+<ul>
+<li>Receives the current state and an action object</li>
+<li>Decides how to update the state like an event listener</li>
+<li>Returns the <strong>new state</strong>: <code>(state, action) =&gt; newState</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="reducer-rules">Reducer Rules</h4>
+<ul>
+<li>Only calculate the new state value based on the <code>state</code> and <code>action</code> arguments</li>
+<li>Instead of modifying the existing <code>state</code>, the changes are made to a copy of the <code>state</code>
+<ul>
+<li>Any kind of logic can be used here: <code>if/else</code>, <code>switch</code>, <code>loops</code>, etc.</li>
+</ul>
+</li>
+<li>NO asynchronous logic, calculate random values, or cause other &ldquo;side effects&rdquo;</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialState</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">0</span> }
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">counterReducer</span>(<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initialState</span>, <span style="color:#a6e22e">action</span>) {
+  <span style="color:#75715e">// Check to see if the reducer cares about this action
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;counter/increment&#39;</span>) {
+    <span style="color:#75715e">// If so, make a copy of `state`
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> {
+      ...<span style="color:#a6e22e">state</span>,
+      <span style="color:#75715e">// and update the copy with the new value
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+    }
+  }
+  <span style="color:#75715e">// otherwise return the existing state unchanged
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>
+}
+</code></pre></div><h3 id="4-store-obj">4. Store (Obj)</h3>
+<ul>
+<li>Runs the root reducer whenever an action is dispatched</li>
+<li>The <strong>current state</strong> lives in an object called the store</li>
+<li>Created by passing in a reducer</li>
+<li>Has a method <code>getState</code> that returns the current state value</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">configureStore</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@reduxjs/toolkit&#39;</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">store</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">configureStore</span>({ <span style="color:#a6e22e">reducer</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">counterReducer</span> })
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">getState</span>())
+<span style="color:#75715e">// {value: 0}
+</span></code></pre></div><h3 id="5-dispatch-method-in-store">5. Dispatch (Method in Store)</h3>
+<ul>
+<li>&ldquo;Triggering an event&rdquo;</li>
+<li>Use <code>store.dispatch()</code> to update the state (it&rsquo;s the only way!)</li>
+<li>Pass in an action object</li>
+<li><code>store</code> will run its reducer function and save the new state value inside</li>
+<li>Then we can call <code>getState()</code> to retrieve the updated value</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">increment</span> <span style="color:#f92672">=</span> () =&gt; {
+  <span style="color:#66d9ef">return</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;counter/increment&#39;</span>
+  }
+}
+
+<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">increment</span>())
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">getState</span>())
+<span style="color:#75715e">// {value: 2}
+</span></code></pre></div><h3 id="6-selectors-func">6. Selectors (Func)</h3>
+<ul>
+<li>Extracts specific pieces of information from a store state value</li>
+<li>Helps avoid repeating logic for a growing app</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">selectCounterValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">value</span>
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">currentValue</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">selectCounterValue</span>(<span style="color:#a6e22e">store</span>.<span style="color:#a6e22e">getState</span>())
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">currentValue</span>)
+<span style="color:#75715e">// 2
+</span></code></pre></div><h2 id="references">References</h2>
+<p><a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">Redux Official Tutorial</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Notes from a React Sprint</title>
+            <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</link>
+            <pubDate>Tue, 08 Mar 2022 01:10:37 -0500</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</guid>
+            <description>Setting up Babel to watch all changes and compile automatically  In package.json’s scripts, create “start” and add the following including watch:  npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch npx: allows local dependencies to run as commands babel: hey npx, search for and run the Babel command-line utility .: hey Babel, transpile all JS files in the current working directory --out-dir: hey again Babel, put the transpiled files into the compiled/ folder --presets hey hey Babel, make this kind of transformations.</description>
+            <content type="html"><![CDATA[<ul>
+<li>Setting up Babel to watch all changes and compile automatically
+<ul>
+<li>In package.json’s scripts, create “start” and add the following including watch:
+<ul>
+<li><code>npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch</code></li>
+<li><code>npx</code>: allows local dependencies to run as commands</li>
+<li><code>babel</code>: hey npx, search for and run the Babel command-line utility</li>
+<li><code>.</code>: hey Babel, transpile all JS files in the current working directory</li>
+<li><code>--out-dir</code>: hey again Babel, put the transpiled files into the <code>compiled/</code> folder</li>
+<li><code>--presets</code> hey hey Babel, make this kind of transformations.
+<ul>
+<li><code>@babel/preset-react</code> transpiles JSX</li>
+</ul>
+</li>
+<li><code>--ignore</code>: ok Babel, don&rsquo;t transpile any files in the <code>node_modules</code> and <code>compiled</code> directories</li>
+<li><code>--source-maps</code>: Babel, include source maps with the transpiled code so debugging gets easier</li>
+<li><code>--watch</code>: ok last time Babel, keep watching the changes in JSX and compile them live</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To open Mocha Specs
+<ul>
+<li>package.json &ndash;&gt; set up <code>scripts: test</code> to open the Mocha Spec file</li>
+</ul>
+</li>
+<li>Make sure Babel’s compiled js files are imported in HTML at the bottom scripts
+<ul>
+<li>The order should be what needs to get rendered first: aka lighter files
+<ul>
+<li>Video data files -&gt; Video Entry List (as it gets imported into VideoList) -&gt; VideoList -&gt; VideoPlayer -&gt; Search -&gt; App -&gt; index</li>
+<li>App is the last and index, which renders App.js in DOM is the last of the last</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>When importing inside jsx files, make sure we are importing js files in babel’s compiled folder; same for the Video Data file</li>
+<li>Develop a habit of destructuring: instead of doing props.video, we can do {video}</li>
+<li>In JSX syntax, parenthesis <code>()</code> is for immediate return. This is used the most. If we use <code>{}</code>, we would most likely need a return statement.</li>
+<li>Controlled vs Uncontrolled react components
+<ul>
+<li><strong>Controlled</strong>: takes its current value through props and notifies changes through callbacks like onChange. A parent component controls it by handling the callback and managing its own state and passing the new values as props to the controlled component. = dumb component</li>
+<li><strong>Uncontrolled</strong>: stores its own state internally, and you query the DOM using a ref to find its current value when you need it.</li>
+</ul>
+</li>
+<li>For current video value, the initial is set to null. For this to work when it’s null, we need to use conditional rendering</li>
+<li>We&rsquo;ve learned to use onChange for form submit (like input text for a search bar)</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></li>
+<li><a href="https://medium.com/@Sharad35386442/6-different-ways-to-do-ajax-calls-in-javascript-b47200fe7a38">6 different ways to do Ajax call</a>
+<ul>
+<li>Using callback in <code>$.ajax({ ... success: function(data) { callback(data) }, ...});</code></li>
+</ul>
+</li>
+<li><a href="https://video-react.js.org/components/player/">Video-React: Components</a></li>
+<li><a href="https://reactjs.org/docs/higher-order-components.html">React: Higher-Order Components</a></li>
+<li><a href="https://github.com/airbnb/javascript/tree/master/react#class-vs-reactcreateclass-vs-stateless">Airbnb React/JSX Style Guide</a></li>
+</ul>
+]]></content>
+        </item>
         
         <item>
             <title>Backtracking Algorithm: N Queen</title>

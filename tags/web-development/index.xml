@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 05 Feb 2022 10:48:06 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Mar 2022 00:40:48 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Redux</title>
+      <link>https://haleyjung.github.io/posts/2022/03/understanding-redux/</link>
+      <pubDate>Wed, 09 Mar 2022 00:40:48 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/understanding-redux/</guid>
+      <description>Redux: Predictable State Container for JavaScript apps
+ I&amp;rsquo;ve just finished a two-day sprint using React, and will be moving onto using Redux with React. So here are some fundamentals of Redux before the next sprint.
+What is it?  Predictable State Container for JavaScript apps A JS library for managing global application state  Has packages including: React-Redux, Redux Toolkit, and Redux DevTools Extension   Uses a one-way data flow app structure  Key Points  Predictable  Helps applications to behave consistently Runs in different environments: client, server, native   Centralized  States can be used from any components (instead of lifting state to parent components)   Debuggable  Redux DevTools extension to debug Redux applications Shows when, where, why, and how the states changed Makes the app testable   Flexible  Works with any UI layer Has a large ecosystem of add-ons    When to Use Redux?</description>
+    </item>
+    
+    <item>
+      <title>Notes from a React Sprint</title>
+      <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</link>
+      <pubDate>Tue, 08 Mar 2022 01:10:37 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</guid>
+      <description>Setting up Babel to watch all changes and compile automatically  In package.json’s scripts, create “start” and add the following including watch:  npx babel . --out-dir=compiled --presets=@babel/preset-react --ignore=node_modules,compiled --source-maps=inline --watch npx: allows local dependencies to run as commands babel: hey npx, search for and run the Babel command-line utility .: hey Babel, transpile all JS files in the current working directory --out-dir: hey again Babel, put the transpiled files into the compiled/ folder --presets hey hey Babel, make this kind of transformations.</description>
+    </item>
+    
     <item>
       <title>Semantic Versioning</title>
       <link>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</link>
@@ -84,25 +104,6 @@ Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/la
       <guid>https://haleyjung.github.io/posts/2021/12/pug.js/</guid>
       <description>What is Pug.js?  Pug.js is a HTML templating engine, which means you can write much simpler Pug code, which Pug compiler will compile into HTML code, that browser can understand. Pug.js, as from its name is a JavaScript library. Hence, we can run it inside browser or on node.js  What to do after the installation?   Tell express that our view engine is now PUG
  app.set(&amp;ldquo;view engine&amp;rdquo;, &amp;ldquo;pug&amp;rdquo;); create a views folder inside /.</description>
-    </item>
-    
-    <item>
-      <title>Server Standards</title>
-      <link>https://haleyjung.github.io/posts/2021/12/server-standards/</link>
-      <pubDate>Wed, 29 Dec 2021 14:40:44 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/server-standards/</guid>
-      <description>How to set up a Server Install in Terminal  npm init  creates package.json   npm i express  creates package-lock.json and node_modules folder where express folder can be found package.json now includes express as dependencies *Create .gitignore and add /node_modules   npm i @babel/core @babel/node @babel/preset-env &amp;ndash;save-dev  babeljs.io adds babel as devDependencies   touch babel.config.json  copy-paste json code: {&amp;ldquo;presets&amp;rdquo;: [&amp;quot;@babel/preset-env&amp;quot;]} Now I can use babel by enabling presets   npm i nodemon &amp;ndash;save-dev  A package that watches the files and restarts when a change has been made so I won&amp;rsquo;t have to &amp;ldquo;npm run dev&amp;rdquo; every time   Update &amp;ldquo;scripts: {}&amp;rdquo; in package.</description>
-    </item>
-    
-    <item>
-      <title>Cache</title>
-      <link>https://haleyjung.github.io/posts/2021/12/cache/</link>
-      <pubDate>Sat, 04 Dec 2021 22:03:44 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2021/12/cache/</guid>
-      <description>Cache (‘cash’) A reserved space location that collects temporary data that makes a device, browser, or app run faster and more efficiently After opening an app or website for the first time, a cache stashes files, images, and other pertinent data on the device. For every subsequent visit, the cached data will be quickly retrieved instead of locally redownloading the data every single time.
-3 main areas of cache Devices and software The CPU, central processing unit, which is the core component responsible for processing information from the software in the desktop computer, laptop, smartphone or tablet, has its own cache.</description>
     </item>
     
   </channel>

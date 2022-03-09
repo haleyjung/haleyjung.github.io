@@ -2,26 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-03-09T00:40:48-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/redux/</loc>
+    <lastmod>2022-03-09T00:40:48-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-03-09T00:40:48-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-03-09T00:40:48-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/03/understanding-redux/</loc>
+    <lastmod>2022-03-09T00:40:48-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/web-development/</loc>
+    <lastmod>2022-03-09T00:40:48-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/javascript/</loc>
+    <lastmod>2022-03-08T01:10:37-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/03/notes-from-a-react-sprint/</loc>
+    <lastmod>2022-03-08T01:10:37-05:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/react/</loc>
+    <lastmod>2022-03-08T01:10:37-05:00</lastmod>
+  </url><url>
     <loc>https://haleyjung.github.io/tags/algorithms/</loc>
     <lastmod>2022-03-02T00:16:04-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-n-queen/</loc>
     <lastmod>2022-03-02T00:16:04-05:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/posts/</loc>
-    <lastmod>2022-03-02T00:16:04-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-03-02T00:16:04-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
-    <lastmod>2022-03-02T00:16:04-05:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/03/backtracking-algorithm-knights-tour/</loc>
     <lastmod>2022-03-01T22:40:46-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/javascript/</loc>
-    <lastmod>2022-02-27T16:52:02-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/time-complexity/</loc>
     <lastmod>2022-02-27T16:52:02-05:00</lastmod>
@@ -108,9 +123,6 @@
     <lastmod>2022-02-06T12:20:12-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/semantic-versioning/</loc>
-    <lastmod>2022-02-05T10:48:06-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/web-development/</loc>
     <lastmod>2022-02-05T10:48:06-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/systems/</loc>
