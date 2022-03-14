@@ -6,8 +6,51 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 09 Mar 2022 00:40:48 -0500</lastBuildDate>
+        <lastBuildDate>Sun, 13 Mar 2022 23:22:06 -0400</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Pure Function</title>
+            <link>https://haleyjung.github.io/posts/2022/03/pure-function/</link>
+            <pubDate>Sun, 13 Mar 2022 23:22:06 -0400</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/pure-function/</guid>
+            <description>What is pure function? Pure function is a function that returns the same output when the same arguments are passed.
+Characteristics  Predictable output for the same inputs Readability to understand its purpose Resuable at any place without altering its behavior Testable as an independent unit No side effect  Examples Pure function function Greeting(name) { return `Hello ${name}`; } This Greeting function always get Hello &amp;lt;name&amp;gt; for the name input, so it&amp;rsquo;s a pure function.</description>
+            <content type="html"><![CDATA[<h2 id="what-is-pure-function">What is pure function?</h2>
+<p>Pure function is a function that returns the same output when the same arguments are passed.</p>
+<h2 id="characteristics">Characteristics</h2>
+<ul>
+<li>Predictable output for the same inputs</li>
+<li>Readability to understand its purpose</li>
+<li>Resuable at any place without altering its behavior</li>
+<li>Testable as an independent unit</li>
+<li>No side effect</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="pure-function">Pure function</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Greeting</span>(<span style="color:#a6e22e">name</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`Hello </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+}
+</code></pre></div><p>This <code>Greeting</code> function always get <code>Hello &lt;name&gt;</code> for the <code>name</code> input, so it&rsquo;s a pure function.</p>
+<h3 id="non-pure-function">Non-Pure Function</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hello&#39;</span>;
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">Greeting</span>(<span style="color:#a6e22e">name</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">greeting</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>;
+}
+</code></pre></div><p>This function is <strong>not</strong> a pure function, because the output now depends on the <strong>outer state</strong> <code>greeting</code>.</p>
+<h2 id="what-is-a-side-effect">What is a side effect?</h2>
+<p>Side effect is any <strong>operation</strong> that&rsquo;s <em>not directly related</em> to the final output of the function. Some examples include:</p>
+<ul>
+<li>Mutating the input itself</li>
+<li>Querying/Updating DOM</li>
+<li>Logging (including the console)</li>
+<li>Making an XHR/fetch call</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<p><a href="https://blog.greenroots.info/what-are-pure-functions-and-side-effects-in-javascript">Adhikary, Tapas. &ldquo;What are Pure Functions and Side Effects in JavaScript?&rdquo;, GreenRoots, Dec 10, 2021.</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Understanding Redux</title>

@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 08 Mar 2022 01:10:37 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Mar 2022 23:22:06 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pure Function</title>
+      <link>https://haleyjung.github.io/posts/2022/03/pure-function/</link>
+      <pubDate>Sun, 13 Mar 2022 23:22:06 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/pure-function/</guid>
+      <description>What is pure function? Pure function is a function that returns the same output when the same arguments are passed.
+Characteristics  Predictable output for the same inputs Readability to understand its purpose Resuable at any place without altering its behavior Testable as an independent unit No side effect  Examples Pure function function Greeting(name) { return `Hello ${name}`; } This Greeting function always get Hello &amp;lt;name&amp;gt; for the name input, so it&amp;rsquo;s a pure function.</description>
+    </item>
+    
     <item>
       <title>Notes from a ReactJS Sprint</title>
       <link>https://haleyjung.github.io/posts/2022/03/notes-from-a-reactjs-sprint/</link>
@@ -91,16 +101,6 @@ Pseudocodes // Declare an empty array to store the result // Declare a function 
       <description>What is an instantiation pattern in JavaScript? It&amp;rsquo;s a way to create an object using functions.
 5 Types of Instantiation Patterns 1. Functional Instantiation  Create a function Create an empty object inside the function  Properties and methods can be created here They will be accessible every time the function is called   Return the object  Pros
  Easy to understand Private properties (contained within the closure scope)  Cons</description>
-    </item>
-    
-    <item>
-      <title>MVC: Model-View-Controller</title>
-      <link>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</link>
-      <pubDate>Sun, 20 Feb 2022 08:04:41 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/mvc-model-view-controller/</guid>
-      <description>What is MVC?  Model: business data / View: user interface / Controller: a component traditionally managing logic, user-input and coordinating both the models and views.
-  An architectural design pattern MVC encourages improved application organization through a separation of conerns.  History: Smalltalk-80&amp;rsquo;s MVC in the 1970s  Designed by Trygve Reenskaug during his time working on Smalltalk-80 (1979) where it was initially called Model-View-Controller-Editor. Before, it was heavily used for structuring desktop and sever-side applications, but recently it&amp;rsquo;s being applied to JavaScript.</description>
     </item>
     
   </channel>

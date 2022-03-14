@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Wed, 09 Mar 2022 00:40:48 -0500</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Mar 2022 23:22:06 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pure Function</title>
+      <link>https://haleyjung.github.io/posts/2022/03/pure-function/</link>
+      <pubDate>Sun, 13 Mar 2022 23:22:06 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/pure-function/</guid>
+      <description>What is pure function? Pure function is a function that returns the same output when the same arguments are passed.
+Characteristics  Predictable output for the same inputs Readability to understand its purpose Resuable at any place without altering its behavior Testable as an independent unit No side effect  Examples Pure function function Greeting(name) { return `Hello ${name}`; } This Greeting function always get Hello &amp;lt;name&amp;gt; for the name input, so it&amp;rsquo;s a pure function.</description>
+    </item>
+    
     <item>
       <title>Understanding Redux</title>
       <link>https://haleyjung.github.io/posts/2022/03/understanding-redux/</link>
@@ -93,15 +103,6 @@ Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current d
       <description>Prompt You are given a string s of lowercase English letters and an integer array shifts of the same length.
 Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that &amp;lsquo;z&amp;rsquo; becomes &amp;lsquo;a&amp;rsquo;).
 For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;, and shift(&#39;z&#39;) = &#39;a&#39;. Now for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.</description>
-    </item>
-    
-    <item>
-      <title>Underscore Review</title>
-      <link>https://haleyjung.github.io/posts/2022/02/underscore-review/</link>
-      <pubDate>Wed, 23 Feb 2022 23:09:10 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/underscore-review/</guid>
-      <description>_.identity = function(val) { return val; }; // first: return the first element if n is undefined  // if n is defined, return an array of the first n elements of the array _.first = function(array, n) { return n === undefined ? array[0] : array.slice(0, n); }; // last: return the last element if n is undefined  // if n is defined, return an array of the last n elements of the array _.</description>
     </item>
     
   </channel>
