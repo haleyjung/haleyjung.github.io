@@ -6,8 +6,178 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 17 Mar 2022 23:01:31 -0400</lastBuildDate>
+        <lastBuildDate>Fri, 18 Mar 2022 10:53:17 -0400</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Understanding Authentication Systems</title>
+            <link>https://haleyjung.github.io/posts/2022/03/understanding-authentication-systems/</link>
+            <pubDate>Fri, 18 Mar 2022 10:53:17 -0400</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/understanding-authentication-systems/</guid>
+            <description>Define Authentication System  The security measure to secure data and systems by acquiring additional input beyond username and password for users to access a system.   Establish, Verify, Authorize
+ Establish Identity  A unique digital identity per user The type of mechanism used in establishing digital identity determines the integrity of the authentication system     Type of Integrity Action     No integrity Signing up for a user account   Social integrity Third party service for login (e.</description>
+            <content type="html"><![CDATA[<h2 id="define-authentication-system">Define Authentication System</h2>
+<ul>
+<li>The security measure to secure data and systems by acquiring additional input beyond username and password for users to access a system.</li>
+</ul>
+<blockquote>
+<p>Establish, Verify, Authorize</p>
+</blockquote>
+<h2 id="establish-identity">Establish Identity</h2>
+<ul>
+<li>A unique digital identity per user</li>
+<li>The type of mechanism used in establishing digital identity determines the integrity of the authentication system</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type of Integrity</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No integrity</td>
+<td>Signing up for a user account</td>
+</tr>
+<tr>
+<td>Social integrity</td>
+<td>Third party service for login (e.g. Fb/Google)</td>
+</tr>
+<tr>
+<td>Legal integrity</td>
+<td>Security qs verification (i.e. personal knowledge)</td>
+</tr>
+<tr>
+<td>Biometric integrity</td>
+<td>Biomarkers such as fingerprints, palm print, retina scan, or voice pattern recognition</td>
+</tr>
+</tbody>
+</table>
+<h3 id="encryption">Encryption</h3>
+<ul>
+<li>A reversible transformation of text into an alternate representation</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">encrypt</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">str</span>, <span style="color:#a6e22e">offset</span>) {
+  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">str</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">letter</span>) =&gt; {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">letter</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">offset</span>;
+  }).<span style="color:#a6e22e">toString</span>();
+};
+
+<span style="color:#a6e22e">encrypt</span>(<span style="color:#e6db74">&#39;password&#39;</span>, <span style="color:#ae81ff">2</span>) <span style="color:#75715e">// &#39;rcuuyqtf&#39;
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">encrypt</span>(<span style="color:#e6db74">&#39;rcuuyqtf&#39;</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e">// &#39;password&#39;
+</span></code></pre></div><h3 id="hashing">Hashing</h3>
+<ul>
+<li>A version of encryption that can destroy some info and become irreversible.</li>
+</ul>
+<h4 id="rainbow-tables">Rainbow Tables</h4>
+<ul>
+<li>A table of the original password and hashed password (SHA1)</li>
+<li><strong>Salt</strong>:
+<ul>
+<li>A set of pseudorandom info which is added to a password <em>before it is hashed</em></li>
+<li>Adding salt to a password significantly increases our data set&rsquo;s resistance to rainbow tables</li>
+<li>(&ldquo;salt&rdquo; + &ldquo;password&rdquo;) ==&gt; HASH ==&gt; hashed password ==&gt; Database: hashed password &amp; salt</li>
+</ul>
+</li>
+</ul>
+<h2 id="verify-identity">Verify Identity</h2>
+<ul>
+<li>Verify the identity by comparing the supplied identity (i.e. password) to a previously established identity (i.e. <code>user.get('password')</code>)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// login.js
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">bcrypt</span>.<span style="color:#a6e22e">compare</span>(<span style="color:#a6e22e">suppliedPW</span>, <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;password&#39;</span>), (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">match</span>) =&gt; {
+  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">match</span>){
+    <span style="color:#75715e">// valid login!
+</span><span style="color:#75715e"></span>  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">// invalid login!
+</span><span style="color:#75715e"></span>  }
+})
+
+</code></pre></div><h2 id="authorization">Authorization</h2>
+<ul>
+<li>Access to <strong>protected resources</strong> is authorized by verifying that authentication has occurred.</li>
+<li>Use of <strong>middleware</strong>: <code>auth.isLoggedIn</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">isLoggedIn</span>, (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">render</span>(<span style="color:#e6db74">&#39;index&#39;</span>);
+});
+</code></pre></div><h3 id="tokens-think-of-bank-tokens">Tokens (think of Bank Tokens)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>What are Tokens?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Define</td>
+<td>Externally non-identifiable piece of information</td>
+</tr>
+<tr>
+<td>Replacing</td>
+<td>Used instead of a username and password to authenticate a user</td>
+</tr>
+<tr>
+<td>The server</td>
+<td>Uses it to identify and authenticate the user</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Delivered to a client via cookie immediately after successful authentication</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sessions">Sessions</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>What are Sessions?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Define</td>
+<td>Tokens with expiry date</td>
+</tr>
+<tr>
+<td>Functionality</td>
+<td>Some might persist indefinitely or have a dynamic date, depending on how frequently the user visits the site, their location, etc.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cookies">Cookies</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>What are Cookies?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Define</td>
+<td>Info stored on a client by servers</td>
+</tr>
+<tr>
+<td>Functionality</td>
+<td>All cookies for a given host are transmitted back to the server on every subsequent request</td>
+</tr>
+<tr>
+<td>In Response Headers</td>
+<td>Look for <strong>set-cookie</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<p><a href="https://link.springer.com/referenceworkentry/10.1007/978-1-4419-5906-5_775">Subramanian N. (2011) Biometric Authentication. In: van Tilborg H.C.A., Jajodia S. (eds) Encyclopedia of Cryptography and Security. Springer, Boston, MA. https://doi.org/10.1007/978-1-4419-5906-5_775</a></p>
+<p><a href="https://www.virtru.com/blog/authentication-encryption/">&ldquo;Understanding Enryption and Authentication,&rdquo; Virtru</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Understanding Databases (1)</title>

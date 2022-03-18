@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 15 Mar 2022 13:23:32 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:53:17 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Authentication Systems</title>
+      <link>https://haleyjung.github.io/posts/2022/03/understanding-authentication-systems/</link>
+      <pubDate>Fri, 18 Mar 2022 10:53:17 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/understanding-authentication-systems/</guid>
+      <description>Define Authentication System  The security measure to secure data and systems by acquiring additional input beyond username and password for users to access a system.   Establish, Verify, Authorize
+ Establish Identity  A unique digital identity per user The type of mechanism used in establishing digital identity determines the integrity of the authentication system     Type of Integrity Action     No integrity Signing up for a user account   Social integrity Third party service for login (e.</description>
+    </item>
+    
     <item>
       <title>res.WriteHead() vs res.StatusCode</title>
       <link>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</link>
@@ -96,18 +106,6 @@ Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/la
       
       <guid>https://haleyjung.github.io/posts/2022/02/local-storage/</guid>
       <description>Definition of Local Storage  a browser API that allows a web application to persist its state inside a user&amp;rsquo;s web browser can be used to persist information retrieved from sources like user events, HTTP responses, and calculated results only persists strings has no expiration time until explicitly cleared improves a web application&amp;rsquo;s user experience more data can be stored in localStorage than in cookies  Data model: the software representation of information Data persistence: store data in the application so that when a user comes back to the site, they can pick up from where they left off</description>
-    </item>
-    
-    <item>
-      <title>CSS Grid Layout</title>
-      <link>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</link>
-      <pubDate>Fri, 28 Jan 2022 22:52:16 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</guid>
-      <description>CSS Grid Layout is great for creating a responsive web page layout.
-We can also define an area by giving it a name and then specify the location of that area in the value of the grid-template-areas property, such as:
- header footer sidebar content  The grid-area property can be assigned to a class:
-.header { grid-area: hd; } .footer { grid-area: ft; } .content { grid-area: main; } .</description>
     </item>
     
   </channel>

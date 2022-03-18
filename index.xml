@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Thu, 17 Mar 2022 23:01:31 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Mar 2022 10:53:17 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Authentication Systems</title>
+      <link>https://haleyjung.github.io/posts/2022/03/understanding-authentication-systems/</link>
+      <pubDate>Fri, 18 Mar 2022 10:53:17 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/understanding-authentication-systems/</guid>
+      <description>Define Authentication System  The security measure to secure data and systems by acquiring additional input beyond username and password for users to access a system.   Establish, Verify, Authorize
+ Establish Identity  A unique digital identity per user The type of mechanism used in establishing digital identity determines the integrity of the authentication system     Type of Integrity Action     No integrity Signing up for a user account   Social integrity Third party service for login (e.</description>
+    </item>
+    
     <item>
       <title>Understanding Databases (1)</title>
       <link>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</link>
@@ -94,15 +104,6 @@ What is it?  Predictable State Container for JavaScript apps A JS library for ma
       <description>What is a backtracking algorithm? An algorithmic-technique for solving problems recursively by trying to build a solution incrementally one piece at a time, removing solutions that fail to satisfy the constraints of the problem at any point of time (the time elapsed till reachign any level of the search tree).
 It works incrementally.
 Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current digit we added doesn&amp;rsquo;t lead to a solution, we remove it = backtrack We try another digit.</description>
-    </item>
-    
-    <item>
-      <title>Time Complexity</title>
-      <link>https://haleyjung.github.io/posts/2022/02/time-complexity/</link>
-      <pubDate>Sun, 27 Feb 2022 16:52:02 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/time-complexity/</guid>
-      <description>Big O Notation  A mathematical notation that shows how efficient an algorithm is in the worst-case scenario relative to its input size. It captures how much time or space an algorithm would require approximately as the input size grows: time complexity &amp;amp; space complexity f(n) = O(inputSize)  What is Time Complexity?  Does NOT represent the actual time required to execute a code The computational time (CPU time) it will take to execute an algorithm, determined by the input size and the solution of the algorithm.</description>
     </item>
     
   </channel>
