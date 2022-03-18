@@ -7,22 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 23:22:06 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Mar 2022 23:01:31 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>JavaScript</title>
-      <link>https://haleyjung.github.io/tags/javascript/</link>
-      <pubDate>Sun, 13 Mar 2022 23:22:06 -0400</pubDate>
+      <title>Databases</title>
+      <link>https://haleyjung.github.io/tags/databases/</link>
+      <pubDate>Thu, 17 Mar 2022 23:01:31 -0400</pubDate>
       
-      <guid>https://haleyjung.github.io/tags/javascript/</guid>
+      <guid>https://haleyjung.github.io/tags/databases/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web Development</title>
       <link>https://haleyjung.github.io/tags/web-development/</link>
-      <pubDate>Sat, 12 Mar 2022 07:43:47 -0400</pubDate>
+      <pubDate>Tue, 15 Mar 2022 13:23:32 -0400</pubDate>
       
       <guid>https://haleyjung.github.io/tags/web-development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaScript</title>
+      <link>https://haleyjung.github.io/tags/javascript/</link>
+      <pubDate>Sun, 13 Mar 2022 23:22:06 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
@@ -54,15 +63,6 @@
     </item>
     
     <item>
-      <title>LeetCode</title>
-      <link>https://haleyjung.github.io/tags/leetcode/</link>
-      <pubDate>Thu, 24 Feb 2022 07:06:01 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/tags/leetcode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Testing</title>
       <link>https://haleyjung.github.io/tags/testing/</link>
       <pubDate>Wed, 23 Feb 2022 23:09:10 -0500</pubDate>
@@ -90,11 +90,11 @@
     </item>
     
     <item>
-      <title>CSS</title>
-      <link>https://haleyjung.github.io/tags/css/</link>
-      <pubDate>Fri, 28 Jan 2022 22:52:16 -0500</pubDate>
+      <title>Debugging</title>
+      <link>https://haleyjung.github.io/tags/debugging/</link>
+      <pubDate>Thu, 13 Jan 2022 09:33:30 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/tags/css/</guid>
+      <guid>https://haleyjung.github.io/tags/debugging/</guid>
       <description></description>
     </item>
     

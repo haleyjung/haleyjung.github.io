@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://haleyjung.github.io/tags/javascript/</loc>
-    <lastmod>2022-03-13T23:22:06-04:00</lastmod>
+    <loc>https://haleyjung.github.io/tags/databases/</loc>
+    <lastmod>2022-03-17T23:01:31-04:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/</loc>
+    <lastmod>2022-03-17T23:01:31-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/</loc>
+    <lastmod>2022-03-17T23:01:31-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/</loc>
+    <lastmod>2022-03-17T23:01:31-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</loc>
+    <lastmod>2022-03-17T23:01:31-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</loc>
+    <lastmod>2022-03-15T13:23:32-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/web-development/</loc>
+    <lastmod>2022-03-15T13:23:32-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</loc>
+    <lastmod>2022-03-14T12:54:52-04:00</lastmod>
+  </url><url>
+    <loc>https://haleyjung.github.io/tags/javascript/</loc>
     <lastmod>2022-03-13T23:22:06-04:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/03/pure-function/</loc>
     <lastmod>2022-03-13T23:22:06-04:00</lastmod>
   </url><url>
-    <loc>https://haleyjung.github.io/tags/</loc>
-    <lastmod>2022-03-13T23:22:06-04:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/</loc>
-    <lastmod>2022-03-13T23:22:06-04:00</lastmod>
-  </url><url>
     <loc>https://haleyjung.github.io/posts/2022/03/web-apis-event.target/</loc>
-    <lastmod>2022-03-12T07:43:47-04:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/web-development/</loc>
     <lastmod>2022-03-12T07:43:47-04:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/tags/redux/</loc>
@@ -55,9 +67,6 @@
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/prototypes-review-object.create/</loc>
     <lastmod>2022-02-24T21:47:06-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/leetcode/</loc>
-    <lastmod>2022-02-24T07:06:01-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</loc>
     <lastmod>2022-02-24T07:06:01-05:00</lastmod>
@@ -154,9 +163,6 @@
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/twitter-clone/</loc>
     <lastmod>2022-01-29T23:31:33-05:00</lastmod>
-  </url><url>
-    <loc>https://haleyjung.github.io/tags/css/</loc>
-    <lastmod>2022-01-28T22:52:16-05:00</lastmod>
   </url><url>
     <loc>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</loc>
     <lastmod>2022-01-28T22:52:16-05:00</lastmod>

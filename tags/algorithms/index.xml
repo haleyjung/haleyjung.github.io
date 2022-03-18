@@ -29,6 +29,38 @@ Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current d
     </item>
     
     <item>
+      <title>LeetCode: Shifting Letters - medium</title>
+      <link>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</link>
+      <pubDate>Thu, 24 Feb 2022 07:06:01 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/leetcode-shifting-letters-medium/</guid>
+      <description>Prompt You are given a string s of lowercase English letters and an integer array shifts of the same length.
+Call the shift() of a letter, the next letter in the alphabet, (wrapping around so that &amp;lsquo;z&amp;rsquo; becomes &amp;lsquo;a&amp;rsquo;).
+For example, shift(&#39;a&#39;) = &#39;b&#39;, shift(&#39;t&#39;) = &#39;u&#39;, and shift(&#39;z&#39;) = &#39;a&#39;. Now for each shifts[i] = x, we want to shift the first i + 1 letters of s, x times.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode: Add Two Numbers - medium</title>
+      <link>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</link>
+      <pubDate>Sat, 12 Feb 2022 10:46:58 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/leetcode-add-two-numbers-medium/</guid>
+      <description>Prompt You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Example 1: Input: l1 = [2,4,3], l2 = [5,6,4] Output: [7,0,8] Explanation: 342 + 465 = 807.</description>
+    </item>
+    
+    <item>
+      <title>LeetCode: Two Sums - easy</title>
+      <link>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</link>
+      <pubDate>Thu, 10 Feb 2022 11:35:01 -0500</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/02/leetcode-two-sums-easy/</guid>
+      <description>Prompt Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.
+Example: Input: nums = [2,7,11,15], target = 9 Output: [0,1] Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].</description>
+    </item>
+    
+    <item>
       <title>Recommendation Engine: Netflix&#39;s Recommendation Algorithms</title>
       <link>https://haleyjung.github.io/posts/2021/11/recommendation-engine-netflixs-recommendation-algorithms/</link>
       <pubDate>Fri, 26 Nov 2021 14:06:25 -0500</pubDate>

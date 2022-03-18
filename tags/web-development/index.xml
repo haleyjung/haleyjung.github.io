@@ -7,7 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 12 Mar 2022 07:43:47 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 13:23:32 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/web-development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>res.WriteHead() vs res.StatusCode</title>
+      <link>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</link>
+      <pubDate>Tue, 15 Mar 2022 13:23:32 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</guid>
+      <description>response.status(...) assigns a status code that will be used in the future. The headers are not sent until the response body is sent.
+Calling res.status() and setting res.statusCode just set the property for later use.
+Calling res.writeHead() sets the res.statusCode property and will then cause the headers to be flushed immediately, rather than their normal behavior of being queued to be sent later. But, from the statusCode point of view, there is no difference.</description>
+    </item>
+    
+    <item>
+      <title>HTTP Methods &amp; REST</title>
+      <link>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</link>
+      <pubDate>Mon, 14 Mar 2022 12:54:52 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</guid>
+      <description>REST: REpresentational State Transfer  An architectural style for distributed hypermedia system Has its guiding principles and constraints Its client-server design pattern enforces the separation of concerns  &amp;ldquo;By separating the user interface concerns (client) from the data storage concerns (server), we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.&amp;rdquo; i.e. Determines how clients interact with URLs   HTTP verb and URL combination results in a specific meaning  e.</description>
+    </item>
+    
     <item>
       <title>Web APIs: Event.target</title>
       <link>https://haleyjung.github.io/posts/2022/03/web-apis-event.target/</link>
@@ -79,30 +99,15 @@ Input Types &amp;lt;form&amp;gt; &amp;lt;label&amp;gt;Name (required)&amp;lt;/la
     </item>
     
     <item>
-      <title>DOM</title>
-      <link>https://haleyjung.github.io/posts/2022/01/dom/</link>
-      <pubDate>Thu, 20 Jan 2022 10:50:59 -0500</pubDate>
+      <title>CSS Grid Layout</title>
+      <link>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</link>
+      <pubDate>Fri, 28 Jan 2022 22:52:16 -0500</pubDate>
       
-      <guid>https://haleyjung.github.io/posts/2022/01/dom/</guid>
-      <description>Definition  DOM: Document Object Model An object-based representation of the source HTML document An interface to web pages; an API to the page  Functions  Allows browsers to determine what to render in the viewport Allows JavaScript to manipulate the page&amp;rsquo;s content, structure, and styles  DOM vs. HTML DOM is not HTML. It is an interface to valid HTML documents. They differ from one another for a number of reasons:</description>
-    </item>
-    
-    <item>
-      <title>CDN: Content Delivery Networks</title>
-      <link>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</link>
-      <pubDate>Tue, 18 Jan 2022 11:27:23 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/cdn-content-delivery-networks/</guid>
-      <description>Definition  CDN is a group of geographically distributed servers that speed up the delivery of web content by caching contents in proxy servers near to the user&amp;rsquo;s physical location. Leads to a faster and high performance of activities such as watching a movie, downloading a software, checking a bank balance, posting on social media, and making a transaction.  Purpose  Users experience a consistent, faster, and high performance web application.</description>
-    </item>
-    
-    <item>
-      <title>APIs &amp; jQuery</title>
-      <link>https://haleyjung.github.io/posts/2022/01/apis-jquery/</link>
-      <pubDate>Sat, 15 Jan 2022 12:40:33 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/01/apis-jquery/</guid>
-      <description>APIs  Manipulate (create new or update existing) HTML elements on the page Create event-based user interactivity Embed rich media in documents with HTML &amp;lt;audio&amp;gt; and &amp;lt;video&amp;gt; elements Fetch data from a server Create visualizations by:  Creating SVG (Scalable Vector Graphics) Drawing on HTML canvas elements Rendering high-performance interactive 2D and 3D graphics with WebGL    Define jQuery  A JavaScript library that improves the native DOM API Portable across browsers Has a concise syntax Makes manipulating and adding interactivity to HTML documents easier  Using jQuery Method 1: Download the jQuery library and install it locally in the HTML code</description>
+      <guid>https://haleyjung.github.io/posts/2022/01/css-grid-layout/</guid>
+      <description>CSS Grid Layout is great for creating a responsive web page layout.
+We can also define an area by giving it a name and then specify the location of that area in the value of the grid-template-areas property, such as:
+ header footer sidebar content  The grid-area property can be assigned to a class:
+.header { grid-area: hd; } .footer { grid-area: ft; } .content { grid-area: main; } .</description>
     </item>
     
   </channel>

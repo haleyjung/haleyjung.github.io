@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Databases on Today I Learned</title>
+    <link>https://haleyjung.github.io/tags/databases/</link>
+    <description>Recent content in Databases on Today I Learned</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Thu, 17 Mar 2022 23:01:31 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/tags/databases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Databases (1)</title>
+      <link>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</link>
+      <pubDate>Thu, 17 Mar 2022 23:01:31 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</guid>
+      <description>Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&amp;rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &amp;ndash;&amp;gt; State (volatile memory) &amp;ndash;&amp;gt; JSON.</description>
+    </item>
+    
+  </channel>
+</rss>

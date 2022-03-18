@@ -7,7 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 23:22:06 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Mar 2022 23:01:31 -0400</lastBuildDate><atom:link href="https://haleyjung.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Databases (1)</title>
+      <link>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</link>
+      <pubDate>Thu, 17 Mar 2022 23:01:31 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</guid>
+      <description>Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&amp;rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &amp;ndash;&amp;gt; State (volatile memory) &amp;ndash;&amp;gt; JSON.</description>
+    </item>
+    
+    <item>
+      <title>res.WriteHead() vs res.StatusCode</title>
+      <link>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</link>
+      <pubDate>Tue, 15 Mar 2022 13:23:32 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</guid>
+      <description>response.status(...) assigns a status code that will be used in the future. The headers are not sent until the response body is sent.
+Calling res.status() and setting res.statusCode just set the property for later use.
+Calling res.writeHead() sets the res.statusCode property and will then cause the headers to be flushed immediately, rather than their normal behavior of being queued to be sent later. But, from the statusCode point of view, there is no difference.</description>
+    </item>
+    
+    <item>
+      <title>HTTP Methods &amp; REST</title>
+      <link>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</link>
+      <pubDate>Mon, 14 Mar 2022 12:54:52 -0400</pubDate>
+      
+      <guid>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</guid>
+      <description>REST: REpresentational State Transfer  An architectural style for distributed hypermedia system Has its guiding principles and constraints Its client-server design pattern enforces the separation of concerns  &amp;ldquo;By separating the user interface concerns (client) from the data storage concerns (server), we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.&amp;rdquo; i.e. Determines how clients interact with URLs   HTTP verb and URL combination results in a specific meaning  e.</description>
+    </item>
+    
     <item>
       <title>Pure Function</title>
       <link>https://haleyjung.github.io/posts/2022/03/pure-function/</link>
@@ -74,33 +103,6 @@ Think of SudoKu!  To solve SudoKu, we fill digits one by one. When the current d
       
       <guid>https://haleyjung.github.io/posts/2022/02/time-complexity/</guid>
       <description>Big O Notation  A mathematical notation that shows how efficient an algorithm is in the worst-case scenario relative to its input size. It captures how much time or space an algorithm would require approximately as the input size grows: time complexity &amp;amp; space complexity f(n) = O(inputSize)  What is Time Complexity?  Does NOT represent the actual time required to execute a code The computational time (CPU time) it will take to execute an algorithm, determined by the input size and the solution of the algorithm.</description>
-    </item>
-    
-    <item>
-      <title>Understanding Currying</title>
-      <link>https://haleyjung.github.io/posts/2022/02/understanding-currying/</link>
-      <pubDate>Fri, 25 Feb 2022 00:01:03 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/understanding-currying/</guid>
-      <description>What is Currying?  a transformation of functions that translates a function from callable as f(a, b, c) into callable as f(a)(b)(c). It transforms a function, and does not call it.  Example Code function curry(f) { // curry(f) does the currying transform  return function(a) { return function(b) { return f(a, b); }; }; } // usage function sum(a, b) { return a + b; } let curriedSum = curry(sum); alert( curriedSum(1)(2)); // 3 References &amp;ldquo;Currying&amp;rdquo;, JavaScript.</description>
-    </item>
-    
-    <item>
-      <title>For Loop with SetTimeout()</title>
-      <link>https://haleyjung.github.io/posts/2022/02/for-loop-with-settimeout/</link>
-      <pubDate>Thu, 24 Feb 2022 23:40:53 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/for-loop-with-settimeout/</guid>
-      <description>Prompt 1 // Prompt 1 var array = [1, 2, 3, 4, 5] for(var i = 0; i &amp;lt; array.length; i++) { setTimeout(() =&amp;gt; { console.log(array[i]) }, 1000); } console.log(array[i]); // 5  For loop executes first  the for loop only exits until the set condition breaks.   After it&amp;rsquo;s finished, setTimeout() is executed  setTimeout() usually takes a callback function as its argument   setTimeout() has access to i in the for loop, thanks to closure arrayp[i] is therefore the last element of array when the console.</description>
-    </item>
-    
-    <item>
-      <title>Prototypes Review: Object.create()</title>
-      <link>https://haleyjung.github.io/posts/2022/02/prototypes-review-object.create/</link>
-      <pubDate>Thu, 24 Feb 2022 21:47:06 -0500</pubDate>
-      
-      <guid>https://haleyjung.github.io/posts/2022/02/prototypes-review-object.create/</guid>
-      <description>Case 1 var obj1 = { x: 10 }; var obj2 = Object.create(obj1); var obj3 = Object.create(obj1); obj1.x = 15; var result = obj2.x + obj3.x; console.log(result); // 15 + 15 = 30  obj1.x = 15; updates obj2.x and obj3.x to 15 from 10 Hence the result will be 15 + 15 = 30  Case 2 var obj1 = { x: 10 }; var obj2 = Object.create(obj1); obj2.x += 10; obj1.</description>
     </item>
     
   </channel>

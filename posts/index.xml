@@ -6,8 +6,203 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Sun, 13 Mar 2022 23:22:06 -0400</lastBuildDate>
+        <lastBuildDate>Thu, 17 Mar 2022 23:01:31 -0400</lastBuildDate>
         <atom:link href="https://haleyjung.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Understanding Databases (1)</title>
+            <link>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</link>
+            <pubDate>Thu, 17 Mar 2022 23:01:31 -0400</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/understanding-databases-1/</guid>
+            <description>Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&amp;rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &amp;ndash;&amp;gt; State (volatile memory) &amp;ndash;&amp;gt; JSON.</description>
+            <content type="html"><![CDATA[<h2 id="volatile-vs-non-volatile-data-storage">Volatile vs Non-Volatile Data Storage</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Volatile</th>
+<th>Non-Volatile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data</strong></td>
+<td>Data is not retained after power off</td>
+<td>Data is retained through power cycle</td>
+</tr>
+<tr>
+<td><strong>Speed/Cost</strong></td>
+<td>Fast but expensive</td>
+<td>Slow and inexpensive</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td>RAM (memory)</td>
+<td>Hard Drive or SSD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-persistence">Data Persistence</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Volatile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Define</strong></td>
+<td>The capability of retaining program state beyond a program&rsquo;s current life cycle</td>
+</tr>
+<tr>
+<td><strong>How</strong></td>
+<td>Achieved by saving program state in a non-volatile storage medium</td>
+</tr>
+<tr>
+<td><strong>Requirement</strong></td>
+<td>A <strong>conversion</strong> from in-memory program state to and from a <em>serializable</em> data format</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-serialization">Data Serialization</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Saving</th>
+<th>Restoring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Process</strong></td>
+<td>Program &ndash;&gt; State (volatile memory) &ndash;&gt; <code>JSON.stringify()</code> &ndash;&gt; Non-volatile memory</td>
+<td>Stringified data in non-volatile memory &ndash;&gt; <code>JSON.parse()</code> &ndash;&gt; State &ndash;&gt; Program</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td><code>JSON.stringify()</code></td>
+<td><code>JSON.parse()</code></td>
+</tr>
+<tr>
+<td><strong>State Object</strong></td>
+<td>State is intially stored in the heap. As it&rsquo;s impractical to save the heap memory locations, we just save the key value pairs in a single object via <code>JSON.stringify()</code></td>
+<td>The key-value paired state object is recreated and referenced by the program via <code>JSON.parse()</code>. The values get stored in the heap, but in different memory locations.</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+        </item>
+        
+        <item>
+            <title>res.WriteHead() vs res.StatusCode</title>
+            <link>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</link>
+            <pubDate>Tue, 15 Mar 2022 13:23:32 -0400</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/res.writehead-vs-res.statuscode/</guid>
+            <description>response.status(...) assigns a status code that will be used in the future. The headers are not sent until the response body is sent.
+Calling res.status() and setting res.statusCode just set the property for later use.
+Calling res.writeHead() sets the res.statusCode property and will then cause the headers to be flushed immediately, rather than their normal behavior of being queued to be sent later. But, from the statusCode point of view, there is no difference.</description>
+            <content type="html"><![CDATA[<p><code>response.status(...)</code> assigns a status code that will be used in the future. The headers are not sent until the response body is sent.</p>
+<p>Calling <code>res.status()</code> and setting <code>res.statusCode</code> just set the property for later use.</p>
+<p>Calling <code>res.writeHead()</code> sets the <code>res.statusCode</code> property and will then cause the headers to be flushed immediately, rather than their normal behavior of being queued to be sent later. But, from the statusCode point of view, there is no difference.</p>
+<p><code>response.writeHead(...)</code> actually queues the response headers to be sent out immediately. That means you can no-longer assign any headers or status codes for that response afterward since all of those have already been sent out.</p>
+<p>Typically you&rsquo;d use the former pattern, but .writeHead is useful if you want to get time-to-first-byte (TTFB) happening sooner.</p>
+<h2 id="references">References</h2>
+<p><a href="https://nodejs.org/api/http.html#responsestatuscode">Node.js v17.7.1 documentation: response.statusCode</a></p>
+<p><a href="https://nodejs.org/api/http.html#responsewriteheadstatuscode-statusmessage-headers">Node.js v17.7.1 documentation: response.writeHead</a></p>
+<p><a href="https://stackoverflow.com/questions/58596251/difference-between-response-status-and-response-writehead#:~:text=writeHead()%20sets%20the%20res,view%2C%20there%20is%20no%20difference">StackOverflow</a></p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>HTTP Methods &amp; REST</title>
+            <link>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</link>
+            <pubDate>Mon, 14 Mar 2022 12:54:52 -0400</pubDate>
+            
+            <guid>https://haleyjung.github.io/posts/2022/03/http-methods-rest/</guid>
+            <description>REST: REpresentational State Transfer  An architectural style for distributed hypermedia system Has its guiding principles and constraints Its client-server design pattern enforces the separation of concerns  &amp;ldquo;By separating the user interface concerns (client) from the data storage concerns (server), we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.&amp;rdquo; i.e. Determines how clients interact with URLs   HTTP verb and URL combination results in a specific meaning  e.</description>
+            <content type="html"><![CDATA[<h2 id="rest-representational-state-transfer">REST: REpresentational State Transfer</h2>
+<ul>
+<li>An architectural style for distributed hypermedia system</li>
+<li>Has its guiding principles and constraints</li>
+<li>Its client-server design pattern enforces the separation of concerns
+<ul>
+<li>&ldquo;By separating the user interface concerns (client) from the data storage concerns (server), we improve the portability of the user interface across multiple platforms and improve scalability by simplifying the server components.&rdquo;</li>
+<li>i.e. Determines how clients interact with URLs</li>
+</ul>
+</li>
+<li>HTTP verb and URL combination results in a specific meaning
+<ul>
+<li>e.g. GET &lsquo;example.com/users/:username&rsquo; &ndash;&gt; retrieve a specific user profile</li>
+</ul>
+</li>
+</ul>
+<p><strong><!-- raw HTML omitted --></strong></p>
+<ul>
+<li><strong>RESTful</strong>: such principles have be satisfied</li>
+<li><strong>REST API</strong>: a Web API conforming to the REST architectural style</li>
+<li><strong>resource</strong>: the key abstraction of information in REST</li>
+<li><strong>resource representation</strong>: the state of the resource at any particular time (e.g. data, metadata, hypermedia links)</li>
+</ul>
+<h2 id="httphttps-methods-verbs">HTTP/HTTPS Methods (Verbs)</h2>
+<ul>
+<li>GET
+<ul>
+<li>requesting and getting data from the server</li>
+</ul>
+</li>
+<li>POST
+<ul>
+<li>submitting data to the server</li>
+</ul>
+</li>
+<li>PUT/PATCH
+<ul>
+<li>updating data</li>
+</ul>
+</li>
+<li>DELETE
+<ul>
+<li>deleting data</li>
+</ul>
+</li>
+<li>HEAD, OPTIONS</li>
+</ul>
+<h2 id="types-of-http-status-codes">Types of HTTP Status Codes</h2>
+<ul>
+<li>1xx
+<ul>
+<li>the server needs more time to process the request</li>
+</ul>
+</li>
+<li>2xx
+<ul>
+<li>request successful!</li>
+</ul>
+</li>
+<li>3xx
+<ul>
+<li>the data is located somewhere else</li>
+</ul>
+</li>
+<li>4xx
+<ul>
+<li>err! request contains falsy info</li>
+</ul>
+</li>
+<li>5xx
+<ul>
+<li>err! issue with the server</li>
+</ul>
+</li>
+</ul>
+<h2 id="references">References</h2>
+<p><a href="https://restfulapi.net/">REST API Tutorial</a></p>
+]]></content>
+        </item>
         
         <item>
             <title>Pure Function</title>
@@ -7921,7 +8116,7 @@ How to add a new post $ hugo new posts/name.md Localhost preview $ hugo server -
 <p>January 15, 2022: I suddenly received this message in the Terminal when hugo was working just fine yesterday. I tried installing Hugo again, but brew was also not working: <code>bash: brew: command not found</code>. The brew command was indeed located in the standard locations, so the issue was not about configuring the brew environment on my Mac.</p>
 <p>After doing some Google search, it turns out to be a rather common error happening to Apple M1 Pro, but the actual cause of this still seems to be in debate.</p>
 <p>This is the solution that worked:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">echo <span style="color:#960050;background-color:#1e0010">&#39;</span>eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">/</span>Users<span style="color:#f92672">/</span>haleyjung<span style="color:#f92672">/</span>.zprofile
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-h" data-lang="h">echo <span style="color:#960050;background-color:#1e0010">&#39;</span>eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span><span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#f92672">&gt;&gt;</span> <span style="color:#f92672">/</span>Users<span style="color:#f92672">/&lt;</span>your<span style="color:#f92672">-</span>username<span style="color:#f92672">&gt;/</span>.zprofile
 eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</span>
 </code></pre></div><p>The first command adds:</p>
 <ul>
@@ -7930,7 +8125,9 @@ eval <span style="color:#e6db74">&#34;$(/opt/homebrew/bin/brew shellenv)&#34;</s
 </ul>
 <p>to the .zprofile initialization file.</p>
 <p>The second command adds those same variables to the current shell, so that you can start using brew without re-reading .zprofile.</p>
-<p>But, I need to do this every time I launch hugo. I can I solve this?</p>
+<p>But, I needed to do this every time I launch hugo, and gosh that was not fun.</p>
+<p>Turns out homebrew got deinstalled from the root directory, so I reinstalled it, and ran those two commands above during the installation process.</p>
+<p>Now hugo and bash work together like magic!</p>
 ]]></content>
         </item>
         
