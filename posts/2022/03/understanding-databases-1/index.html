@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jung ">
-<meta name="description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&amp;rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &amp;ndash;&amp;gt; State (volatile memory) &amp;ndash;&amp;gt; JSON." />
+<meta name="description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Storage Store on a higher memory and lower disk machine Stored in a lower memory but higher disk capabilities   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&amp;rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &amp;ndash;&amp;gt; State (volatile memory) &amp;ndash;&amp;gt; JSON." />
 <meta name="keywords" content=", Databases" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -41,21 +41,21 @@
 
 
 <meta itemprop="name" content="Understanding Databases (1)">
-<meta itemprop="description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &ndash;&gt; State (volatile memory) &ndash;&gt; JSON."><meta itemprop="datePublished" content="2022-03-17T23:01:31-04:00" />
+<meta itemprop="description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Storage Store on a higher memory and lower disk machine Stored in a lower memory but higher disk capabilities   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &ndash;&gt; State (volatile memory) &ndash;&gt; JSON."><meta itemprop="datePublished" content="2022-03-17T23:01:31-04:00" />
 <meta itemprop="dateModified" content="2022-03-17T23:01:31-04:00" />
-<meta itemprop="wordCount" content="162"><meta itemprop="image" content="https://haleyjung.github.io/"/>
+<meta itemprop="wordCount" content="181"><meta itemprop="image" content="https://haleyjung.github.io/"/>
 <meta itemprop="keywords" content="Databases," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://haleyjung.github.io/"/>
 
 <meta name="twitter:title" content="Understanding Databases (1)"/>
-<meta name="twitter:description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &ndash;&gt; State (volatile memory) &ndash;&gt; JSON."/>
+<meta name="twitter:description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Storage Store on a higher memory and lower disk machine Stored in a lower memory but higher disk capabilities   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &ndash;&gt; State (volatile memory) &ndash;&gt; JSON."/>
 
 
 
 
     <meta property="og:title" content="Understanding Databases (1)" />
-<meta property="og:description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &ndash;&gt; State (volatile memory) &ndash;&gt; JSON." />
+<meta property="og:description" content="Volatile vs Non-Volatile Data Storage     Volatile Non-Volatile     Data Data is not retained after power off Data is retained through power cycle   Speed/Cost Fast but expensive Slow and inexpensive   Storage Store on a higher memory and lower disk machine Stored in a lower memory but higher disk capabilities   Example RAM (memory) Hard Drive or SSD    Data Persistence     Volatile     Define The capability of retaining program state beyond a program&rsquo;s current life cycle   How Achieved by saving program state in a non-volatile storage medium   Requirement A conversion from in-memory program state to and from a serializable data format    Data Serialization     Saving Restoring     Process Program &ndash;&gt; State (volatile memory) &ndash;&gt; JSON." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://haleyjung.github.io/posts/2022/03/understanding-databases-1/" /><meta property="og:image" content="https://haleyjung.github.io/"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-17T23:01:31-04:00" />
@@ -187,6 +187,11 @@
 <td>Slow and inexpensive</td>
 </tr>
 <tr>
+<td><strong>Storage</strong></td>
+<td>Store on a higher memory and lower disk machine</td>
+<td>Stored in a lower memory but higher disk capabilities</td>
+</tr>
+<tr>
 <td><strong>Example</strong></td>
 <td>RAM (memory)</td>
 <td>Hard Drive or SSD</td>
@@ -268,7 +273,7 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        162 Words
+        181 Words
       </p>
 
       <p>
